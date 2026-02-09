@@ -22,22 +22,8 @@ var SHEET_ID = 'YOUR_GOOGLE_SHEET_ID';
 var SHEET_NAME = 'Sheet1';
 var SHEET_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:json&sheet=' + SHEET_NAME;
 
-// Service fee percentage (1% markup on owner's price)
-var SERVICE_FEE_RATE = 0.01;
-
-// Calculate prices with 1% service fee included
-function calcListingPrice(ownerPrice) {
-  var fee = Math.round(ownerPrice * SERVICE_FEE_RATE);
-  return {
-    ownerPrice: ownerPrice,
-    serviceFee: fee,
-    totalPrice: ownerPrice + fee
-  };
-}
-
-function calcPricePerSqm(ownerPricePerSqm) {
-  return Math.round(ownerPricePerSqm * (1 + SERVICE_FEE_RATE));
-}
+// Prices are entered directly in Google Sheets with 1% already included.
+// No automatic markup needed — admin adds 1% manually when entering the listing.
 
 // ==========================================
 // SAMPLE DATA (used when Google Sheets is not configured)
@@ -201,9 +187,8 @@ function fetchListings(callback) {
 
 function createPropertyCard(listing) {
   var imageUrl = listing.photo_url || getPlaceholderImage(listing.title);
-  var prices = calcListingPrice(listing.total_price);
-  var priceDisplay = formatPrice(prices.totalPrice);
-  var pricePerSqm = listing.price_per_sqm ? formatPrice(calcPricePerSqm(listing.price_per_sqm)) + '/sqm' : '';
+  var priceDisplay = formatPrice(listing.total_price);
+  var pricePerSqm = listing.price_per_sqm ? formatPrice(listing.price_per_sqm) + '/sqm' : '';
   var locationDisplay = getLocationName(listing.location);
   var typeDisplay = getTypeName(listing.type);
   var areaDisplay = formatNumber(listing.lot_area) + ' sqm';
@@ -324,21 +309,18 @@ function applyFilters() {
   var sort = (document.getElementById('sortBy') || {}).value || 'newest';
 
   var filtered = allListingsData.filter(function(listing) {
-    var displayPrice = calcListingPrice(listing.total_price).totalPrice;
     if (location && listing.location !== location) return false;
-    if (maxPrice && displayPrice > maxPrice) return false;
+    if (maxPrice && listing.total_price > maxPrice) return false;
     if (type && listing.type !== type) return false;
     if (minSize && listing.lot_area < minSize) return false;
     return true;
   });
 
-  // Sort (using display prices with markup)
+  // Sort
   filtered.sort(function(a, b) {
-    var aPrice = calcListingPrice(a.total_price).totalPrice;
-    var bPrice = calcListingPrice(b.total_price).totalPrice;
     switch (sort) {
-      case 'price-low': return aPrice - bPrice;
-      case 'price-high': return bPrice - aPrice;
+      case 'price-low': return a.total_price - b.total_price;
+      case 'price-high': return b.total_price - a.total_price;
       case 'size-large': return b.lot_area - a.lot_area;
       case 'newest':
       default:
@@ -444,18 +426,6 @@ function renderPropertyDetail() {
       contactHtml = '<p style="color:var(--gray-500); text-align:center;">Contact info not available. Please check back later.</p>';
     }
 
-    // Calculate prices with 1% service fee
-    var prices = calcListingPrice(listing.total_price);
-    var displayPricePerSqm = listing.price_per_sqm ? calcPricePerSqm(listing.price_per_sqm) : 0;
-
-    // Price breakdown HTML
-    var priceBreakdownHtml =
-      '<div class="price-breakdown">' +
-        '<div class="breakdown-row"><span>Property Price</span><span>' + formatPrice(prices.ownerPrice) + '</span></div>' +
-        '<div class="breakdown-row"><span>Platform Fee (1%)</span><span>' + formatPrice(prices.serviceFee) + '</span></div>' +
-        '<div class="breakdown-row breakdown-total"><span>Total Price</span><span>' + formatPrice(prices.totalPrice) + '</span></div>' +
-      '</div>';
-
     // Render full detail page
     container.innerHTML =
       '<div class="detail-grid">' +
@@ -472,9 +442,8 @@ function renderPropertyDetail() {
         '</div>' +
         '<div class="detail-sidebar">' +
           '<div class="detail-card">' +
-            '<div class="price-tag">' + formatPrice(prices.totalPrice) + '</div>' +
-            (displayPricePerSqm ? '<div class="price-per-sqm">' + formatPrice(displayPricePerSqm) + ' per sqm</div>' : '') +
-            priceBreakdownHtml +
+            '<div class="price-tag">' + formatPrice(listing.total_price) + '</div>' +
+            (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(listing.price_per_sqm) + ' per sqm</div>' : '') +
             '<div class="detail-info">' +
               '<div class="info-item"><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
               '<div class="info-item"><span class="info-label">Property Type</span><span class="info-value">' + escapeHtml(getTypeName(listing.type)) + '</span></div>' +
@@ -486,11 +455,8 @@ function renderPropertyDetail() {
             '<h2>Contact Seller</h2>' +
             '<div class="contact-buttons">' + contactHtml + '</div>' +
           '</div>' +
-          '<div class="detail-card" style="background:var(--primary-light);">' +
-            '<p style="font-size:0.9rem; color:var(--gray-700);"><strong>Note:</strong> Total price includes a 1% platform fee by CebuLandMarket for connecting buyers and sellers.</p>' +
-          '</div>' +
           '<div class="detail-card" style="background:var(--gray-100);">' +
-            '<p style="font-size:0.85rem; color:var(--gray-500);"><strong>Disclaimer:</strong> CebuLandMarket is a listing platform only. All transaction costs (taxes, notarial fees, transfer fees, etc.) are the responsibility of the buyer and seller. Always verify property details and documents before making any transactions.</p>' +
+            '<p style="font-size:0.85rem; color:var(--gray-500);"><strong>Disclaimer:</strong> CebuLandMarket is a listing platform only. Always verify property details and documents before making any transactions.</p>' +
           '</div>' +
         '</div>' +
       '</div>';
