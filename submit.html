@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="List your property on CebuLandMarket. Submit your land, lot, or home for sale in Cebu, Philippines.">
+  <title>List Your Property - CebuLandMarket</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Cebu<span>Land</span>Market</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="submit.html" class="nav-cta active">List Your Property</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>List Your Property</h1>
+      <p>Reach thousands of potential buyers in Cebu. Listing fee: ₱500 only.</p>
+    </div>
+  </section>
+
+  <!-- Submit Section -->
+  <section class="submit-section">
+    <div class="container">
+      <div class="submit-grid">
+
+        <!-- Form -->
+        <div class="form-card" id="formCard">
+          <h2>Property Details</h2>
+          <p class="form-subtitle">Fill in all required fields. Our team will review and publish your listing within 24 hours after payment confirmation.</p>
+
+          <form id="submitForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+            <h3 style="margin-bottom:16px; color:var(--dark);">Owner Information</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name <span class="required">*</span></label>
+                <input type="text" name="owner_name" required placeholder="Juan Dela Cruz">
+              </div>
+              <div class="form-group">
+                <label>Contact Number <span class="required">*</span></label>
+                <input type="tel" name="contact_number" required placeholder="09XX XXX XXXX">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email Address <span class="required">*</span></label>
+                <input type="email" name="email" required placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label>Facebook Profile Link</label>
+                <input type="url" name="facebook" placeholder="https://facebook.com/yourprofile">
+              </div>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Property Information</h3>
+
+            <div class="form-group">
+              <label>Property Title <span class="required">*</span></label>
+              <input type="text" name="property_title" required placeholder="e.g. 14,724 sqm Lot in Ronda, Cebu">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Property Type <span class="required">*</span></label>
+                <select name="property_type" required>
+                  <option value="">Select type</option>
+                  <option value="lot">Lot / Land</option>
+                  <option value="house-and-lot">House & Lot</option>
+                  <option value="farm">Farm Land</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="beach">Beach Property</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Location / Municipality <span class="required">*</span></label>
+                <select name="location" required>
+                  <option value="">Select location</option>
+                  <option value="cebu-city">Cebu City</option>
+                  <option value="mandaue">Mandaue</option>
+                  <option value="lapu-lapu">Lapu-Lapu</option>
+                  <option value="talisay">Talisay</option>
+                  <option value="consolacion">Consolacion</option>
+                  <option value="liloan">Liloan</option>
+                  <option value="minglanilla">Minglanilla</option>
+                  <option value="naga">Naga</option>
+                  <option value="carcar">Carcar</option>
+                  <option value="argao">Argao</option>
+                  <option value="moalboal">Moalboal</option>
+                  <option value="ronda">Ronda</option>
+                  <option value="badian">Badian</option>
+                  <option value="oslob">Oslob</option>
+                  <option value="santander">Santander</option>
+                  <option value="danao">Danao</option>
+                  <option value="compostela">Compostela</option>
+                  <option value="toledo">Toledo</option>
+                  <option value="balamban">Balamban</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Full Address / Barangay</label>
+              <input type="text" name="address" placeholder="e.g. Brgy. Cansabusab, Ronda, Cebu">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Lot Area (sqm) <span class="required">*</span></label>
+                <input type="number" name="lot_area" required placeholder="e.g. 14724">
+              </div>
+              <div class="form-group">
+                <label>Price per sqm (₱)</label>
+                <input type="number" name="price_per_sqm" placeholder="e.g. 750">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Asking Price (₱) <span class="required">*</span></label>
+                <input type="number" name="total_price" required placeholder="e.g. 11043000" id="ownerPrice">
+                <p class="form-hint">This is YOUR price. A 1% platform fee will be added on top and shown to buyers as the total price.</p>
+              </div>
+              <div class="form-group">
+                <label>Title Status <span class="required">*</span></label>
+                <select name="title_status" required>
+                  <option value="">Select status</option>
+                  <option value="titled">Clean Title (TCT)</option>
+                  <option value="tax-dec">Tax Declaration Only</option>
+                  <option value="untitled">Untitled</option>
+                  <option value="pending">Title Processing</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Live Price Preview -->
+            <div id="pricePreview" class="price-preview" style="display:none;">
+              <h4>Price Preview (as buyers will see it)</h4>
+              <div class="preview-row"><span>Your Asking Price</span><span id="prevOwner">₱0</span></div>
+              <div class="preview-row"><span>+ 1% Platform Fee</span><span id="prevFee">₱0</span></div>
+              <div class="preview-row preview-total"><span>Buyer Sees</span><span id="prevTotal">₱0</span></div>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Document Verification</h3>
+            <div class="doc-notice">
+              <p><strong>Important:</strong> CebuLandMarket verifies all property documents before any listing goes live. Properties with incomplete, unclear, or complicated paperwork will NOT be approved. This protects both sellers and buyers.</p>
+            </div>
+
+            <div class="form-group">
+              <label>What documents do you currently have? <span class="required">*</span></label>
+              <select name="documents_available" required>
+                <option value="">Select documents</option>
+                <option value="tct">Transfer Certificate of Title (TCT)</option>
+                <option value="oct">Original Certificate of Title (OCT)</option>
+                <option value="tax-dec-only">Tax Declaration Only</option>
+                <option value="deed-of-sale">Deed of Absolute Sale</option>
+                <option value="extrajudicial">Extrajudicial Settlement</option>
+                <option value="multiple">Multiple Documents (specify below)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Is the property under your name? <span class="required">*</span></label>
+              <select name="ownership_status" required>
+                <option value="">Select</option>
+                <option value="yes-my-name">Yes, title/tax dec is under my name</option>
+                <option value="family-member">Under a family member's name (parent, spouse, etc.)</option>
+                <option value="deceased-owner">Original owner is deceased</option>
+                <option value="multiple-owners">Multiple owners / co-owned</option>
+                <option value="bought-not-transferred">Bought but not yet transferred to my name</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Are the real property taxes updated? <span class="required">*</span></label>
+              <select name="tax_status" required>
+                <option value="">Select</option>
+                <option value="updated">Yes, fully updated / current year</option>
+                <option value="1-2-years">Behind 1-2 years</option>
+                <option value="3-plus-years">Behind 3+ years</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Are there any issues with the property? <span class="required">*</span></label>
+              <select name="property_issues" required>
+                <option value="">Select</option>
+                <option value="none">No issues - clean and clear</option>
+                <option value="boundary-dispute">Boundary dispute with neighbor</option>
+                <option value="legal-case">Ongoing legal case / litigation</option>
+                <option value="mortgage">Mortgaged / used as collateral</option>
+                <option value="informal-settlers">Has informal settlers / squatters</option>
+                <option value="other-issue">Other issue (explain below)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Additional details about your documents or property situation</label>
+              <textarea name="document_notes" placeholder="If you selected 'Multiple Documents', 'Other issue', or if there's anything we should know about the paperwork, explain here. The more honest and detailed you are, the faster we can process your listing." rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Upload / share your documents for verification <span class="required">*</span></label>
+              <textarea name="document_links" required placeholder="Share links to photos/scans of your documents (Google Drive, Imgur, or Facebook). Include: title, tax declaration, tax receipts, valid ID, etc. Separate each link with a new line." rows="3"></textarea>
+              <p class="form-hint">Upload clear photos/scans of your documents to Google Drive. Set sharing to "Anyone with the link can view." We keep all documents confidential.</p>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Property Details</h3>
+
+            <div class="form-group">
+              <label>Property Description <span class="required">*</span></label>
+              <textarea name="description" required placeholder="Describe the property - terrain, access road, nearby landmarks, boundaries, etc." rows="5"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Property Features (comma separated)</label>
+              <input type="text" name="features" placeholder="e.g. Road access, Mountain view, Near school, Flat terrain">
+            </div>
+
+            <div class="form-group">
+              <label>Photo Links (Google Drive / Imgur / Facebook links)</label>
+              <textarea name="photo_links" placeholder="Paste links to your property photos (Google Drive, Imgur, Facebook album, etc.). Separate each link with a new line." rows="3"></textarea>
+              <p class="form-hint">Upload your photos to Google Drive or Imgur first, then paste the links here. Make sure links are set to public/anyone with the link.</p>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Contact Preferences</h3>
+            <p class="form-hint mb-2">How should interested buyers contact you? Provide at least one.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Messenger Link</label>
+                <input type="url" name="messenger_link" placeholder="https://m.me/yourprofile">
+              </div>
+              <div class="form-group">
+                <label>Viber Number</label>
+                <input type="tel" name="viber" placeholder="09XX XXX XXXX">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>WhatsApp Number</label>
+                <input type="tel" name="whatsapp" placeholder="+639XXXXXXXXX">
+              </div>
+              <div class="form-group">
+                <label>Phone / SMS</label>
+                <input type="tel" name="phone" placeholder="09XX XXX XXXX">
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <button type="submit" class="btn btn-primary btn-block">Submit Property Listing</button>
+            </div>
+
+          </form>
+
+          <!-- Success Message -->
+          <div class="form-success" id="formSuccess">
+            <h2>Submission Received!</h2>
+            <p>Thank you for submitting your property. Please complete the payment below to activate your listing.</p>
+            <p class="mt-2"><strong>Your Reference ID:</strong> <span id="refId" style="color:var(--primary); font-size:1.2rem;"></span></p>
+            <p class="mt-2">Include this Reference ID in your payment so we can match it to your listing.</p>
+            <a href="index.html" class="btn btn-outline mt-3">Back to Home</a>
+          </div>
+        </div>
+
+        <!-- Payment & Verification Info Sidebar -->
+        <div>
+          <div class="payment-card">
+            <h3>Listing Fee</h3>
+            <div class="fee">₱500 <small>per listing</small></div>
+            <p style="color:var(--gray-700); font-size:0.9rem;">One-time fee. Your listing stays active until your property is sold.</p>
+
+            <div class="payment-methods">
+              <h4 style="margin-bottom:12px; color:var(--dark);">Payment Option</h4>
+
+              <div class="payment-method">
+                <h4>GCash</h4>
+                <p>Send ₱500 to:</p>
+                <div class="account-number">0968 751 2330</div>
+                <p class="mt-1" style="font-size:0.85rem;">Account Name: <strong>CebuLandMarket</strong></p>
+                <p style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">You will see the registered name upon sending. This is our verified account.</p>
+              </div>
+            </div>
+
+            <ul class="payment-steps">
+              <li>Fill out the form with property details and documents</li>
+              <li>Send ₱500 via GCash to 0968 751 2330</li>
+              <li>Include your Reference ID in the payment note</li>
+              <li>Our team verifies your documents (24-48 hours)</li>
+              <li>If approved — your listing goes live</li>
+              <li>If not approved — ₱500 is fully refunded</li>
+            </ul>
+
+            <div class="payment-method" style="background:var(--primary-light); margin-top:16px;">
+              <h4 style="color:var(--primary);">100% Refund Guarantee</h4>
+              <p style="font-size:0.9rem;">If your listing does not pass our document verification, your <strong>₱500 will be fully refunded</strong> via GCash. No risk to you — we only keep the fee if your property is approved and published.</p>
+            </div>
+          </div>
+
+          <div class="payment-card mt-2">
+            <h4 style="color:var(--dark);">1% Platform Fee</h4>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:10px;">We add 1% from your asking price in the listing. There's nothing deducted from your asking price — you still receive the full amount you set.</p>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:10px;">If a buyer is interested and wants to visit the property, you (the owner) will be the one to show and tour them around. We connect you with buyers — you handle the viewing personally.</p>
+            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:10px;">Taxes, notarial, and other transfer costs are handled between the buyer and seller — same as any normal property transaction.</p>
+          </div>
+
+          <div class="payment-card mt-2">
+            <h4 style="color:var(--dark);">Title & Paperwork Processing</h4>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:10px;">We have a dedicated processor who can handle the title transfer and all necessary paperwork for your transaction.</p>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:8px;">Processing fee: <strong>₱50,000 per property</strong>, paid by the seller directly to the processor.</p>
+            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:8px;">This is optional — if you can process the paperwork yourself, you're free to do it on your own. But if you want a hassle-free experience, our processor is here to help.</p>
+          </div>
+
+          <div class="payment-card mt-2" style="background:#fff3cd; border: 2px solid #ffc107;">
+            <h4 style="color:var(--dark);">Document Verification (Due Diligence)</h4>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:8px;">Our agents review all property documents before any listing goes live. This protects both sellers and buyers on our platform.</p>
+            <p style="font-size:0.88rem; color:var(--gray-700); margin-top:10px;"><strong>We approve listings with:</strong></p>
+            <ul style="font-size:0.88rem; color:var(--gray-700); padding-left:18px; margin-top:4px; list-style:disc;">
+              <li>Clean title (TCT/OCT) under seller's name</li>
+              <li>Updated tax declarations and receipts</li>
+              <li>No legal disputes or encumbrances</li>
+              <li>Clear ownership, no complicated transfers</li>
+            </ul>
+            <p style="font-size:0.88rem; color:var(--danger); margin-top:10px;"><strong>We will NOT approve:</strong></p>
+            <ul style="font-size:0.88rem; color:var(--gray-700); padding-left:18px; margin-top:4px; list-style:disc;">
+              <li>Properties with ongoing legal cases</li>
+              <li>Complicated ownership (multiple heirs, no settlement)</li>
+              <li>Fake or incomplete documents</li>
+              <li>Properties with unpaid taxes (3+ years)</li>
+              <li>Mortgaged properties without bank clearance</li>
+            </ul>
+            <p style="font-size:0.88rem; color:var(--gray-700); margin-top:10px;">If your listing is not approved, your <strong>₱500 is refunded in full</strong>.</p>
+          </div>
+
+          <div class="payment-card mt-2" style="background:var(--primary-light); border: 2px solid var(--primary);">
+            <h4 style="color:var(--primary);">Need Help?</h4>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:8px;">Not sure if your documents are enough? Contact us first — we'll give you a free assessment before you submit.</p>
+            <p style="font-size:0.9rem; margin-top:8px;"><strong>GCash / Call:</strong> 0968 751 2330</p>
+            <p style="font-size:0.9rem; margin-top:4px;"><strong>Email:</strong> cebulandmarket@gmail.com</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Cebu<span style="color:var(--accent)">Land</span>Market</h3>
+          <p>Your trusted platform for finding and listing properties in Cebu, Philippines.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="listings.html">All Listings</a>
+          <a href="submit.html">List Property</a>
+          <a href="about.html">About Us</a>
+        </div>
+        <div class="footer-col">
+          <h3>Property Types</h3>
+          <a href="listings.html?type=lot">Lots & Land</a>
+          <a href="listings.html?type=house-and-lot">House & Lot</a>
+          <a href="listings.html?type=farm">Farm Land</a>
+          <a href="listings.html?type=commercial">Commercial</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <a href="mailto:cebulandmarket@gmail.com">cebulandmarket@gmail.com</a>
+          <a href="about.html">Cebu, Philippines</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 CebuLandMarket. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/submit.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>

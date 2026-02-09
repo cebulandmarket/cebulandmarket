@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CebuLandMarket - Find lots, land, and homes for sale in Cebu, Philippines. Browse affordable property listings or list your own.">
+  <meta name="keywords" content="Cebu land for sale, Cebu lot for sale, Cebu property, real estate Cebu, Philippines land">
+  <title>CebuLandMarket - Land & Property Listings in Cebu, Philippines</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Cebu<span>Land</span>Market</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="submit.html" class="nav-cta">List Your Property</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Find Your Perfect Land in Cebu</h1>
+      <p>Browse affordable lots, land, and homes for sale across Cebu, Philippines. Your next investment starts here.</p>
+      <div class="hero-buttons">
+        <a href="listings.html" class="btn btn-accent">Browse Listings</a>
+        <a href="submit.html" class="btn btn-outline" style="color:#fff; border-color:#fff;">List Your Property</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Bar -->
+  <section class="search-section">
+    <div class="container">
+      <form class="search-bar" id="searchForm">
+        <div class="field">
+          <label for="searchLocation">Location</label>
+          <select id="searchLocation">
+            <option value="">All Locations</option>
+            <option value="cebu-city">Cebu City</option>
+            <option value="mandaue">Mandaue</option>
+            <option value="lapu-lapu">Lapu-Lapu</option>
+            <option value="talisay">Talisay</option>
+            <option value="consolacion">Consolacion</option>
+            <option value="liloan">Liloan</option>
+            <option value="minglanilla">Minglanilla</option>
+            <option value="naga">Naga</option>
+            <option value="carcar">Carcar</option>
+            <option value="argao">Argao</option>
+            <option value="moalboal">Moalboal</option>
+            <option value="ronda">Ronda</option>
+            <option value="badian">Badian</option>
+            <option value="oslob">Oslob</option>
+            <option value="santander">Santander</option>
+            <option value="danao">Danao</option>
+            <option value="compostela">Compostela</option>
+            <option value="toledo">Toledo</option>
+            <option value="balamban">Balamban</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="searchPrice">Max Price</label>
+          <select id="searchPrice">
+            <option value="">Any Price</option>
+            <option value="500000">Under ₱500K</option>
+            <option value="1000000">Under ₱1M</option>
+            <option value="3000000">Under ₱3M</option>
+            <option value="5000000">Under ₱5M</option>
+            <option value="10000000">Under ₱10M</option>
+            <option value="20000000">Under ₱20M</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="searchType">Property Type</label>
+          <select id="searchType">
+            <option value="">All Types</option>
+            <option value="lot">Lot / Land</option>
+            <option value="house-and-lot">House & Lot</option>
+            <option value="farm">Farm Land</option>
+            <option value="commercial">Commercial</option>
+            <option value="beach">Beach Property</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Featured Listings -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Properties</h2>
+      <p class="section-subtitle">Hand-picked listings across Cebu Province</p>
+      <div class="listings-grid" id="featuredListings">
+        <div class="spinner"></div>
+      </div>
+      <div class="text-center mt-3">
+        <a href="listings.html" class="btn btn-outline">View All Listings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2 class="section-title text-center">How It Works</h2>
+      <p class="section-subtitle text-center">Simple steps to list or find your property</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Submit Your Property</h3>
+          <p>Fill out the form with your property details, photos, and documents.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Pay ₱500 Listing Fee</h3>
+          <p>Send ₱500 via GCash. If your listing is not approved, you get a full refund.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>We Verify & Approve</h3>
+          <p>Our agents review your documents within 24-48 hours. Clean papers = listing goes live.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Get Inquiries</h3>
+          <p>Buyers contact you directly. You show the property personally to interested visitors. When sold, a 1% platform fee applies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" id="statListings">1+</div>
+          <div class="stat-label">Active Listings</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Cebu Locations</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">₱750</div>
+          <div class="stat-label">Lowest Price/sqm</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Online Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Sell Your Property?</h2>
+      <p>List your land, lot, or home on CebuLandMarket and reach thousands of potential buyers.</p>
+      <a href="submit.html" class="btn btn-primary" style="background:#fff; color:var(--primary);">List Your Property</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Cebu<span style="color:var(--accent)">Land</span>Market</h3>
+          <p>Your trusted platform for finding and listing properties in Cebu, Philippines. We connect land owners with buyers across the province.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="listings.html">All Listings</a>
+          <a href="submit.html">List Property</a>
+          <a href="about.html">About Us</a>
+        </div>
+        <div class="footer-col">
+          <h3>Property Types</h3>
+          <a href="listings.html?type=lot">Lots & Land</a>
+          <a href="listings.html?type=house-and-lot">House & Lot</a>
+          <a href="listings.html?type=farm">Farm Land</a>
+          <a href="listings.html?type=commercial">Commercial</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <a href="mailto:cebulandmarket@gmail.com">cebulandmarket@gmail.com</a>
+          <a href="about.html">Cebu, Philippines</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 CebuLandMarket. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>
