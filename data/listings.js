@@ -28,7 +28,7 @@ var LISTINGS_DATA = [
     "map_url": "Sta. Cruz, Ronda, Cebu, Philippines",
     "video_url": "ronda-video.mp4",
     "messenger": "https://m.me/aCueRaCa68",
-    "viber": "09687512330",
+    "viber": "639687512330",
     "whatsapp": "639687512330",
     "phone": "09687512330",
     "owner_name": "CebuLandMarket",

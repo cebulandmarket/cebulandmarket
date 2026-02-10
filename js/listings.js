@@ -379,7 +379,16 @@ document.addEventListener('click', function(e) {
     e.preventDefault();
     var name = form.querySelector('[name="buyer_name"]');
     var phone = form.querySelector('[name="buyer_phone"]');
-    if (!name.value.trim() || !phone.value.trim()) return;
+    var oldMsg = form.querySelector('.inquiry-error');
+    if (oldMsg) oldMsg.remove();
+    if (!name.value.trim() || !phone.value.trim()) {
+      var errMsg = document.createElement('p');
+      errMsg.className = 'inquiry-error';
+      errMsg.style.cssText = 'background:#e74c3c; color:#fff; padding:10px 14px; border-radius:6px; margin-bottom:12px; font-size:0.9rem; font-weight:600;';
+      errMsg.textContent = 'Please enter your name and phone number.';
+      form.insertBefore(errMsg, form.firstChild);
+      return;
+    }
     var btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Sending...';
     btn.disabled = true;
