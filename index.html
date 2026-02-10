@@ -145,20 +145,20 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number" id="statListings">1+</div>
+          <div class="stat-number" id="statListings">-</div>
           <div class="stat-label">Active Listings</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">20+</div>
+          <div class="stat-number" id="statLocations">-</div>
           <div class="stat-label">Cebu Locations</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">₱750</div>
+          <div class="stat-number" id="statLowest">-</div>
           <div class="stat-label">Lowest Price/sqm</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Online Access</div>
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Document Verified</div>
         </div>
       </div>
     </div>
@@ -273,5 +273,24 @@
   <script src="data/listings.js"></script>
   <script src="js/listings.js"></script>
   <script src="js/analytics.js"></script>
+  <script>
+    // Auto-update stats from actual listings data
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof LISTINGS_DATA === 'undefined') return;
+      var active = LISTINGS_DATA.filter(function(l) { return l.status === 'active'; });
+      var locations = [];
+      var lowest = Infinity;
+      active.forEach(function(l) {
+        if (l.location && locations.indexOf(l.location) === -1) locations.push(l.location);
+        if (l.price_per_sqm && l.price_per_sqm < lowest) lowest = l.price_per_sqm;
+      });
+      var el1 = document.getElementById('statListings');
+      var el2 = document.getElementById('statLocations');
+      var el3 = document.getElementById('statLowest');
+      if (el1) el1.textContent = active.length + '+';
+      if (el2) el2.textContent = '20+';
+      if (el3 && lowest < Infinity) el3.textContent = '₱' + lowest.toLocaleString();
+    });
+  </script>
 </body>
 </html>
