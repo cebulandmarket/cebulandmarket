@@ -145,11 +145,7 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number" id="statListings">-</div>
-          <div class="stat-label">Active Listings</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" id="statLocations">-</div>
+          <div class="stat-number">20+</div>
           <div class="stat-label">Cebu Locations</div>
         </div>
         <div class="stat-item">
@@ -284,11 +280,7 @@
         if (l.location && locations.indexOf(l.location) === -1) locations.push(l.location);
         if (l.price_per_sqm && l.price_per_sqm < lowest) lowest = l.price_per_sqm;
       });
-      var el1 = document.getElementById('statListings');
-      var el2 = document.getElementById('statLocations');
       var el3 = document.getElementById('statLowest');
-      if (el1) el1.textContent = active.length + '+';
-      if (el2) el2.textContent = '20+';
       if (el3 && lowest < Infinity) el3.textContent = '₱' + lowest.toLocaleString();
     });
   </script>
