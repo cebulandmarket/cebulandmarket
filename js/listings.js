@@ -220,7 +220,7 @@ function renderPropertyDetail() {
     }
 
     // Update page title and breadcrumb
-    document.title = listing.title + ' - CebuLandMarket';
+    document.title = listing.title + ' | ' + formatPrice(applyFee(listing.total_price)) + ' — CebuLandMarket';
     var breadcrumb = document.getElementById('breadcrumbTitle');
     if (breadcrumb) breadcrumb.textContent = listing.title;
 
