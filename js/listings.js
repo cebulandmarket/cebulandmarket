@@ -1,184 +1,27 @@
 /**
  * CebuLandMarket - Listings Logic
- * Fetches listings from Google Sheets and renders property cards.
- * Also handles property detail page rendering.
+ * Reads listings from data/listings.js and renders property cards.
+ *
+ * HOW TO ADD A NEW LISTING:
+ * 1. Open data/listings.js on GitHub
+ * 2. Click the pencil icon to edit
+ * 3. Copy an existing listing block and change the values
+ * 4. Make sure the "id" is unique (use next number)
+ * 5. Set "status" to "active"
+ * 6. Save/commit the file
  */
-
-// ==========================================
-// CONFIGURATION - UPDATE THESE VALUES
-// ==========================================
-
-// Google Sheets Configuration
-// 1. Create a Google Sheet with these columns (Row 1 = headers):
-//    A: id | B: title | C: type | D: location | E: address | F: lot_area
-//    G: price_per_sqm | H: total_price | I: description | J: features
-//    K: photo_url | L: photo_urls | M: messenger | N: viber | O: whatsapp
-//    P: phone | Q: owner_name | R: status | S: date_listed
-//
-// 2. Publish the sheet: File > Share > Publish to web > CSV
-// 3. Copy the Sheet ID from the URL and paste it below.
-
-var SHEET_ID = 'YOUR_GOOGLE_SHEET_ID';
-var SHEET_NAME = 'Sheet1';
-var SHEET_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:json&sheet=' + SHEET_NAME;
-
-// Prices are entered directly in Google Sheets with 1% already included.
-// No automatic markup needed — admin adds 1% manually when entering the listing.
-
-// ==========================================
-// SAMPLE DATA (used when Google Sheets is not configured)
-// ==========================================
-var SAMPLE_LISTINGS = [
-  {
-    id: '1',
-    title: '14,724 sqm Lot in Ronda, Cebu',
-    type: 'lot',
-    location: 'ronda',
-    address: 'Brgy. Cansabusab, Ronda, Cebu',
-    lot_area: 14724,
-    price_per_sqm: 750,
-    total_price: 11043000,
-    description: 'Spacious 14,724 square meter lot located in Ronda, Cebu. This is a great opportunity for those looking to invest in a large piece of land in the southern part of Cebu. The lot features a gentle slope with a beautiful view of the surrounding mountains and countryside. Access road is available, and the property is near the town center of Ronda. Perfect for farming, residential development, or long-term investment.',
-    features: 'Road access,Mountain view,Near town center,Clean title,Flat to gentle slope,Electricity available,Water source nearby',
-    photo_url: '',
-    photo_urls: '',
-    messenger: 'https://m.me/',
-    viber: '',
-    whatsapp: '',
-    phone: '',
-    owner_name: 'Property Owner',
-    status: 'active',
-    date_listed: '2025-01-01'
-  },
-  {
-    id: '2',
-    title: '500 sqm Residential Lot in Talisay City',
-    type: 'lot',
-    location: 'talisay',
-    address: 'Brgy. Tabunoc, Talisay City, Cebu',
-    lot_area: 500,
-    price_per_sqm: 5000,
-    total_price: 2500000,
-    description: 'Prime residential lot in Talisay City, just 15 minutes from Cebu City. Subdivision lot with paved roads, water, and electricity already available. Ideal for building your dream home. Flood-free area with friendly neighbors.',
-    features: 'Subdivision lot,Paved road,Flood-free,Near schools,Near market,Electricity,Water',
-    photo_url: '',
-    photo_urls: '',
-    messenger: 'https://m.me/',
-    viber: '',
-    whatsapp: '',
-    phone: '',
-    owner_name: 'Property Owner',
-    status: 'active',
-    date_listed: '2025-01-15'
-  },
-  {
-    id: '3',
-    title: '1,200 sqm Farm Lot in Argao with River Access',
-    type: 'farm',
-    location: 'argao',
-    address: 'Brgy. Bogo, Argao, Cebu',
-    lot_area: 1200,
-    price_per_sqm: 1200,
-    total_price: 1440000,
-    description: 'Beautiful farm lot in Argao with access to a clean river. The property has existing fruit trees including mango, coconut, and banana. Surrounded by lush greenery, perfect for a weekend getaway farm or eco-tourism project.',
-    features: 'River access,Fruit trees,Mountain view,Clean air,Near highway,Tax declaration',
-    photo_url: '',
-    photo_urls: '',
-    messenger: 'https://m.me/',
-    viber: '',
-    whatsapp: '',
-    phone: '',
-    owner_name: 'Property Owner',
-    status: 'active',
-    date_listed: '2025-02-01'
-  }
-];
 
 // ==========================================
 // DATA FETCHING
 // ==========================================
 
-// Parse Google Sheets JSON response
-function parseSheetData(jsonText) {
-  // Google Sheets returns JSONP-like format: google.visualization.Query.setResponse({...})
-  var jsonString = jsonText.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);?/);
-  if (!jsonString || !jsonString[1]) return [];
-
-  var data = JSON.parse(jsonString[1]);
-  var rows = data.table.rows;
-  var cols = data.table.cols;
-  var listings = [];
-
-  for (var i = 0; i < rows.length; i++) {
-    var row = rows[i];
-    var listing = {
-      id: getCellValue(row, 0),
-      title: getCellValue(row, 1),
-      type: getCellValue(row, 2),
-      location: getCellValue(row, 3),
-      address: getCellValue(row, 4),
-      lot_area: parseFloat(getCellValue(row, 5)) || 0,
-      price_per_sqm: parseFloat(getCellValue(row, 6)) || 0,
-      total_price: parseFloat(getCellValue(row, 7)) || 0,
-      description: getCellValue(row, 8),
-      features: getCellValue(row, 9),
-      photo_url: getCellValue(row, 10),
-      photo_urls: getCellValue(row, 11),
-      messenger: getCellValue(row, 12),
-      viber: getCellValue(row, 13),
-      whatsapp: getCellValue(row, 14),
-      phone: getCellValue(row, 15),
-      owner_name: getCellValue(row, 16),
-      status: getCellValue(row, 17),
-      date_listed: getCellValue(row, 18)
-    };
-
-    // Only include active listings
-    if (listing.status && listing.status.toLowerCase() === 'active' && listing.title) {
-      listings.push(listing);
-    }
-  }
-
-  return listings;
-}
-
-function getCellValue(row, colIndex) {
-  if (row.c && row.c[colIndex] && row.c[colIndex].v !== null && row.c[colIndex].v !== undefined) {
-    return String(row.c[colIndex].v);
-  }
-  return '';
-}
-
-// Fetch listings - tries Google Sheets first, falls back to sample data
+// Get listings from LISTINGS_DATA (loaded from data/listings.js)
 function fetchListings(callback) {
-  if (SHEET_ID === 'YOUR_GOOGLE_SHEET_ID') {
-    // Google Sheets not configured, use sample data
-    console.log('Using sample data. Configure SHEET_ID in listings.js to use Google Sheets.');
-    callback(SAMPLE_LISTINGS);
-    return;
-  }
-
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', SHEET_URL, true);
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      var listings = parseSheetData(xhr.responseText);
-      if (listings.length > 0) {
-        callback(listings);
-      } else {
-        console.warn('No active listings found in Google Sheets. Using sample data.');
-        callback(SAMPLE_LISTINGS);
-      }
-    } else {
-      console.error('Failed to fetch Google Sheets. Using sample data.');
-      callback(SAMPLE_LISTINGS);
-    }
-  };
-  xhr.onerror = function() {
-    console.error('Network error fetching Google Sheets. Using sample data.');
-    callback(SAMPLE_LISTINGS);
-  };
-  xhr.send();
+  var allListings = (typeof LISTINGS_DATA !== 'undefined') ? LISTINGS_DATA : [];
+  var listings = allListings.filter(function(listing) {
+    return listing.status && listing.status.toLowerCase() === 'active' && listing.title;
+  });
+  callback(listings);
 }
 
 // ==========================================
