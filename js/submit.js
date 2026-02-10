@@ -1,16 +1,7 @@
 /**
  * CebuLandMarket - Form Submission Handler
- * Handles the property submission form with Formspree integration.
- * Includes live 1% service fee preview calculator.
+ * Friendly validation + Formspree integration
  */
-
-// 1% service fee rate (must match listings.js)
-var SERVICE_FEE_RATE = 0.01;
-
-function formatPeso(num) {
-  if (!num || isNaN(num)) return '₱0';
-  return '₱' + Number(num).toLocaleString('en-PH');
-}
 
 document.addEventListener('DOMContentLoaded', function() {
   var form = document.getElementById('submitForm');
@@ -27,52 +18,139 @@ document.addEventListener('DOMContentLoaded', function() {
     return 'CLM-' + timestamp + '-' + random;
   }
 
-  // ==========================================
-  // LIVE PRICE PREVIEW (with 1% fee)
-  // ==========================================
+  // Auto-calculate total price
   var lotAreaInput = form.querySelector('[name="lot_area"]');
   var pricePerSqmInput = form.querySelector('[name="price_per_sqm"]');
   var ownerPriceInput = document.getElementById('ownerPrice');
-  var pricePreview = document.getElementById('pricePreview');
-  var prevOwner = document.getElementById('prevOwner');
-  var prevFee = document.getElementById('prevFee');
-  var prevTotal = document.getElementById('prevTotal');
 
-  function updatePricePreview() {
-    var area = parseFloat(lotAreaInput ? lotAreaInput.value : 0) || 0;
-    var pps = parseFloat(pricePerSqmInput ? pricePerSqmInput.value : 0) || 0;
-    var ownerPrice = parseFloat(ownerPriceInput ? ownerPriceInput.value : 0) || 0;
-
-    // Auto-fill total price from area x price_per_sqm if total is empty
-    if (area > 0 && pps > 0 && !ownerPriceInput.value) {
-      ownerPrice = Math.round(area * pps);
-      ownerPriceInput.value = ownerPrice;
-    }
-
-    // Show/hide preview
-    if (ownerPrice > 0 && pricePreview) {
-      var fee = Math.round(ownerPrice * SERVICE_FEE_RATE);
-      var total = ownerPrice + fee;
-
-      prevOwner.textContent = formatPeso(ownerPrice);
-      prevFee.textContent = formatPeso(fee);
-      prevTotal.textContent = formatPeso(total);
-      pricePreview.style.display = 'block';
-    } else if (pricePreview) {
-      pricePreview.style.display = 'none';
+  function autoCalcTotal() {
+    if (lotAreaInput && pricePerSqmInput && ownerPriceInput) {
+      var area = parseFloat(lotAreaInput.value) || 0;
+      var pps = parseFloat(pricePerSqmInput.value) || 0;
+      if (area > 0 && pps > 0 && !ownerPriceInput.value) {
+        ownerPriceInput.value = Math.round(area * pps);
+      }
     }
   }
 
-  // Listen to all price-related inputs
-  if (lotAreaInput) lotAreaInput.addEventListener('input', updatePricePreview);
-  if (pricePerSqmInput) pricePerSqmInput.addEventListener('input', updatePricePreview);
-  if (ownerPriceInput) ownerPriceInput.addEventListener('input', updatePricePreview);
+  if (lotAreaInput) lotAreaInput.addEventListener('input', autoCalcTotal);
+  if (pricePerSqmInput) pricePerSqmInput.addEventListener('input', autoCalcTotal);
+
+  // ==========================================
+  // FRIENDLY VALIDATION
+  // ==========================================
+
+  // Friendly messages for each field
+  var fieldMessages = {
+    'owner_name': 'Please enter your full name so we know who to contact.',
+    'contact_number': 'Please enter your phone number (e.g. 09XX XXX XXXX).',
+    'email': 'Please enter a valid email address so we can send you updates.',
+    'property_title': 'Give your property a short title (e.g. "500 sqm Lot in Talisay").',
+    'property_type': 'Please select what type of property you are listing.',
+    'location': 'Please select the municipality where your property is located.',
+    'lot_area': 'Please enter the lot area in square meters.',
+    'total_price': 'Please enter your asking price in pesos.',
+    'title_status': 'Please select the status of your property title.',
+    'documents_available': 'Please select what documents you currently have.',
+    'ownership_status': 'Please let us know if the property is under your name.',
+    'tax_status': 'Please let us know if your real property taxes are updated.',
+    'property_issues': 'Please let us know if there are any issues with the property.',
+    'document_links': 'Please share links to your property documents so we can verify them.',
+    'description': 'Please add a short description of your property.'
+  };
+
+  // Show friendly message next to a field
+  function showFieldMessage(field, message) {
+    clearFieldMessage(field);
+    var msg = document.createElement('p');
+    msg.className = 'field-message';
+    msg.textContent = message;
+    field.parentElement.appendChild(msg);
+    field.classList.add('field-error');
+    field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Clear message from a field
+  function clearFieldMessage(field) {
+    field.classList.remove('field-error');
+    var existing = field.parentElement.querySelector('.field-message');
+    if (existing) existing.remove();
+  }
+
+  // Clear message when user starts typing/selecting
+  form.querySelectorAll('input, select, textarea').forEach(function(field) {
+    field.addEventListener('input', function() {
+      clearFieldMessage(field);
+    });
+    field.addEventListener('change', function() {
+      clearFieldMessage(field);
+    });
+  });
+
+  // Validate email format
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  // Validate phone format (basic - just check it has digits)
+  function isValidPhone(phone) {
+    var digits = phone.replace(/\D/g, '');
+    return digits.length >= 10;
+  }
+
+  // Run validation before submit
+  function validateForm() {
+    var requiredFields = form.querySelectorAll('[required]');
+    var firstError = null;
+
+    // Clear all previous messages
+    form.querySelectorAll('.field-message').forEach(function(m) { m.remove(); });
+    form.querySelectorAll('.field-error').forEach(function(f) { f.classList.remove('field-error'); });
+
+    for (var i = 0; i < requiredFields.length; i++) {
+      var field = requiredFields[i];
+      var name = field.getAttribute('name');
+      var value = field.value.trim();
+
+      // Check if empty
+      if (!value) {
+        var message = fieldMessages[name] || 'This field is required.';
+        showFieldMessage(field, message);
+        if (!firstError) firstError = field;
+        continue;
+      }
+
+      // Check email format
+      if (field.type === 'email' && !isValidEmail(value)) {
+        showFieldMessage(field, 'This doesn\'t look like a valid email. Please check and try again (e.g. yourname@gmail.com).');
+        if (!firstError) firstError = field;
+        continue;
+      }
+
+      // Check phone format
+      if (field.type === 'tel' && !isValidPhone(value)) {
+        showFieldMessage(field, 'Please enter a valid phone number with at least 10 digits (e.g. 09XX XXX XXXX).');
+        if (!firstError) firstError = field;
+        continue;
+      }
+    }
+
+    if (firstError) {
+      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+
+    return true;
+  }
 
   // ==========================================
   // FORM SUBMISSION
   // ==========================================
   form.addEventListener('submit', function(e) {
     e.preventDefault();
+
+    // Validate first
+    if (!validateForm()) return;
 
     var submitBtn = form.querySelector('button[type="submit"]');
     var originalText = submitBtn.textContent;
@@ -86,16 +164,9 @@ document.addEventListener('DOMContentLoaded', function() {
     formData.append('reference_id', refId);
     formData.append('submission_date', new Date().toISOString());
 
-    // Add the calculated buyer price for admin reference
-    var ownerPrice = parseFloat(ownerPriceInput ? ownerPriceInput.value : 0) || 0;
-    var fee = Math.round(ownerPrice * SERVICE_FEE_RATE);
-    formData.append('service_fee_1pct', fee);
-    formData.append('buyer_total_price', ownerPrice + fee);
-
     // Check if Formspree is configured
     var action = form.getAttribute('action');
     if (action && action.indexOf('YOUR_FORM_ID') === -1) {
-      // Send to Formspree
       fetch(action, {
         method: 'POST',
         body: formData,
@@ -118,7 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = false;
       });
     } else {
-      // Formspree not configured - simulate success
       console.log('Formspree not configured. Form data:', Object.fromEntries(formData));
       setTimeout(function() {
         showSuccess(refId);
@@ -130,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function showSuccess(refId) {
     form.style.display = 'none';
-    if (pricePreview) pricePreview.style.display = 'none';
     if (formSuccess) {
       formSuccess.classList.add('show');
     }
