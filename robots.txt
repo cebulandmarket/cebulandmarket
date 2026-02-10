@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cebulandmarket.github.io/cebulandmarket/sitemap.xml
