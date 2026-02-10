@@ -84,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
     msg.textContent = message;
     field.parentElement.appendChild(msg);
     field.classList.add('field-error');
-    field.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   // Clear message from a field
