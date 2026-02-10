@@ -24,7 +24,7 @@ var LISTINGS_DATA = [
     "description": "Spacious 15,012 square meter sloping lot located in Sta. Cruz, Ronda, Cebu. The land features a beautiful slope with stunning mountain views, making it ideal for a resort, residential development, or farming. Private road access is available, and the main highway is just 2 minutes away. Comes with a liveable bamboo house fully furnished with a real bed and working table. Water and electricity are already connected. A great opportunity for investors looking for a large property in southern Cebu.",
     "features": "Private road access,2 mins to main highway,Mountain view,Sloping terrain,Good for resort,Clean title,With electricity,With water,Bamboo house included,Fully furnished,Liveable",
     "photo_url": "att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg",
-    "photo_urls": "att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg,att.86A-w2tIW5njVJhIchaRYFf8WhD4mmIzbmk9jwEk204.jpg,att.ZfeRDjBgv8hOZhIML58jcIcuSUkvMQV9XmRrQlehr3Y.jpg,ronda-aerial-map.jpeg,ronda-lot-survey.jpeg",
+    "photo_urls": "att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg,att.86A-w2tIW5njVJhIchaRYFf8WhD4mmIzbmk9jwEk204.jpg,att.ZfeRDjBgv8hOZhIML58jcIcuSUkvMQV9XmRrQlehr3Y.jpg,ronda-aerial-map.jpeg,ronda-lot-survey.jpeg,ronda-photo-4.jpg,ronda-photo-5.jpg,ronda-photo-6.jpg,ronda-photo-7.jpg",
     "messenger": "",
     "viber": "09687512330",
     "whatsapp": "09687512330",
