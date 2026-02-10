@@ -1011,7 +1011,9 @@ ul { list-style: none; }
 }
 
 .field-error {
-  border-color: #ffc107 !important;
+  border-color: #e74c3c !important;
+  background: #fff5f5 !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2) !important;
 }
 
 /* Document Verification Notice */

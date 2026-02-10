@@ -119,10 +119,13 @@ document.addEventListener('DOMContentLoaded', function() {
   function validateForm() {
     var requiredFields = form.querySelectorAll('[required]');
     var firstError = null;
+    var errorCount = 0;
 
     // Clear all previous messages
     form.querySelectorAll('.field-message').forEach(function(m) { m.remove(); });
     form.querySelectorAll('.field-error').forEach(function(f) { f.classList.remove('field-error'); });
+    var oldSummary = document.getElementById('validationSummary');
+    if (oldSummary) oldSummary.remove();
 
     for (var i = 0; i < requiredFields.length; i++) {
       var field = requiredFields[i];
@@ -134,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var message = fieldMessages[name] || 'This field is required.';
         showFieldMessage(field, message);
         if (!firstError) firstError = field;
+        errorCount++;
         continue;
       }
 
@@ -141,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (field.type === 'email' && !isValidEmail(value)) {
         showFieldMessage(field, 'This doesn\'t look like a valid email. Please check and try again (e.g. yourname@gmail.com).');
         if (!firstError) firstError = field;
+        errorCount++;
         continue;
       }
 
@@ -148,11 +153,19 @@ document.addEventListener('DOMContentLoaded', function() {
       if (field.type === 'tel' && !isValidPhone(value)) {
         showFieldMessage(field, 'Please enter a valid phone number with at least 10 digits (e.g. 09XX XXX XXXX).');
         if (!firstError) firstError = field;
+        errorCount++;
         continue;
       }
     }
 
     if (firstError) {
+      // Show summary at top of form
+      var summary = document.createElement('div');
+      summary.id = 'validationSummary';
+      summary.style.cssText = 'background:#e74c3c; color:#fff; padding:14px 20px; border-radius:8px; margin-bottom:20px; font-size:0.95rem; font-weight:600;';
+      summary.textContent = 'Please fill in ' + errorCount + ' required field' + (errorCount > 1 ? 's' : '') + ' highlighted in red below.';
+      form.insertBefore(summary, form.firstChild);
+
       firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return false;
     }
