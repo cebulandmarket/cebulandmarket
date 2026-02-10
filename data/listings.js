@@ -17,7 +17,7 @@ var LISTINGS_DATA = [
     "title": "15,012 sqm Lot in Ronda, Cebu",
     "type": "lot",
     "location": "ronda",
-    "address": "Brgy. Cansabusab, Ronda, Cebu",
+    "address": "Sta. Cruz, Ronda, Cebu",
     "lot_area": 15012,
     "price_per_sqm": 750,
     "total_price": 11259000,
