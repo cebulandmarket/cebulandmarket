@@ -242,7 +242,8 @@ ul { list-style: none; }
   padding: 80px 0;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  z-index: 5;
 }
 
 .hero::before {
@@ -254,6 +255,7 @@ ul { list-style: none; }
   height: 600px;
   background: rgba(255,255,255,0.04);
   border-radius: 50%;
+  pointer-events: none;
 }
 
 .hero h1 {
@@ -275,6 +277,17 @@ ul { list-style: none; }
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 20;
+}
+
+.hero-buttons a {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* --- Search Bar --- */
@@ -283,7 +296,7 @@ ul { list-style: none; }
   padding: 30px 0;
   box-shadow: var(--shadow);
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
 
 .search-bar {
@@ -850,6 +863,22 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Friendly Validation Messages */
+.field-message {
+  background: #fff3cd;
+  color: #856404;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 6px;
+  border-left: 3px solid #ffc107;
+  line-height: 1.5;
+}
+
+.field-error {
+  border-color: #ffc107 !important;
 }
 
 /* Document Verification Notice */
