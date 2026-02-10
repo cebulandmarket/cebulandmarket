@@ -281,7 +281,7 @@ function renderPropertyDetail() {
             '<img src="' + mainPhoto + '" alt="' + escapeHtml(listing.title) + '" class="gallery-main" id="galleryMain" onerror="this.src=getPlaceholderImage()">' +
             (photoUrls.length > 1 ? '<div class="gallery-thumbs">' + thumbsHtml + '</div>' : '') +
           '</div>' +
-          (listing.video_url ? '<div class="detail-video mt-2"><h2>Property Video</h2><div class="video-container"><iframe src="https://www.youtube.com/embed/' + listing.video_url.replace(/.*(?:shorts\/|watch\?v=|youtu\.be\/)/, '') .replace(/[?&].*/, '') + '" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div></div>' : '') +
+          (listing.video_url ? '<div class="detail-video mt-2"><h2>Property Video</h2><div class="video-container"><iframe src="https://www.youtube-nocookie.com/embed/' + listing.video_url.replace(/.*(?:shorts\/|watch\?v=|youtu\.be\/)/, '') .replace(/[?&].*/, '') + '?modestbranding=1&rel=0&showinfo=0" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div></div>' : '') +
           '<div class="detail-description mt-2">' +
             '<h2>Description</h2>' +
             '<p>' + escapeHtml(listing.description).replace(/\n/g, '<br>') + '</p>' +
