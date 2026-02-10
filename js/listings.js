@@ -30,12 +30,16 @@ function fetchListings(callback) {
 
 // Platform fee (1%) added to seller's asking price
 var PLATFORM_FEE = 0.01;
-function applyFee(price) { return Math.round(price * (1 + PLATFORM_FEE)); }
+var OWNER_LISTINGS = ['1']; // Owner's own listings — no fee applied
+function applyFee(price, listingId) {
+  if (listingId && OWNER_LISTINGS.indexOf(listingId) !== -1) return price;
+  return Math.round(price * (1 + PLATFORM_FEE));
+}
 
 function createPropertyCard(listing) {
   var imageUrl = listing.photo_url || getPlaceholderImage(listing.title);
-  var priceDisplay = formatPrice(applyFee(listing.total_price));
-  var pricePerSqm = listing.price_per_sqm ? formatPrice(applyFee(listing.price_per_sqm)) + '/sqm' : '';
+  var priceDisplay = formatPrice(applyFee(listing.total_price, listing.id));
+  var pricePerSqm = listing.price_per_sqm ? formatPrice(applyFee(listing.price_per_sqm, listing.id)) + '/sqm' : '';
   var locationDisplay = getLocationName(listing.location);
   var typeDisplay = getTypeName(listing.type);
   var areaDisplay = formatNumber(listing.lot_area) + ' sqm';
@@ -220,7 +224,7 @@ function renderPropertyDetail() {
     }
 
     // Update page title and breadcrumb
-    document.title = listing.title + ' | ' + formatPrice(applyFee(listing.total_price)) + ' — CebuLandMarket';
+    document.title = listing.title + ' | ' + formatPrice(applyFee(listing.total_price, listing.id)) + ' — CebuLandMarket';
     var breadcrumb = document.getElementById('breadcrumbTitle');
     if (breadcrumb) breadcrumb.textContent = listing.title;
 
@@ -230,7 +234,7 @@ function renderPropertyDetail() {
     var ogDesc = document.getElementById('ogDesc');
     var ogImage = document.getElementById('ogImage');
     var ogUrl = document.getElementById('ogUrl');
-    if (ogTitle) ogTitle.setAttribute('content', listing.title + ' - ' + formatPrice(applyFee(listing.total_price)));
+    if (ogTitle) ogTitle.setAttribute('content', listing.title + ' - ' + formatPrice(applyFee(listing.total_price, listing.id)));
     if (ogDesc) ogDesc.setAttribute('content', listing.description.substring(0, 200) + '...');
     if (ogImage) ogImage.setAttribute('content', baseUrl + (listing.photo_url || ''));
     if (ogUrl) ogUrl.setAttribute('content', baseUrl + 'property.html?id=' + listing.id);
@@ -302,8 +306,8 @@ function renderPropertyDetail() {
         '</div>' +
         '<div class="detail-sidebar">' +
           '<div class="detail-card">' +
-            '<div class="price-tag">' + formatPrice(applyFee(listing.total_price)) + '</div>' +
-            (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(applyFee(listing.price_per_sqm)) + ' per sqm</div>' : '') +
+            '<div class="price-tag">' + formatPrice(applyFee(listing.total_price, listing.id)) + '</div>' +
+            (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(applyFee(listing.price_per_sqm, listing.id)) + ' per sqm</div>' : '') +
             '<div class="detail-info">' +
               '<div class="info-item"><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
               '<div class="info-item"><span class="info-label">Property Type</span><span class="info-value">' + escapeHtml(getTypeName(listing.type)) + '</span></div>' +
