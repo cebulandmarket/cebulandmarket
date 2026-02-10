@@ -11,6 +11,70 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!form) return;
 
+  // ==========================================
+  // AUTO-SAVE: Save form data so it's never lost
+  // ==========================================
+  var SAVE_KEY = 'clm_form_draft';
+
+  // Restore saved data when page loads
+  function restoreForm() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(SAVE_KEY));
+      if (!saved) return;
+      var fields = form.querySelectorAll('input, select, textarea');
+      var hasData = false;
+      for (var i = 0; i < fields.length; i++) {
+        var name = fields[i].getAttribute('name');
+        if (name && saved[name]) {
+          fields[i].value = saved[name];
+          hasData = true;
+        }
+      }
+      if (hasData) {
+        // Show step 2 since they were already filling the form
+        var step1 = document.getElementById('step1');
+        var step2 = document.getElementById('step2');
+        if (step1 && step2) {
+          step1.style.display = 'none';
+          step2.style.display = 'block';
+        }
+        // Show a friendly restore message
+        var restoreMsg = document.createElement('div');
+        restoreMsg.style.cssText = 'background:#2e7d32; color:#fff; padding:12px 20px; border-radius:8px; margin-bottom:16px; font-size:0.9rem;';
+        restoreMsg.innerHTML = '<strong>Your previous form data has been restored.</strong> Continue where you left off.';
+        form.insertBefore(restoreMsg, form.firstChild);
+        setTimeout(function() { restoreMsg.remove(); }, 8000);
+      }
+    } catch(e) {}
+  }
+
+  // Save form data on every change
+  function saveForm() {
+    try {
+      var fields = form.querySelectorAll('input, select, textarea');
+      var data = {};
+      for (var i = 0; i < fields.length; i++) {
+        var name = fields[i].getAttribute('name');
+        if (name && fields[i].value) {
+          data[name] = fields[i].value;
+        }
+      }
+      localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+    } catch(e) {}
+  }
+
+  // Clear saved data after successful submission
+  function clearSavedForm() {
+    try { localStorage.removeItem(SAVE_KEY); } catch(e) {}
+  }
+
+  // Listen for changes and save
+  form.addEventListener('input', saveForm);
+  form.addEventListener('change', saveForm);
+
+  // Restore on page load
+  restoreForm();
+
   // Generate reference ID
   function generateRefId() {
     var timestamp = Date.now().toString(36).toUpperCase();
@@ -229,6 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function showSuccess(refId) {
     formSubmitted = true;
+    clearSavedForm();
     form.style.display = 'none';
     if (formSuccess) {
       formSuccess.classList.add('show');
