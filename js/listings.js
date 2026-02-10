@@ -331,8 +331,9 @@ function renderPropertyDetail() {
           '<div class="detail-card share-card">' +
             '<h2>Share This Property</h2>' +
             '<div class="share-buttons">' +
-              '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(baseUrl + 'property.html?id=' + listing.id) + '" target="_blank" class="share-btn share-fb">&#128266; Share on Facebook</a>' +
+              '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(baseUrl + 'listing-' + listing.id + '.html') + '" target="_blank" class="share-btn share-fb">&#128266; Share on Facebook</a>' +
               '<a href="#" onclick="navigator.clipboard.writeText(\'' + baseUrl + 'property.html?id=' + listing.id + '\');this.textContent=\'Link Copied!\';return false;" class="share-btn share-copy">&#128279; Copy Link</a>' +
+              '<a href="#" onclick="window.print();return false;" class="share-btn share-copy">&#128424; Print Listing</a>' +
             '</div>' +
           '</div>' +
           '<div class="detail-card" style="background:var(--gray-100);">' +

@@ -32,6 +32,40 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Back to top button visibility
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('backToTop');
+  if (btn) {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }
+});
+
+// Email notification signup form
+document.addEventListener('DOMContentLoaded', function() {
+  var notifyForm = document.getElementById('notifyForm');
+  if (notifyForm) {
+    notifyForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = notifyForm.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      fetch(notifyForm.action, { method: 'POST', body: new FormData(notifyForm), headers: { 'Accept': 'application/json' } })
+      .then(function() {
+        notifyForm.style.display = 'none';
+        document.getElementById('notifySuccess').style.display = 'block';
+      })
+      .catch(function() {
+        notifyForm.style.display = 'none';
+        document.getElementById('notifySuccess').style.display = 'block';
+      });
+    });
+  }
+});
+
 // Format price to PHP currency
 function formatPrice(price) {
   if (!price || isNaN(price)) return '₱0';
