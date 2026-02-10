@@ -34,6 +34,6 @@ var LISTINGS_DATA = [
     "owner_name": "CebuLandMarket",
     "title_status": "Clean Title, 1 Owner",
     "status": "active",
-    "date_listed": "2025-01-01"
+    "date_listed": "2026-02-09"
   }
 ];
