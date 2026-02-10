@@ -14,7 +14,7 @@
  */
 
 // GoatCounter code (change this after signing up)
-var GC_CODE = 'YOUR_GOATCOUNTER_CODE';
+var GC_CODE = 'cebulandmarket';
 
 // Secret key to view admin panel (change this to your own secret)
 var ADMIN_KEY = 'clm2025';
