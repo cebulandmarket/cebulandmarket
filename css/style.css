@@ -638,6 +638,31 @@ ul { list-style: none; }
 .contact-btn.phone { background: var(--gray-700); }
 .contact-btn.phone:hover { background: var(--gray-900); }
 
+.detail-video {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.detail-video h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
 .detail-description {
   background: var(--white);
   border-radius: var(--radius);
