@@ -36,6 +36,23 @@ document.addEventListener('DOMContentLoaded', function() {
   if (lotAreaInput) lotAreaInput.addEventListener('input', autoCalcTotal);
   if (pricePerSqmInput) pricePerSqmInput.addEventListener('input', autoCalcTotal);
 
+  // Show 1% platform fee preview
+  var feePreview = document.getElementById('feePreview');
+  var feeAmount = document.getElementById('feeAmount');
+  function showFeePreview() {
+    if (ownerPriceInput && feePreview && feeAmount) {
+      var price = parseFloat(ownerPriceInput.value) || 0;
+      if (price > 0) {
+        var withFee = Math.round(price * 1.01);
+        feeAmount.textContent = '₱' + withFee.toLocaleString();
+        feePreview.style.display = 'block';
+      } else {
+        feePreview.style.display = 'none';
+      }
+    }
+  }
+  if (ownerPriceInput) ownerPriceInput.addEventListener('input', showFeePreview);
+
   // ==========================================
   // FRIENDLY VALIDATION
   // ==========================================
