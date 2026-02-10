@@ -29,7 +29,7 @@ var LISTINGS_DATA = [
     "video_url": "ronda-video.mp4",
     "messenger": "https://m.me/aCueRaCa68",
     "viber": "09687512330",
-    "whatsapp": "09687512330",
+    "whatsapp": "639687512330",
     "phone": "09687512330",
     "owner_name": "CebuLandMarket",
     "title_status": "Clean Title, 1 Owner",
