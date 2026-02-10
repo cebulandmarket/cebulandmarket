@@ -168,6 +168,21 @@ ul { list-style: none; }
   font-weight: 800;
   color: var(--primary);
   letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar .logo .logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
 }
 
 .navbar .logo span {
@@ -453,6 +468,73 @@ ul { list-style: none; }
   font-size: 1.3rem;
   margin-bottom: 8px;
   color: var(--gray-700);
+}
+
+/* --- Testimonials --- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.testimonial-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.testimonial-stars {
+  color: #f9a825;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+.testimonial-text {
+  font-size: 0.95rem;
+  color: var(--gray-700);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.testimonial-author strong {
+  display: block;
+  color: var(--dark);
+}
+.testimonial-author span {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+/* --- Trust Badges --- */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.trust-item {
+  padding: 24px 16px;
+}
+.trust-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+.trust-item h4 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: var(--dark);
+}
+.trust-item p {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* --- Property Detail --- */

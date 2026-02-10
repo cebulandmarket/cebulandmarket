@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frequently asked questions about CebuLandMarket - property listing platform in Cebu, Philippines.">
+  <title>FAQ - CebuLandMarket</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .faq-section { padding: 60px 0; }
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 20px 24px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .faq-question:hover { background: var(--gray-100); }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--primary);
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-question::after {
+      content: '-';
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+    .faq-answer p {
+      padding: 0 24px 20px;
+      font-size: 0.95rem;
+      color: var(--gray-700);
+      line-height: 1.7;
+    }
+    .faq-category {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 32px 0 16px;
+    }
+    .faq-category:first-of-type { margin-top: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo"><span class="logo-icon">&#127968;</span>Cebu<span>Land</span>Market</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="submit.html" class="nav-cta">List Your Property</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+      <p>Everything you need to know about CebuLandMarket</p>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container" style="max-width:800px;">
+
+      <h3 class="faq-category">For Buyers</h3>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is CebuLandMarket legit?</div>
+        <div class="faq-answer"><p>Yes. CebuLandMarket is a property listing platform based in Cebu, Philippines. We verify all property documents before any listing goes live. We only publish listings with clean and complete paperwork to protect both buyers and sellers.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do I need to pay anything as a buyer?</div>
+        <div class="faq-answer"><p>No. Browsing listings and contacting sellers is completely free. CebuLandMarket does not charge buyers any fees. The only costs are the standard transaction costs (taxes, notarial fees, transfer fees) which are part of any normal property purchase.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Are the listings verified?</div>
+        <div class="faq-answer"><p>Yes. Our team reviews the property documents (title, tax declaration, etc.) before publishing any listing. Properties with incomplete or problematic documents are not approved. However, we always recommend that buyers do their own due diligence before purchasing.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I view a property?</div>
+        <div class="faq-answer"><p>Contact the seller directly using the contact buttons on the listing page (Viber, WhatsApp, or phone), or fill out the inquiry form and we'll connect you with the seller. The property owner will schedule a viewing with you.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Can I negotiate the price?</div>
+        <div class="faq-answer"><p>Yes. The listed price is the seller's asking price. You are free to negotiate directly with the seller. CebuLandMarket does not interfere with price negotiations between buyers and sellers.</p></div>
+      </div>
+
+      <h3 class="faq-category">For Sellers</h3>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How much does it cost to list my property?</div>
+        <div class="faq-answer"><p>There is a one-time listing fee of ₱500 via GCash. Your listing stays active until your property is sold — no monthly fees or renewals. If your listing is not approved after document review, the ₱500 is fully refunded.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What is the 1% platform fee?</div>
+        <div class="faq-answer"><p>We add 1% on top of your asking price in the listing. This means buyers see a slightly higher price, but you still receive your full asking price. The 1% is only due upon successful sale of the property. For example, if your asking price is ₱10,000,000, the listing price shown to buyers is ₱10,100,000. You receive ₱10,000,000 and CebuLandMarket receives ₱100,000.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What documents do I need?</div>
+        <div class="faq-answer"><p>At minimum, you need a Transfer Certificate of Title (TCT) or Tax Declaration, plus a valid government ID. Having complete and clean documents speeds up the approval process. Properties with ongoing legal issues, missing documents, or complicated ownership will not be approved.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How long before my listing goes live?</div>
+        <div class="faq-answer"><p>After submitting your listing and paying the ₱500 fee, our team reviews your documents within 24-48 hours. If everything is in order, your listing goes live immediately after approval.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What if my listing is not approved?</div>
+        <div class="faq-answer"><p>If your property does not pass our document verification, your ₱500 listing fee is fully refunded via GCash. We will inform you of the reason for non-approval so you can fix the issue and resubmit if you wish.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do I need to show the property to buyers myself?</div>
+        <div class="faq-answer"><p>Yes. As the property owner, you are responsible for showing the property to interested buyers. When a buyer contacts you through the listing, please respond promptly and arrange a convenient viewing time.</p></div>
+      </div>
+
+      <h3 class="faq-category">General</h3>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I contact CebuLandMarket?</div>
+        <div class="faq-answer"><p>You can reach us via email at cebulandmarket@gmail.com. We typically respond within 24 hours.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is CebuLandMarket a real estate broker?</div>
+        <div class="faq-answer"><p>No. CebuLandMarket is an online listing platform that connects property sellers with potential buyers. We are not a real estate broker or agent. All transactions are between the buyer and seller directly. We provide document verification to ensure listing quality.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What areas do you cover?</div>
+        <div class="faq-answer"><p>We cover all municipalities and cities in Cebu Province, including Cebu City, Mandaue, Lapu-Lapu, Talisay, Minglanilla, Naga, Carcar, Argao, Dalaguete, Moalboal, Barili, Ronda, Oslob, Santander, and many more.</p></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Cebu<span style="color:var(--accent)">Land</span>Market</h3>
+          <p>Your trusted platform for finding and listing properties in Cebu, Philippines.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="listings.html">All Listings</a>
+          <a href="submit.html">List Property</a>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <a href="mailto:cebulandmarket@gmail.com">cebulandmarket@gmail.com</a>
+          <a href="about.html">Cebu, Philippines</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 CebuLandMarket. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
