@@ -29,12 +29,58 @@
   <section class="page-header">
     <div class="container">
       <h1>List Your Property</h1>
-      <p>Reach thousands of potential buyers in Cebu. Listing fee: ₱500 only.</p>
+      <p>Reach thousands of potential buyers in Cebu.</p>
     </div>
   </section>
 
-  <!-- Submit Section -->
-  <section class="submit-section">
+  <!-- STEP 1: Terms & Fees (visible first) -->
+  <section class="submit-section" id="step1">
+    <div class="container">
+      <div class="form-card" style="max-width:700px; margin:0 auto;">
+        <h2>Before You Start</h2>
+        <p class="form-subtitle">Please read and agree to the following terms before submitting your property listing.</p>
+
+        <div class="payment-method" style="margin-bottom:16px;">
+          <h4>Listing Fee: ₱500</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">A one-time listing fee of ₱500 is required to publish your property on CebuLandMarket. Your listing stays active until your property is sold.</p>
+          <p style="font-size:0.9rem; margin-top:6px;">If your listing does not pass our document verification, your ₱500 will be <strong>fully refunded</strong>.</p>
+        </div>
+
+        <div class="payment-method" style="margin-bottom:16px;">
+          <h4>1% Platform Fee</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">We add 1% from your asking price in the listing. There's nothing deducted from your asking price — you still receive the full amount you set.</p>
+        </div>
+
+        <div class="payment-method" style="margin-bottom:16px;">
+          <h4>Property Viewing</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">If a buyer is interested and wants to visit the property, you (the owner) will be the one to show and tour them around.</p>
+        </div>
+
+        <div class="payment-method" style="margin-bottom:16px;">
+          <h4>Title & Paperwork Processing (Optional)</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">We have a dedicated processor who can handle title transfer and paperwork for ₱50,000 per property, paid directly to the processor. If you can process the paperwork yourself, you're free to do it on your own.</p>
+        </div>
+
+        <div class="payment-method" style="margin-bottom:16px;">
+          <h4>Document Verification</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">Our team will review your property documents before your listing goes live. Properties with clean, complete paperwork get approved within 24-48 hours. Incomplete or complicated documents will not be approved, and your ₱500 will be refunded.</p>
+        </div>
+
+        <div class="payment-method" style="margin-bottom:20px;">
+          <h4>Transaction Costs</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">All other costs (taxes, notarial fees, transfer fees, etc.) are handled between the buyer and seller — same as any normal property transaction.</p>
+        </div>
+
+        <div style="text-align:center;">
+          <button class="btn btn-primary btn-block" id="agreeBtn" onclick="document.getElementById('step1').style.display='none'; document.getElementById('step2').style.display='block'; window.scrollTo(0,0);">I Agree — Continue to Listing Form</button>
+          <p style="font-size:0.82rem; color:var(--gray-500); margin-top:10px;">By clicking above, you agree to the terms and fees listed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2: Form (hidden until they agree) -->
+  <section class="submit-section" id="step2" style="display:none;">
     <div class="container">
       <div class="submit-grid">
 
@@ -277,78 +323,31 @@
           </div>
         </div>
 
-        <!-- Payment & Verification Info Sidebar -->
+        <!-- Sidebar -->
         <div>
           <div class="payment-card">
-            <h3>Listing Fee</h3>
-            <div class="fee">₱500 <small>per listing</small></div>
-            <p style="color:var(--gray-700); font-size:0.9rem;">One-time fee. Your listing stays active until your property is sold.</p>
-
-            <div class="payment-methods">
-              <h4 style="margin-bottom:12px; color:var(--dark);">Payment Option</h4>
-
-              <div class="payment-method">
-                <h4>GCash</h4>
-                <p>Send ₱500 to:</p>
-                <div class="account-number">0968 751 2330</div>
-                <p class="mt-1" style="font-size:0.85rem;">Account Name: <strong>CebuLandMarket</strong></p>
-                <p style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">You will see the registered name upon sending. This is our verified account.</p>
-              </div>
+            <h3>Payment</h3>
+            <div class="fee">₱500 <small>via GCash</small></div>
+            <div class="payment-method" style="margin-top:12px;">
+              <h4>GCash</h4>
+              <p>Send ₱500 to:</p>
+              <div class="account-number">0968 751 2330</div>
+              <p class="mt-1" style="font-size:0.85rem;">Account Name: <strong>CebuLandMarket</strong></p>
+              <p style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">You will see the registered name upon sending. This is our verified account.</p>
             </div>
-
-            <ul class="payment-steps">
-              <li>Fill out the form with property details and documents</li>
+            <ul class="payment-steps" style="margin-top:16px;">
+              <li>Fill out the form and submit</li>
               <li>Send ₱500 via GCash to 0968 751 2330</li>
               <li>Include your Reference ID in the payment note</li>
-              <li>Our team verifies your documents (24-48 hours)</li>
+              <li>We verify your documents (24-48 hours)</li>
               <li>If approved — your listing goes live</li>
               <li>If not approved — ₱500 is fully refunded</li>
             </ul>
-
-            <div class="payment-method" style="background:var(--primary-light); margin-top:16px;">
-              <h4 style="color:var(--primary);">100% Refund Guarantee</h4>
-              <p style="font-size:0.9rem;">If your listing does not pass our document verification, your <strong>₱500 will be fully refunded</strong> via GCash. No risk to you — we only keep the fee if your property is approved and published.</p>
-            </div>
-          </div>
-
-          <div class="payment-card mt-2">
-            <h4 style="color:var(--dark);">1% Platform Fee</h4>
-            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:10px;">We add 1% from your asking price in the listing. There's nothing deducted from your asking price — you still receive the full amount you set.</p>
-            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:10px;">If a buyer is interested and wants to visit the property, you (the owner) will be the one to show and tour them around. We connect you with buyers — you handle the viewing personally.</p>
-            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:10px;">Taxes, notarial, and other transfer costs are handled between the buyer and seller — same as any normal property transaction.</p>
-          </div>
-
-          <div class="payment-card mt-2">
-            <h4 style="color:var(--dark);">Title & Paperwork Processing</h4>
-            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:10px;">We have a dedicated processor who can handle the title transfer and all necessary paperwork for your transaction.</p>
-            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:8px;">Processing fee: <strong>₱50,000 per property</strong>, paid by the seller directly to the processor.</p>
-            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:8px;">This is optional — if you can process the paperwork yourself, you're free to do it on your own. But if you want a hassle-free experience, our processor is here to help.</p>
-          </div>
-
-          <div class="payment-card mt-2" style="background:#fff3cd; border: 2px solid #ffc107;">
-            <h4 style="color:var(--dark);">Document Verification (Due Diligence)</h4>
-            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:8px;">Our agents review all property documents before any listing goes live. This protects both sellers and buyers on our platform.</p>
-            <p style="font-size:0.88rem; color:var(--gray-700); margin-top:10px;"><strong>We approve listings with:</strong></p>
-            <ul style="font-size:0.88rem; color:var(--gray-700); padding-left:18px; margin-top:4px; list-style:disc;">
-              <li>Clean title (TCT/OCT) under seller's name</li>
-              <li>Updated tax declarations and receipts</li>
-              <li>No legal disputes or encumbrances</li>
-              <li>Clear ownership, no complicated transfers</li>
-            </ul>
-            <p style="font-size:0.88rem; color:var(--danger); margin-top:10px;"><strong>We will NOT approve:</strong></p>
-            <ul style="font-size:0.88rem; color:var(--gray-700); padding-left:18px; margin-top:4px; list-style:disc;">
-              <li>Properties with ongoing legal cases</li>
-              <li>Complicated ownership (multiple heirs, no settlement)</li>
-              <li>Fake or incomplete documents</li>
-              <li>Properties with unpaid taxes (3+ years)</li>
-              <li>Mortgaged properties without bank clearance</li>
-            </ul>
-            <p style="font-size:0.88rem; color:var(--gray-700); margin-top:10px;">If your listing is not approved, your <strong>₱500 is refunded in full</strong>.</p>
           </div>
 
           <div class="payment-card mt-2" style="background:var(--primary-light); border: 2px solid var(--primary);">
             <h4 style="color:var(--primary);">Need Help?</h4>
-            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:8px;">Not sure if your documents are enough? Contact us first — we'll give you a free assessment before you submit.</p>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:8px;">Not sure if your documents are enough? Contact us first.</p>
             <p style="font-size:0.9rem; margin-top:8px;"><strong>GCash / Call:</strong> 0968 751 2330</p>
             <p style="font-size:0.9rem; margin-top:4px;"><strong>Email:</strong> cebulandmarket@gmail.com</p>
           </div>
