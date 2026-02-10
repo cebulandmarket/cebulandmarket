@@ -228,6 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function showSuccess(refId) {
+    formSubmitted = true;
     form.style.display = 'none';
     if (formSuccess) {
       formSuccess.classList.add('show');
@@ -239,4 +240,22 @@ document.addEventListener('DOMContentLoaded', function() {
       formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+
+  // Warn user if they try to leave while filling out the form
+  var formSubmitted = false;
+  var formStarted = false;
+
+  form.addEventListener('input', function() {
+    formStarted = true;
+  });
+  form.addEventListener('change', function() {
+    formStarted = true;
+  });
+
+  window.addEventListener('beforeunload', function(e) {
+    if (formStarted && !formSubmitted) {
+      e.preventDefault();
+      e.returnValue = '';
+    }
+  });
 });
