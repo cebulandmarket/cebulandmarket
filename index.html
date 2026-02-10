@@ -45,6 +45,10 @@
     <div class="container">
       <form class="search-bar" id="searchForm">
         <div class="field">
+          <label for="searchKeyword">Search</label>
+          <input type="text" id="searchKeyword" placeholder="Type location or keyword..." style="padding:10px; border:1px solid var(--gray-300); border-radius:var(--radius-sm); font-size:0.9rem; width:100%;">
+        </div>
+        <div class="field">
           <label for="searchLocation">Location</label>
           <select id="searchLocation">
             <option value="">All Locations</option>
@@ -134,6 +138,10 @@
             <option value="commercial">Commercial</option>
             <option value="beach">Beach Property</option>
           </select>
+        </div>
+        <div class="field">
+          <label for="searchKeyword">Search</label>
+          <input type="text" id="searchKeyword" placeholder="Type location or keyword..." style="padding:10px; border:1px solid var(--gray-300); border-radius:var(--radius-sm); font-size:0.9rem; width:100%;">
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
       </form>

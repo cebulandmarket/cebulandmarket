@@ -116,6 +116,8 @@ function renderAllListings() {
   // Pre-set filters from URL params
   var urlType = getUrlParam('type');
   var urlLocation = getUrlParam('location');
+  var urlPrice = getUrlParam('price');
+  var urlKeyword = getUrlParam('q');
   if (urlType) {
     var filterType = document.getElementById('filterType');
     if (filterType) filterType.value = urlType;
@@ -123,6 +125,14 @@ function renderAllListings() {
   if (urlLocation) {
     var filterLoc = document.getElementById('filterLocation');
     if (filterLoc) filterLoc.value = urlLocation;
+  }
+  if (urlPrice) {
+    var filterPr = document.getElementById('filterPrice');
+    if (filterPr) filterPr.value = urlPrice;
+  }
+  if (urlKeyword) {
+    var filterKw = document.getElementById('filterKeyword');
+    if (filterKw) filterKw.value = urlKeyword;
   }
 
   fetchListings(function(listings) {
@@ -157,6 +167,7 @@ function applyFilters() {
   var maxPrice = parseFloat((document.getElementById('filterPrice') || {}).value) || 0;
   var type = (document.getElementById('filterType') || {}).value || '';
   var minSize = parseFloat((document.getElementById('filterSize') || {}).value) || 0;
+  var keyword = ((document.getElementById('filterKeyword') || {}).value || '').trim().toLowerCase();
   var sort = (document.getElementById('sortBy') || {}).value || 'newest';
 
   var filtered = allListingsData.filter(function(listing) {
@@ -164,6 +175,18 @@ function applyFilters() {
     if (maxPrice && listing.total_price > maxPrice) return false;
     if (type && listing.type !== type) return false;
     if (minSize && listing.lot_area < minSize) return false;
+    if (keyword) {
+      var searchText = [
+        listing.title || '',
+        listing.description || '',
+        listing.address || '',
+        getLocationName(listing.location) || '',
+        listing.location || '',
+        listing.features || '',
+        getTypeName(listing.type) || ''
+      ].join(' ').toLowerCase();
+      if (searchText.indexOf(keyword) === -1) return false;
+    }
     return true;
   });
 
@@ -397,11 +420,13 @@ function initHomeSearch() {
     var location = document.getElementById('searchLocation').value;
     var price = document.getElementById('searchPrice').value;
     var type = document.getElementById('searchType').value;
+    var keyword = (document.getElementById('searchKeyword') || {}).value || '';
 
     var params = [];
     if (location) params.push('location=' + encodeURIComponent(location));
     if (price) params.push('price=' + encodeURIComponent(price));
     if (type) params.push('type=' + encodeURIComponent(type));
+    if (keyword.trim()) params.push('q=' + encodeURIComponent(keyword.trim()));
 
     window.location.href = 'listings.html' + (params.length ? '?' + params.join('&') : '');
   });
