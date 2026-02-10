@@ -27,7 +27,7 @@ var LISTINGS_DATA = [
     "photo_urls": "att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg,att.86A-w2tIW5njVJhIchaRYFf8WhD4mmIzbmk9jwEk204.jpg,att.ZfeRDjBgv8hOZhIML58jcIcuSUkvMQV9XmRrQlehr3Y.jpg,ronda-aerial-map.jpeg,ronda-lot-survey.jpeg,ronda-photo-4.jpg,ronda-photo-5.jpg,ronda-photo-6.jpg,ronda-photo-7.jpg",
     "map_url": "Sta. Cruz, Ronda, Cebu, Philippines",
     "video_url": "ronda-video.mp4",
-    "messenger": "",
+    "messenger": "https://m.me/61587469756965",
     "viber": "09687512330",
     "whatsapp": "09687512330",
     "phone": "09687512330",
