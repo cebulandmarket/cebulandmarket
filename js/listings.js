@@ -28,10 +28,14 @@ function fetchListings(callback) {
 // RENDERING - PROPERTY CARDS
 // ==========================================
 
+// Platform fee (1%) added to seller's asking price
+var PLATFORM_FEE = 0.01;
+function applyFee(price) { return Math.round(price * (1 + PLATFORM_FEE)); }
+
 function createPropertyCard(listing) {
   var imageUrl = listing.photo_url || getPlaceholderImage(listing.title);
-  var priceDisplay = formatPrice(listing.total_price);
-  var pricePerSqm = listing.price_per_sqm ? formatPrice(listing.price_per_sqm) + '/sqm' : '';
+  var priceDisplay = formatPrice(applyFee(listing.total_price));
+  var pricePerSqm = listing.price_per_sqm ? formatPrice(applyFee(listing.price_per_sqm)) + '/sqm' : '';
   var locationDisplay = getLocationName(listing.location);
   var typeDisplay = getTypeName(listing.type);
   var areaDisplay = formatNumber(listing.lot_area) + ' sqm';
@@ -286,8 +290,8 @@ function renderPropertyDetail() {
         '</div>' +
         '<div class="detail-sidebar">' +
           '<div class="detail-card">' +
-            '<div class="price-tag">' + formatPrice(listing.total_price) + '</div>' +
-            (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(listing.price_per_sqm) + ' per sqm</div>' : '') +
+            '<div class="price-tag">' + formatPrice(applyFee(listing.total_price)) + '</div>' +
+            (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(applyFee(listing.price_per_sqm)) + ' per sqm</div>' : '') +
             '<div class="detail-info">' +
               '<div class="info-item"><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
               '<div class="info-item"><span class="info-label">Property Type</span><span class="info-value">' + escapeHtml(getTypeName(listing.type)) + '</span></div>' +
