@@ -177,12 +177,21 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--primary);
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--primary), #1b5e20);
   color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(46,125,50,0.3);
+  position: relative;
+}
+.navbar .logo .logo-icon::after {
+  content: '📍';
+  position: absolute;
+  font-size: 0.55rem;
+  bottom: -2px;
+  right: -2px;
 }
 
 .navbar .logo span {
