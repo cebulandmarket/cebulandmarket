@@ -252,7 +252,7 @@ function renderPropertyDetail() {
     if (breadcrumb) breadcrumb.textContent = listing.title;
 
     // Update Open Graph meta tags for Facebook sharing
-    var baseUrl = 'https://cebulandmarket.github.io/cebulandmarket/';
+    var baseUrl = 'https://cebulandmarket.com/';
     var ogTitle = document.getElementById('ogTitle');
     var ogDesc = document.getElementById('ogDesc');
     var ogImage = document.getElementById('ogImage');
