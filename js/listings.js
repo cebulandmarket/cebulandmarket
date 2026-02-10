@@ -287,6 +287,7 @@ function renderPropertyDetail() {
             '<p>' + escapeHtml(listing.description).replace(/\n/g, '<br>') + '</p>' +
           '</div>' +
           featuresHtml +
+          (listing.map_url ? '<div class="detail-map mt-2"><h2>Property Location</h2><div class="map-container"><iframe src="https://maps.google.com/maps?q=' + encodeURIComponent(listing.map_url) + '&output=embed" frameborder="0" allowfullscreen style="width:100%;height:100%;border-radius:8px;"></iframe></div></div>' : '') +
         '</div>' +
         '<div class="detail-sidebar">' +
           '<div class="detail-card">' +

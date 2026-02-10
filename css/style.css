@@ -663,6 +663,23 @@ ul { list-style: none; }
   border-radius: 8px;
 }
 
+.detail-map {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.detail-map h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+.map-container {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
 .detail-description {
   background: var(--white);
   border-radius: var(--radius);
