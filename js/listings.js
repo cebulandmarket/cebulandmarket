@@ -224,6 +224,17 @@ function renderPropertyDetail() {
     var breadcrumb = document.getElementById('breadcrumbTitle');
     if (breadcrumb) breadcrumb.textContent = listing.title;
 
+    // Update Open Graph meta tags for Facebook sharing
+    var baseUrl = 'https://cebulandmarket.github.io/cebulandmarket/';
+    var ogTitle = document.getElementById('ogTitle');
+    var ogDesc = document.getElementById('ogDesc');
+    var ogImage = document.getElementById('ogImage');
+    var ogUrl = document.getElementById('ogUrl');
+    if (ogTitle) ogTitle.setAttribute('content', listing.title + ' - ' + formatPrice(applyFee(listing.total_price)));
+    if (ogDesc) ogDesc.setAttribute('content', listing.description.substring(0, 200) + '...');
+    if (ogImage) ogImage.setAttribute('content', baseUrl + (listing.photo_url || ''));
+    if (ogUrl) ogUrl.setAttribute('content', baseUrl + 'property.html?id=' + listing.id);
+
     // Build photo gallery
     var mainPhoto = listing.photo_url || getPlaceholderImage(listing.title);
     var photoUrls = [];
@@ -316,6 +327,13 @@ function renderPropertyDetail() {
               '<button type="submit" style="padding:12px; background:var(--primary); color:white; border:none; border-radius:6px; font-weight:600; cursor:pointer;">Send Inquiry</button>' +
             '</form>' +
             '<p id="inquirySuccess" style="display:none; color:var(--primary); font-weight:600; text-align:center; margin-top:12px;">Inquiry sent! We\'ll get back to you soon.</p>' +
+          '</div>' +
+          '<div class="detail-card share-card">' +
+            '<h2>Share This Property</h2>' +
+            '<div class="share-buttons">' +
+              '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(baseUrl + 'property.html?id=' + listing.id) + '" target="_blank" class="share-btn share-fb">&#128266; Share on Facebook</a>' +
+              '<a href="#" onclick="navigator.clipboard.writeText(\'' + baseUrl + 'property.html?id=' + listing.id + '\');this.textContent=\'Link Copied!\';return false;" class="share-btn share-copy">&#128279; Copy Link</a>' +
+            '</div>' +
           '</div>' +
           '<div class="detail-card" style="background:var(--gray-100);">' +
             '<p style="font-size:0.85rem; color:var(--gray-500);"><strong>Disclaimer:</strong> CebuLandMarket is a listing platform only. Always verify property details and documents before making any transactions.</p>' +

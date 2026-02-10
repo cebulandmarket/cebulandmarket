@@ -1261,6 +1261,19 @@ ul { list-style: none; }
   margin-right: auto;
 }
 
+/* --- Share Buttons --- */
+.share-card h2 { font-size: 1rem; margin-bottom: 12px; }
+.share-buttons { display: flex; flex-direction: column; gap: 10px; }
+.share-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 16px; border-radius: var(--radius-sm); font-weight: 600;
+  font-size: 0.9rem; text-decoration: none; cursor: pointer;
+  transition: opacity var(--transition);
+}
+.share-btn:hover { opacity: 0.85; }
+.share-fb { background: #1877f2; color: #fff; }
+.share-copy { background: var(--gray-100); color: var(--dark); border: 1px solid var(--gray-300); }
+
 /* --- Footer --- */
 .footer {
   background: var(--dark);
