@@ -304,6 +304,19 @@ function renderPropertyDetail() {
             '<h2>Contact Seller</h2>' +
             '<div class="contact-buttons">' + contactHtml + '</div>' +
           '</div>' +
+          '<div class="detail-card">' +
+            '<h2>Interested? Send an Inquiry</h2>' +
+            '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Leave your details and we\'ll connect you with the seller.</p>' +
+            '<form id="inquiryForm" action="https://formspree.io/f/mzdazwae" method="POST" style="display:flex; flex-direction:column; gap:10px;">' +
+              '<input type="hidden" name="inquiry_property" value="' + escapeHtml(listing.title) + '">' +
+              '<input type="hidden" name="inquiry_property_id" value="' + listing.id + '">' +
+              '<input type="text" name="buyer_name" placeholder="Your name" required style="padding:10px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem;">' +
+              '<input type="tel" name="buyer_phone" placeholder="Your phone number" required style="padding:10px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem;">' +
+              '<textarea name="buyer_message" placeholder="Your message (optional)" rows="3" style="padding:10px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem;"></textarea>' +
+              '<button type="submit" style="padding:12px; background:var(--primary); color:white; border:none; border-radius:6px; font-weight:600; cursor:pointer;">Send Inquiry</button>' +
+            '</form>' +
+            '<p id="inquirySuccess" style="display:none; color:var(--primary); font-weight:600; text-align:center; margin-top:12px;">Inquiry sent! We\'ll get back to you soon.</p>' +
+          '</div>' +
           '<div class="detail-card" style="background:var(--gray-100);">' +
             '<p style="font-size:0.85rem; color:var(--gray-500);"><strong>Disclaimer:</strong> CebuLandMarket is a listing platform only. Always verify property details and documents before making any transactions.</p>' +
           '</div>' +
@@ -311,6 +324,30 @@ function renderPropertyDetail() {
       '</div>';
   });
 }
+
+// Inquiry form handler
+document.addEventListener('click', function(e) {
+  if (e.target && e.target.closest('#inquiryForm button[type="submit"]')) {
+    var form = document.getElementById('inquiryForm');
+    if (!form) return;
+    e.preventDefault();
+    var name = form.querySelector('[name="buyer_name"]');
+    var phone = form.querySelector('[name="buyer_phone"]');
+    if (!name.value.trim() || !phone.value.trim()) return;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+    .then(function(r) {
+      form.style.display = 'none';
+      document.getElementById('inquirySuccess').style.display = 'block';
+    })
+    .catch(function() {
+      form.style.display = 'none';
+      document.getElementById('inquirySuccess').style.display = 'block';
+    });
+  }
+});
 
 // Gallery photo switcher
 function changeMainPhoto(thumbEl, url) {
