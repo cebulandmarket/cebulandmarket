@@ -291,25 +291,12 @@ function renderPropertyDetail() {
       featuresHtml += '</ul></div>';
     }
 
-    // Contact buttons
+    // Contact buttons — all inquiries go to CebuLandMarket (middleman)
     var contactHtml = '';
-    if (listing.messenger) {
-      contactHtml += '<a href="' + escapeHtml(listing.messenger) + '" target="_blank" class="contact-btn messenger">&#128172; Message on Messenger</a>';
-    }
-    if (listing.viber) {
-      var viberNum = listing.viber.replace(/\s/g, '');
-      contactHtml += '<a href="viber://chat?number=' + encodeURIComponent(viberNum) + '" class="contact-btn viber">&#128222; Chat on Viber</a>';
-    }
-    if (listing.whatsapp) {
-      var waNum = listing.whatsapp.replace(/[\s\-]/g, '');
-      contactHtml += '<a href="https://wa.me/' + encodeURIComponent(waNum) + '" target="_blank" class="contact-btn whatsapp">&#128172; WhatsApp</a>';
-    }
-    if (listing.phone) {
-      contactHtml += '<a href="tel:' + escapeHtml(listing.phone) + '" class="contact-btn phone">&#9742; Call ' + escapeHtml(listing.phone) + '</a>';
-    }
-    if (!contactHtml) {
-      contactHtml = '<p style="color:var(--gray-500); text-align:center;">Contact info not available. Please check back later.</p>';
-    }
+    contactHtml += '<a href="https://m.me/61587469756965" target="_blank" class="contact-btn messenger">&#128172; Message us on Messenger</a>';
+    contactHtml += '<a href="https://wa.me/639687512330?text=' + encodeURIComponent('Hi, I\'m interested in: ' + listing.title) + '" target="_blank" class="contact-btn whatsapp">&#128172; WhatsApp us</a>';
+    contactHtml += '<a href="viber://chat?number=639687512330" class="contact-btn viber">&#128222; Chat on Viber</a>';
+    contactHtml += '<a href="mailto:cebulandmarket@gmail.com?subject=' + encodeURIComponent('Inquiry: ' + listing.title) + '" class="contact-btn phone">&#9993; Email us</a>';
 
     // Render full detail page
     container.innerHTML =
@@ -335,16 +322,17 @@ function renderPropertyDetail() {
               '<div class="info-item"><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
               '<div class="info-item"><span class="info-label">Property Type</span><span class="info-value">' + escapeHtml(getTypeName(listing.type)) + '</span></div>' +
               '<div class="info-item"><span class="info-label">Location</span><span class="info-value">' + escapeHtml(getLocationName(listing.location)) + '</span></div>' +
-              '<div class="info-item"><span class="info-label">Title Status</span><span class="info-value">' + escapeHtml(listing.title_status || 'Ask seller') + '</span></div>' +
+              '<div class="info-item"><span class="info-label">Title Status</span><span class="info-value">' + escapeHtml(listing.title_status || 'Inquire for details') + '</span></div>' +
             '</div>' +
           '</div>' +
           '<div class="detail-card">' +
-            '<h2>Contact Seller</h2>' +
+            '<h2>Inquire About This Property</h2>' +
+            '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">All inquiries go through CebuLandMarket. We\'ll assist you and coordinate with the property owner.</p>' +
             '<div class="contact-buttons">' + contactHtml + '</div>' +
           '</div>' +
           '<div class="detail-card">' +
-            '<h2>Interested? Send an Inquiry</h2>' +
-            '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Leave your details and we\'ll connect you with the seller.</p>' +
+            '<h2>Leave Your Details</h2>' +
+            '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Interested? Leave your info and we\'ll reach out to you with more details.</p>' +
             '<form id="inquiryForm" action="https://formspree.io/f/mzdazwae" method="POST" style="display:flex; flex-direction:column; gap:10px;">' +
               '<input type="hidden" name="inquiry_property" value="' + escapeHtml(listing.title) + '">' +
               '<input type="hidden" name="inquiry_property_id" value="' + listing.id + '">' +
