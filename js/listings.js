@@ -330,19 +330,6 @@ function renderPropertyDetail() {
             '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">All inquiries go through CebuLandMarket. We\'ll assist you and coordinate with the property owner.</p>' +
             '<div class="contact-buttons">' + contactHtml + '</div>' +
           '</div>' +
-          '<div class="detail-card">' +
-            '<h2>Leave Your Details</h2>' +
-            '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Interested? Leave your info and we\'ll reach out to you with more details.</p>' +
-            '<form id="inquiryForm" action="https://formspree.io/f/mzdazwae" method="POST" style="display:flex; flex-direction:column; gap:10px;">' +
-              '<input type="hidden" name="inquiry_property" value="' + escapeHtml(listing.title) + '">' +
-              '<input type="hidden" name="inquiry_property_id" value="' + listing.id + '">' +
-              '<input type="text" name="buyer_name" placeholder="Your name" required style="padding:10px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem;">' +
-              '<input type="tel" name="buyer_phone" placeholder="Your phone number" required style="padding:10px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem;">' +
-              '<textarea name="buyer_message" placeholder="Your message (optional)" rows="3" style="padding:10px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem;"></textarea>' +
-              '<button type="submit" style="padding:12px; background:var(--primary); color:white; border:none; border-radius:6px; font-weight:600; cursor:pointer;">Send Inquiry</button>' +
-            '</form>' +
-            '<p id="inquirySuccess" style="display:none; color:var(--primary); font-weight:600; text-align:center; margin-top:12px;">Inquiry sent! We\'ll get back to you soon.</p>' +
-          '</div>' +
           '<div class="detail-card" style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border:2px solid #16a34a;">' +
             '<h2 style="color:#16a34a;">View Personal Page</h2>' +
             '<p style="font-size:0.9rem; color:var(--gray-600); margin-bottom:12px;">See the owner\'s story and vision for this property on its own dedicated page.</p>' +
