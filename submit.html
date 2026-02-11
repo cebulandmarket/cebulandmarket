@@ -54,9 +54,14 @@
         </div>
 
         <div class="payment-method" style="margin-bottom:16px;">
-          <h4>1% Platform Fee</h4>
-          <p style="font-size:0.9rem; margin-top:6px;">We add 1% from your asking price in the listing. There's nothing deducted from your asking price — you still receive the full amount you set.</p>
-          <p style="font-size:0.9rem; margin-top:6px;"><strong>Upon successful sale</strong>, the 1% platform fee must be remitted to CebuLandMarket via GCash within 7 days of closing the transaction. By listing your property, you agree to this obligation.</p>
+          <h4>1% Platform Fee — You Choose How</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">CebuLandMarket charges a 1% platform fee on every successful sale. You get to choose how it's handled:</p>
+          <ul style="font-size:0.9rem; margin-top:8px; padding-left:20px;">
+            <li><strong>Option A:</strong> We add 1% on top of your asking price — buyers see a slightly higher listing price, but you receive your full asking price.</li>
+            <li><strong>Option B:</strong> The 1% is already included in the price you give — the listing shows your exact price, and you remit 1% to us upon sale.</li>
+          </ul>
+          <p style="font-size:0.9rem; margin-top:6px;"><strong>Selling Per Cut?</strong> If you have a large lot, you can choose to sell portions (per sqm). The 1% fee applies to each cut/transaction.</p>
+          <p style="font-size:0.9rem; margin-top:6px;"><strong>Upon successful sale</strong>, the 1% platform fee must be remitted to CebuLandMarket via GCash within 7 days of closing the transaction.</p>
         </div>
 
         <div class="payment-method" style="margin-bottom:16px;">
@@ -74,8 +79,10 @@
           <h4>Seller Agreement</h4>
           <p style="font-size:0.9rem; margin-top:6px;">By clicking "I Agree" below, you agree to the following:</p>
           <ul style="font-size:0.9rem; margin-top:8px; padding-left:20px;">
-            <li>The listing price displayed on the website includes CebuLandMarket's 1% service fee</li>
+            <li>The 1% platform fee applies to my listing (either added on top or included in my price, based on my selection)</li>
+            <li>If selling per cut, the 1% fee applies to each cut/transaction</li>
             <li>Upon successful sale, I will remit the 1% platform fee via GCash to CebuLandMarket within 7 days</li>
+            <li>I will provide my digital signature to confirm this agreement</li>
             <li>I will not redirect buyers to transact outside the listed price to avoid the platform fee</li>
             <li>I am responsible for showing the property to interested buyers</li>
             <li>All information I provide is true and accurate</li>
@@ -246,7 +253,7 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label>Lot Area (sqm) <span class="required">*</span></label>
+                <label>Lot Area (total sqm) <span class="required">*</span></label>
                 <input type="number" name="lot_area" required placeholder="e.g. 14724">
               </div>
               <div class="form-group">
@@ -255,11 +262,51 @@
               </div>
             </div>
 
+            <div class="form-group">
+              <label>Selling Method <span class="required">*</span></label>
+              <div class="fee-options" style="margin-top:8px;">
+                <label class="fee-option" style="display:flex; align-items:flex-start; gap:10px; padding:12px 16px; background:#f0fdf4; border:2px solid #c8e6c9; border-radius:8px; cursor:pointer; margin-bottom:8px;">
+                  <input type="radio" name="selling_method" value="whole_lot" required style="margin-top:3px; accent-color:#0e7c4a;">
+                  <div>
+                    <strong style="color:#0e7c4a;">Sell as Whole Lot</strong>
+                    <p style="font-size:0.85rem; color:#555; margin-top:4px;">Sell the entire property to one buyer at your total asking price.</p>
+                  </div>
+                </label>
+                <label class="fee-option" style="display:flex; align-items:flex-start; gap:10px; padding:12px 16px; background:#e3f2fd; border:2px solid #90caf9; border-radius:8px; cursor:pointer;">
+                  <input type="radio" name="selling_method" value="per_cut" style="margin-top:3px; accent-color:#1565c0;">
+                  <div>
+                    <strong style="color:#1565c0;">Sell Per Cut (per sqm)</strong>
+                    <p style="font-size:0.85rem; color:#555; margin-top:4px;">Buyers can purchase portions of the lot (e.g. 500 sqm, 1,000 sqm). The 1% platform fee is charged per cut/transaction. Great for large lots.</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div id="perCutDetails" style="display:none;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Minimum Cut Size (sqm) <span class="required">*</span></label>
+                  <input type="number" name="min_cut_size" placeholder="e.g. 500" id="minCutSize">
+                  <p style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">Smallest portion a buyer can purchase.</p>
+                </div>
+                <div class="form-group">
+                  <label>Price per sqm for Cuts (₱) <span class="required">*</span></label>
+                  <input type="number" name="cut_price_per_sqm" placeholder="e.g. 800" id="cutPricePerSqm">
+                  <p style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">Price per sqm when selling per cut.</p>
+                </div>
+              </div>
+              <div class="payment-method" style="margin-bottom:16px; background:#e3f2fd; border-left:4px solid #1565c0;">
+                <h4 style="color:#1565c0;">How Per Cut Works</h4>
+                <p style="font-size:0.85rem; margin-top:6px;">Buyers purchase a portion of your lot at your set price per sqm. The 1% CebuLandMarket platform fee is charged on each cut/transaction. For example, if a buyer purchases 1,000 sqm at ₱800/sqm = ₱800,000, the 1% fee is ₱8,000 for that transaction.</p>
+              </div>
+            </div>
+
             <div class="form-row">
               <div class="form-group">
                 <label>Your Asking Price (₱) <span class="required">*</span></label>
                 <input type="number" name="total_price" required placeholder="e.g. 11043000" id="ownerPrice">
-                <p id="feePreview" style="font-size:0.85rem; color:#b8860b; margin-top:6px; display:none;"><strong>Listing price (with 1% platform fee):</strong> <span id="feeAmount"></span></p>
+                <p id="wholeLotNote" style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">Total asking price for the entire property.</p>
+                <p id="feePreview" style="font-size:0.85rem; color:#b8860b; margin-top:6px; display:none;"><strong id="feeLabel">Listing price (with 1% platform fee):</strong> <span id="feeAmount"></span></p>
               </div>
               <div class="form-group">
                 <label>Title Status <span class="required">*</span></label>
@@ -271,6 +318,27 @@
                   <option value="pending">Title Processing</option>
                 </select>
               </div>
+            </div>
+
+            <div class="form-group">
+              <label>How do you want the 1% platform fee handled? <span class="required">*</span></label>
+              <div class="fee-options" style="margin-top:8px;">
+                <label class="fee-option" style="display:flex; align-items:flex-start; gap:10px; padding:12px 16px; background:#f0fdf4; border:2px solid #c8e6c9; border-radius:8px; cursor:pointer; margin-bottom:8px;">
+                  <input type="radio" name="fee_option" value="add_on_top" required style="margin-top:3px; accent-color:#0e7c4a;">
+                  <div>
+                    <strong style="color:#0e7c4a;">Add 1% on top of my asking price</strong>
+                    <p style="font-size:0.85rem; color:#555; margin-top:4px;">Your asking price stays the same. We add 1% on top — the buyer sees a slightly higher listing price. You receive your full asking price.</p>
+                  </div>
+                </label>
+                <label class="fee-option" style="display:flex; align-items:flex-start; gap:10px; padding:12px 16px; background:#fff8e1; border:2px solid #ffe082; border-radius:8px; cursor:pointer;">
+                  <input type="radio" name="fee_option" value="included_in_price" style="margin-top:3px; accent-color:#f9a825;">
+                  <div>
+                    <strong style="color:#e65100;">1% is already included in my price</strong>
+                    <p style="font-size:0.85rem; color:#555; margin-top:4px;">Your asking price already includes the 1% fee. The listing price will be exactly what you entered. Upon sale, you remit 1% to CebuLandMarket.</p>
+                  </div>
+                </label>
+              </div>
+              <p id="feeExplanation" style="font-size:0.85rem; color:#b8860b; margin-top:8px; display:none;"></p>
             </div>
 
             <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
@@ -382,6 +450,32 @@
                 <label>Phone / SMS</label>
                 <input type="tel" name="phone" placeholder="09XX XXX XXXX">
               </div>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Digital Signature</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-bottom:12px;">By signing below, you confirm that all information provided is true and accurate, and you agree to the terms outlined above including the 1% platform fee.</p>
+
+            <div class="form-group">
+              <label>Type Your Full Name as Signature <span class="required">*</span></label>
+              <input type="text" name="digital_signature" id="signatureName" required placeholder="Type your full name here" style="font-family: 'Brush Script MT', 'Segoe Script', cursive; font-size:1.4rem; padding:14px 16px; border:2px dashed #0e7c4a; background:#f9fef9;">
+              <p style="font-size:0.82rem; color:var(--gray-500); margin-top:6px;">This serves as your digital signature confirming the seller agreement.</p>
+            </div>
+
+            <div id="signaturePreview" style="display:none; background:#fff; border:2px solid #0e7c4a; border-radius:8px; padding:20px; margin-bottom:16px; text-align:center;">
+              <p style="font-size:0.8rem; color:var(--gray-500); margin-bottom:8px;">SELLER'S DIGITAL SIGNATURE</p>
+              <p id="signatureDisplay" style="font-family:'Brush Script MT','Segoe Script',cursive; font-size:2rem; color:#0e7c4a; border-bottom:1px solid #ccc; display:inline-block; padding:0 20px 4px;"></p>
+              <p style="font-size:0.8rem; color:var(--gray-500); margin-top:8px;">Date: <span id="signatureDate"></span></p>
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px;">
+              <label class="fee-option" style="display:flex; align-items:flex-start; gap:10px; padding:12px 16px; background:#fff8e1; border:2px solid #ffc107; border-radius:8px; cursor:pointer;">
+                <input type="checkbox" name="agreement_confirmed" id="agreementCheck" required style="margin-top:3px; accent-color:#0e7c4a; width:18px; height:18px;">
+                <div>
+                  <strong>I confirm and agree</strong>
+                  <p style="font-size:0.85rem; color:#555; margin-top:4px;">I confirm that all the information I provided is truthful. I agree to the 1% platform fee, the listing terms, and the seller agreement. I understand that my digital signature above is legally binding.</p>
+                </div>
+              </label>
             </div>
 
             <div class="mt-3">

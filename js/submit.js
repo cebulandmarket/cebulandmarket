@@ -100,22 +100,100 @@ document.addEventListener('DOMContentLoaded', function() {
   if (lotAreaInput) lotAreaInput.addEventListener('input', autoCalcTotal);
   if (pricePerSqmInput) pricePerSqmInput.addEventListener('input', autoCalcTotal);
 
-  // Show 1% platform fee preview
+  // Show 1% platform fee preview based on fee option selected
   var feePreview = document.getElementById('feePreview');
   var feeAmount = document.getElementById('feeAmount');
+  var feeLabel = document.getElementById('feeLabel');
+  var feeExplanation = document.getElementById('feeExplanation');
+  var feeRadios = form.querySelectorAll('input[name="fee_option"]');
+
   function showFeePreview() {
-    if (ownerPriceInput && feePreview && feeAmount) {
-      var price = parseFloat(ownerPriceInput.value) || 0;
-      if (price > 0) {
+    if (!ownerPriceInput || !feePreview || !feeAmount) return;
+    var price = parseFloat(ownerPriceInput.value) || 0;
+    var selectedOption = form.querySelector('input[name="fee_option"]:checked');
+
+    if (price > 0 && selectedOption) {
+      if (selectedOption.value === 'add_on_top') {
         var withFee = Math.round(price * 1.01);
+        feeLabel.textContent = 'Listing price (with 1% added):';
         feeAmount.textContent = '₱' + withFee.toLocaleString();
-        feePreview.style.display = 'block';
+        feeExplanation.textContent = 'Buyers will see ₱' + withFee.toLocaleString() + ' on the listing. You receive your full ₱' + price.toLocaleString() + '.';
+        feeExplanation.style.display = 'block';
       } else {
-        feePreview.style.display = 'none';
+        var yourShare = Math.round(price / 1.01);
+        var fee = price - yourShare;
+        feeLabel.textContent = 'Listing price (1% included):';
+        feeAmount.textContent = '₱' + price.toLocaleString();
+        feeExplanation.textContent = 'Listing shows ₱' + price.toLocaleString() + '. Upon sale, you remit ₱' + fee.toLocaleString() + ' (1%) to CebuLandMarket.';
+        feeExplanation.style.display = 'block';
       }
+      feePreview.style.display = 'block';
+    } else if (price > 0) {
+      // Price entered but no option selected yet
+      feePreview.style.display = 'none';
+      feeExplanation.style.display = 'none';
+    } else {
+      feePreview.style.display = 'none';
+      feeExplanation.style.display = 'none';
     }
   }
+
   if (ownerPriceInput) ownerPriceInput.addEventListener('input', showFeePreview);
+  for (var r = 0; r < feeRadios.length; r++) {
+    feeRadios[r].addEventListener('change', showFeePreview);
+  }
+
+  // ==========================================
+  // DIGITAL SIGNATURE PREVIEW
+  // ==========================================
+  var signatureInput = document.getElementById('signatureName');
+  var signaturePreview = document.getElementById('signaturePreview');
+  var signatureDisplay = document.getElementById('signatureDisplay');
+  var signatureDate = document.getElementById('signatureDate');
+
+  function updateSignaturePreview() {
+    if (!signatureInput || !signaturePreview) return;
+    var name = signatureInput.value.trim();
+    if (name.length > 0) {
+      signatureDisplay.textContent = name;
+      signatureDate.textContent = new Date().toLocaleDateString('en-PH', { year:'numeric', month:'long', day:'numeric' });
+      signaturePreview.style.display = 'block';
+    } else {
+      signaturePreview.style.display = 'none';
+    }
+  }
+
+  if (signatureInput) signatureInput.addEventListener('input', updateSignaturePreview);
+
+  // ==========================================
+  // SELLING METHOD: WHOLE LOT vs PER CUT
+  // ==========================================
+  var sellingRadios = form.querySelectorAll('input[name="selling_method"]');
+  var perCutDetails = document.getElementById('perCutDetails');
+  var minCutInput = document.getElementById('minCutSize');
+  var cutPriceInput = document.getElementById('cutPricePerSqm');
+  var wholeLotNote = document.getElementById('wholeLotNote');
+
+  function handleSellingMethod() {
+    var selected = form.querySelector('input[name="selling_method"]:checked');
+    if (!selected) return;
+
+    if (selected.value === 'per_cut') {
+      if (perCutDetails) perCutDetails.style.display = 'block';
+      if (minCutInput) minCutInput.setAttribute('required', 'required');
+      if (cutPriceInput) cutPriceInput.setAttribute('required', 'required');
+      if (wholeLotNote) wholeLotNote.textContent = 'Total asking price if someone wants to buy the entire lot.';
+    } else {
+      if (perCutDetails) perCutDetails.style.display = 'none';
+      if (minCutInput) minCutInput.removeAttribute('required');
+      if (cutPriceInput) cutPriceInput.removeAttribute('required');
+      if (wholeLotNote) wholeLotNote.textContent = 'Total asking price for the entire property.';
+    }
+  }
+
+  for (var s = 0; s < sellingRadios.length; s++) {
+    sellingRadios[s].addEventListener('change', handleSellingMethod);
+  }
 
   // ==========================================
   // FRIENDLY VALIDATION
@@ -137,7 +215,13 @@ document.addEventListener('DOMContentLoaded', function() {
     'tax_status': 'Please let us know if your real property taxes are updated.',
     'property_issues': 'Please let us know if there are any issues with the property.',
     'document_links': 'Please share links to your property documents so we can verify them.',
-    'description': 'Please add a short description of your property.'
+    'description': 'Please add a short description of your property.',
+    'fee_option': 'Please select how you want the 1% platform fee handled.',
+    'selling_method': 'Please select whether you want to sell the whole lot or per cut.',
+    'min_cut_size': 'Please enter the minimum cut size in sqm.',
+    'cut_price_per_sqm': 'Please enter the price per sqm for cuts.',
+    'digital_signature': 'Please type your full name as your digital signature.',
+    'agreement_confirmed': 'Please confirm that you agree to the terms by checking the box.'
   };
 
   // Show friendly message next to a field
@@ -194,6 +278,35 @@ document.addEventListener('DOMContentLoaded', function() {
       var field = requiredFields[i];
       var name = field.getAttribute('name');
       var value = field.value.trim();
+
+      // Check checkbox
+      if (field.type === 'checkbox' && !field.checked) {
+        var message = fieldMessages[name] || 'This field is required.';
+        showFieldMessage(field.closest('.form-group') ? field : field, message);
+        if (!firstError) firstError = field;
+        errorCount++;
+        continue;
+      }
+
+      // Check radio buttons (only validate once per group)
+      if (field.type === 'radio') {
+        var groupChecked = form.querySelector('input[name="' + name + '"]:checked');
+        if (!groupChecked) {
+          // Only show error once per radio group
+          var alreadyShown = field.parentElement.parentElement.querySelector('.field-message');
+          if (!alreadyShown) {
+            var msg = fieldMessages[name] || 'Please select an option.';
+            var container = field.closest('.fee-options') || field.parentElement;
+            var msgEl = document.createElement('p');
+            msgEl.className = 'field-message';
+            msgEl.textContent = msg;
+            container.appendChild(msgEl);
+            if (!firstError) firstError = field;
+            errorCount++;
+          }
+        }
+        continue;
+      }
 
       // Check if empty
       if (!value) {
@@ -256,6 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var formData = new FormData(form);
     formData.append('reference_id', refId);
     formData.append('submission_date', new Date().toISOString());
+    formData.append('signature_date', new Date().toLocaleDateString('en-PH', { year:'numeric', month:'long', day:'numeric' }));
 
     // Check if Formspree is configured
     var action = form.getAttribute('action');
