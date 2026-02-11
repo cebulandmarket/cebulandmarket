@@ -332,7 +332,7 @@ function renderPropertyDetail() {
           '</div>' +
           '<div class="detail-card">' +
             '<h2>Inquire About This Property</h2>' +
-            '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">All inquiries go through CebuLandMarket. We\'ll assist you and coordinate with the property owner.</p>' +
+            '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Inquiries are forwarded to the property owner. Buyer and seller deal directly.</p>' +
             '<div class="contact-buttons">' + contactHtml + '</div>' +
           '</div>' +
           '<div class="detail-card" style="text-align:center;">' +
