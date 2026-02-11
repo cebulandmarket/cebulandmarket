@@ -355,6 +355,11 @@ function renderPropertyDetail() {
             '</form>' +
             '<p id="inquirySuccess" style="display:none; color:var(--primary); font-weight:600; text-align:center; margin-top:12px;">Inquiry sent! We\'ll get back to you soon.</p>' +
           '</div>' +
+          '<div class="detail-card" style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border:2px solid #16a34a;">' +
+            '<h2 style="color:#16a34a;">View Personal Page</h2>' +
+            '<p style="font-size:0.9rem; color:var(--gray-600); margin-bottom:12px;">See the owner\'s story and vision for this property on its own dedicated page.</p>' +
+            '<a href="share.html?id=' + listing.id + '" style="display:block; text-align:center; padding:12px; background:#16a34a; color:#fff; border-radius:8px; text-decoration:none; font-weight:600;">View Property Story</a>' +
+          '</div>' +
           '<div class="detail-card share-card">' +
             '<h2>Share This Property</h2>' +
             '<div class="share-buttons">' +
@@ -368,6 +373,9 @@ function renderPropertyDetail() {
           '</div>' +
         '</div>' +
       '</div>';
+
+    // Init lightbox for gallery photos
+    initLightbox(photoUrls);
   });
 }
 
@@ -414,6 +422,72 @@ function changeMainPhoto(thumbEl, url) {
   var thumbs = thumbEl.parentElement.querySelectorAll('img');
   thumbs.forEach(function(t) { t.classList.remove('active'); });
   thumbEl.classList.add('active');
+  // Sync lightbox index
+  for (var i = 0; i < lbPhotos.length; i++) {
+    if (lbPhotos[i] === url) { lbIndex = i; break; }
+  }
+}
+
+// Lightbox
+var lbPhotos = [];
+var lbIndex = 0;
+
+function initLightbox(photos) {
+  lbPhotos = photos;
+  // Create lightbox element once
+  if (!document.getElementById('photoLightbox')) {
+    var lb = document.createElement('div');
+    lb.className = 'photo-lightbox';
+    lb.id = 'photoLightbox';
+    lb.innerHTML =
+      '<button class="lb-close" onclick="closeLb()">&times;</button>' +
+      '<button class="lb-nav lb-prev" onclick="navLb(-1)">&#8249;</button>' +
+      '<img id="lbImg" src="" alt="Photo">' +
+      '<button class="lb-nav lb-next" onclick="navLb(1)">&#8250;</button>' +
+      '<div class="lb-counter" id="lbCounter"></div>';
+    document.body.appendChild(lb);
+    lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function(e) {
+      if (!document.getElementById('photoLightbox').classList.contains('active')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') navLb(-1);
+      if (e.key === 'ArrowRight') navLb(1);
+    });
+  }
+  // Use setTimeout to ensure DOM elements are rendered
+  setTimeout(function() {
+    // Make main photo clickable
+    var mainImg = document.getElementById('galleryMain');
+    if (mainImg) {
+      mainImg.style.cursor = 'pointer';
+      mainImg.onclick = function() { openLb(lbIndex); };
+    }
+    // Make each thumbnail also open lightbox on click
+    var thumbs = document.querySelectorAll('.gallery-thumbs img');
+    thumbs.forEach(function(thumb, idx) {
+      thumb.addEventListener('dblclick', function() { openLb(idx); });
+    });
+  }, 50);
+}
+
+function openLb(index) {
+  lbIndex = index;
+  var lb = document.getElementById('photoLightbox');
+  document.getElementById('lbImg').src = lbPhotos[lbIndex];
+  document.getElementById('lbCounter').textContent = (lbIndex + 1) + ' / ' + lbPhotos.length;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLb() {
+  document.getElementById('photoLightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function navLb(dir) {
+  lbIndex = (lbIndex + dir + lbPhotos.length) % lbPhotos.length;
+  document.getElementById('lbImg').src = lbPhotos[lbIndex];
+  document.getElementById('lbCounter').textContent = (lbIndex + 1) + ' / ' + lbPhotos.length;
 }
 
 // ==========================================
