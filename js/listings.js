@@ -51,6 +51,7 @@ function createPropertyCard(listing) {
       '<div class="card-image">' +
         '<img src="' + imageUrl + '" alt="' + escapeHtml(listing.title) + '" loading="lazy" onerror="this.src=getPlaceholderImage()">' +
         '<span class="card-badge">' + escapeHtml(typeDisplay) + '</span>' +
+        '<span class="card-badge-verified">&#10003; Verified</span>' +
       '</div>' +
       '<div class="card-body">' +
         '<div class="card-price">' + priceDisplay + (pricePerSqm ? ' <small>' + pricePerSqm + '</small>' : '') + '</div>' +
@@ -318,6 +319,10 @@ function renderPropertyDetail() {
           '<div class="detail-card">' +
             '<div class="price-tag">' + formatPrice(applyFee(listing.total_price, listing.id)) + '</div>' +
             (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(applyFee(listing.price_per_sqm, listing.id)) + ' per sqm</div>' : '') +
+            '<div class="detail-verified-badge">' +
+              '<div class="badge-icon">&#10003;</div>' +
+              '<div><div class="badge-text">Document Verified</div><div class="badge-sub">Title &amp; documents reviewed by our team</div></div>' +
+            '</div>' +
             '<div class="detail-info">' +
               '<div class="info-item"><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
               '<div class="info-item"><span class="info-label">Property Type</span><span class="info-value">' + escapeHtml(getTypeName(listing.type)) + '</span></div>' +
@@ -329,6 +334,13 @@ function renderPropertyDetail() {
             '<h2>Inquire About This Property</h2>' +
             '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">All inquiries go through CebuLandMarket. We\'ll assist you and coordinate with the property owner.</p>' +
             '<div class="contact-buttons">' + contactHtml + '</div>' +
+          '</div>' +
+          '<div class="detail-card" style="text-align:center;">' +
+            '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(baseUrl + 'listing-' + listing.id + '.html') + '" target="_blank" class="fb-share-prominent">' +
+              '<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>' +
+              'Share This Property on Facebook' +
+            '</a>' +
+            '<p style="font-size:0.8rem; color:var(--gray-500); margin-top:8px;">Help a friend find their perfect land</p>' +
           '</div>' +
           '<div class="detail-card" style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border:2px solid #16a34a;">' +
             '<h2 style="color:#16a34a;">View Personal Page</h2>' +
@@ -348,6 +360,12 @@ function renderPropertyDetail() {
           '</div>' +
         '</div>' +
       '</div>';
+
+    // Update mobile sticky bar WhatsApp link with listing title
+    var stickyWa = document.getElementById('stickyWhatsapp');
+    if (stickyWa) {
+      stickyWa.href = 'https://wa.me/639687512330?text=' + encodeURIComponent('Hi, I\'m interested in: ' + listing.title);
+    }
 
     // Init lightbox for gallery photos
     initLightbox(photoUrls);

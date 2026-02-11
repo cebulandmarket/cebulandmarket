@@ -90,85 +90,109 @@
   <section class="faq-section">
     <div class="container" style="max-width:800px;">
 
-      <h3 class="faq-category">For Buyers</h3>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is CebuLandMarket legit?</div>
-        <div class="faq-answer"><p>Yes. CebuLandMarket is a property listing platform based in Cebu, Philippines. We verify all property documents before any listing goes live. We only publish listings with clean and complete paperwork to protect both buyers and sellers.</p></div>
+      <!-- Tab Navigation -->
+      <div class="faq-tabs">
+        <button class="faq-tab active" onclick="switchFaqTab('buyers', this)">For Buyers</button>
+        <button class="faq-tab" onclick="switchFaqTab('sellers', this)">For Sellers</button>
+        <button class="faq-tab" onclick="switchFaqTab('general', this)">General</button>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do I need to pay anything as a buyer?</div>
-        <div class="faq-answer"><p>No. Browsing listings and contacting sellers is completely free. The only costs are the standard transaction costs (taxes, notarial fees, transfer fees) which are part of any normal property purchase.</p></div>
+      <!-- Buyers Tab -->
+      <div class="faq-tab-content" id="faq-buyers">
+        <h3 class="faq-category">For Buyers</h3>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is CebuLandMarket legit?</div>
+          <div class="faq-answer"><p>Yes. CebuLandMarket is a property listing platform based in Cebu, Philippines. We verify all property documents before any listing goes live. We only publish listings with clean and complete paperwork to protect both buyers and sellers.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do I need to pay anything as a buyer?</div>
+          <div class="faq-answer"><p>No. Browsing listings and contacting sellers is completely free. The only costs are the standard transaction costs (taxes, notarial fees, transfer fees) which are part of any normal property purchase.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Are the listings verified?</div>
+          <div class="faq-answer"><p>Yes. Our team reviews the property documents (title, tax declaration, etc.) before publishing any listing. Properties with incomplete or problematic documents are not approved. However, we always recommend that buyers do their own due diligence before purchasing.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I view a property?</div>
+          <div class="faq-answer"><p>Send us a message through the contact buttons on the listing page and we'll coordinate a viewing for you. The property owner will personally show you the property and walk you through the land.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Can I negotiate the price?</div>
+          <div class="faq-answer"><p>Yes. The listed price is the seller's asking price. If you're interested in negotiating, let us know through the contact buttons and we'll coordinate with the property owner on your behalf.</p></div>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Are the listings verified?</div>
-        <div class="faq-answer"><p>Yes. Our team reviews the property documents (title, tax declaration, etc.) before publishing any listing. Properties with incomplete or problematic documents are not approved. However, we always recommend that buyers do their own due diligence before purchasing.</p></div>
+      <!-- Sellers Tab -->
+      <div class="faq-tab-content" id="faq-sellers" style="display:none;">
+        <h3 class="faq-category">For Sellers</h3>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How much does it cost to list my property?</div>
+          <div class="faq-answer"><p>There is a one-time listing fee of ₱500 via GCash. Your listing stays active until your property is sold — no monthly fees or renewals. If your listing is not approved after document review, the ₱500 is fully refunded.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What documents do I need?</div>
+          <div class="faq-answer"><p>At minimum, you need a Transfer Certificate of Title (TCT) or Tax Declaration, plus a valid government ID. Having complete and clean documents speeds up the approval process. Properties with ongoing legal issues, missing documents, or complicated ownership will not be approved.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How long before my listing goes live?</div>
+          <div class="faq-answer"><p>After submitting your listing and paying the ₱500 fee, our team reviews your documents within 24-48 hours. If everything is in order, your listing goes live immediately after approval.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What if my listing is not approved?</div>
+          <div class="faq-answer"><p>If your property does not pass our document verification, your ₱500 listing fee is fully refunded via GCash. We will inform you of the reason for non-approval so you can fix the issue and resubmit if you wish.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do I need to show the property to buyers myself?</div>
+          <div class="faq-answer"><p>Yes. When a buyer is interested, they contact CebuLandMarket first — not you directly. We handle the inquiry, coordinate the schedule, and then let you know when to show the property. All you need to do is be available and show the buyer around your land.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What does the ₱50,000 processor fee cover?</div>
+          <div class="faq-answer"><p>The ₱50,000 covers our processor's service fee for handling all the paperwork — from deed of sale up to title transfer. Government fees, taxes, notarial fees, and other charges required during the process are separate and are the obligation of the seller and buyer as agreed upon. This service is optional. We also offer expedited processing if you need it done faster, with an additional fee depending on the timeline.</p></div>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I view a property?</div>
-        <div class="faq-answer"><p>Send us a message through the contact buttons on the listing page and we'll coordinate a viewing for you. The property owner will personally show you the property and walk you through the land.</p></div>
-      </div>
+      <!-- General Tab -->
+      <div class="faq-tab-content" id="faq-general" style="display:none;">
+        <h3 class="faq-category">General</h3>
 
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Can I negotiate the price?</div>
-        <div class="faq-answer"><p>Yes. The listed price is the seller's asking price. If you're interested in negotiating, let us know through the contact buttons and we'll coordinate with the property owner on your behalf.</p></div>
-      </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I contact CebuLandMarket?</div>
+          <div class="faq-answer"><p>You can reach us via email at cebulandmarket@gmail.com. We typically respond within 24 hours.</p></div>
+        </div>
 
-      <h3 class="faq-category">For Sellers</h3>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is CebuLandMarket a real estate broker?</div>
+          <div class="faq-answer"><p>No. CebuLandMarket is an online listing platform that connects property sellers with potential buyers. We are not a real estate broker or agent. All transactions are between the buyer and seller directly. We provide document verification to ensure listing quality.</p></div>
+        </div>
 
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How much does it cost to list my property?</div>
-        <div class="faq-answer"><p>There is a one-time listing fee of ₱500 via GCash. Your listing stays active until your property is sold — no monthly fees or renewals. If your listing is not approved after document review, the ₱500 is fully refunded.</p></div>
-      </div>
-
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What documents do I need?</div>
-        <div class="faq-answer"><p>At minimum, you need a Transfer Certificate of Title (TCT) or Tax Declaration, plus a valid government ID. Having complete and clean documents speeds up the approval process. Properties with ongoing legal issues, missing documents, or complicated ownership will not be approved.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How long before my listing goes live?</div>
-        <div class="faq-answer"><p>After submitting your listing and paying the ₱500 fee, our team reviews your documents within 24-48 hours. If everything is in order, your listing goes live immediately after approval.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What if my listing is not approved?</div>
-        <div class="faq-answer"><p>If your property does not pass our document verification, your ₱500 listing fee is fully refunded via GCash. We will inform you of the reason for non-approval so you can fix the issue and resubmit if you wish.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do I need to show the property to buyers myself?</div>
-        <div class="faq-answer"><p>Yes. When a buyer is interested, they contact CebuLandMarket first — not you directly. We handle the inquiry, coordinate the schedule, and then let you know when to show the property. All you need to do is be available and show the buyer around your land.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What does the ₱50,000 processor fee cover?</div>
-        <div class="faq-answer"><p>The ₱50,000 covers our processor's service fee for handling all the paperwork — from deed of sale up to title transfer. Government fees, taxes, notarial fees, and other charges required during the process are separate and are the obligation of the seller and buyer as agreed upon. This service is optional. We also offer expedited processing if you need it done faster, with an additional fee depending on the timeline.</p></div>
-      </div>
-
-      <h3 class="faq-category">General</h3>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I contact CebuLandMarket?</div>
-        <div class="faq-answer"><p>You can reach us via email at cebulandmarket@gmail.com. We typically respond within 24 hours.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is CebuLandMarket a real estate broker?</div>
-        <div class="faq-answer"><p>No. CebuLandMarket is an online listing platform that connects property sellers with potential buyers. We are not a real estate broker or agent. All transactions are between the buyer and seller directly. We provide document verification to ensure listing quality.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What areas do you cover?</div>
-        <div class="faq-answer"><p>We cover all municipalities and cities in Cebu Province, including Cebu City, Mandaue, Lapu-Lapu, Talisay, Minglanilla, Naga, Carcar, Argao, Dalaguete, Moalboal, Barili, Ronda, Oslob, Santander, and many more.</p></div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What areas do you cover?</div>
+          <div class="faq-answer"><p>We cover all municipalities and cities in Cebu Province, including Cebu City, Mandaue, Lapu-Lapu, Talisay, Minglanilla, Naga, Carcar, Argao, Dalaguete, Moalboal, Barili, Ronda, Oslob, Santander, and many more.</p></div>
+        </div>
       </div>
 
     </div>
   </section>
+
+  <script>
+    function switchFaqTab(tab, btn) {
+      document.querySelectorAll('.faq-tab-content').forEach(function(el) { el.style.display = 'none'; });
+      document.querySelectorAll('.faq-tab').forEach(function(el) { el.classList.remove('active'); });
+      document.getElementById('faq-' + tab).style.display = 'block';
+      btn.classList.add('active');
+    }
+  </script>
 
   <!-- Footer -->
   <footer class="footer">

@@ -31,8 +31,8 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Find Your Perfect Land in Cebu</h1>
-      <p>Browse affordable lots, land, and homes for sale across Cebu, Philippines. Your next investment starts here.</p>
+      <h1>Trusted Land Listings in Cebu, Verified by Our Team</h1>
+      <p>Whether you're buying your first lot or selling your family land, every listing here is document-verified so you can move forward with confidence.</p>
       <div class="hero-buttons">
         <a href="listings.html" class="btn btn-outline" style="color:#fff; border-color:#fff; background:var(--accent);">Browse Listings</a>
         <a href="submit.html" class="btn btn-outline" style="color:#fff; border-color:#fff;">List Your Property</a>
@@ -144,6 +144,30 @@
     </div>
   </section>
 
+  <!-- Trust Stats Bar -->
+  <section class="stats-bar trust-stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" id="statSqm">15,000+</div>
+          <div class="stat-label">sqm of Verified Land</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Document Verified</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="statLowest">-</div>
+          <div class="stat-label">Lowest Price/sqm</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">&#10003;</div>
+          <div class="stat-label">Full Refund if Not Approved</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Featured Listings -->
   <section class="section">
     <div class="container">
@@ -188,29 +212,7 @@
     </div>
   </section>
 
-  <!-- Stats -->
-  <section class="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number">20+</div>
-          <div class="stat-label">Cebu Locations</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" id="statLowest">-</div>
-          <div class="stat-label">Lowest Price/sqm</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Document Verified</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">FREE</div>
-          <div class="stat-label">Browsing for Buyers</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- (Stats bar moved above Featured Properties) -->
 
   <!-- Testimonials -->
   <section class="section" style="background:var(--gray-100);">
@@ -353,12 +355,14 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof LISTINGS_DATA === 'undefined') return;
       var active = LISTINGS_DATA.filter(function(l) { return l.status === 'active'; });
-      var locations = [];
+      var totalSqm = 0;
       var lowest = Infinity;
       active.forEach(function(l) {
-        if (l.location && locations.indexOf(l.location) === -1) locations.push(l.location);
+        if (l.lot_area) totalSqm += l.lot_area;
         if (l.price_per_sqm && l.price_per_sqm < lowest) lowest = l.price_per_sqm;
       });
+      var elSqm = document.getElementById('statSqm');
+      if (elSqm && totalSqm > 0) elSqm.textContent = totalSqm.toLocaleString() + '+';
       var el3 = document.getElementById('statLowest');
       if (el3 && lowest < Infinity) el3.textContent = '₱' + lowest.toLocaleString();
     });
