@@ -20,7 +20,7 @@ var LISTINGS_DATA = [
     "address": "Sta. Cruz, Ronda, Cebu",
     "lot_area": 15012,
     "price_per_sqm": 750,
-    "total_price": 11259000,
+    "total_price": 3594000,
     "description": "When we first walked this land, we weren't looking to buy anything. We just ended up here. The mountains were everywhere, the air was cool, and it was so quiet you could hear yourself think. So we stayed. We put up a bamboo house, connected water and electricity, brought in a bed and a table. Mornings here, the mist rolls in and sits low on the slope. At night the breeze is cool, the air is fresh, and everything is shady and windy. We used to picture small cottages tucked into the hillside, a yoga shala, an open-space kubo for meditation, a garden with coffee and cacao. The slope is perfect for it — every level would have its own view. Private road access, 2 minutes to the main highway. We're moving abroad now, so this vision needs someone new. We'd rather it go to someone who gets it.",
     "features": "Private road access,2 mins to main highway,Mountain view,Sloping terrain,Good for resort,Clean title,With electricity,With water,Bamboo house included,Fully furnished,Liveable",
     "photo_url": "att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg",
