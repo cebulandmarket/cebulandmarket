@@ -51,7 +51,7 @@ function createPropertyCard(listing) {
       '<div class="card-image">' +
         '<img src="' + imageUrl + '" alt="' + escapeHtml(listing.title) + '" loading="lazy" onerror="this.src=getPlaceholderImage()">' +
         '<span class="card-badge">' + escapeHtml(typeDisplay) + '</span>' +
-        '<span class="card-badge-verified">&#10003; Verified</span>' +
+        '<span class="card-badge-verified">&#10003; Reviewed</span>' +
       '</div>' +
       '<div class="card-body">' +
         '<div class="card-price">' + priceDisplay + (pricePerSqm ? ' <small>' + pricePerSqm + '</small>' : '') + '</div>' +
@@ -321,7 +321,7 @@ function renderPropertyDetail() {
             (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(applyFee(listing.price_per_sqm, listing.id)) + ' per sqm</div>' : '') +
             '<div class="detail-verified-badge">' +
               '<div class="badge-icon">&#10003;</div>' +
-              '<div><div class="badge-text">Document Verified</div><div class="badge-sub">Title &amp; documents reviewed by our team</div></div>' +
+              '<div><div class="badge-text">Documents Reviewed</div><div class="badge-sub">Title &amp; documents reviewed by our team — not a legal guarantee</div></div>' +
             '</div>' +
             '<div class="detail-info">' +
               '<div class="info-item"><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
