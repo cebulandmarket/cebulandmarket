@@ -144,25 +144,25 @@
     </div>
   </section>
 
-  <!-- Trust Stats Bar -->
-  <section class="stats-bar trust-stats">
+  <!-- Stats -->
+  <section class="stats-bar">
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number" id="statSqm">15,000+</div>
-          <div class="stat-label">sqm of Reviewed Land</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Documents Reviewed</div>
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Cebu Locations</div>
         </div>
         <div class="stat-item">
           <div class="stat-number" id="statLowest">-</div>
           <div class="stat-label">Lowest Price/sqm</div>
         </div>
         <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Documents Reviewed</div>
+        </div>
+        <div class="stat-item">
           <div class="stat-number">FREE</div>
-          <div class="stat-label">Full Refund if Not Approved</div>
+          <div class="stat-label">Browsing for Buyers</div>
         </div>
       </div>
     </div>
@@ -355,14 +355,10 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof LISTINGS_DATA === 'undefined') return;
       var active = LISTINGS_DATA.filter(function(l) { return l.status === 'active'; });
-      var totalSqm = 0;
       var lowest = Infinity;
       active.forEach(function(l) {
-        if (l.lot_area) totalSqm += l.lot_area;
         if (l.price_per_sqm && l.price_per_sqm < lowest) lowest = l.price_per_sqm;
       });
-      var elSqm = document.getElementById('statSqm');
-      if (elSqm && totalSqm > 0) elSqm.textContent = totalSqm.toLocaleString() + '+';
       var el3 = document.getElementById('statLowest');
       if (el3 && lowest < Infinity) el3.textContent = '₱' + lowest.toLocaleString();
     });
