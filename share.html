@@ -140,7 +140,7 @@
 
     /* Vision cards */
     .vision-section {
-      background: linear-gradient(135deg, #fefce8 0%, #fff7ed 100%);
+      background: linear-gradient(135deg, #fefce8 0%, #fff7ed 50%, #f0fdf4 100%);
       margin: 0;
       max-width: 100%;
       padding: 3.5rem 1.5rem;
@@ -160,6 +160,24 @@
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-top: 4px solid #e8b004;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .vision-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .vision-card:nth-child(1) { border-top-color: #16a34a; }
+    .vision-card:nth-child(2) { border-top-color: #7c3aed; }
+    .vision-card:nth-child(3) { border-top-color: #ea580c; }
+    .vision-card:nth-child(4) { border-top-color: #0284c7; }
+    .vision-card:nth-child(5) { border-top-color: #b45309; }
+    .vision-card:nth-child(6) { border-top-color: #0d9488; }
+    .vision-card:nth-child(7) { border-top-color: #e11d48; }
+    .vision-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
     }
     .vision-card h3 {
       font-weight: 700;
@@ -566,11 +584,13 @@
       var visionHtml = '';
       if (listing.vision_items) {
         var items = listing.vision_items.split('|');
+        var visionIcons = ['\ud83c\udfe1', '\ud83e\uddd8', '\ud83c\udf3f', '\ud83c\udfe0', '\ud83d\udc02', '\u26fa', '\ud83c\udf04'];
         visionHtml = '<section class="vision-section"><div class="vision-inner"><h2 class="section-title">What The Owner Imagined Here</h2><div class="vision-grid">';
         for (var v = 0; v < items.length; v += 2) {
           var title = items[v] || '';
           var desc = items[v + 1] || '';
-          visionHtml += '<div class="vision-card"><h3>' + esc(title) + '</h3><p>' + esc(desc) + '</p></div>';
+          var icon = visionIcons[v / 2] || '\u2728';
+          visionHtml += '<div class="vision-card"><span class="vision-icon">' + icon + '</span><h3>' + esc(title) + '</h3><p>' + esc(desc) + '</p></div>';
         }
         visionHtml += '</div></div></section>';
       }
