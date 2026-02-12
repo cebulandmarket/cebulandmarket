@@ -570,6 +570,7 @@
       // Build stats
       var statsHtml = '';
       if (listing.lot_area) statsHtml += '<div class="stat"><div class="stat-value">' + formatNumber(listing.lot_area) + ' sqm</div><div class="stat-label">Lot Area</div></div>';
+      if (listing.floor_area) statsHtml += '<div class="stat"><div class="stat-value">' + formatNumber(listing.floor_area) + ' sqm</div><div class="stat-label">Floor Area</div></div>';
       if (listing.price_per_sqm) statsHtml += '<div class="stat"><div class="stat-value">' + formatPrice(listing.price_per_sqm) + '</div><div class="stat-label">Per sqm</div></div>';
       if (listing.title_status) {
         var parts = listing.title_status.split(',');

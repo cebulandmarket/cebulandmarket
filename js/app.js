@@ -96,7 +96,7 @@ function slugify(text) {
 
 // Location slug to display name mapping
 var locationNames = {
-  'cebu-city': 'Cebu City', 'mandaue': 'Mandaue', 'lapu-lapu': 'Lapu-Lapu',
+  'cebu-city': 'Cebu City', 'banilad': 'Banilad', 'mandaue': 'Mandaue', 'lapu-lapu': 'Lapu-Lapu',
   'talisay': 'Talisay', 'toledo': 'Toledo', 'danao': 'Danao',
   'naga': 'Naga', 'carcar': 'Carcar', 'bogo': 'Bogo',
   'liloan': 'Liloan', 'consolacion': 'Consolacion', 'compostela': 'Compostela',

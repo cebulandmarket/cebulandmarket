@@ -42,7 +42,7 @@ var LISTINGS_DATA = [
     "id": "2",
     "title": "3 Bedroom House and Lot in Banilad, Cebu City",
     "type": "house-and-lot",
-    "location": "cebu-city",
+    "location": "banilad",
     "address": "Holy Family 2, Banilad, Cebu City",
     "lot_area": 85,
     "floor_area": 100,
@@ -61,6 +61,8 @@ var LISTINGS_DATA = [
     "owner_name": "CebuLandMarket",
     "title_status": "Clean Title, 1 Owner",
     "status": "active",
-    "date_listed": "2026-02-12"
+    "date_listed": "2026-02-12",
+    "story": "We moved to Banilad because we wanted to be close to everything. And we were right — this neighborhood delivers.\n\nHoly Family 2 is quiet inside, but step outside and the whole city is at your doorstep. Vicente Gullas Memorial Hospital is literally 180 meters away. University of the Visayas is 130 meters. Banilad Town Centre — 224 meters. You don't even need a car for most errands.\n\nA.S. Fortuna Street is right there — restaurants, banks, pharmacies, hardware stores, everything you need on one strip. Gibb's Hot Wings, Cherry's The Spice, Faloodeh — we've tried them all, and they're all walking distance. Ayala Center Cebu is a short drive. Country Mall, SM City — same. IT Park is nearby too, which is why a lot of BPO workers and young professionals live around here.\n\nThe house itself is a cozy 2-storey — 3 bedrooms, 2 bathrooms, 2-car parking, 100 sqm floor area on an 85 sqm lot. We furnished everything. The beds, the tables, the appliances — it's all included. You literally just bring your clothes and move in.\n\nWe actually ran it as an Airbnb and it did well. The location sells itself — guests loved being close to everything. So whether you want to live here or earn from it, this house is ready for both.\n\nNindot gyud ang location ani. Dili ka mag-worry asa ka mopalit ug pagkaon, asa ka magpa-check-up, asa ka mag-gym. Tanan duol ra. Mao ni ang klase nga balay nga dili lang balay — kundi lifestyle.\n\nWe're selling because we're moving abroad. But whoever gets this place is getting more than a house — you're getting one of the best locations in Cebu City.",
+    "vision_items": "Family Home|Spacious 3-bedroom house in a safe, gated subdivision. Schools are nearby — University of the Visayas is 130m away, and USC, UC, CIT-U are all a short drive. Malls, hospitals, and parks are within minutes. Everything a family needs, already in place.|Airbnb & Rental Income|This house was already operating as an Airbnb — and it did well. Fully furnished, move-in ready, in one of Cebu City's most visited neighborhoods. Banilad's central location means steady bookings from tourists and business travelers alike.|Work From Home Setup|Dedicated rooms that work perfectly as home offices or study areas. Air-conditioned, quiet subdivision, and you're close to restaurants and cafes when you need a break. IT Park is nearby for meetings. Fast internet area.|Investment Property|Banilad property values keep rising — it's one of the most in-demand neighborhoods in Cebu City. A fully furnished house-and-lot with clean title in this location is a solid long-term investment. Buy now, benefit later.|Student Housing|With University of the Visayas just 130m away and other universities nearby (USC, UC, CIT-U), this house is perfect for student housing or a boarding house. 3 bedrooms, fully furnished, close to everything students need — food, transport, hospitals."
   }
 ];
