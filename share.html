@@ -650,8 +650,18 @@
         });
       }
 
-      // Story section removed
+      // Build story section
       var storyHtml = '';
+      if (listing.story) {
+        var paragraphs = listing.story.split('\n').filter(Boolean);
+        storyHtml = '<section class="section story"><h2 class="section-title">The Story</h2>';
+        paragraphs.forEach(function(p) {
+          storyHtml += '<p>' + esc(p) + '</p>';
+        });
+        storyHtml += '</section>';
+      } else {
+        storyHtml = '<section class="section story"><h2 class="section-title">About This Property</h2><p class="no-story-note">' + esc(listing.description) + '</p></section>';
+      }
 
       // Build vision cards
       var visionHtml = '';
