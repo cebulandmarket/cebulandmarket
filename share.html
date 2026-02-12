@@ -650,19 +650,8 @@
         });
       }
 
-      // Build story section
+      // Story section removed
       var storyHtml = '';
-      if (listing.story) {
-        var paragraphs = listing.story.split('\n').filter(Boolean);
-        storyHtml = '<section class="section story">';
-        paragraphs.forEach(function(p) {
-          storyHtml += '<p>' + esc(p) + '</p>';
-        });
-        storyHtml += '</section>';
-      } else {
-        // Fallback: use description
-        storyHtml = '<section class="section story"><h2 class="section-title">About This Property</h2><p class="no-story-note">' + esc(listing.description) + '</p></section>';
-      }
 
       // Build vision cards
       var visionHtml = '';
