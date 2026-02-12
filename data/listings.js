@@ -51,7 +51,7 @@ var LISTINGS_DATA = [
     "description": "Fully furnished 2-storey house and lot in Banilad, Cebu City. 3 bedrooms, 2 bathrooms, 2-car parking. Move-in ready — everything is included. Clean title, 1 owner. Located in one of Cebu City's most convenient neighborhoods, close to malls, restaurants, schools, and hospitals.",
     "features": "3 Bedrooms,2 Bathrooms,2-Storey,2-Car Parking,Fully Furnished,Move-in Ready,Clean Title,1 Owner,85 sqm Lot,100 sqm Floor Area",
     "photo_url": "images/banilad-2.jpg",
-    "photo_urls": "images/banilad-1.jpg,images/banilad-2.jpg,images/banilad-3.jpg,images/banilad-4.jpg,images/banilad-5.jpg,images/banilad-6.jpg,images/banilad-7.jpg,images/banilad-8.jpg,images/banilad-9.jpg,images/banilad-10.jpg",
+    "photo_urls": "images/banilad-1.jpg,images/banilad-2.jpg,images/banilad-3.jpg,images/banilad-4.jpg,images/banilad-5.jpg,images/banilad-6.jpg,images/banilad-7.jpg,images/banilad-8.jpg,images/banilad-9.jpg,images/banilad-10.jpg,images/banilad-11.jpg,images/banilad-12.jpg,images/banilad-13.jpg",
     "map_url": "Banilad, Cebu City, Philippines",
     "video_url": "",
     "messenger": "https://m.me/61587469756965",
