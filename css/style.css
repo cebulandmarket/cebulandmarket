@@ -1269,6 +1269,11 @@ ul { list-style: none; }
   color: var(--gray-300);
   margin-top: 4px;
 }
+.stat-dti-img {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+}
 
 /* --- CTA Banner --- */
 .cta-banner {
