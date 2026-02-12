@@ -388,8 +388,9 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .catch(function(error) {
         console.error('Submission error:', error);
-        showSuccess(refId);
-        alert('Note: The form may not have been sent via email. Please take a screenshot of your Reference ID and send it to us directly via Messenger or email.');
+        alert('Something went wrong. Please try again, or contact us directly via Messenger or email at cebulandmarket@gmail.com.');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
       })
       .finally(function() {
         submitBtn.textContent = originalText;
