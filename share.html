@@ -202,6 +202,77 @@
       line-height: 1.5;
     }
 
+    /* Reviews */
+    .reviews-section {
+      background: #fff;
+    }
+    .reviews-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .reviews-rating {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1a1a2e;
+    }
+    .reviews-stars {
+      color: #e8b004;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+    .reviews-count {
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .review-card {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 4px solid #e8b004;
+    }
+    .review-card p {
+      font-size: 0.95rem;
+      color: #374151;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #e8b004;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1a1a2e;
+    }
+    .review-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
     /* Features */
     .features-grid {
       display: grid;
@@ -608,6 +679,24 @@
         visionHtml += '</div></div></section>';
       }
 
+      // Build reviews
+      var reviewsHtml = '';
+      if (listing.reviews && listing.reviews.length > 0) {
+        reviewsHtml = '<section class="reviews-section"><div class="section">';
+        reviewsHtml += '<h2 class="section-title">Airbnb Guest Reviews</h2>';
+        reviewsHtml += '<div class="reviews-header"><span class="reviews-rating">5.0</span><span class="reviews-stars">\u2605\u2605\u2605\u2605\u2605</span></div>';
+        reviewsHtml += '<div class="reviews-count">' + listing.reviews.length + ' reviews \u00b7 Listed on Airbnb for 8 months</div>';
+        reviewsHtml += '<div class="reviews-grid">';
+        listing.reviews.forEach(function(r) {
+          var initial = (r.name || '?').charAt(0).toUpperCase();
+          reviewsHtml += '<div class="review-card">';
+          reviewsHtml += '<p>\u201c' + esc(r.text) + '\u201d</p>';
+          reviewsHtml += '<div class="review-author"><div class="review-avatar">' + initial + '</div><div><div class="review-name">' + esc(r.name) + '</div><div class="review-meta">' + esc(r.from) + ' \u00b7 ' + esc(r.date) + '</div></div></div>';
+          reviewsHtml += '</div>';
+        });
+        reviewsHtml += '</div></div></section>';
+      }
+
       // Build features
       var featuresHtml = '';
       if (listing.features) {
@@ -685,6 +774,9 @@
 
       // Vision
       html += visionHtml;
+
+      // Reviews
+      html += reviewsHtml;
 
       // Features
       html += featuresHtml;
