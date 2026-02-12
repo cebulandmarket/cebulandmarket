@@ -30,7 +30,7 @@ function fetchListings(callback) {
 
 // Platform fee (1%) added to seller's asking price
 var PLATFORM_FEE = 0.01;
-var OWNER_LISTINGS = ['1']; // Owner's own listings — no fee applied
+var OWNER_LISTINGS = ['1', '2']; // Owner's own listings — no fee applied
 function applyFee(price, listingId) {
   if (listingId && OWNER_LISTINGS.indexOf(listingId) !== -1) return price;
   return Math.round(price * (1 + PLATFORM_FEE));
@@ -43,6 +43,7 @@ function createPropertyCard(listing) {
   var locationDisplay = getLocationName(listing.location);
   var typeDisplay = getTypeName(listing.type);
   var areaDisplay = formatNumber(listing.lot_area) + ' sqm';
+  var floorDisplay = listing.floor_area ? formatNumber(listing.floor_area) + ' sqm floor' : '';
 
   var card = document.createElement('div');
   card.className = 'property-card';
@@ -59,6 +60,7 @@ function createPropertyCard(listing) {
         '<div class="card-location">&#128205; ' + escapeHtml(locationDisplay) + ', Cebu</div>' +
         '<div class="card-meta">' +
           '<span>&#128207; ' + areaDisplay + '</span>' +
+          (floorDisplay ? '<span>&#127970; ' + floorDisplay + '</span>' : '') +
         '</div>' +
       '</div>' +
     '</a>';
@@ -324,6 +326,7 @@ function renderPropertyDetail() {
             '</div>' +
             '<div class="detail-info">' +
               '<div class="info-item"><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
+              (listing.floor_area ? '<div class="info-item"><span class="info-label">Floor Area</span><span class="info-value">' + formatNumber(listing.floor_area) + ' sqm</span></div>' : '') +
               '<div class="info-item"><span class="info-label">Property Type</span><span class="info-value">' + escapeHtml(getTypeName(listing.type)) + '</span></div>' +
               '<div class="info-item"><span class="info-label">Location</span><span class="info-value">' + escapeHtml(getLocationName(listing.location)) + '</span></div>' +
               '<div class="info-item"><span class="info-label">Title Status</span><span class="info-value">' + escapeHtml(listing.title_status || 'Inquire for details') + '</span></div>' +
