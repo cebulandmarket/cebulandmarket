@@ -1777,14 +1777,18 @@ ul { list-style: none; }
   background: var(--primary-light);
 }
 .dti-badge-banner {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 28px;
+  gap: 16px;
   background: var(--white);
   border: 2px solid var(--primary);
   border-radius: var(--radius);
-  padding: 28px 32px;
+  padding: 16px 28px;
   box-shadow: var(--shadow);
+  margin: 0 auto;
+}
+.dti-section .container {
+  text-align: center;
 }
 .dti-badge-link {
   flex-shrink: 0;
