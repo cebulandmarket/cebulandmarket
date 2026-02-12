@@ -168,30 +168,6 @@ ul { list-style: none; }
   font-weight: 800;
   color: var(--primary);
   letter-spacing: -0.5px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.navbar .logo .logo-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  background: linear-gradient(135deg, var(--primary), #1b5e20);
-  color: white;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 8px rgba(46,125,50,0.3);
-  position: relative;
-}
-.navbar .logo .logo-icon::after {
-  content: '📍';
-  position: absolute;
-  font-size: 0.55rem;
-  bottom: -2px;
-  right: -2px;
 }
 
 .navbar .logo span {
@@ -1792,6 +1768,94 @@ ul { list-style: none; }
   }
   .page-property .float-label {
     bottom: 116px;
+  }
+}
+
+/* --- DTI Registration Badge --- */
+.dti-section {
+  padding: 40px 0;
+  background: var(--primary-light);
+}
+.dti-badge-banner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: var(--white);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  box-shadow: var(--shadow);
+}
+.dti-badge-link {
+  flex-shrink: 0;
+}
+.dti-badge-img {
+  width: 90px;
+  height: 90px;
+  transition: transform var(--transition);
+}
+.dti-badge-link:hover .dti-badge-img {
+  transform: scale(1.05);
+}
+.dti-badge-info h3 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.dti-badge-info p {
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+.dti-badge-info .btn {
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .dti-badge-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+  .dti-badge-img {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+/* --- DTI on About Page --- */
+.dti-credentials {
+  margin-bottom: 20px;
+}
+.dti-about-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.dti-about-img {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+.dti-about-details {
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+.dti-about-details strong {
+  color: var(--dark);
+  display: block;
+  margin-bottom: 4px;
+}
+.dti-about-details p {
+  margin-bottom: 2px;
+}
+@media (max-width: 480px) {
+  .dti-about-badge {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 

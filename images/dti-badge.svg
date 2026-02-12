@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Shield shape -->
+  <path d="M60 8 L108 30 L108 65 Q108 95 60 112 Q12 95 12 65 L12 30 Z" fill="#003DA5" stroke="#002A73" stroke-width="2"/>
+  <!-- Inner shield -->
+  <path d="M60 16 L100 34 L100 63 Q100 89 60 104 Q20 89 20 63 L20 34 Z" fill="#0051C3"/>
+  <!-- Star decoration -->
+  <polygon points="60,22 63,32 74,32 65,38 68,48 60,42 52,48 55,38 46,32 57,32" fill="#FFD700"/>
+  <!-- DTI text -->
+  <text x="60" y="68" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="900" fill="#FFFFFF" letter-spacing="3">DTI</text>
+  <!-- Registered text -->
+  <text x="60" y="84" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="700" fill="#FFD700" letter-spacing="1.5">REGISTERED</text>
+  <!-- Philippines text -->
+  <text x="60" y="96" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="7" font-weight="600" fill="rgba(255,255,255,0.8)" letter-spacing="1">PHILIPPINES</text>
+</svg>
