@@ -98,19 +98,20 @@
           <p style="font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:16px;">How would you like to submit your listing?</p>
 
           <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:16px;">
-            <div style="flex:1; min-width:260px; max-width:340px; background:#f0fdf4; border:2px solid #16a34a; border-radius:12px; padding:20px; text-align:center;">
-              <h4 style="color:#16a34a; margin-bottom:8px;">Option 1: Fill Out the Form</h4>
-              <p style="font-size:0.85rem; color:#555; margin-bottom:14px;">Complete our online form with your property details, documents, and digital signature.</p>
-              <button class="btn btn-primary btn-block" id="agreeBtn" onclick="document.getElementById('step1').style.display='none'; document.getElementById('step2').style.display='block'; window.scrollTo(0,0);">I Agree — Continue to Form</button>
+            <div style="flex:1; min-width:260px; max-width:400px; background:#e3f2fd; border:3px solid #1565c0; border-radius:12px; padding:24px; text-align:center;">
+              <h4 style="color:#1565c0; margin-bottom:4px; font-size:1.1rem;">Message Us Directly</h4>
+              <p style="font-size:0.9rem; color:#555; margin-bottom:6px;">Easiest way — just message us your property details. We'll handle the rest.</p>
+              <p style="font-size:0.85rem; color:#1565c0; margin-bottom:14px; font-style:italic;">Pwede pud Bisaya! Message lang.</p>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <a href="https://m.me/61587469756965" target="_blank" style="display:block; padding:14px; background:#1565c0; color:#fff; border-radius:8px; text-decoration:none; font-weight:700; font-size:1rem;">Send via Messenger</a>
+                <a href="mailto:cebulandmarket@gmail.com?subject=Property%20Listing%20Submission&body=Hi%20CebuLandMarket%2C%0A%0AI%20want%20to%20list%20my%20property.%0A%0AMy%20Name%3A%20%0AContact%20Number%3A%20%0AProperty%20Location%3A%20%0ALot%20Area%20(sqm)%3A%20%0AAsking%20Price%3A%20%0ATitle%20Status%3A%20%0A%0AI%20agree%20to%20the%20Seller%20Agreement%20and%20the%201%25%20platform%20fee.%0A%0A(Please%20attach%20property%20documents%20and%20photos)" style="display:block; padding:14px; background:#2e7d32; color:#fff; border-radius:8px; text-decoration:none; font-weight:700; font-size:1rem;">Send via Email</a>
+              </div>
             </div>
 
-            <div style="flex:1; min-width:260px; max-width:340px; background:#e3f2fd; border:2px solid #1565c0; border-radius:12px; padding:20px; text-align:center;">
-              <h4 style="color:#1565c0; margin-bottom:8px;">Option 2: Message Us Directly</h4>
-              <p style="font-size:0.85rem; color:#555; margin-bottom:14px;">Send your property details and documents directly to us via Messenger or email. We'll handle the rest.</p>
-              <div style="display:flex; flex-direction:column; gap:8px;">
-                <a href="https://m.me/61587469756965" target="_blank" style="display:block; padding:12px; background:#1565c0; color:#fff; border-radius:8px; text-decoration:none; font-weight:600; font-size:0.95rem;">Send via Messenger</a>
-                <a href="mailto:cebulandmarket@gmail.com?subject=Property%20Listing%20Submission&body=Hi%20CebuLandMarket%2C%0A%0AI%20want%20to%20list%20my%20property.%0A%0AMy%20Name%3A%20%0AContact%20Number%3A%20%0AProperty%20Location%3A%20%0ALot%20Area%20(sqm)%3A%20%0AAsking%20Price%3A%20%0ATitle%20Status%3A%20%0A%0AI%20agree%20to%20the%20Seller%20Agreement%20and%20the%201%25%20platform%20fee.%0A%0A(Please%20attach%20property%20documents%20and%20photos)" style="display:block; padding:12px; background:#2e7d32; color:#fff; border-radius:8px; text-decoration:none; font-weight:600; font-size:0.95rem;">Send via Email</a>
-              </div>
+            <div style="flex:1; min-width:260px; max-width:400px; background:#f0fdf4; border:2px solid #c8e6c9; border-radius:12px; padding:24px; text-align:center;">
+              <h4 style="color:#16a34a; margin-bottom:4px;">Or Fill Out the Form</h4>
+              <p style="font-size:0.85rem; color:#555; margin-bottom:14px;">Prefer to type it yourself? Fill out a short form with your property details.</p>
+              <button class="btn btn-primary btn-block" id="agreeBtn" onclick="document.getElementById('step1').style.display='none'; document.getElementById('step2').style.display='block'; window.scrollTo(0,0);">I Agree — Continue to Form</button>
             </div>
           </div>
 
@@ -311,110 +312,38 @@
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label>Your Asking Price (₱) <span class="required">*</span></label>
-                <input type="number" name="total_price" required placeholder="e.g. 11043000" id="ownerPrice">
-                <p id="wholeLotNote" style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">Total asking price for the entire property.</p>
-                <p id="feePreview" style="font-size:0.85rem; color:#b8860b; margin-top:6px; display:none;"><strong id="feeLabel">Listing price (with 1% platform fee):</strong> <span id="feeAmount"></span></p>
-              </div>
-              <div class="form-group">
-                <label>Title Status <span class="required">*</span></label>
-                <select name="title_status" required>
-                  <option value="">Select status</option>
-                  <option value="titled">Clean Title (TCT)</option>
-                  <option value="tax-dec">Tax Declaration Only</option>
-                  <option value="untitled">Untitled</option>
-                  <option value="pending">Title Processing</option>
-                </select>
-              </div>
+            <div class="form-group">
+              <label>Your Asking Price (₱) <span class="required">*</span></label>
+              <input type="number" name="total_price" required placeholder="e.g. 11043000" id="ownerPrice">
+              <p id="wholeLotNote" style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">Total asking price for the entire property.</p>
+              <p id="feePreview" style="font-size:0.85rem; color:#b8860b; margin-top:6px; display:none;"><strong id="feeLabel">Listing price (with 1% platform fee):</strong> <span id="feeAmount"></span></p>
             </div>
 
-            <div class="form-group">
-              <label>How do you want the 1% platform fee handled? <span class="required">*</span></label>
-              <div class="fee-options" style="margin-top:8px;">
-                <label class="fee-option" style="display:flex; align-items:flex-start; gap:10px; padding:12px 16px; background:#f0fdf4; border:2px solid #c8e6c9; border-radius:8px; cursor:pointer; margin-bottom:8px;">
-                  <input type="radio" name="fee_option" value="add_on_top" required style="margin-top:3px; accent-color:#0e7c4a;">
-                  <div>
-                    <strong style="color:#0e7c4a;">Add 1% on top of my asking price</strong>
-                    <p style="font-size:0.85rem; color:#555; margin-top:4px;">Your asking price stays the same. We add 1% on top — the buyer sees a slightly higher listing price. You receive your full asking price.</p>
-                  </div>
-                </label>
-                <label class="fee-option" style="display:flex; align-items:flex-start; gap:10px; padding:12px 16px; background:#fff8e1; border:2px solid #ffe082; border-radius:8px; cursor:pointer;">
-                  <input type="radio" name="fee_option" value="included_in_price" style="margin-top:3px; accent-color:#f9a825;">
-                  <div>
-                    <strong style="color:#e65100;">1% is already included in my price</strong>
-                    <p style="font-size:0.85rem; color:#555; margin-top:4px;">Your asking price already includes the 1% fee. The listing price will be exactly what you entered. Upon sale, you remit 1% to CebuLandMarket.</p>
-                  </div>
-                </label>
-              </div>
-              <p id="feeExplanation" style="font-size:0.85rem; color:#b8860b; margin-top:8px; display:none;"></p>
-            </div>
+            <input type="hidden" name="fee_option" value="add_on_top">
 
             <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
-            <h3 style="margin-bottom:16px; color:var(--dark);">Document Verification</h3>
-            <div class="doc-notice">
-              <p><strong>Important:</strong> CebuLandMarket verifies all property documents before any listing goes live. Properties with incomplete, unclear, or complicated paperwork will NOT be approved. This protects both sellers and buyers.</p>
-            </div>
+            <h3 style="margin-bottom:16px; color:var(--dark);">Documents</h3>
 
             <div class="form-group">
-              <label>What documents do you currently have? <span class="required">*</span></label>
-              <select name="documents_available" required>
-                <option value="">Select documents</option>
-                <option value="tct">Transfer Certificate of Title (TCT)</option>
-                <option value="oct">Original Certificate of Title (OCT)</option>
-                <option value="tax-dec-only">Tax Declaration Only</option>
-                <option value="deed-of-sale">Deed of Absolute Sale</option>
-                <option value="extrajudicial">Extrajudicial Settlement</option>
-                <option value="multiple">Multiple Documents (specify below)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Is the property under your name? <span class="required">*</span></label>
-              <select name="ownership_status" required>
+              <label>Title Status <span class="required">*</span></label>
+              <select name="title_status" required>
                 <option value="">Select</option>
-                <option value="yes-my-name">Yes, title/tax dec is under my name</option>
-                <option value="family-member">Under a family member's name (parent, spouse, etc.)</option>
-                <option value="deceased-owner">Original owner is deceased</option>
-                <option value="multiple-owners">Multiple owners / co-owned</option>
-                <option value="bought-not-transferred">Bought but not yet transferred to my name</option>
+                <option value="titled">Has Title (TCT/OCT)</option>
+                <option value="tax-dec">Tax Declaration Only</option>
+                <option value="untitled">No Title</option>
+                <option value="pending">Processing</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label>Are the real property taxes updated? <span class="required">*</span></label>
-              <select name="tax_status" required>
-                <option value="">Select</option>
-                <option value="updated">Yes, fully updated / current year</option>
-                <option value="1-2-years">Behind 1-2 years</option>
-                <option value="3-plus-years">Behind 3+ years</option>
-                <option value="not-sure">Not sure</option>
-              </select>
+              <label>Share your documents (photos or links) <span class="required">*</span></label>
+              <textarea name="document_links" required placeholder="Send us photos of your title, tax declaration, and valid ID. You can paste Google Drive or Facebook links here — or just send them to us via Messenger." rows="3"></textarea>
+              <p class="form-hint">Tip: You can also send document photos directly through Messenger if that's easier.</p>
             </div>
 
             <div class="form-group">
-              <label>Are there any issues with the property? <span class="required">*</span></label>
-              <select name="property_issues" required>
-                <option value="">Select</option>
-                <option value="none">No issues - clean and clear</option>
-                <option value="boundary-dispute">Boundary dispute with neighbor</option>
-                <option value="legal-case">Ongoing legal case / litigation</option>
-                <option value="mortgage">Mortgaged / used as collateral</option>
-                <option value="informal-settlers">Has informal settlers / squatters</option>
-                <option value="other-issue">Other issue (explain below)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Additional details about your documents or property situation</label>
-              <textarea name="document_notes" placeholder="If you selected 'Multiple Documents', 'Other issue', or if there's anything we should know about the paperwork, explain here. The more honest and detailed you are, the faster we can process your listing." rows="4"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label>Upload / share your documents for verification <span class="required">*</span></label>
-              <textarea name="document_links" required placeholder="Share links to photos/scans of your documents (Google Drive, Imgur, or Facebook). Include: title, tax declaration, tax receipts, valid ID, etc. Separate each link with a new line." rows="3"></textarea>
-              <p class="form-hint">Upload clear photos/scans of your documents to Google Drive. Set sharing to "Anyone with the link can view." We keep all documents confidential.</p>
+              <label>Anything else we should know?</label>
+              <textarea name="document_notes" placeholder="Any details about your property or documents (optional)." rows="2"></textarea>
             </div>
 
             <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
@@ -463,33 +392,9 @@
               </div>
             </div>
 
-            <hr style="margin: 32px 0; border: none; border-top: 2px solid var(--gray-300);">
-
-            <!-- SELLER AGREEMENT — inside the form, right before signing -->
-            <div style="margin-bottom:28px; background:#fff3cd; border:5px solid #e65100; border-radius:14px; padding:32px; box-shadow:0 8px 24px rgba(230,81,0,0.15);">
-              <h2 style="font-size:1.8rem; color:#e65100; margin-bottom:6px; text-align:center; letter-spacing:1px; text-transform:uppercase; font-weight:900;">SELLER AGREEMENT</h2>
-              <p style="font-size:0.95rem; color:#bf360c; text-align:center; margin-bottom:24px; font-weight:700;">READ THIS CAREFULLY BEFORE SIGNING BELOW</p>
-              <div style="background:#fff; border-radius:10px; padding:24px 28px; border:2px solid #ffe082;">
-                <p style="font-size:1.05rem; font-weight:800; margin-bottom:16px; color:#333;">By listing your property on CebuLandMarket, I agree that:</p>
-                <ol style="font-size:1rem; padding-left:24px; line-height:2.4; color:#333;">
-                  <li>CebuLandMarket charges a <strong>1% platform fee</strong> — only after a successful sale. No upfront costs beyond the listing fee, no hidden charges. The 1% fee applies to my listing (either added on top or included in my price, based on my selection).</li>
-                  <li>If selling per cut, the <strong>1% fee applies to each cut/transaction</strong>.</li>
-                  <li>Upon successful sale, I will <strong>remit the 1% platform fee via GCash</strong> to CebuLandMarket <strong>within 7 days</strong>.</li>
-                  <li>I will <strong>provide my digital signature</strong> to confirm this agreement.</li>
-                  <li>I will <strong>NOT redirect buyers</strong> to transact outside the listed price to avoid the platform fee.</li>
-                  <li>I will be <strong>responsive</strong> when buyers inquire about my property through the platform.</li>
-                  <li>I will <strong>show the property</strong> to interested buyers and arrange viewings directly with them.</li>
-                  <li>All information I provide is <strong>true and accurate</strong>.</li>
-                </ol>
-              </div>
-              <div style="background:#ffebee; border-radius:8px; padding:16px 20px; margin-top:16px; border:2px solid #ef9a9a;">
-                <p style="font-size:1rem; color:#c62828; font-weight:800; text-align:center;">Failure to remit the 1% fee after a confirmed sale may result in removal from the platform and legal action.</p>
-              </div>
-              <p style="font-size:0.9rem; margin-top:16px; text-align:center;"><a href="CebuLandMarket-Seller-Agreement.html" target="_blank" style="color:#1565c0; text-decoration:underline; font-weight:600;">View Full Seller Agreement</a></p>
-            </div>
-
-            <h3 style="margin-bottom:16px; color:var(--dark);">Digital Signature</h3>
-            <p style="font-size:0.9rem; color:var(--gray-700); margin-bottom:12px;">By signing below, you confirm that all information provided is true and accurate, and you agree to the Seller Agreement above including the 1% platform fee.</p>
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Sign & Submit</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-bottom:12px;">By signing below, you confirm that all information is true and you agree to the <a href="CebuLandMarket-Seller-Agreement.html" target="_blank" style="color:#1565c0;">Seller Agreement</a> including the 1% platform fee.</p>
 
             <div class="form-group">
               <label>Type Your Full Name as Signature <span class="required">*</span></label>
