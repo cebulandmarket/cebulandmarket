@@ -59,7 +59,6 @@ function createPropertyCard(listing) {
         '<div class="card-location">&#128205; ' + escapeHtml(locationDisplay) + ', Cebu</div>' +
         '<div class="card-meta">' +
           '<span>&#128207; ' + areaDisplay + '</span>' +
-          '<span>&#128197; ' + escapeHtml(listing.date_listed || '') + '</span>' +
         '</div>' +
       '</div>' +
     '</a>';
