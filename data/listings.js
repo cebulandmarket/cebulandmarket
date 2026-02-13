@@ -230,5 +230,31 @@ var LISTINGS_DATA = [
     "date_listed": "2026-02-13",
     "story": "BE Residences sits right beside IT Park — the busiest business district in Cebu City. BPO offices, restaurants, cafes, bars, and convenience stores are all within walking distance. You don't need a car to get to work if you're in IT Park, but this unit comes with parking anyway.\n\nThe unit is on the 9th floor, facing the amenities — swimming pool, gym, and playground all visible from your window. City view in the background. It's fully furnished with tasteful rattan and wood furniture — a queen bed with upholstered headboard, TV on a rattan dresser, dining table with chairs, accent chair, and a full kitchen setup with fridge, microwave, and range hood.\n\nThe building amenities are impressive for a mid-rise condo. The pool is large and clean, the gym is well-equipped with free weights, benches, bikes, and treadmills, and there's a playground for families. The lobby is modern and welcoming.\n\nNindot kaayo ni para sa mga nagwork sa IT Park o gusto mag-invest sa rental income. Beside ra gyud sa IT Park — lakaw ra. Fully furnished na, naa pay parking. Ang view sa amenities ug city gikan sa 9th floor, lahi ra gyud ang feeling.\n\nAt P5M nett for a fully-furnished studio with parking beside IT Park — this is one of the best deals in Lahug right now.",
     "vision_items": "Personal Residence|Walk to work if you're in IT Park. Fully furnished, move-in ready, with a pool and gym downstairs. This is city living at its most convenient.|Rental Income|IT Park workers and expats are always looking for furnished studios near their workplace. This unit is ready to rent out immediately — furniture, appliances, parking, all included. Strong rental demand in Lahug.|Airbnb Investment|Lahug and IT Park attract both business travelers and tourists. A furnished studio with amenities on the 9th floor with city view is perfect for short-term rentals. Plug and play.|Long-Term Investment|Lahug property values keep rising as IT Park expands. A condo unit with parking beside the business district is a solid appreciating asset."
+  },
+  {
+    "id": "9",
+    "title": "137 sqm Residential Lot in Southplains Subdivision, Pakigne, Minglanilla",
+    "type": "lot",
+    "location": "minglanilla",
+    "address": "Southplains Subdivision, Lower Pakigne, Minglanilla, Cebu",
+    "lot_area": 137,
+    "price_per_sqm": 18248,
+    "total_price": 2525000,
+    "description": "Prime residential lot inside Southplains Subdivision in Lower Pakigne, Minglanilla — 137 sqm with clean title and 1 signatory. The lot sits between two well-built houses in an established subdivision with gated entrance and water tower. Only 200 meters (1 minute drive) from the highway. Walking distance to Minglanilla District Hospital. Just 3 minutes to Ming-Mori Techno Business Park and Anjo World, and 8-10 minutes to SRP and SM Seaside. Property values in this area are expected to increase significantly once Ming-Mori Business Park is completed — similar to what happened around IT Park in Cebu City.",
+    "features": "Clean Title,1 Signatory,137 sqm,Inside Subdivision,Gated Entrance,200m from Highway,Near Ming-Mori Business Park,Near Anjo World,8-10 Mins to SRP,8-10 Mins to SM Seaside,Near Minglanilla District Hospital,High Appreciation Potential",
+    "photo_url": "images/pakigne-1.jpg",
+    "photo_urls": "images/pakigne-1.jpg,images/pakigne-2.jpg,images/pakigne-3.jpg,images/pakigne-survey.jpg",
+    "map_url": "Southplains Subdivision, Pakigne, Minglanilla, Cebu, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Clean Title, 1 Signatory",
+    "status": "active",
+    "date_listed": "2026-02-13",
+    "story": "Southplains Subdivision in Lower Pakigne, Minglanilla — a quiet, gated community with established homes. This 137 sqm lot sits right between two well-built houses, ready for you to build on.\n\nThe location is what makes this special. You're only 200 meters from the highway — a 1-minute drive. Minglanilla District Hospital is within walking distance. Anjo World and Ming-Mori Techno Business Park are just 3 minutes away. SRP and SM Seaside? 8-10 minutes.\n\nHere's the big opportunity: Ming-Mori Business Park is being developed as a major techno-business hub — think IT Park but in the south. When IT Park was built in Lahug, property values around it skyrocketed. The same thing is expected here. Buying now, before the business park is fully operational, means you're getting in at today's prices before the boom.\n\nNindot kaayo ang timing ani. Naa ka sa sulod sa subdivision, duol sa highway, ug ang Ming-Mori Business Park hapit na mahuman. Kung nag-invest ka karon, basin doble na ang value ani sa pipila ka tuig. Clean title, 1 signatory — walay hassle.\n\nAt P2.5M for a titled lot inside a subdivision near a future business park — this is a smart move.",
+    "vision_items": "Dream Home|Build your home inside a quiet, gated subdivision. Neighbors have nice houses, the lot is ready to build on, and you're minutes from everything — hospital, highway, malls, and the future business park.|Investment for Appreciation|Ming-Mori Business Park will be the IT Park of the south. Properties near IT Park are worth 3-5x what they were before development. Getting in now at P2.5M could pay off significantly.|Rental Property|Build an apartment or boarding house near the upcoming business park. When Ming-Mori opens, workers will need housing nearby — and you'll be 3 minutes away.|Future Commercial Value|As the area develops around Ming-Mori, residential lots near the highway could be rezoned or repurposed for commercial use. 200 meters from the highway with subdivision access is prime positioning."
   }
 ];
