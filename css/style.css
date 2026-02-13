@@ -1338,6 +1338,7 @@ ul { list-style: none; }
 .float-btn:hover { transform: scale(1.1); }
 .float-viber { background: #7360f2; box-shadow: 0 4px 16px rgba(115,96,242,0.4); }
 .float-whatsapp { background: #25d366; box-shadow: 0 4px 16px rgba(37,211,102,0.4); }
+.float-messenger { background: #0084ff; box-shadow: 0 4px 16px rgba(0,132,255,0.4); }
 .float-top {
   background: var(--primary); box-shadow: 0 4px 16px rgba(14,124,74,0.4);
   opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.2s;
