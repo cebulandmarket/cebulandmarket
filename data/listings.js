@@ -72,5 +72,31 @@ var LISTINGS_DATA = [
       {"name": "Jim II", "from": "3 Years on Airbnb", "date": "July 2025", "text": "It was a nice place. Roomy quarters and all. Clean, safe because its in an exclusive subdivision, it has parking area also. The owner is very nice and accommodating plus pretty."}
     ],
     "vision_items": "Family Home|Spacious 3-bedroom house in a safe, gated subdivision. Schools are nearby — University of the Visayas is 130m away, and USC, UC, CIT-U are all a short drive. Malls, hospitals, and parks are within minutes. Everything a family needs, already in place.|Airbnb & Rental Income|Already Airbnb-tested with a perfect 5.0 rating and 7 five-star reviews in just 8 months. Guests loved the comfort, cleanliness, and location. Only delisted because it was rented long-term. Fully furnished, move-in ready — plug and play for your next guest.|Work From Home Setup|Dedicated rooms that work perfectly as home offices or study areas. Air-conditioned, quiet subdivision, and you're close to restaurants and cafes when you need a break. IT Park is nearby for meetings. Fast internet area.|Investment Property|Banilad property values keep rising — it's one of the most in-demand neighborhoods in Cebu City. A fully furnished house-and-lot with clean title in this location is a solid long-term investment. Buy now, benefit later.|Student Housing|With University of the Visayas just 130m away and other universities nearby (USC, UC, CIT-U), this house is perfect for student housing or a boarding house. 3 bedrooms, fully furnished, close to everything students need — food, transport, hospitals."
+  },
+  {
+    "id": "3",
+    "title": "590 sqm Commercial Corner Lot in Isuya Road, Mactan, Lapu-Lapu City",
+    "type": "lot",
+    "location": "lapu-lapu",
+    "address": "Isuya Road, Mactan, Lapu-Lapu City, Cebu",
+    "lot_area": 590,
+    "price_per_sqm": 18180,
+    "total_price": 10726200,
+    "description": "Corner lot on Isuya Road in Mactan, Lapu-Lapu City — one of the most strategic commercial spots on the island. Just 50 meters from the highway, with frontage on a two-way wide road. The lot sits at an intersection, giving it excellent visibility from multiple directions. Titled property, 590 square meters, ready for development. Mactan Airport Road and Quezon National Highway are right around the corner. Whether you're building a business, a warehouse, a rental property, or a commercial space — this location puts you where the action is. Makita ra gikan sa highway.",
+    "features": "Corner Lot,Commercial Zoning,Titled Property,590 sqm,50m from Highway,Near Mactan Airport Road,Near Quezon National Highway,Two-way Wide Road,High Visibility,Ready for Development",
+    "photo_url": "images/mactan-1.jpg",
+    "photo_urls": "images/mactan-1.jpg,images/mactan-2.jpg,images/mactan-3.jpg,images/mactan-4.jpg,images/mactan-5.jpg,images/mactan-6.jpg,images/mactan-map-1.jpg,images/mactan-map-2.jpg,images/mactan-map-3.jpg,images/mactan-map-4.jpg",
+    "map_url": "Isuya Road, Mactan, Lapu-Lapu City, Cebu, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Titled Property",
+    "status": "active",
+    "date_listed": "2026-02-13",
+    "story": "This corner lot sits right on Isuya Road in Mactan — 50 meters from the highway. You can see it from the main road. It's a two-way wide road with good traffic flow, and the lot catches your eye from every direction because it's on the corner.\n\nMactan Airport Road and Quezon National Highway are both just around the corner. That means access from anywhere in Lapu-Lapu City or Cebu is easy. Businesses, restaurants, boarding houses, and landmarks like Francisco's Lechon and Grace Boarding House are all within walking distance.\n\nAt 590 square meters, it's big enough for serious development — a commercial building, warehouse, apartment complex, or mixed-use space. The location alone makes it valuable. Mactan is booming — tourism, BPO, logistics, and residential development are all growing fast.\n\nNindot kaayo ang location ani. Corner lot, duol sa highway, dako og frontage. Dili ka magkalisod og pangita — makita ra dayon. Kung negosyo ang plano nimo, diri gyud ni ang lugar.\n\nTitled and ready to go. No complications, no waiting.",
+    "vision_items": "Commercial Building|Prime corner lot with high visibility from multiple roads. Perfect for a retail store, restaurant, office space, or service business. 50 meters from the highway means foot traffic and drive-by visibility all day.|Apartment or Boarding House|Mactan has a growing demand for rentals — workers, students, and tourists all need affordable housing. A 590 sqm corner lot can fit a multi-door apartment or boarding house with excellent road access.|Warehouse or Logistics Hub|Near the highway and Mactan Airport Road — ideal for a storage facility, distribution center, or logistics operation. Easy access for trucks and deliveries.|Mixed-Use Development|Build commercial on the ground floor, residential on top. Corner lots with this kind of road frontage are rare in Mactan. Maximize your investment with multiple income streams.|Parking Lot or Car Wash|Already being used informally for vehicle parking. Formalize it into a paid parking lot or car wash business — minimal construction needed, quick ROI."
   }
 ];
