@@ -98,5 +98,32 @@ var LISTINGS_DATA = [
     "date_listed": "2026-02-13",
     "story": "This corner lot sits right on Isuya Road in Mactan — 50 meters from the highway. You can see it from the main road. It's a two-way wide road with good traffic flow, and the lot catches your eye from every direction because it's on the corner.\n\nMactan Airport Road and Quezon National Highway are both just around the corner. That means access from anywhere in Lapu-Lapu City or Cebu is easy. Businesses, restaurants, boarding houses, and landmarks like Francisco's Lechon and Grace Boarding House are all within walking distance.\n\nAt 590 square meters, it's big enough for serious development — a commercial building, warehouse, apartment complex, or mixed-use space. The location alone makes it valuable. Mactan is booming — tourism, BPO, logistics, and residential development are all growing fast.\n\nNindot kaayo ang location ani. Corner lot, duol sa highway, dako og frontage. Dili ka magkalisod og pangita — makita ra dayon. Kung negosyo ang plano nimo, diri gyud ni ang lugar.\n\nTitled and ready to go. No complications, no waiting.",
     "vision_items": "Commercial Building|Prime corner lot with high visibility from multiple roads. Perfect for a retail store, restaurant, office space, or service business. 50 meters from the highway means foot traffic and drive-by visibility all day.|Apartment or Boarding House|Mactan has a growing demand for rentals — workers, students, and tourists all need affordable housing. A 590 sqm corner lot can fit a multi-door apartment or boarding house with excellent road access.|Warehouse or Logistics Hub|Near the highway and Mactan Airport Road — ideal for a storage facility, distribution center, or logistics operation. Easy access for trucks and deliveries.|Mixed-Use Development|Build commercial on the ground floor, residential on top. Corner lots with this kind of road frontage are rare in Mactan. Maximize your investment with multiple income streams.|Parking Lot or Car Wash|Already being used informally for vehicle parking. Formalize it into a paid parking lot or car wash business — minimal construction needed, quick ROI."
+  },
+  {
+    "id": "4",
+    "title": "2 Storey House and Lot in Lucena Homes, Pakigne, Minglanilla, Cebu",
+    "type": "house-and-lot",
+    "location": "minglanilla",
+    "address": "Lucena Homes, Pakigne, Minglanilla, Cebu",
+    "lot_area": 49,
+    "floor_area": 70,
+    "price_per_sqm": null,
+    "total_price": 3333000,
+    "description": "End unit townhouse in Lucena Homes, Pakigne, Minglanilla — right near the guardhouse and gate entrance for easy access and added security. 2-storey home with 2 bedrooms, 1 toilet and bath with shower, kitchen with granite countertop, and a clean modern interior. Ceiling fans in every room, tiled floors throughout. Comes with a balcony, front garden, drying area, laundry area, and service area. Can fit 2 cars. The subdivision has 24-hour security. Bank appraised at P3.04M. Located in Lower Pakigne with easy access going south.",
+    "features": "2 Bedrooms,1 Toilet and Bath,2-Storey,2-Car Parking,End Unit,Near Guardhouse,Balcony,Front Garden,Drying Area,Laundry Area,Service Area,Wardrobe,Shower,Ceiling Fans,24-Hour Security,49 sqm Lot,70 sqm Floor Area",
+    "photo_url": "images/minglanilla-1.jpg",
+    "photo_urls": "images/minglanilla-1.jpg,images/minglanilla-2.jpg,images/minglanilla-3.jpg,images/minglanilla-4.jpg,images/minglanilla-5.jpg,images/minglanilla-6.jpg,images/minglanilla-7.jpg,images/minglanilla-8.jpg,images/minglanilla-9.jpg,images/minglanilla-10.jpg,images/minglanilla-11.jpg,images/minglanilla-12.jpg,images/minglanilla-13.jpg,images/minglanilla-14.jpg,images/minglanilla-15.jpg,images/minglanilla-16.jpg,images/minglanilla-17.jpg",
+    "map_url": "Lucena Homes, Pakigne, Minglanilla, Cebu, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Titled Property",
+    "status": "active",
+    "date_listed": "2026-02-13",
+    "story": "This is an end unit in Lucena Homes — right next to the guardhouse and gate entrance, so you're always the first in and the last out. 24-hour security, quiet neighborhood, and a clean modern build.\n\nThe house is 2 storeys with 70 sqm of floor area on a 49 sqm lot. Downstairs you have the living area with the staircase, a kitchen with a black granite countertop and sink, plus a service area, laundry area, and drying area out back. Upstairs are 2 bedrooms — one with a double bed, one with a single bed — both with ceiling fans and blinds. There's a balcony off the master bedroom with a view of the trees. The bathroom has a proper shower area with wood-accent tiles, toilet, and sink.\n\nThe interior is modern and minimal — white walls, dark wood doors, black metal railings, tiled floors. Everything is clean and well-maintained. Bank appraised at P3.04M.\n\nNindot kaayo ni nga balay para sa bag-ong pamilya o mag-invest. End unit, duol sa guard, limpyo ug bag-o pa ang hitsura. Minglanilla is one of the fastest-growing areas south of Cebu City — schools, malls, and the SRP are all nearby.\n\nReady to move in. Titled and clean.",
+    "vision_items": "Starter Home|Perfect first home for a young couple or small family. 2 bedrooms, modern kitchen, balcony, and a secure subdivision with 24-hour guards. Everything you need to start your life together.|Rental Income|Minglanilla is booming — workers and families are always looking for affordable rentals near the south. A titled townhouse in a gated subdivision is easy to rent out and easy to manage.|Investment Property|Bank appraised at P3.04M. Minglanilla property values continue to rise as development pushes south of Cebu City. Buy now at P3.3M and watch it appreciate.|Work From Home Base|Quiet end unit with space for a desk in either bedroom. Ceiling fans, good ventilation, and a balcony for fresh air breaks. Close enough to the city but away from the noise."
   }
 ];
