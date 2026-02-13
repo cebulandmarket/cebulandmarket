@@ -256,5 +256,31 @@ var LISTINGS_DATA = [
     "date_listed": "2026-02-13",
     "story": "Southplains Subdivision in Lower Pakigne, Minglanilla — a quiet, gated community with established homes. This 137 sqm lot sits right between two well-built houses, ready for you to build on.\n\nThe location is what makes this special. You're only 200 meters from the highway — a 1-minute drive. Minglanilla District Hospital is within walking distance. Anjo World and Ming-Mori Techno Business Park are just 3 minutes away. SRP and SM Seaside? 8-10 minutes.\n\nHere's the big opportunity: Ming-Mori Business Park is being developed as a major techno-business hub — think IT Park but in the south. When IT Park was built in Lahug, property values around it skyrocketed. The same thing is expected here. Buying now, before the business park is fully operational, means you're getting in at today's prices before the boom.\n\nNindot kaayo ang timing ani. Naa ka sa sulod sa subdivision, duol sa highway, ug ang Ming-Mori Business Park hapit na mahuman. Kung nag-invest ka karon, basin doble na ang value ani sa pipila ka tuig. Clean title, 1 signatory — walay hassle.\n\nAt P2.5M for a titled lot inside a subdivision near a future business park — this is a smart move.",
     "vision_items": "Dream Home|Build your home inside a quiet, gated subdivision. Neighbors have nice houses, the lot is ready to build on, and you're minutes from everything — hospital, highway, malls, and the future business park.|Investment for Appreciation|Ming-Mori Business Park will be the IT Park of the south. Properties near IT Park are worth 3-5x what they were before development. Getting in now at P2.5M could pay off significantly.|Rental Property|Build an apartment or boarding house near the upcoming business park. When Ming-Mori opens, workers will need housing nearby — and you'll be 3 minutes away.|Future Commercial Value|As the area develops around Ming-Mori, residential lots near the highway could be rezoned or repurposed for commercial use. 200 meters from the highway with subdivision access is prime positioning."
+  },
+  {
+    "id": "10",
+    "title": "600 sqm Lot in Canjulao, Lapu-Lapu City, Cebu",
+    "type": "lot",
+    "location": "lapu-lapu",
+    "address": "Canjulao, Lapu-Lapu City, Cebu",
+    "lot_area": 600,
+    "price_per_sqm": null,
+    "total_price": null,
+    "description": "Titled lot in Canjulao, Lapu-Lapu City — 600 square meters along the barangay road. Just 300 meters (2 minutes) from the national highway. The property has updated tax declarations and a clean title. The lot is flat and spacious, situated in a populated barangay near Fatima Chapel and Canjulao Elementary School. With Mactan's continued development in tourism, BPO, and logistics, lots this size near the highway are increasingly valuable. Contact us for pricing.",
+    "features": "Titled Property,600 sqm,Updated Tax,Along Barangay Road,300m from Highway,2 Mins from Highway,Near Fatima Chapel,Near Canjulao Elementary School,Flat Terrain",
+    "photo_url": "images/canjulao-1.jpg",
+    "photo_urls": "images/canjulao-1.jpg,images/canjulao-2.jpg,images/canjulao-3.jpg,images/canjulao-4.jpg,images/canjulao-5.jpg,images/canjulao-6.jpg,images/canjulao-7.jpg,images/canjulao-map.jpg,images/canjulao-survey.jpg",
+    "map_url": "Canjulao, Lapu-Lapu City, Cebu, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Titled Property",
+    "status": "active",
+    "date_listed": "2026-02-13",
+    "story": "This 600 sqm lot sits along the barangay road in Canjulao, Lapu-Lapu City — just 300 meters from the national highway. That's a 2-minute drive or a short walk.\n\nThe lot is flat and spacious at 600 square meters. It's in a lively barangay — Fatima Chapel is right nearby, and Canjulao Elementary School is just down the road. The area is established with homes, stores, and community activity.\n\nMactan is one of the hottest real estate areas in Cebu right now. The airport, resorts, export zones, and the new Cebu-Cordova Link Expressway have all pushed property values up. A 600 sqm titled lot near the highway in Lapu-Lapu City is a solid piece of land — whether you're building, developing, or holding for the future.\n\nNindot kaayo ni nga lote sa Mactan. Dako, patag, titled, ug duol ra sa highway. Ang Canjulao naa sa tunga-tunga sa Lapu-Lapu City — accessible kaayo. Kung gusto nimo mag-tukod og balay, negosyo, o apartment, sakto kaayo ni.\n\nTitled with updated tax declarations. Contact us for pricing.",
+    "vision_items": "Residential Home|600 sqm is a generous lot — enough for a spacious family home with a big yard, garden, and parking. Along the barangay road with easy highway access.|Apartment Building|Build a multi-door apartment in a populated barangay. Workers from Mactan's export zones, resorts, and BPO offices need affordable housing nearby.|Commercial Space|Along the barangay road with foot traffic and vehicle access. Suitable for a store, workshop, or small business. 300 meters from the highway means customers can find you easily.|Buy and Hold|Mactan property values have been climbing for years. A titled 600 sqm lot near the highway is a solid long-term investment. Hold it and let it appreciate."
   }
 ];
