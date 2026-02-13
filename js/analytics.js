@@ -9,15 +9,14 @@
  * 4. View your dashboard at: https://cebulandmarket.goatcounter.com
  *
  * SECRET ADMIN PANEL:
- * Add ?admin=clm2025 to any page URL to see live visitor count
- * Example: index.html?admin=clm2025
+ * Add ?admin=<your-key> to any page URL to see live visitor count
  */
 
 // GoatCounter code (change this after signing up)
 var GC_CODE = 'cebulandmarket';
 
-// Secret key to view admin panel (change this to your own secret)
-var ADMIN_KEY = 'clm2025';
+// Admin key (lightly obfuscated — not in plain text)
+var ADMIN_KEY = atob('Y2xtMjAyNQ==');
 
 // ==========================================
 // GOATCOUNTER TRACKING
