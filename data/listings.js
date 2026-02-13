@@ -203,5 +203,32 @@ var LISTINGS_DATA = [
     "date_listed": "2026-02-13",
     "story": "This 1,349 sqm lot sits along a wide 10-meter concrete barangay road in Cotcot, Liloan — just 2 minutes from the national highway heading north.\n\nThe terrain is flat, which is exactly what developers look for. No need for expensive land filling or grading — you can start building right away. The lot has coconut trees and lush vegetation, and the road frontage is wide and paved.\n\nLiloan is part of Metro Cebu's northern expansion. New subdivisions, commercial establishments, and infrastructure projects keep coming in. The 4th bridge connecting Cebu to Mactan is nearby, and the Cebu-Cordova Link Expressway has opened up the whole metro. Property values in Liloan have been climbing steadily.\n\nNindot kaayo ni nga lote — patag, titled, dako og frontage sa dalan, ug duol ra sa highway. Ang seller pa ang mo-shoulder sa CGT ug DST, so mas barato ang closing cost nimo. Kung gusto nimo mag-develop sa north side sa Cebu, kani ang chance nimo.\n\nWhether you're planning a pocket subdivision, apartment building, or a commercial space — this flat, titled lot on a wide road is ready to go.",
     "vision_items": "Pocket Subdivision|1,349 sqm of flat land on a wide road — perfect for a small subdivision with 8-12 lots. Liloan's growing population needs more housing, and this location is 2 minutes from the highway.|Apartment Building|Build a multi-door apartment for rental income. Flat terrain means lower construction costs. The wide road and highway proximity make it attractive for tenants.|Commercial Space|Along a 10-meter wide road with good visibility. Suitable for a store, warehouse, or service business. Commercial/residential zoning gives you flexibility.|Residential Home|Build your dream home on a spacious 1,349 sqm lot. Flat terrain, quiet barangay setting, coconut trees for shade, and easy access to the highway. Plenty of space for a house, garden, and parking."
+  },
+  {
+    "id": "8",
+    "title": "Fully-Furnished Studio Unit with Parking at BE Residences, Lahug, Cebu City",
+    "type": "condo",
+    "location": "cebu-city",
+    "address": "St. Lawrence St., Lahug, Cebu City (BE Residences)",
+    "lot_area": null,
+    "floor_area": 24.5,
+    "price_per_sqm": null,
+    "total_price": 5050000,
+    "description": "Fully-furnished studio unit at BE Residences in Lahug, Cebu City — right beside IT Park Business Center. 9th floor facing the amenities with a city view. 24.5 sqm floor area with 1 parking slot included. The unit comes with a queen bed, TV, rattan dresser and cabinet, dining table, accent chair, AC, refrigerator, microwave, range hood, and kitchen cabinets. Building amenities include a large swimming pool, fully-equipped gym, playground, and a modern lobby. Move-in ready — just bring your clothes.",
+    "features": "Fully Furnished,Studio Unit,1 Parking,9th Floor,City View,Facing Amenities,24.5 sqm Floor Area,Air Conditioned,Swimming Pool,Gym,Playground,Lobby,Beside IT Park,BE Residences",
+    "photo_url": "images/lahug-1.jpg",
+    "photo_urls": "images/lahug-1.jpg,images/lahug-2.jpg,images/lahug-3.jpg,images/lahug-4.jpg,images/lahug-5.jpg,images/lahug-6.jpg,images/lahug-7.jpg,images/lahug-8.jpg,images/lahug-9.jpg,images/lahug-10.jpg,images/lahug-11.jpg,images/lahug-12.jpg,images/lahug-13.jpg",
+    "map_url": "BE Residences, St. Lawrence St., Lahug, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Condominium Title",
+    "status": "active",
+    "date_listed": "2026-02-13",
+    "story": "BE Residences sits right beside IT Park — the busiest business district in Cebu City. BPO offices, restaurants, cafes, bars, and convenience stores are all within walking distance. You don't need a car to get to work if you're in IT Park, but this unit comes with parking anyway.\n\nThe unit is on the 9th floor, facing the amenities — swimming pool, gym, and playground all visible from your window. City view in the background. It's fully furnished with tasteful rattan and wood furniture — a queen bed with upholstered headboard, TV on a rattan dresser, dining table with chairs, accent chair, and a full kitchen setup with fridge, microwave, and range hood.\n\nThe building amenities are impressive for a mid-rise condo. The pool is large and clean, the gym is well-equipped with free weights, benches, bikes, and treadmills, and there's a playground for families. The lobby is modern and welcoming.\n\nNindot kaayo ni para sa mga nagwork sa IT Park o gusto mag-invest sa rental income. Beside ra gyud sa IT Park — lakaw ra. Fully furnished na, naa pay parking. Ang view sa amenities ug city gikan sa 9th floor, lahi ra gyud ang feeling.\n\nAt P5M nett for a fully-furnished studio with parking beside IT Park — this is one of the best deals in Lahug right now.",
+    "vision_items": "Personal Residence|Walk to work if you're in IT Park. Fully furnished, move-in ready, with a pool and gym downstairs. This is city living at its most convenient.|Rental Income|IT Park workers and expats are always looking for furnished studios near their workplace. This unit is ready to rent out immediately — furniture, appliances, parking, all included. Strong rental demand in Lahug.|Airbnb Investment|Lahug and IT Park attract both business travelers and tourists. A furnished studio with amenities on the 9th floor with city view is perfect for short-term rentals. Plug and play.|Long-Term Investment|Lahug property values keep rising as IT Park expands. A condo unit with parking beside the business district is a solid appreciating asset."
   }
 ];
