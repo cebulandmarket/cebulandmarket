@@ -360,5 +360,32 @@ var LISTINGS_DATA = [
     "date_listed": "",
     "story": "This 205 sqm corner lot sits inside Vista La Playa Subdivision in Yati, Liloan — right near the guard gate entrance and along the national road. It's the kind of lot people look for but rarely find available.\n\nCorner lots are premium in any subdivision. You get more frontage, more natural light, better airflow, and more flexibility when you build. This one is even better because it's near the entrance — easy in, easy out, and maximum visibility.\n\nVista La Playa is a gated subdivision with well-built homes, concrete roads, and a residential feel. The neighbors have nice houses — you can see the quality of the community just by driving through the gate.\n\nLiloan keeps growing. It's part of Metro Cebu's northern expansion — new developments, new businesses, and new infrastructure keep coming in. Property values have been climbing steadily, especially inside subdivisions along the national road.\n\nNindot kaayo ni nga lote — corner lot, sulod sa subdivision, duol sa gate, ug naa sa national road. Kung gusto nimo mag-tukod og balay sa nindot nga lugar sa Liloan, kani ang chance nimo.\n\nTitled and ready to build on.",
     "vision_items": "Dream Home|A corner lot inside a gated subdivision — the ideal spot for your family home. More space, more light, and near the gate for easy access. Build the house you've always wanted.|Rental Property|Build a 2-3 door apartment on a corner lot with high visibility near the gate. Liloan's growing population means steady demand for rentals inside subdivisions.|Smart Investment|Corner lots appreciate faster than interior lots. Inside a gated subdivision along the national road in Liloan — this property will only go up in value.|Small Business|Corner lots near subdivision entrances have commercial potential. A small store, salon, or service business with built-in foot traffic from residents."
+  },
+  {
+    "id": "14",
+    "title": "3 Bedroom House and Lot in Busay Heights, Cebu City",
+    "type": "house-and-lot",
+    "location": "cebu-city",
+    "address": "NHA, Brgy. Busay Heights, Cebu City",
+    "lot_area": 75,
+    "floor_area": 150,
+    "price_per_sqm": null,
+    "total_price": 7070000,
+    "description": "Brand new 2-storey house and lot in NHA, Brgy. Busay Heights, Cebu City — ready for occupancy. 3 bedrooms, 2 toilet and bath, 2-car parking, and 150 sqm of floor area on a 75 sqm lot. The house features a modern clean finish with glossy tiled floors, recessed lighting, marble-finish kitchen countertop and backsplash with white cabinets, and a stylish modern chandelier on the staircase. Comes with its own water tank. Surrounded by lush greenery with a panoramic hillside and city view. Just 5 minutes away from JY Square in Lahug. Titled property — transfer fees on buyer's side.",
+    "features": "3 Bedrooms,2 Toilet and Bath,2-Storey,2-Car Parking,Ready for Occupancy,Finished Unit,Own Water Tank,Modern Finish,Tiled Floors,Recessed Lighting,Marble Kitchen,5 Mins to JY Square Lahug,Panoramic View,Titled Property,75 sqm Lot,150 sqm Floor Area",
+    "photo_url": "images/busay-1.jpg",
+    "photo_urls": "images/busay-1.jpg,images/busay-2.jpg,images/busay-3.jpg,images/busay-4.jpg,images/busay-5.jpg,images/busay-6.jpg,images/busay-7.jpg,images/busay-8.jpg,images/busay-9.jpg,images/busay-10.jpg,images/busay-11.jpg",
+    "map_url": "Brgy. Busay, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Titled Property",
+    "status": "active",
+    "date_listed": "2026-02-14",
+    "story": "This brand new 2-storey house sits in NHA, Brgy. Busay Heights — one of Cebu City's most scenic residential areas. The moment you step inside, you notice the quality: glossy tiled floors that reflect the recessed lighting, clean white walls, and a modern open layout that feels bigger than its 150 sqm.\n\nDownstairs is the living area with large sliding windows that let in natural light and frame the greenery outside. The kitchen has a marble-finish countertop and backsplash with white cabinets — clean and ready to use. A hallway leads to additional rooms on the ground floor.\n\nUpstairs, the staircase is finished with brown tile steps and white metal railings, topped with a stylish modern chandelier. The upper floor has 3 bedrooms with solid wooden doors and 2 toilet and bath. The rooms are bright and airy with windows overlooking the surrounding trees and hills.\n\nStep outside and you get a panoramic view — green hillsides, trees everywhere, and the city skyline with high-rises in the distance. It's elevated and breezy, the kind of place where mornings are cool and quiet.\n\nNindot kaayo ang location ani — naa ka sa Busay Heights, taas ug presko, pero 5 minutes ra gikan sa JY Square Lahug. Bag-o ang balay, nindot ang finish, ug ready na kaayo i-occupy. Kung gusto nimo og balay nga lahi ang feeling — hilom, fresh ang hangin, ug nindot ang view — kani gyud.\n\nTitled property with 2-car parking and its own water tank. Ready for occupancy — just move in.",
+    "vision_items": "Family Home|A brand new 3-bedroom house in the Busay Heights area — cool climate, panoramic views, and just 5 minutes from JY Square. Modern finish, ready to move in, with parking for 2 cars and its own water tank. Everything a family needs.|Vacation Home or Weekend Retreat|Busay is where Cebuanos go to escape the heat. Own a modern house in the heights — cool breeze, green surroundings, city views. Perfect as a weekend retreat or a peaceful second home.|Airbnb or Short-Term Rental|Busay Heights is a popular destination for tourists and locals wanting a mountain escape near the city. A brand new, modern house with panoramic views is perfect for Airbnb — strong demand in this area.|Long-Term Investment|Busay Heights property values keep rising as the area becomes more popular for residential living and tourism. A titled, brand new house at P7M in this location is a solid appreciating asset."
   }
 ];
