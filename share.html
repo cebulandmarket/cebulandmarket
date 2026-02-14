@@ -568,6 +568,14 @@
       return loc.split('-').map(function(w) { return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
     }
 
+    // Platform fee (1%) — must match js/listings.js
+    var PLATFORM_FEE = 0.01;
+    var OWNER_LISTINGS = ['1', '2'];
+    function applyFee(price, listingId) {
+      if (listingId && OWNER_LISTINGS.indexOf(listingId) !== -1) return price;
+      return Math.round(price * (1 + PLATFORM_FEE));
+    }
+
     // Lightbox
     var photos = [];
     var currentIndex = 0;
@@ -649,7 +657,7 @@
       var statsHtml = '';
       if (listing.lot_area) statsHtml += '<div class="stat"><div class="stat-value">' + formatNumber(listing.lot_area) + ' sqm</div><div class="stat-label">Lot Area</div></div>';
       if (listing.floor_area) statsHtml += '<div class="stat"><div class="stat-value">' + formatNumber(listing.floor_area) + ' sqm</div><div class="stat-label">Floor Area</div></div>';
-      if (listing.price_per_sqm) statsHtml += '<div class="stat"><div class="stat-value">' + formatPrice(listing.price_per_sqm) + '</div><div class="stat-label">Per sqm</div></div>';
+      if (listing.price_per_sqm) statsHtml += '<div class="stat"><div class="stat-value">' + formatPrice(applyFee(listing.price_per_sqm, listing.id)) + '</div><div class="stat-label">Per sqm</div></div>';
       if (listing.title_status) {
         var parts = listing.title_status.split(',');
         parts.forEach(function(p) {
@@ -767,8 +775,8 @@
       html += '<div class="hero-badge">A Personal Page</div>';
       html += '<h1>' + esc(listing.title) + '</h1>';
       html += '<div class="hero-sub">' + esc(listing.address || locationName + ', Cebu') + '</div>';
-      html += '<div class="hero-price">' + formatPrice(listing.total_price);
-      if (listing.price_per_sqm) html += ' <span>' + formatPrice(listing.price_per_sqm) + '/sqm</span>';
+      html += '<div class="hero-price">' + formatPrice(applyFee(listing.total_price, listing.id));
+      if (listing.price_per_sqm) html += ' <span>' + formatPrice(applyFee(listing.price_per_sqm, listing.id)) + '/sqm</span>';
       html += '</div>';
       html += '</div></section>';
 
