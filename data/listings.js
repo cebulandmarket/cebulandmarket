@@ -334,5 +334,31 @@ var LISTINGS_DATA = [
     "date_listed": "",
     "story": "This 426 sqm lot sits inside Saint Jude Acres Subdivision in Bulacao, Cebu City — just 500 meters from the national highway. The lot is flat, clean, and surrounded by established homes.\n\nThe location is what stands out. You're near Rosal Street, with Jollibee and CitiHardware just up the road. The Bulacao commercial strip along the highway has everything — banks, restaurants, hardware stores, groceries. SRP and SM Seaside are a short drive away. You're in the city but in a quiet subdivision.\n\nThe lot is wide and ready to build on. The neighborhood has well-built houses, paved roads, and a residential feel. At 426 sqm, you have enough space for a generous home with a yard, or a small apartment building if you want rental income.\n\nNindot kaayo ni nga lote — sulod sa subdivision, patag, titled, ug duol ra sa highway ug sa tanan nga kinahanglan nimo. Ang Bulacao naa sa south side sa Cebu City, accessible kaayo — duol sa SRP, SM Seaside, ug sa main road paingon south.\n\nTitled and ready for development. At P14,000 per sqm inside a subdivision in Cebu City — this is solid value.",
     "vision_items": "Family Home|Build your home inside a quiet subdivision in the city. 426 sqm gives you room for a spacious house, garden, and parking. Jollibee, CitiHardware, and the highway are minutes away — everything you need is close.|Apartment Building|Bulacao has strong rental demand — workers, students, and families all need affordable housing in the city. A 426 sqm lot inside a subdivision is perfect for a 4-6 door apartment.|Residential Compound|Enough space for 2-3 houses in a family compound. Inside a subdivision with established neighbors, paved roads, and city convenience. Build for your family's future.|Buy and Hold|Cebu City lot prices keep climbing, especially in accessible barangays like Bulacao near SRP. A titled lot inside a subdivision at P14,000/sqm is a smart long-term investment."
+  },
+  {
+    "id": "13",
+    "title": "205 sqm Corner Lot in Vista La Playa, Yati, Liloan, Cebu",
+    "type": "lot",
+    "location": "liloan",
+    "address": "Vista La Playa Subdivision, Yati, Liloan, Cebu",
+    "lot_area": 205,
+    "price_per_sqm": 18049,
+    "total_price": 3737000,
+    "description": "Titled corner lot inside Vista La Playa Subdivision in Yati, Liloan, Cebu — 205 square meters along the national road. The lot is right near the guard gate entrance, giving you maximum visibility and easy access. Corner lots are the most desirable in any subdivision — more road frontage, more light, and more design flexibility. The subdivision is gated with nice homes and paved concrete roads. Liloan is part of Metro Cebu's northern growth corridor with rising property values and steady development.",
+    "features": "Titled Property,205 sqm,Corner Lot,Inside Subdivision,Along National Road,Near Guard Gate,Gated Subdivision,Paved Roads,Liloan Location,Ready to Build",
+    "photo_url": "images/liloan-vlp-3.jpg",
+    "photo_urls": "images/liloan-vlp-1.jpg,images/liloan-vlp-2.jpg,images/liloan-vlp-3.jpg",
+    "map_url": "Vista La Playa Subdivision, Yati, Liloan, Cebu, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Titled Property",
+    "status": "active",
+    "date_listed": "",
+    "story": "This 205 sqm corner lot sits inside Vista La Playa Subdivision in Yati, Liloan — right near the guard gate entrance and along the national road. It's the kind of lot people look for but rarely find available.\n\nCorner lots are premium in any subdivision. You get more frontage, more natural light, better airflow, and more flexibility when you build. This one is even better because it's near the entrance — easy in, easy out, and maximum visibility.\n\nVista La Playa is a gated subdivision with well-built homes, concrete roads, and a residential feel. The neighbors have nice houses — you can see the quality of the community just by driving through the gate.\n\nLiloan keeps growing. It's part of Metro Cebu's northern expansion — new developments, new businesses, and new infrastructure keep coming in. Property values have been climbing steadily, especially inside subdivisions along the national road.\n\nNindot kaayo ni nga lote — corner lot, sulod sa subdivision, duol sa gate, ug naa sa national road. Kung gusto nimo mag-tukod og balay sa nindot nga lugar sa Liloan, kani ang chance nimo.\n\nTitled and ready to build on.",
+    "vision_items": "Dream Home|A corner lot inside a gated subdivision — the ideal spot for your family home. More space, more light, and near the gate for easy access. Build the house you've always wanted.|Rental Property|Build a 2-3 door apartment on a corner lot with high visibility near the gate. Liloan's growing population means steady demand for rentals inside subdivisions.|Smart Investment|Corner lots appreciate faster than interior lots. Inside a gated subdivision along the national road in Liloan — this property will only go up in value.|Small Business|Corner lots near subdivision entrances have commercial potential. A small store, salon, or service business with built-in foot traffic from residents."
   }
 ];
