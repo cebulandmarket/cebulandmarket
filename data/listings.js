@@ -308,5 +308,31 @@ var LISTINGS_DATA = [
     "date_listed": "",
     "story": "This 1,719 sqm lot sits inside Sta. Maria Village in Tigbao, Talamban — a quiet, established neighborhood with well-built homes and paved roads. The lot has a 10-meter wide road right of way, giving you excellent access and frontage.\n\nThe land is green and alive — banana trees, cacao, and thick vegetation cover the property. It's the kind of lot that feels private even though you're inside a village with neighbors around you. The aerial view shows how well-positioned it is — surrounded by houses, near the road, and with clear boundaries.\n\nTalamban has been one of the hottest areas in Cebu City for years now. New subdivisions and apartments keep going up. Universities like CIT-U and University of Cebu are nearby. The Transcentral Highway connects you to the highlands. And with the city expanding north, property values here continue to climb.\n\nNindot kaayo ni nga lote — sulod sa village, dako, titled, ug naa sa Talamban nga nag-grow pa gyud. Kung gusto nimo mag-develop og subdivision, apartment, o tukuran og compound para sa pamilya, kani ang lugar.\n\nAt 1,719 sqm inside a village with a 10-meter road right of way — this is a serious piece of land in one of Cebu City's most in-demand areas.",
     "vision_items": "Pocket Subdivision|1,719 sqm inside a village — divide it into 10-15 residential lots with road access already in place. The neighborhood is established, the demand is real, and the 10-meter road ROW makes development straightforward.|Apartment Complex|Build a multi-door apartment for Talamban's growing population of workers, students, and young professionals. Inside a village means your tenants get a safe, quiet neighborhood.|Residential Compound|A family compound with multiple houses, shared garden, and room to grow. 1,719 sqm inside a subdivision gives you privacy, security, and space — all in the city.|Spacious Family Home|Build your dream home on a generous lot with mature trees and vegetation. Inside a village with paved roads and good neighbors. Enough space for a big house, garden, orchard, and parking."
+  },
+  {
+    "id": "12",
+    "title": "426 sqm Lot in Saint Jude Acres, Bulacao, Cebu City",
+    "type": "lot",
+    "location": "cebu-city",
+    "address": "Saint Jude Acres Subdivision, Bulacao, Cebu City",
+    "lot_area": 426,
+    "price_per_sqm": 14000,
+    "total_price": 6023640,
+    "description": "Titled lot inside Saint Jude Acres Subdivision in Bulacao, Cebu City — 426 square meters, just 500 meters from the national highway. The lot is flat and spacious, situated in an established subdivision with homes on all sides. Near Rosal Street with easy access to Jollibee, CitiHardware, and the main Bulacao commercial area. The property is ready for development — perfect for a family home, apartment building, or residential compound. Bulacao is a well-connected barangay in southern Cebu City with access to SRP, malls, and major roads.",
+    "features": "Titled Property,426 sqm,Inside Subdivision,500m from Highway,Flat Terrain,Near Rosal Street,Near Jollibee,Near CitiHardware,Established Neighborhood,Ready for Development",
+    "photo_url": "images/bulacao-3.jpg",
+    "photo_urls": "images/bulacao-1.jpg,images/bulacao-2.jpg,images/bulacao-3.jpg,images/bulacao-map-1.jpg,images/bulacao-map-2.jpg",
+    "map_url": "Saint Jude Acres, Bulacao, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Titled Property",
+    "status": "active",
+    "date_listed": "",
+    "story": "This 426 sqm lot sits inside Saint Jude Acres Subdivision in Bulacao, Cebu City — just 500 meters from the national highway. The lot is flat, clean, and surrounded by established homes.\n\nThe location is what stands out. You're near Rosal Street, with Jollibee and CitiHardware just up the road. The Bulacao commercial strip along the highway has everything — banks, restaurants, hardware stores, groceries. SRP and SM Seaside are a short drive away. You're in the city but in a quiet subdivision.\n\nThe lot is wide and ready to build on. The neighborhood has well-built houses, paved roads, and a residential feel. At 426 sqm, you have enough space for a generous home with a yard, or a small apartment building if you want rental income.\n\nNindot kaayo ni nga lote — sulod sa subdivision, patag, titled, ug duol ra sa highway ug sa tanan nga kinahanglan nimo. Ang Bulacao naa sa south side sa Cebu City, accessible kaayo — duol sa SRP, SM Seaside, ug sa main road paingon south.\n\nTitled and ready for development. At P14,000 per sqm inside a subdivision in Cebu City — this is solid value.",
+    "vision_items": "Family Home|Build your home inside a quiet subdivision in the city. 426 sqm gives you room for a spacious house, garden, and parking. Jollibee, CitiHardware, and the highway are minutes away — everything you need is close.|Apartment Building|Bulacao has strong rental demand — workers, students, and families all need affordable housing in the city. A 426 sqm lot inside a subdivision is perfect for a 4-6 door apartment.|Residential Compound|Enough space for 2-3 houses in a family compound. Inside a subdivision with established neighbors, paved roads, and city convenience. Build for your family's future.|Buy and Hold|Cebu City lot prices keep climbing, especially in accessible barangays like Bulacao near SRP. A titled lot inside a subdivision at P14,000/sqm is a smart long-term investment."
   }
 ];
