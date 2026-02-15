@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v1';
+var CACHE_VERSION = 'clm-v2';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -19,15 +19,15 @@ var STATIC_ASSETS = [
 ];
 
 var PAGES_TO_CACHE = [
-  '/cebulandmarket/',
-  '/cebulandmarket/index.html',
-  '/cebulandmarket/listings.html',
-  '/cebulandmarket/about.html',
-  '/cebulandmarket/submit.html',
-  '/cebulandmarket/faq.html',
-  '/cebulandmarket/privacy.html',
-  '/cebulandmarket/property.html',
-  '/cebulandmarket/404.html'
+  '/',
+  '/index.html',
+  '/listings.html',
+  '/about.html',
+  '/submit.html',
+  '/faq.html',
+  '/privacy.html',
+  '/property.html',
+  '/404.html'
 ];
 
 // Install: cache static assets
@@ -77,7 +77,7 @@ self.addEventListener('fetch', function(event) {
         return response;
       }).catch(function() {
         return caches.match(request).then(function(cached) {
-          return cached || caches.match('/cebulandmarket/404.html');
+          return cached || caches.match('/404.html');
         });
       })
     );
