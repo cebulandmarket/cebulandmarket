@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v2';
+var CACHE_VERSION = 'clm-v3';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -18,29 +18,21 @@ var STATIC_ASSETS = [
   'manifest.json'
 ];
 
-var PAGES_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/listings.html',
-  '/about.html',
-  '/submit.html',
-  '/faq.html',
-  '/privacy.html',
-  '/property.html',
-  '/404.html'
-];
-
-// Install: cache static assets
+// Install: cache static assets (individually so one failure doesn't break all)
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(STATIC_CACHE).then(function(cache) {
-      return cache.addAll(STATIC_ASSETS);
+      return Promise.all(
+        STATIC_ASSETS.map(function(url) {
+          return cache.add(url).catch(function() {});
+        })
+      );
     })
   );
   self.skipWaiting();
 });
 
-// Activate: clean old caches
+// Activate: clean ALL old caches
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(keys) {
@@ -63,10 +55,19 @@ self.addEventListener('fetch', function(event) {
   // Only handle GET requests
   if (request.method !== 'GET') return;
 
-  // Skip cross-origin requests (analytics, forms, etc.)
+  // Skip cross-origin requests
   if (!request.url.startsWith(self.location.origin)) return;
 
-  // HTML pages: network-first (fresh content), fallback to cache
+  var url = new URL(request.url);
+
+  // Fix old /cebulandmarket/ paths — redirect to root
+  if (url.pathname.indexOf('/cebulandmarket/') === 0) {
+    var fixedPath = url.pathname.replace('/cebulandmarket/', '/');
+    event.respondWith(Response.redirect(url.origin + fixedPath + url.search, 301));
+    return;
+  }
+
+  // HTML pages: network-first, fallback to cache, then offline message
   if (request.headers.get('Accept') && request.headers.get('Accept').indexOf('text/html') !== -1) {
     event.respondWith(
       fetch(request).then(function(response) {
@@ -77,22 +78,28 @@ self.addEventListener('fetch', function(event) {
         return response;
       }).catch(function() {
         return caches.match(request).then(function(cached) {
-          return cached || caches.match('/404.html');
+          if (cached) return cached;
+          return new Response(
+            '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline — CebuLandMarket</title><style>body{font-family:-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#f5f5f5;color:#333;text-align:center;padding:20px}h1{color:#2e7d32;font-size:1.5rem}p{margin:12px 0;color:#666}a{color:#2e7d32;font-weight:600}</style></head><body><div><h1>You\'re Offline</h1><p>Check your internet connection and try again.</p><p><a href="/">Go to Homepage</a></p></div></body></html>',
+            { headers: { 'Content-Type': 'text/html' } }
+          );
         });
       })
     );
     return;
   }
 
-  // Static assets (CSS, JS, images): cache-first
+  // Static assets: cache-first
   event.respondWith(
     caches.match(request).then(function(cached) {
       if (cached) return cached;
       return fetch(request).then(function(response) {
-        var clone = response.clone();
-        caches.open(STATIC_CACHE).then(function(cache) {
-          cache.put(request, clone);
-        });
+        if (response.ok) {
+          var clone = response.clone();
+          caches.open(STATIC_CACHE).then(function(cache) {
+            cache.put(request, clone);
+          });
+        }
         return response;
       });
     })
