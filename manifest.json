@@ -1,7 +1,7 @@
 {
   "name": "CebuLandMarket \u2014 Property Listings",
   "short_name": "CebuLandMarket",
-  "start_url": "/cebulandmarket/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#2e7d32",
   "theme_color": "#2e7d32",
