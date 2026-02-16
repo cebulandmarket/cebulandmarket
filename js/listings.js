@@ -268,6 +268,10 @@ function renderPropertyDetail() {
     if (ogImage) ogImage.setAttribute('content', baseUrl + (listing.photo_url || ''));
     if (ogUrl) ogUrl.setAttribute('content', baseUrl + 'property.html?id=' + listing.id);
 
+    // Update canonical URL for SEO
+    var canonicalUrl = document.getElementById('canonicalUrl');
+    if (canonicalUrl) canonicalUrl.setAttribute('href', baseUrl + 'property.html?id=' + listing.id);
+
     // Update Twitter Card meta tags
     var twTitle = document.getElementById('twTitle');
     var twDesc = document.getElementById('twDesc');

@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="Every property has a story. See the owner's vision for this land." id="twDesc">
   <meta name="twitter:image" content="https://cebulandmarket.com/images/cebulandmarket-promo.jpg" id="twImage">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="canonical" href="https://cebulandmarket.com/share.html">
+  <link rel="canonical" href="https://cebulandmarket.com/share.html" id="canonicalUrl">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#2e7d32">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -670,6 +670,12 @@
       if (twTitleEl) twTitleEl.setAttribute('content', listing.title);
       if (twDescEl) twDescEl.setAttribute('content', (listing.story || listing.description || '').substring(0, 200));
       if (twImageEl) twImageEl.setAttribute('content', mainPhoto);
+
+      // Update canonical URL and og:url for SEO
+      var canonicalUrl = document.getElementById('canonicalUrl');
+      if (canonicalUrl) canonicalUrl.setAttribute('href', 'https://cebulandmarket.com/share.html?id=' + id);
+      var ogUrlEl = document.getElementById('ogUrl');
+      if (ogUrlEl) ogUrlEl.setAttribute('content', 'https://cebulandmarket.com/share.html?id=' + id);
 
       // Build stats
       var statsHtml = '';
