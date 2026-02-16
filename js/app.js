@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var btn = notifyForm.querySelector('button[type="submit"]');
       btn.textContent = 'Sending...';
       btn.disabled = true;
-      fetch(notifyForm.action, { method: 'POST', body: new FormData(notifyForm), headers: { 'Accept': 'application/json' } })
+      fetch(notifyForm.action, { method: 'POST', body: new FormData(notifyForm), mode: 'no-cors' })
       .then(function() {
         notifyForm.style.display = 'none';
         document.getElementById('notifySuccess').style.display = 'block';

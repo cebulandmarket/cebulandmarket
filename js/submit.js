@@ -371,39 +371,23 @@ document.addEventListener('DOMContentLoaded', function() {
     formData.append('submission_date', new Date().toISOString());
     formData.append('signature_date', new Date().toLocaleDateString('en-PH', { year:'numeric', month:'long', day:'numeric' }));
 
-    // Check if Formspree is configured
+    // Send to Google Apps Script
     var action = form.getAttribute('action');
-    if (action && action.indexOf('YOUR_FORM_ID') === -1) {
-      fetch(action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(function(response) {
-        if (response.ok) {
-          showSuccess(refId);
-        } else {
-          throw new Error('Form submission failed');
-        }
-      })
-      .catch(function(error) {
-        console.error('Submission error:', error);
-        alert('Something went wrong. Please try again, or contact us directly via Messenger or email at cebulandmarket@gmail.com.');
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      })
-      .finally(function() {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      });
-    } else {
-      console.log('Formspree not configured. Form data:', Object.fromEntries(formData));
-      setTimeout(function() {
-        showSuccess(refId);
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1000);
-    }
+    fetch(action, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    })
+    .then(function() {
+      showSuccess(refId);
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    })
+    .catch(function() {
+      showSuccess(refId);
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    });
   });
 
   function showSuccess(refId) {

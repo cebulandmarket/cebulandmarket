@@ -378,7 +378,7 @@ function renderPropertyDetail() {
             '<div class="contact-buttons">' + contactHtml + '</div>' +
             '<div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--gray-300);">' +
               '<p style="font-size:0.9rem; font-weight:600; color:var(--dark); margin-bottom:12px;">Or send us your details and we\'ll contact you:</p>' +
-              '<form id="inquiryForm" action="https://formspree.io/f/mzdazwae" method="POST">' +
+              '<form id="inquiryForm" action="https://script.google.com/macros/s/AKfycbyVOxRN0ypOCcDRE08KMGrXL265R6dQqpS3lHgESqNB6FN1ISkgcQoZ928rL-UQ8L5M/exec" method="POST">' +
                 '<input type="hidden" name="form_type" value="buyer_inquiry">' +
                 '<input type="hidden" name="property_title" value="' + escapeHtml(listing.title) + '">' +
                 '<input type="hidden" name="property_id" value="' + listing.id + '">' +
@@ -453,8 +453,8 @@ document.addEventListener('click', function(e) {
     var btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Sending...';
     btn.disabled = true;
-    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-    .then(function(r) {
+    fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+    .then(function() {
       form.style.display = 'none';
       document.getElementById('inquirySuccess').style.display = 'block';
     })
