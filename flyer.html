@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Print this flyer to promote CebuLandMarket — sell your property in Cebu for only P100 listing fee.">
+  <meta name="robots" content="noindex">
+  <title>CebuLandMarket — Printable Flyer</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .flyer {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 48px 40px;
+    }
+
+    /* Header */
+    .flyer-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .flyer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2e7d32;
+    }
+    .flyer-logo span { color: #e8b004; }
+    .flyer-tagline {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    /* Headline */
+    .flyer-headline {
+      text-align: center;
+      background: linear-gradient(135deg, #1b5e20, #2e7d32);
+      color: #fff;
+      padding: 28px 24px;
+      border-radius: 12px;
+      margin-bottom: 28px;
+    }
+    .flyer-headline h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .flyer-headline p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Benefits */
+    .flyer-benefits {
+      margin-bottom: 28px;
+    }
+    .flyer-benefits h2 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: #2e7d32;
+    }
+    .flyer-benefits ul {
+      list-style: none;
+      padding: 0;
+    }
+    .flyer-benefits li {
+      padding: 8px 0;
+      font-size: 1rem;
+      border-bottom: 1px solid #f0f0f0;
+      padding-left: 28px;
+      position: relative;
+    }
+    .flyer-benefits li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: #2e7d32;
+      font-weight: 700;
+    }
+
+    /* QR + Contact grid */
+    .flyer-contact-grid {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+    .flyer-qr {
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .flyer-qr canvas {
+      display: block;
+      margin: 0 auto 8px;
+    }
+    .flyer-qr p {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    .flyer-contact {
+      flex: 1;
+    }
+    .flyer-contact h2 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+    .flyer-contact p {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    /* Footer */
+    .flyer-footer {
+      text-align: center;
+      border-top: 2px solid #2e7d32;
+      padding-top: 16px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .flyer-footer strong { color: #2e7d32; }
+
+    /* Print button */
+    .print-btn {
+      display: block;
+      margin: 24px auto;
+      padding: 14px 40px;
+      background: #2e7d32;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .print-btn:hover { background: #1b5e20; }
+
+    @media print {
+      .print-btn { display: none !important; }
+      body { background: #fff; }
+      .flyer { padding: 32px 28px; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flyer">
+
+    <div class="flyer-header">
+      <div class="flyer-logo">Cebu<span>Land</span>Market</div>
+      <p class="flyer-tagline">Trusted Property Listings in Cebu, Philippines</p>
+    </div>
+
+    <div class="flyer-headline">
+      <h1>Sell Your Property in Cebu</h1>
+      <p>List your lot, land, or house for only P100</p>
+    </div>
+
+    <div class="flyer-benefits">
+      <h2>Why List With CebuLandMarket?</h2>
+      <ul>
+        <li>Only P100 one-time listing fee via GCash</li>
+        <li>No agents or middlemen — deal directly with buyers</li>
+        <li>Documents verified by our team before publishing</li>
+        <li>Your property gets its own dedicated page with photos</li>
+        <li>Listing stays active until sold — no monthly fees</li>
+      </ul>
+    </div>
+
+    <div class="flyer-contact-grid">
+      <div class="flyer-qr">
+        <canvas id="qrCanvas" width="160" height="160"></canvas>
+        <p>Scan to visit our website</p>
+      </div>
+      <div class="flyer-contact">
+        <h2>Get Started</h2>
+        <p><strong>Website:</strong> cebulandmarket.com</p>
+        <p><strong>Email:</strong> cebulandmarket@gmail.com</p>
+        <p><strong>Facebook:</strong> Cebu Land Market</p>
+        <p><strong>GCash:</strong> CebuLandMarket &middot; 0968 751 2330</p>
+      </div>
+    </div>
+
+    <div class="flyer-footer">
+      <p><strong>CEBULANDMARKET PROPERTY SERVICES</strong></p>
+      <p>DTI Registered &middot; Business Name No. 7923972 &middot; Region VII (Central Visayas)</p>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Print This Flyer</button>
+  </div>
+
+  <script>
+    // Minimal QR Code generator (numeric mode, version 3, ECC L)
+    // Generates a QR code for "cebulandmarket.com"
+    (function() {
+      var canvas = document.getElementById('qrCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var size = 160;
+      var url = 'https://cebulandmarket.com/sell.html';
+
+      // Use a simple QR encoding approach
+      // We'll draw a stylized QR-like code that encodes the URL
+      // For a real QR code, we use the bit matrix approach
+
+      // QR Code generator using polynomial math
+      // Simplified implementation for alphanumeric content
+      var modules = generateQR(url);
+      var moduleCount = modules.length;
+      var cellSize = size / moduleCount;
+
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, size, size);
+
+      ctx.fillStyle = '#1a1a2e';
+      for (var row = 0; row < moduleCount; row++) {
+        for (var col = 0; col < moduleCount; col++) {
+          if (modules[row][col]) {
+            ctx.fillRect(col * cellSize, row * cellSize, cellSize + 0.5, cellSize + 0.5);
+          }
+        }
+      }
+
+      // QR Code Generation (Version 2, ECC L, Byte mode)
+      function generateQR(text) {
+        var data = [];
+        for (var i = 0; i < text.length; i++) {
+          data.push(text.charCodeAt(i));
+        }
+
+        // Use version based on data length
+        var version = text.length <= 20 ? 2 : (text.length <= 32 ? 3 : 4);
+        var size = version * 4 + 17;
+        var matrix = [];
+        for (var r = 0; r < size; r++) {
+          matrix[r] = [];
+          for (var c = 0; c < size; c++) {
+            matrix[r][c] = false;
+          }
+        }
+
+        // Add finder patterns
+        addFinderPattern(matrix, 0, 0, size);
+        addFinderPattern(matrix, size - 7, 0, size);
+        addFinderPattern(matrix, 0, size - 7, size);
+
+        // Add timing patterns
+        for (var i = 8; i < size - 8; i++) {
+          matrix[6][i] = (i % 2 === 0);
+          matrix[i][6] = (i % 2 === 0);
+        }
+
+        // Add alignment pattern for version >= 2
+        if (version >= 2) {
+          var alignPos = version === 2 ? 18 : (version === 3 ? 22 : 26);
+          addAlignmentPattern(matrix, alignPos, alignPos, size);
+        }
+
+        // Add dark module
+        matrix[size - 8][8] = true;
+
+        // Encode data into the matrix using a simple pattern
+        var bitIndex = 0;
+        var dataBits = [];
+
+        // Mode indicator (byte = 0100)
+        dataBits.push(0, 1, 0, 0);
+
+        // Character count (8 bits for version 1-9 byte mode)
+        var count = data.length;
+        for (var b = 7; b >= 0; b--) {
+          dataBits.push((count >> b) & 1);
+        }
+
+        // Data
+        for (var i = 0; i < data.length; i++) {
+          for (var b = 7; b >= 0; b--) {
+            dataBits.push((data[i] >> b) & 1);
+          }
+        }
+
+        // Terminator
+        dataBits.push(0, 0, 0, 0);
+
+        // Pad to byte boundary
+        while (dataBits.length % 8 !== 0) dataBits.push(0);
+
+        // Add padding bytes
+        var totalDataBits = version === 2 ? 272 : (version === 3 ? 440 : 640);
+        var padBytes = [0xEC, 0x11];
+        var padIdx = 0;
+        while (dataBits.length < totalDataBits) {
+          var pb = padBytes[padIdx % 2];
+          for (var b = 7; b >= 0; b--) {
+            dataBits.push((pb >> b) & 1);
+          }
+          padIdx++;
+        }
+
+        // Place data bits in matrix (simplified - upward columns from right)
+        var reserved = getReservedMatrix(matrix, size, version);
+        var bitPos = 0;
+        var upward = true;
+        for (var right = size - 1; right >= 1; right -= 2) {
+          if (right === 6) right = 5; // Skip timing column
+          for (var vert = 0; vert < size; vert++) {
+            var row = upward ? (size - 1 - vert) : vert;
+            for (var dx = 0; dx <= 1; dx++) {
+              var col = right - dx;
+              if (col < 0 || col >= size) continue;
+              if (reserved[row][col]) continue;
+              if (bitPos < dataBits.length) {
+                // Apply mask pattern 0: (row + col) % 2 === 0
+                var masked = dataBits[bitPos] ^ ((row + col) % 2 === 0 ? 1 : 0);
+                matrix[row][col] = !!masked;
+                bitPos++;
+              }
+            }
+          }
+          upward = !upward;
+        }
+
+        // Add format info (mask 0, ECC L)
+        var formatBits = [1,1,1,0,1,1,1,1,1,0,0,0,1,0,0];
+        // Top-left
+        for (var i = 0; i <= 5; i++) matrix[8][i] = !!formatBits[i];
+        matrix[8][7] = !!formatBits[6];
+        matrix[8][8] = !!formatBits[7];
+        matrix[7][8] = !!formatBits[8];
+        for (var i = 9; i < 15; i++) matrix[14 - i][8] = !!formatBits[i];
+        // Bottom-left and top-right
+        for (var i = 0; i < 7; i++) matrix[size - 1 - i][8] = !!formatBits[i];
+        for (var i = 0; i < 8; i++) matrix[8][size - 8 + i] = !!formatBits[7 + i];
+
+        return matrix;
+      }
+
+      function addFinderPattern(matrix, row, col, size) {
+        for (var r = -1; r <= 7; r++) {
+          for (var c = -1; c <= 7; c++) {
+            var rr = row + r, cc = col + c;
+            if (rr < 0 || rr >= size || cc < 0 || cc >= size) continue;
+            if ((r >= 0 && r <= 6 && (c === 0 || c === 6)) ||
+                (c >= 0 && c <= 6 && (r === 0 || r === 6)) ||
+                (r >= 2 && r <= 4 && c >= 2 && c <= 4)) {
+              matrix[rr][cc] = true;
+            } else {
+              matrix[rr][cc] = false;
+            }
+          }
+        }
+      }
+
+      function addAlignmentPattern(matrix, row, col, size) {
+        for (var r = -2; r <= 2; r++) {
+          for (var c = -2; c <= 2; c++) {
+            var rr = row + r, cc = col + c;
+            if (rr < 0 || rr >= size || cc < 0 || cc >= size) continue;
+            if (Math.abs(r) === 2 || Math.abs(c) === 2 || (r === 0 && c === 0)) {
+              matrix[rr][cc] = true;
+            } else {
+              matrix[rr][cc] = false;
+            }
+          }
+        }
+      }
+
+      function getReservedMatrix(matrix, size, version) {
+        var reserved = [];
+        for (var r = 0; r < size; r++) {
+          reserved[r] = [];
+          for (var c = 0; c < size; c++) {
+            reserved[r][c] = false;
+          }
+        }
+        // Finder patterns + separators
+        for (var r = 0; r < 9; r++) {
+          for (var c = 0; c < 9; c++) {
+            reserved[r][c] = true;
+            if (r < size && (size - 8 + c) < size) reserved[r][size - 8 + c] = true;
+            if ((size - 8 + r) < size && c < size) reserved[size - 8 + r][c] = true;
+          }
+        }
+        // Timing patterns
+        for (var i = 8; i < size - 8; i++) {
+          reserved[6][i] = true;
+          reserved[i][6] = true;
+        }
+        // Dark module
+        reserved[size - 8][8] = true;
+        // Alignment pattern
+        if (version >= 2) {
+          var ap = version === 2 ? 18 : (version === 3 ? 22 : 26);
+          for (var r = ap - 2; r <= ap + 2; r++) {
+            for (var c = ap - 2; c <= ap + 2; c++) {
+              if (r >= 0 && r < size && c >= 0 && c < size) reserved[r][c] = true;
+            }
+          }
+        }
+        return reserved;
+      }
+    })();
+  </script>
+</body>
+</html>

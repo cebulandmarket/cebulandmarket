@@ -31,6 +31,7 @@ function fetchListings(callback) {
 // Platform fee (1%) added to seller's asking price
 var PLATFORM_FEE = 0.01;
 var OWNER_LISTINGS = ['1', '2']; // Owner's own listings — no fee applied
+var currentListing = null; // Exposed for share-card.js
 function applyFee(price, listingId) {
   if (listingId && OWNER_LISTINGS.indexOf(listingId) !== -1) return price;
   return Math.round(price * (1 + PLATFORM_FEE));
@@ -248,6 +249,9 @@ function renderPropertyDetail() {
       return;
     }
 
+    // Store for share-card.js
+    currentListing = listing;
+
     // Update page title and breadcrumb
     document.title = listing.title + ' | ' + formatPrice(applyFee(listing.total_price, listing.id)) + ' — CebuLandMarket';
     var breadcrumb = document.getElementById('breadcrumbTitle');
@@ -263,6 +267,38 @@ function renderPropertyDetail() {
     if (ogDesc) ogDesc.setAttribute('content', listing.description.substring(0, 200) + '...');
     if (ogImage) ogImage.setAttribute('content', baseUrl + (listing.photo_url || ''));
     if (ogUrl) ogUrl.setAttribute('content', baseUrl + 'property.html?id=' + listing.id);
+
+    // Update Twitter Card meta tags
+    var twTitle = document.getElementById('twTitle');
+    var twDesc = document.getElementById('twDesc');
+    var twImage = document.getElementById('twImage');
+    if (twTitle) twTitle.setAttribute('content', listing.title + ' - ' + formatPrice(applyFee(listing.total_price, listing.id)));
+    if (twDesc) twDesc.setAttribute('content', listing.description.substring(0, 200) + '...');
+    if (twImage) twImage.setAttribute('content', baseUrl + (listing.photo_url || ''));
+
+    // Inject RealEstateListing JSON-LD
+    var jsonLd = document.createElement('script');
+    jsonLd.type = 'application/ld+json';
+    jsonLd.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "RealEstateListing",
+      "name": listing.title,
+      "description": listing.description.substring(0, 300),
+      "url": baseUrl + 'property.html?id=' + listing.id,
+      "image": baseUrl + (listing.photo_url || ''),
+      "offers": {
+        "@type": "Offer",
+        "price": applyFee(listing.total_price, listing.id),
+        "priceCurrency": "PHP"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": getLocationName(listing.location),
+        "addressRegion": "Cebu",
+        "addressCountry": "PH"
+      }
+    });
+    document.head.appendChild(jsonLd);
 
     // Build photo gallery
     var mainPhoto = listing.photo_url || getPlaceholderImage(listing.title);
@@ -354,6 +390,7 @@ function renderPropertyDetail() {
             '<div class="share-buttons">' +
               '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(baseUrl + 'listing-' + listing.id + '.html') + '" target="_blank" class="share-btn share-fb">&#128266; Share on Facebook</a>' +
               '<a href="#" onclick="navigator.clipboard.writeText(\'' + baseUrl + 'property.html?id=' + listing.id + '\');this.textContent=\'Link Copied!\';return false;" class="share-btn share-copy">&#128279; Copy Link</a>' +
+              '<a href="#" onclick="if(typeof generateShareCard===\'function\'&&currentListing)generateShareCard(currentListing);return false;" class="share-btn share-copy">&#128247; Download Share Card</a>' +
               '<a href="#" onclick="window.print();return false;" class="share-btn share-copy">&#128424; Print Listing</a>' +
             '</div>' +
           '</div>' +

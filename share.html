@@ -14,7 +14,13 @@
   <meta property="og:image:width" content="1080">
   <meta property="og:image:height" content="1080">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_PH">
+  <meta property="og:site_name" content="CebuLandMarket">
   <meta property="og:url" content="https://cebulandmarket.com/share.html" id="ogUrl">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Property Story — CebuLandMarket" id="twTitle">
+  <meta name="twitter:description" content="Every property has a story. See the owner's vision for this land." id="twDesc">
+  <meta name="twitter:image" content="https://cebulandmarket.com/images/cebulandmarket-promo.jpg" id="twImage">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="canonical" href="https://cebulandmarket.com/share.html">
   <link rel="manifest" href="manifest.json">
@@ -658,6 +664,12 @@
       if (ogTitleEl) ogTitleEl.setAttribute('content', listing.title);
       if (ogDescEl) ogDescEl.setAttribute('content', (listing.story || listing.description || '').substring(0, 200));
       if (ogImageEl) ogImageEl.setAttribute('content', mainPhoto);
+      var twTitleEl = document.getElementById('twTitle');
+      var twDescEl = document.getElementById('twDesc');
+      var twImageEl = document.getElementById('twImage');
+      if (twTitleEl) twTitleEl.setAttribute('content', listing.title);
+      if (twDescEl) twDescEl.setAttribute('content', (listing.story || listing.description || '').substring(0, 200));
+      if (twImageEl) twImageEl.setAttribute('content', mainPhoto);
 
       // Build stats
       var statsHtml = '';
@@ -821,7 +833,7 @@
       html += '<section class="dream-banner">';
       html += '<p class="dream-heading">Every Property Has a Story</p>';
       html += '<p>At CebuLandMarket, we create a personal page for every approved listing — because selling a property isn\'t about giving up a dream. It\'s about sharing it with someone who\'ll carry it forward.</p>';
-      html += '<p style="margin-top:1rem;"><a href="submit.html" style="color:#e8b004; font-weight:600; text-decoration:none;">List your property</a> and we\'ll tell your story too.</p>';
+      html += '<p style="margin-top:1rem;"><a href="sell.html" style="color:#e8b004; font-weight:600; text-decoration:none;">List your property</a> and we\'ll tell your story too.</p>';
       html += '</section>';
 
       // Footer
