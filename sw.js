@@ -1,6 +1,20 @@
-var CACHE_VERSION = 'clm-v8';
+var CACHE_VERSION = 'clm-v9';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
+
+var HTML_PAGES = [
+  '/',
+  '/index.html',
+  '/listings.html',
+  '/property.html',
+  '/submit.html',
+  '/about.html',
+  '/faq.html',
+  '/contact.html',
+  '/privacy.html',
+  '/terms.html',
+  '/share.html'
+];
 
 var STATIC_ASSETS = [
   'css/style.css?v=2',
@@ -19,16 +33,25 @@ var STATIC_ASSETS = [
   'manifest.json'
 ];
 
-// Install: cache static assets (individually so one failure doesn't break all)
+// Install: cache static assets AND all HTML pages upfront
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open(STATIC_CACHE).then(function(cache) {
-      return Promise.all(
-        STATIC_ASSETS.map(function(url) {
-          return cache.add(url).catch(function() {});
-        })
-      );
-    })
+    Promise.all([
+      caches.open(STATIC_CACHE).then(function(cache) {
+        return Promise.all(
+          STATIC_ASSETS.map(function(url) {
+            return cache.add(url).catch(function() {});
+          })
+        );
+      }),
+      caches.open(PAGES_CACHE).then(function(cache) {
+        return Promise.all(
+          HTML_PAGES.map(function(url) {
+            return cache.add(url).catch(function() {});
+          })
+        );
+      })
+    ])
   );
   self.skipWaiting();
 });
