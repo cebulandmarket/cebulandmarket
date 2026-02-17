@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (data.success) {
         showSuccess(refId);
       } else {
-        alert('Submission failed. Please try again or message us on Messenger.');
+        alert('Submission failed: ' + (data.message || 'Unknown error'));
       }
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
