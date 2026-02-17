@@ -1,0 +1,144 @@
+=============================================
+  CEBULANDMARKET.COM — OWNER'S MANUAL
+  How to Manage Your Website Without a Developer
+=============================================
+
+WEBSITE: https://cebulandmarket.com
+GITHUB:  https://github.com/cebulandmarket/cebulandmarket
+
+
+--- YOUR LOGINS ---
+
+1. GitHub (where your website code lives)
+   - URL: https://github.com
+   - 2FA: Authy app on your phone
+   - Token expires: May 14, 2026 (RENEW BEFORE THIS DATE)
+
+2. Gmail (business email)
+   - Email: r.reafil2@gmail.com
+
+3. Formspree (handles form submissions from submit page)
+   - URL: https://formspree.io
+   - Form ID: mzdazwae
+
+4. GoatCounter (website visitor analytics)
+   - URL: https://cebulandmarket.goatcounter.com
+
+5. Google Search Console (SEO & indexing)
+   - URL: https://search.google.com/search-console
+
+6. DTI Registration
+   - Business Name: CEBULANDMARKET PROPERTY SERVICES
+   - Business Name No.: 7923972
+   - Expires: February 12, 2031
+
+
+--- HOW TO EDIT LISTINGS (Add/Remove Properties) ---
+
+All listings are stored in ONE file: data/listings.js
+
+Step 1: Go to https://github.com/cebulandmarket/cebulandmarket
+Step 2: Click on "data" folder, then click "listings.js"
+Step 3: Click the PENCIL ICON (top right of the file) to edit
+Step 4: Add or edit a listing — each listing looks like this:
+
+  {
+    id: 17,
+    title: "Your Property Title Here",
+    location: "Barangay, City, Cebu",
+    lot_area: "500 sqm",
+    price_per_sqm: 5000,
+    total_price: 2500000,
+    classification: "Residential",
+    title_status: "Clean Title",
+    description: "Describe the property here.",
+    photo_url: "images/your-photo.jpg",
+    photo_urls: "images/photo1.jpg,images/photo2.jpg",
+    status: "available"
+  }
+
+IMPORTANT: total_price = seller's BASE price (NO 1% fee added).
+The website automatically adds the 1% when displaying to buyers.
+
+Step 5: Scroll down, click "Commit changes"
+Step 6: Wait ~1 minute, then check cebulandmarket.com/listings.html
+
+
+--- HOW TO UPLOAD PHOTOS ---
+
+Step 1: Go to https://github.com/cebulandmarket/cebulandmarket
+Step 2: Click the "images" folder
+Step 3: Click "Add file" > "Upload files"
+Step 4: Drag your photos in (name them like: location-1.jpg, location-2.jpg)
+Step 5: Click "Commit changes"
+Step 6: Use the filename in listings.js like: "images/your-photo.jpg"
+
+
+--- HOW TO EDIT ANY PAGE ---
+
+Same as editing listings:
+Step 1: Go to the GitHub repo
+Step 2: Find the file you want to edit:
+   - index.html      = Home page
+   - listings.html    = All listings page
+   - submit.html      = Submit property form
+   - about.html       = About page
+   - faq.html         = FAQ page
+   - privacy.html     = Privacy policy
+Step 3: Click pencil icon, edit, commit
+
+
+--- HOW TO MARK A PROPERTY AS SOLD ---
+
+Step 1: Edit data/listings.js on GitHub
+Step 2: Find the listing and change: status: "available" to status: "sold"
+Step 3: Commit changes
+Step 4: Collect the 1% platform fee via GCash
+Step 5: Get proof of payment (GCash screenshot)
+Step 6: Save documents to Google Drive (title, tax dec, seller ID, proof)
+
+
+--- HOW TO DELETE A LISTING ---
+
+Step 1: Edit data/listings.js on GitHub
+Step 2: Delete the entire listing block (from { to })
+Step 3: Make sure there are no extra commas left behind
+Step 4: Commit changes
+IMPORTANT: Never delete the photos from GitHub — keep them forever
+
+
+--- IMPORTANT REMINDERS ---
+
+- GitHub Token expires May 14, 2026 — renew it before that date
+  (Go to GitHub > Settings > Developer Settings > Personal Access Tokens)
+- DTI Registration expires February 12, 2031 — renew before that
+- GCash for payments: 0968 751 2330 (display as "CebuLandMarket")
+- Listing fee: P100 per property
+- Platform fee: 1% (added automatically by website, not stored in data)
+- Never delete photos from GitHub
+- Admin analytics panel: add ?admin=clm2025 to any page URL
+
+
+--- IF SOMETHING BREAKS ---
+
+1. Check if GitHub is down: https://www.githubstatus.com
+2. Check if your domain expired (renew it yearly)
+3. Make sure you didn't accidentally delete a comma or bracket in listings.js
+4. If a page shows 404, make sure the file exists in the GitHub repo
+5. If forms stop working, check Formspree at https://formspree.io
+
+
+--- QUICK REFERENCE ---
+
+Add listing    = Edit data/listings.js on GitHub
+Upload photo   = Go to images/ folder on GitHub > Upload files
+Edit a page    = Find file on GitHub > pencil icon > edit > commit
+Check visitors = Go to cebulandmarket.goatcounter.com
+Check forms    = Go to formspree.io
+
+Everything can be done from your PHONE browser. No special tools needed.
+
+=============================================
+  Keep this file safe. You can manage your
+  entire website from GitHub on your phone.
+=============================================

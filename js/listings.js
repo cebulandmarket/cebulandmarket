@@ -338,7 +338,7 @@ function renderPropertyDetail() {
     contactHtml += '<a href="https://m.me/61587469756965" target="_blank" class="contact-btn messenger">&#128172; Message us on Messenger</a>';
     contactHtml += '<a href="https://wa.me/639687512330?text=' + encodeURIComponent('Hi, I\'m interested in: ' + listing.title) + '" target="_blank" class="contact-btn whatsapp">&#128172; WhatsApp us</a>';
     contactHtml += '<a href="viber://chat?number=639687512330" class="contact-btn viber">&#128222; Chat on Viber</a>';
-    contactHtml += '<a href="mailto:cebulandmarket@gmail.com?subject=' + encodeURIComponent('Inquiry: ' + listing.title) + '" class="contact-btn phone">&#9993; Email us</a>';
+    contactHtml += '<a href="mailto:info@cebulandmarket.com?subject=' + encodeURIComponent('Inquiry: ' + listing.title) + '" class="contact-btn phone">&#9993; Email us</a>';
 
     // Render full detail page
     container.innerHTML =
