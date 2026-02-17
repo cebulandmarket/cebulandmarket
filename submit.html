@@ -159,7 +159,11 @@
           <h2>Property Details</h2>
           <p class="form-subtitle">Fill in all required fields. Our team will review and publish your listing within 24 hours after payment confirmation.</p>
 
-          <form id="submitForm" action="https://script.google.com/macros/s/AKfycbyVOxRN0ypOCcDRE08KMGrXL265R6dQqpS3lHgESqNB6FN1ISkgcQoZ928rL-UQ8L5M/exec" method="POST">
+          <form id="submitForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="09df7276-a4b9-44bc-9342-b4c7971c1dce">
+            <input type="hidden" name="subject" value="New Property Submission - CebuLandMarket">
+            <input type="hidden" name="from_name" value="CebuLandMarket Form">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
 
             <h3 style="margin-bottom:16px; color:var(--dark);">Owner Information</h3>
 

@@ -371,20 +371,24 @@ document.addEventListener('DOMContentLoaded', function() {
     formData.append('submission_date', new Date().toISOString());
     formData.append('signature_date', new Date().toLocaleDateString('en-PH', { year:'numeric', month:'long', day:'numeric' }));
 
-    // Send to Google Apps Script
+    // Send to Web3Forms
     var action = form.getAttribute('action');
     fetch(action, {
       method: 'POST',
-      body: formData,
-      mode: 'no-cors'
+      body: formData
     })
-    .then(function() {
-      showSuccess(refId);
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
+      if (data.success) {
+        showSuccess(refId);
+      } else {
+        alert('Submission failed. Please try again or message us on Messenger.');
+      }
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     })
     .catch(function() {
-      showSuccess(refId);
+      alert('Network error. Please try again or message us on Messenger.');
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     });
