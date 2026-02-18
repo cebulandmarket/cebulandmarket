@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Verify a CebuLandMarket property listing. Enter the CLM verification code to check a property's Trust Score and verification details.">
+  <meta property="og:title" content="Verify a Listing — CebuLandMarket">
+  <meta property="og:description" content="Verify a CebuLandMarket property listing. Enter the CLM verification code to check Trust Score and verification details.">
+  <meta property="og:image" content="https://cebulandmarket.com/images/og-image.jpg">
+  <meta property="og:url" content="https://cebulandmarket.com/verify.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_PH">
+  <meta property="og:site_name" content="CebuLandMarket">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Verify a Listing — CebuLandMarket">
+  <meta name="twitter:description" content="Verify a CebuLandMarket property listing. Enter the CLM verification code to check Trust Score and verification details.">
+  <meta name="twitter:image" content="https://cebulandmarket.com/images/og-image.jpg">
+  <title>Verify a Listing — CebuLandMarket</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="https://cebulandmarket.com/verify.html">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2e7d32">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="CebuLandMarket">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Cebu<span>Land</span>Market</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="sell.html" class="nav-cta">List Your Property</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Verify a Listing</h1>
+      <p>Enter a CLM verification code to check if a property listing is verified by CebuLandMarket.</p>
+    </div>
+  </section>
+
+  <!-- Verify Section -->
+  <section style="padding: 48px 0 60px;">
+    <div class="container">
+
+      <div class="verify-search">
+        <form id="verifyForm" onsubmit="return false;">
+          <input type="text" id="verifyInput" placeholder="CLM-2026-XXXX" maxlength="20" autocomplete="off">
+          <br>
+          <button type="submit" id="verifyBtn">Verify</button>
+        </form>
+      </div>
+
+      <div class="verify-result" id="verifyResult"></div>
+
+      <div style="max-width:600px; margin:40px auto 0; text-align:center;">
+        <h2 style="font-size:1.2rem; margin-bottom:12px;">What is the CLM Trust Score?</h2>
+        <p style="font-size:0.9rem; color:var(--gray-600); line-height:1.7;">
+          Every property listed on CebuLandMarket goes through a verification process. We check the title, tax records, owner identity, photos, and more. The result is a Trust Score from 0 to 100 — the higher the score, the more checks the property has passed.
+        </p>
+        <p style="font-size:0.85rem; color:var(--gray-500); margin-top:12px;">
+          Each verified listing gets a unique code (e.g., CLM-2026-R001) that you can look up here. This helps buyers confirm that a listing is real and has been reviewed by our team.
+        </p>
+        <p style="font-size:0.8rem; color:var(--gray-400); margin-top:16px;">
+          <strong>Disclaimer:</strong> The CLM Trust Score is based on our team's review and is not a legal guarantee. Always conduct your own due diligence before purchasing property.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Cebu<span style="color:var(--accent)">Land</span>Market</h3>
+          <p>Your trusted platform for finding and listing properties in Cebu, Philippines.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="listings.html">All Listings</a>
+          <a href="submit.html">List Property</a>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+          <a href="verify.html">Verify a Listing</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <a href="mailto:info@cebulandmarket.com">info@cebulandmarket.com</a>
+          <a href="https://m.me/61587469756965" target="_blank">Facebook Messenger</a>
+          <a href="https://www.facebook.com/profile.php?id=61587469756965" target="_blank">Facebook Page</a>
+          <a href="about.html">Cebu, Philippines</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 CebuLandMarket. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <span class="float-label">Chat with us!</span>
+  <div class="float-buttons">
+    <button class="float-btn float-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8679;</button>
+    <a href="https://wa.me/639687512330" target="_blank" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">&#128172;</a>
+    <a href="viber://chat?number=639687512330" class="float-btn float-viber" aria-label="Chat on Viber">&#128222;</a>
+  </div>
+
+  <script src="data/listings.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/analytics.js"></script>
+  <script>
+    // Trust Score helpers (same as listings.js)
+    var TRUST_CHECK_LABELS = {
+      title_verified: 'Title Verified',
+      tax_current: 'Tax Current',
+      owner_confirmed: 'Owner Confirmed',
+      site_visited: 'Site Visited',
+      photos_authentic: 'Photos Authentic',
+      no_encumbrance: 'No Encumbrance',
+      boundary_clear: 'Boundary Clear',
+      road_access: 'Road Access'
+    };
+
+    function calcTrustScore(v) {
+      if (!v || !v.checks) return 0;
+      var t = 0, p = 0;
+      for (var k in v.checks) { if (v.checks.hasOwnProperty(k)) { t++; if (v.checks[k]) p++; } }
+      return t === 0 ? 0 : Math.round((p / t) * 100);
+    }
+
+    function trustColor(s) {
+      if (s >= 75) return 'green';
+      if (s >= 50) return 'yellow';
+      if (s >= 25) return 'orange';
+      return 'red';
+    }
+
+    function doVerify() {
+      var input = document.getElementById('verifyInput').value.trim().toUpperCase();
+      var result = document.getElementById('verifyResult');
+      if (!input) { result.className = 'verify-result'; result.style.display = 'none'; return; }
+
+      var listings = (typeof LISTINGS_DATA !== 'undefined') ? LISTINGS_DATA : [];
+      var found = null;
+      for (var i = 0; i < listings.length; i++) {
+        if (listings[i].verification && listings[i].verification.code === input) {
+          found = listings[i];
+          break;
+        }
+      }
+
+      if (!found) {
+        result.className = 'verify-result show not-found';
+        result.innerHTML =
+          '<div style="text-align:center;">' +
+            '<div style="font-size:2rem; margin-bottom:8px;">&#10060;</div>' +
+            '<h3 style="color:#dc2626; margin-bottom:8px;">Code Not Found</h3>' +
+            '<p style="font-size:0.9rem; color:var(--gray-600);">The code <strong>' + input + '</strong> does not match any verified listing. Please check the code and try again.</p>' +
+            '<p style="font-size:0.8rem; color:var(--gray-400); margin-top:12px;">If you believe this is an error, contact us at <a href="mailto:info@cebulandmarket.com">info@cebulandmarket.com</a></p>' +
+          '</div>';
+        return;
+      }
+
+      var v = found.verification;
+      var score = calcTrustScore(v);
+      var color = trustColor(score);
+      var checks = v.checks;
+
+      var checklistHtml = '<ul class="trust-checklist" style="margin-top:16px;">';
+      for (var key in TRUST_CHECK_LABELS) {
+        if (TRUST_CHECK_LABELS.hasOwnProperty(key)) {
+          var passed = checks[key];
+          checklistHtml += '<li><span class="trust-check-icon ' + (passed ? 'trust-check-pass' : 'trust-check-fail') + '">' + (passed ? '&#10003;' : '&#10007;') + '</span>' + TRUST_CHECK_LABELS[key] + '</li>';
+        }
+      }
+      checklistHtml += '</ul>';
+
+      result.className = 'verify-result show verified';
+      result.innerHTML =
+        '<div style="text-align:center; margin-bottom:16px;">' +
+          '<div class="trust-score-circle score-' + color + '" style="margin:0 auto 12px; width:64px; height:64px; font-size:1.4rem;">' + score + '</div>' +
+          '<h3 style="color:#16a34a; margin-bottom:4px;">Verified Listing</h3>' +
+          '<p style="font-size:0.8rem; color:var(--gray-500);">Code: ' + v.code + ' &middot; Verified: ' + v.date + '</p>' +
+        '</div>' +
+        '<div style="border-top:1px solid var(--gray-300); padding-top:16px;">' +
+          '<p style="font-weight:700; margin-bottom:4px;">' + found.title + '</p>' +
+          '<p style="font-size:0.85rem; color:var(--gray-600); margin-bottom:4px;">' + (found.address || '') + '</p>' +
+          '<a href="property.html?id=' + found.id + '" style="font-size:0.85rem; color:var(--primary); font-weight:600;">View Full Listing &rarr;</a>' +
+        '</div>' +
+        checklistHtml +
+        '<p style="font-size:0.75rem; color:var(--gray-400); margin-top:16px; text-align:center;">This verification is based on our team\'s review and is not a legal guarantee.</p>';
+    }
+
+    // Handle form submit
+    document.getElementById('verifyBtn').addEventListener('click', doVerify);
+    document.getElementById('verifyInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); doVerify(); }
+    });
+
+    // Auto-verify if code is in URL
+    var urlCode = new URLSearchParams(window.location.search).get('code');
+    if (urlCode) {
+      document.getElementById('verifyInput').value = urlCode;
+      doVerify();
+    }
+  </script>
+  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
+</body>
+</html>

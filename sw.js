@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v9';
+var CACHE_VERSION = 'clm-v10';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -13,7 +13,8 @@ var HTML_PAGES = [
   '/contact.html',
   '/privacy.html',
   '/terms.html',
-  '/share.html'
+  '/share.html',
+  '/verify.html'
 ];
 
 var STATIC_ASSETS = [

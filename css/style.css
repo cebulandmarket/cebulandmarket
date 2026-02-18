@@ -1880,3 +1880,182 @@ ul { list-style: none; }
 .stats-bar.trust-stats .stat-label {
   font-size: 0.82rem;
 }
+
+/* --- CLM Trust Score Badge on Property Cards --- */
+.card-trust-score {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+.card-trust-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.trust-green { background: #22c55e; }
+.trust-yellow { background: #eab308; }
+.trust-orange { background: #f97316; }
+.trust-red { background: #ef4444; }
+.trust-color-green { color: #22c55e; }
+.trust-color-yellow { color: #eab308; }
+.trust-color-orange { color: #f97316; }
+.trust-color-red { color: #ef4444; }
+
+/* --- CLM Trust Score on Detail Page --- */
+.detail-trust-score {
+  background: #fff;
+  border: 2px solid #16a34a;
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.trust-score-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.trust-score-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.trust-score-circle.score-green { background: #16a34a; }
+.trust-score-circle.score-yellow { background: #ca8a04; }
+.trust-score-circle.score-orange { background: #ea580c; }
+.trust-score-circle.score-red { background: #dc2626; }
+.trust-score-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+.trust-score-sub {
+  font-size: 0.78rem;
+  color: var(--gray-500);
+  margin-top: 2px;
+}
+.trust-score-code {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  font-family: monospace;
+  margin-top: 4px;
+}
+.trust-score-code a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Trust Score Checklist */
+.trust-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.trust-checklist li {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+}
+.trust-check-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+.trust-check-pass {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.trust-check-fail {
+  background: #fef2f2;
+  color: #dc2626;
+}
+@media (max-width: 480px) {
+  .trust-checklist {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Verify Page --- */
+.verify-search {
+  max-width: 500px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+.verify-search input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  font-family: monospace;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.verify-search input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+.verify-search button {
+  margin-top: 12px;
+  padding: 12px 32px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.verify-search button:hover {
+  background: var(--primary-dark, #1b6e2e);
+}
+.verify-result {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  display: none;
+}
+.verify-result.show {
+  display: block;
+}
+.verify-result.verified {
+  border-color: #16a34a;
+}
+.verify-result.not-found {
+  border-color: #dc2626;
+}

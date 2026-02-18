@@ -32,6 +32,41 @@ function fetchListings(callback) {
 var PLATFORM_FEE = 0.01;
 var OWNER_LISTINGS = ['1', '2']; // Owner's own listings — no fee applied
 var currentListing = null; // Exposed for share-card.js
+
+// CLM Trust Score system
+var TRUST_CHECK_LABELS = {
+  title_verified: 'Title Verified',
+  tax_current: 'Tax Current',
+  owner_confirmed: 'Owner Confirmed',
+  site_visited: 'Site Visited',
+  photos_authentic: 'Photos Authentic',
+  no_encumbrance: 'No Encumbrance',
+  boundary_clear: 'Boundary Clear',
+  road_access: 'Road Access'
+};
+
+function calcTrustScore(verification) {
+  if (!verification || !verification.checks) return 0;
+  var checks = verification.checks;
+  var total = 0;
+  var passed = 0;
+  for (var key in checks) {
+    if (checks.hasOwnProperty(key)) {
+      total++;
+      if (checks[key]) passed++;
+    }
+  }
+  if (total === 0) return 0;
+  return Math.round((passed / total) * 100);
+}
+
+function trustScoreColor(score) {
+  if (score >= 75) return 'green';
+  if (score >= 50) return 'yellow';
+  if (score >= 25) return 'orange';
+  return 'red';
+}
+
 function applyFee(price, listingId) {
   if (listingId && OWNER_LISTINGS.indexOf(listingId) !== -1) return price;
   return Math.round(price * (1 + PLATFORM_FEE));
@@ -46,6 +81,16 @@ function createPropertyCard(listing) {
   var areaDisplay = formatNumber(listing.lot_area) + ' sqm';
   var floorDisplay = listing.floor_area ? formatNumber(listing.floor_area) + ' sqm floor' : '';
 
+  // Trust Score badge
+  var trustBadgeHtml = '';
+  if (listing.verification && listing.verification.checks) {
+    var score = calcTrustScore(listing.verification);
+    var color = trustScoreColor(score);
+    trustBadgeHtml = '<span class="card-trust-score"><span class="card-trust-dot trust-' + color + '"></span>Trust ' + score + '/100</span>';
+  } else {
+    trustBadgeHtml = '<span class="card-badge-verified">&#10003; Reviewed</span>';
+  }
+
   var card = document.createElement('div');
   card.className = 'property-card';
   card.innerHTML =
@@ -53,7 +98,7 @@ function createPropertyCard(listing) {
       '<div class="card-image">' +
         '<img src="' + imageUrl + '" alt="' + escapeHtml(listing.title) + '" loading="lazy" onerror="this.src=getPlaceholderImage()">' +
         '<span class="card-badge">' + escapeHtml(typeDisplay) + '</span>' +
-        '<span class="card-badge-verified">&#10003; Reviewed</span>' +
+        trustBadgeHtml +
       '</div>' +
       '<div class="card-body">' +
         '<div class="card-price">' + priceDisplay + (pricePerSqm ? ' <small>' + pricePerSqm + '</small>' : '') + '</div>' +
@@ -360,10 +405,33 @@ function renderPropertyDetail() {
           '<div class="detail-card">' +
             '<div class="price-tag">' + formatPrice(applyFee(listing.total_price, listing.id)) + '</div>' +
             (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(applyFee(listing.price_per_sqm, listing.id)) + ' per sqm</div>' : '') +
-            '<div class="detail-verified-badge">' +
-              '<div class="badge-icon">&#10003;</div>' +
-              '<div><div class="badge-text">Documents Reviewed</div><div class="badge-sub">Title &amp; documents reviewed by our team — not a legal guarantee</div></div>' +
-            '</div>' +
+            (function() {
+              if (listing.verification && listing.verification.checks) {
+                var score = calcTrustScore(listing.verification);
+                var color = trustScoreColor(score);
+                var checks = listing.verification.checks;
+                var checklistHtml = '<ul class="trust-checklist">';
+                for (var key in TRUST_CHECK_LABELS) {
+                  if (TRUST_CHECK_LABELS.hasOwnProperty(key)) {
+                    var passed = checks[key];
+                    checklistHtml += '<li><span class="trust-check-icon ' + (passed ? 'trust-check-pass' : 'trust-check-fail') + '">' + (passed ? '&#10003;' : '&#10007;') + '</span>' + TRUST_CHECK_LABELS[key] + '</li>';
+                  }
+                }
+                checklistHtml += '</ul>';
+                return '<div class="detail-trust-score">' +
+                  '<div class="trust-score-header">' +
+                    '<div class="trust-score-circle score-' + color + '">' + score + '</div>' +
+                    '<div>' +
+                      '<div class="trust-score-title">CLM Trust Score</div>' +
+                      '<div class="trust-score-sub">Verified by CebuLandMarket — not a legal guarantee</div>' +
+                      '<div class="trust-score-code">Code: <a href="verify.html?code=' + encodeURIComponent(listing.verification.code) + '">' + listing.verification.code + '</a></div>' +
+                    '</div>' +
+                  '</div>' +
+                  checklistHtml +
+                '</div>';
+              }
+              return '<div class="detail-verified-badge"><div class="badge-icon">&#10003;</div><div><div class="badge-text">Documents Reviewed</div><div class="badge-sub">Title &amp; documents reviewed by our team — not a legal guarantee</div></div></div>';
+            })() +
             '<div class="detail-info">' +
               '<div class="info-item"><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
               (listing.floor_area ? '<div class="info-item"><span class="info-label">Floor Area</span><span class="info-value">' + formatNumber(listing.floor_area) + ' sqm</span></div>' : '') +

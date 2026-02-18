@@ -35,6 +35,20 @@ var LISTINGS_DATA = [
     "title_status": "Clean Title, 1 Owner",
     "status": "active",
     "date_listed": "2026-02-09",
+    "verification": {
+      "code": "CLM-2026-R001",
+      "date": "2026-02-10",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": true,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "When we first walked this land, we weren't looking to buy anything. We just ended up here. The mountains were everywhere, the air was cool, and it was so quiet you could hear yourself think. We sat down and didn't want to leave.\n\nSo we stayed. We put up a bamboo house, connected water and electricity, brought in a bed and a table. Mornings here, the mist rolls in and sits low on the slope. You hear birds, nothing else. At night the breeze is cool, the air is fresh, and everything is shady and windy. It's that kind of place.\n\nWe used to sit outside and picture what this place could be. Small cottages tucked into the hillside. A garden with coffee and cacao. A place where people come to slow down — not a big resort, just something honest and peaceful. The slope is actually perfect for it. Every level would have its own view.\n\nLahi ra gyud ang feeling diri. Dili ma-explain — kinahanglan nimo ma-feel sa imong kaugalingon. Ang hangin, ang kahilom, ang view — murag gitagana gyud ni nga lugar para sa tawo nga makahibalo ug tinuod nga kalinaw.\n\nWe're moving abroad now, so this vision needs someone new. We're sharing it here because we'd rather it go to someone who gets it — someone who looks at this land and sees what we see. Basin ikaw na ang para ani nga lugar.",
     "vision_items": "A Quiet Mountain Retreat|Small cottages along the slope, each one with its own view. Somewhere people come to rest, not to be entertained. The terrain was made for this.|A Yoga Shala & Meditation Space|An open-air yoga shala on the hillside, an open-space kubo for meditation. Cool breeze, fresh mountain air, nothing but nature around you. This is the kind of place people travel far to find.|A Small Farm|Coffee, cacao, vegetables — the soil is good, the water is connected, and the weather up here is cooler than the lowlands. We started planting a few things ourselves.|A Place to Build a Life|1.5 hectares is a lot of space. A house here, a garden there, room for family. It's the kind of land you can grow into over years.|Livestock Farming|The land is spacious, sloping, and has water and electricity connected — ideal for raising goats, chickens, or cattle. The cooler climate up here is better for animals, and the natural vegetation keeps feed costs low.|Glamping &amp; Eco-Tourism|Set up glamping tents or treehouses along the hillside. Each spot gets its own mountain view. With nature tourism booming in Cebu, this location — quiet, cool, and minutes from the highway — is a natural fit.|Off-Grid Homestead|Build a self-sustaining homestead with solar panels, rainwater collection, and your own food garden. The water and electricity are already connected, and the cool mountain air makes this the perfect escape from city life."
   },
@@ -62,6 +76,20 @@ var LISTINGS_DATA = [
     "title_status": "Clean Title, 1 Owner",
     "status": "active",
     "date_listed": "2026-02-12",
+    "verification": {
+      "code": "CLM-2026-B002",
+      "date": "2026-02-12",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": true,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "Banilad Town Centre is a 3-minute walk. Vicente Gullas Memorial Hospital — 180 meters. University of the Visayas — 130 meters. A.S. Fortuna Street has everything on one strip: restaurants, banks, pharmacies, hardware stores, salons, gyms. Ayala Center Cebu is a short drive. IT Park — 5 minutes. You don't need to go far for anything, ever.\n\nThe house is a cozy 2-storey — 3 bedrooms, 2 bathrooms, 2-car parking, 100 sqm floor area on an 85 sqm lot. Comes with a free dining table. Other items shown in the photos are not part of the sale.\n\nWe ran it as an Airbnb for 8 months and it did really well — perfect 5.0 rating, 7 reviews, all five stars across cleanliness, accuracy, check-in, and communication. Guests kept mentioning the indoor spaces, comfort, and hospitality. We only took it off Airbnb because we switched to a long-term tenant — currently rented at ₱50,000/month. So whether you want to live here full-time or earn from it, this house is proven and ready.\n\nBanilad is where families, professionals, and expats settle when they want real city convenience without sacrificing peace. The streets are calm, the neighbors are friendly, and the location just makes life easier.\n\nAng nindot gyud diri — dili ka kinahanglan mopili between convenience ug kalinaw. Naa ra tanan. Hilom sa sulod, duol ang tanan sa gawas. Mao ni ang klase nga lugar nga mopahulay ka pagpauli, dili ma-stress.\n\nWe're moving abroad, so someone new gets to call this home. If you want a peaceful life in the heart of the city — this is it.",
     "reviews": [
       {"name": "Lara", "from": "London, United Kingdom", "date": "January 2025", "text": "Wonderful Stay! I had an amazing time at Reafi's Home. Her home was clean, comfortable, and exactly as described. The host was very kind and responsive, making sure we had everything we needed. Reafi went above and beyond to make sure we were comfortable. The location was perfect and made our trip so convenient. I'd definitely stay here again. Highly recommend!"},
@@ -96,6 +124,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "2026-02-13",
+    "verification": {
+      "code": "CLM-2026-M003",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This corner lot sits right on Isuya Road in Mactan — 50 meters from the highway. You can see it from the main road. It's a two-way wide road with good traffic flow, and the lot catches your eye from every direction because it's on the corner.\n\nMactan Airport Road and Quezon National Highway are both just around the corner. That means access from anywhere in Lapu-Lapu City or Cebu is easy. Businesses, restaurants, boarding houses, and landmarks like Francisco's Lechon and Grace Boarding House are all within walking distance.\n\nAt 590 square meters, it's big enough for serious development — a commercial building, warehouse, apartment complex, or mixed-use space. The location alone makes it valuable. Mactan is booming — tourism, BPO, logistics, and residential development are all growing fast.\n\nNindot kaayo ang location ani. Corner lot, duol sa highway, dako og frontage. Dili ka magkalisod og pangita — makita ra dayon. Kung negosyo ang plano nimo, diri gyud ni ang lugar.\n\nTitled and ready to go. No complications, no waiting.",
     "vision_items": "Commercial Building|Prime corner lot with high visibility from multiple roads. Perfect for a retail store, restaurant, office space, or service business. 50 meters from the highway means foot traffic and drive-by visibility all day.|Apartment or Boarding House|Mactan has a growing demand for rentals — workers, students, and tourists all need affordable housing. A 590 sqm corner lot can fit a multi-door apartment or boarding house with excellent road access.|Warehouse or Logistics Hub|Near the highway and Mactan Airport Road — ideal for a storage facility, distribution center, or logistics operation. Easy access for trucks and deliveries.|Mixed-Use Development|Build commercial on the ground floor, residential on top. Corner lots with this kind of road frontage are rare in Mactan. Maximize your investment with multiple income streams.|Parking Lot or Car Wash|Already being used informally for vehicle parking. Formalize it into a paid parking lot or car wash business — minimal construction needed, quick ROI."
   },
@@ -123,6 +165,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "2026-02-13",
+    "verification": {
+      "code": "CLM-2026-G004",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This is an end unit in Lucena Homes — right next to the guardhouse and gate entrance, so you're always the first in and the last out. 24-hour security, quiet neighborhood, and a clean modern build.\n\nThe house is 2 storeys with 70 sqm of floor area on a 49 sqm lot. Downstairs you have the living area with the staircase, a kitchen with a black granite countertop and sink, plus a service area, laundry area, and drying area out back. Upstairs are 2 bedrooms — one with a double bed, one with a single bed — both with ceiling fans and blinds. There's a balcony off the master bedroom with a view of the trees. The bathroom has a proper shower area with wood-accent tiles, toilet, and sink.\n\nThe interior is modern and minimal — white walls, dark wood doors, black metal railings, tiled floors. Everything is clean and well-maintained. Bank appraised at P3.04M.\n\nNindot kaayo ni nga balay para sa bag-ong pamilya o mag-invest. End unit, duol sa guard, limpyo ug bag-o pa ang hitsura. Minglanilla is one of the fastest-growing areas south of Cebu City — schools, malls, and the SRP are all nearby.\n\nReady to move in. Titled and clean.",
     "vision_items": "Starter Home|Perfect first home for a young couple or small family. 2 bedrooms, modern kitchen, balcony, and a secure subdivision with 24-hour guards. Everything you need to start your life together.|Rental Income|Minglanilla is booming — workers and families are always looking for affordable rentals near the south. A titled townhouse in a gated subdivision is easy to rent out and easy to manage.|Investment Property|Bank appraised at P3.04M. Minglanilla property values continue to rise as development pushes south of Cebu City. Buy now at P3.3M and watch it appreciate.|Work From Home Base|Quiet end unit with space for a desk in either bedroom. Ceiling fans, good ventilation, and a balcony for fresh air breaks. Close enough to the city but away from the noise."
   },
@@ -149,6 +205,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "2026-02-13",
+    "verification": {
+      "code": "CLM-2026-T005",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This 2,029 sqm lot sits in Ylaya, Talamban — one of the most active development areas in Cebu City right now. Just 100 meters from the national highway, with a paved road leading right to the property.\n\nThe land is currently planted with banana trees and natural vegetation — green, flat enough to work with, and ready for development. Alamis Homes and Ahava Residences Smyrna are right nearby, which tells you the area is already proven for residential development.\n\nTalamban has been growing fast. New subdivisions, apartments, and commercial establishments keep popping up. It's close to the University of Cebu Banilad, CIT-U, and the Transcentral Highway that connects to Balamban and the highlands. The demand for housing here is strong and steady.\n\nNindot kaayo ni nga lot para mag-develop. Dako, titled, duol sa highway, ug naa na sa area nga established na ang subdivision. Ang seller mo-shoulder pa sa CGT ug DST — dako na nga savings.\n\nA separate 3,780 sqm lot is also available in the same area at the same price — check it out if you need a bigger piece of land.",
     "vision_items": "Pocket Subdivision|At over 2,000 sqm, this lot can be divided into 10-15 residential lots for a small subdivision. The area already has established subdivisions nearby — the demand is proven.|Apartment Complex|Build a multi-door apartment for rental income. Talamban's growing population of workers, students, and young professionals means steady tenants.|Residential Compound|A family compound with multiple houses, shared garden space, and room to grow. 2,029 sqm gives you plenty of space to plan long-term.|Townhouse Development|Develop row townhouses — affordable, in-demand, and profitable. The proximity to the highway and established communities makes this a prime location."
   },
@@ -175,6 +245,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "2026-02-13",
+    "verification": {
+      "code": "CLM-2026-T006",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This is the bigger lot — 3,780 sqm in Ylaya, Talamban, Cebu City. Same location as the 2,029 sqm lot nearby, just 100 meters from the national highway.\n\nAt nearly 3,800 square meters, this is a full-scale development property. You could fit a 20-30 lot subdivision, a large apartment complex, or a mixed residential-commercial project. The area is surrounded by established communities — Alamis Homes and Ahava Residences Smyrna are your neighbors.\n\nThe land has banana trees and vegetation, paved road access, and the seller shoulders CGT and DST — a big savings on closing costs. Talamban keeps growing, and lots this size in the city are getting harder to find.\n\nKung dako ang plano nimo, kani ang lot para nimo. Hapit 3,800 sqm sa Cebu City, titled, duol sa highway, ug ang seller pa ang mo-shoulder sa CGT ug DST. Lisod na kaayo mangita og ingon ani ka dako sa sulod sa syudad.\n\nA separate 2,029 sqm lot is also available in the same area at the same price if you need a smaller option.",
     "vision_items": "Large Subdivision|3,780 sqm can accommodate 20-30 residential lots. With Alamis Homes and Ahava Residences already thriving nearby, the market is proven. Build and sell — Talamban is in demand.|Apartment Complex|A large-scale rental property with multiple buildings. Talamban's growing population needs housing — students, BPO workers, young families. This lot can support a serious apartment development.|Commercial + Residential Mixed-Use|Ground floor commercial (stores, offices) with residential units above. The proximity to the highway gives commercial visibility while the Talamban location attracts residents.|Warehouse or Light Industrial|Close to the highway with road access — suitable for a warehouse, distribution center, or light manufacturing facility. 3,780 sqm gives you room for operations plus parking and loading."
   },
@@ -201,6 +285,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "2026-02-13",
+    "verification": {
+      "code": "CLM-2026-L007",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This 1,349 sqm lot sits along a wide 10-meter concrete barangay road in Cotcot, Liloan — just 2 minutes from the national highway heading north.\n\nThe terrain is flat, which is exactly what developers look for. No need for expensive land filling or grading — you can start building right away. The lot has coconut trees and lush vegetation, and the road frontage is wide and paved.\n\nLiloan is part of Metro Cebu's northern expansion. New subdivisions, commercial establishments, and infrastructure projects keep coming in. The 4th bridge connecting Cebu to Mactan is nearby, and the Cebu-Cordova Link Expressway has opened up the whole metro. Property values in Liloan have been climbing steadily.\n\nNindot kaayo ni nga lote — patag, titled, dako og frontage sa dalan, ug duol ra sa highway. Ang seller pa ang mo-shoulder sa CGT ug DST, so mas barato ang closing cost nimo. Kung gusto nimo mag-develop sa north side sa Cebu, kani ang chance nimo.\n\nWhether you're planning a pocket subdivision, apartment building, or a commercial space — this flat, titled lot on a wide road is ready to go.",
     "vision_items": "Pocket Subdivision|1,349 sqm of flat land on a wide road — perfect for a small subdivision with 8-12 lots. Liloan's growing population needs more housing, and this location is 2 minutes from the highway.|Apartment Building|Build a multi-door apartment for rental income. Flat terrain means lower construction costs. The wide road and highway proximity make it attractive for tenants.|Commercial Space|Along a 10-meter wide road with good visibility. Suitable for a store, warehouse, or service business. Commercial/residential zoning gives you flexibility.|Residential Home|Build your dream home on a spacious 1,349 sqm lot. Flat terrain, quiet barangay setting, coconut trees for shade, and easy access to the highway. Plenty of space for a house, garden, and parking."
   },
@@ -228,6 +326,20 @@ var LISTINGS_DATA = [
     "title_status": "Condominium Title",
     "status": "active",
     "date_listed": "2026-02-13",
+    "verification": {
+      "code": "CLM-2026-H008",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "BE Residences sits right beside IT Park — the busiest business district in Cebu City. BPO offices, restaurants, cafes, bars, and convenience stores are all within walking distance. You don't need a car to get to work if you're in IT Park, but this unit comes with parking anyway.\n\nThe unit is on the 9th floor, facing the amenities — swimming pool, gym, and playground all visible from your window. City view in the background. It's fully furnished with tasteful rattan and wood furniture — a queen bed with upholstered headboard, TV on a rattan dresser, dining table with chairs, accent chair, and a full kitchen setup with fridge, microwave, and range hood.\n\nThe building amenities are impressive for a mid-rise condo. The pool is large and clean, the gym is well-equipped with free weights, benches, bikes, and treadmills, and there's a playground for families. The lobby is modern and welcoming.\n\nNindot kaayo ni para sa mga nagwork sa IT Park o gusto mag-invest sa rental income. Beside ra gyud sa IT Park — lakaw ra. Fully furnished na, naa pay parking. Ang view sa amenities ug city gikan sa 9th floor, lahi ra gyud ang feeling.\n\nAt P5M nett for a fully-furnished studio with parking beside IT Park — this is one of the best deals in Lahug right now.",
     "vision_items": "Personal Residence|Walk to work if you're in IT Park. Fully furnished, move-in ready, with a pool and gym downstairs. This is city living at its most convenient.|Rental Income|IT Park workers and expats are always looking for furnished studios near their workplace. This unit is ready to rent out immediately — furniture, appliances, parking, all included. Strong rental demand in Lahug.|Airbnb Investment|Lahug and IT Park attract both business travelers and tourists. A furnished studio with amenities on the 9th floor with city view is perfect for short-term rentals. Plug and play.|Long-Term Investment|Lahug property values keep rising as IT Park expands. A condo unit with parking beside the business district is a solid appreciating asset."
   },
@@ -254,6 +366,20 @@ var LISTINGS_DATA = [
     "title_status": "Clean Title, 1 Signatory",
     "status": "active",
     "date_listed": "2026-02-13",
+    "verification": {
+      "code": "CLM-2026-P009",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "Southplains Subdivision in Lower Pakigne, Minglanilla — a quiet, gated community with established homes. This 137 sqm lot sits right between two well-built houses, ready for you to build on.\n\nThe location is what makes this special. You're only 200 meters from the highway — a 1-minute drive. Minglanilla District Hospital is within walking distance. Anjo World and Ming-Mori Techno Business Park are just 3 minutes away. SRP and SM Seaside? 8-10 minutes.\n\nHere's the big opportunity: Ming-Mori Business Park is being developed as a major techno-business hub — think IT Park but in the south. When IT Park was built in Lahug, property values around it skyrocketed. The same thing is expected here. Buying now, before the business park is fully operational, means you're getting in at today's prices before the boom.\n\nNindot kaayo ang timing ani. Naa ka sa sulod sa subdivision, duol sa highway, ug ang Ming-Mori Business Park hapit na mahuman. Kung nag-invest ka karon, basin doble na ang value ani sa pipila ka tuig. Clean title, 1 signatory — walay hassle.\n\nAt P2.5M for a titled lot inside a subdivision near a future business park — this is a smart move.",
     "vision_items": "Dream Home|Build your home inside a quiet, gated subdivision. Neighbors have nice houses, the lot is ready to build on, and you're minutes from everything — hospital, highway, malls, and the future business park.|Investment for Appreciation|Ming-Mori Business Park will be the IT Park of the south. Properties near IT Park are worth 3-5x what they were before development. Getting in now at P2.5M could pay off significantly.|Rental Property|Build an apartment or boarding house near the upcoming business park. When Ming-Mori opens, workers will need housing nearby — and you'll be 3 minutes away.|Future Commercial Value|As the area develops around Ming-Mori, residential lots near the highway could be rezoned or repurposed for commercial use. 200 meters from the highway with subdivision access is prime positioning."
   },
@@ -280,6 +406,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "2026-02-13",
+    "verification": {
+      "code": "CLM-2026-C010",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This 600 sqm lot sits along the barangay road in Canjulao, Lapu-Lapu City — just 300 meters from the national highway. That's a 2-minute drive or a short walk.\n\nThe lot is flat and spacious at 600 square meters. It's in a lively barangay — Fatima Chapel is right nearby, and Canjulao Elementary School is just down the road. The area is established with homes, stores, and community activity.\n\nMactan is one of the hottest real estate areas in Cebu right now. The airport, resorts, export zones, and the new Cebu-Cordova Link Expressway have all pushed property values up. A 600 sqm titled lot near the highway in Lapu-Lapu City is a solid piece of land — whether you're building, developing, or holding for the future.\n\nNindot kaayo ni nga lote sa Mactan. Dako, patag, titled, ug duol ra sa highway. Ang Canjulao naa sa tunga-tunga sa Lapu-Lapu City — accessible kaayo. Kung gusto nimo mag-tukod og balay, negosyo, o apartment, sakto kaayo ni.\n\nTitled with updated tax declarations.",
     "vision_items": "Residential Home|600 sqm is a generous lot — enough for a spacious family home with a big yard, garden, and parking. Along the barangay road with easy highway access.|Apartment Building|Build a multi-door apartment in a populated barangay. Workers from Mactan's export zones, resorts, and BPO offices need affordable housing nearby.|Commercial Space|Along the barangay road with foot traffic and vehicle access. Suitable for a store, workshop, or small business. 300 meters from the highway means customers can find you easily.|Buy and Hold|Mactan property values have been climbing for years. A titled 600 sqm lot near the highway is a solid long-term investment. Hold it and let it appreciate."
   },
@@ -306,6 +446,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "",
+    "verification": {
+      "code": "CLM-2026-T011",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This 1,719 sqm lot sits inside Sta. Maria Village in Tigbao, Talamban — a quiet, established neighborhood with well-built homes and paved roads. The lot has a 10-meter wide road right of way, giving you excellent access and frontage.\n\nThe land is green and alive — banana trees, cacao, and thick vegetation cover the property. It's the kind of lot that feels private even though you're inside a village with neighbors around you. The aerial view shows how well-positioned it is — surrounded by houses, near the road, and with clear boundaries.\n\nTalamban has been one of the hottest areas in Cebu City for years now. New subdivisions and apartments keep going up. Universities like CIT-U and University of Cebu are nearby. The Transcentral Highway connects you to the highlands. And with the city expanding north, property values here continue to climb.\n\nNindot kaayo ni nga lote — sulod sa village, dako, titled, ug naa sa Talamban nga nag-grow pa gyud. Kung gusto nimo mag-develop og subdivision, apartment, o tukuran og compound para sa pamilya, kani ang lugar.\n\nAt 1,719 sqm inside a village with a 10-meter road right of way — this is a serious piece of land in one of Cebu City's most in-demand areas.",
     "vision_items": "Pocket Subdivision|1,719 sqm inside a village — divide it into 10-15 residential lots with road access already in place. The neighborhood is established, the demand is real, and the 10-meter road ROW makes development straightforward.|Apartment Complex|Build a multi-door apartment for Talamban's growing population of workers, students, and young professionals. Inside a village means your tenants get a safe, quiet neighborhood.|Residential Compound|A family compound with multiple houses, shared garden, and room to grow. 1,719 sqm inside a subdivision gives you privacy, security, and space — all in the city.|Spacious Family Home|Build your dream home on a generous lot with mature trees and vegetation. Inside a village with paved roads and good neighbors. Enough space for a big house, garden, orchard, and parking."
   },
@@ -332,6 +486,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "",
+    "verification": {
+      "code": "CLM-2026-B012",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This 426 sqm lot sits inside Saint Jude Acres Subdivision in Bulacao, Cebu City — just 500 meters from the national highway. The lot is flat, clean, and surrounded by established homes.\n\nThe location is what stands out. You're near Rosal Street, with Jollibee and CitiHardware just up the road. The Bulacao commercial strip along the highway has everything — banks, restaurants, hardware stores, groceries. SRP and SM Seaside are a short drive away. You're in the city but in a quiet subdivision.\n\nThe lot is wide and ready to build on. The neighborhood has well-built houses, paved roads, and a residential feel. At 426 sqm, you have enough space for a generous home with a yard, or a small apartment building if you want rental income.\n\nNindot kaayo ni nga lote — sulod sa subdivision, patag, titled, ug duol ra sa highway ug sa tanan nga kinahanglan nimo. Ang Bulacao naa sa south side sa Cebu City, accessible kaayo — duol sa SRP, SM Seaside, ug sa main road paingon south.\n\nTitled and ready for development. At P14,000 per sqm inside a subdivision in Cebu City — this is solid value.",
     "vision_items": "Family Home|Build your home inside a quiet subdivision in the city. 426 sqm gives you room for a spacious house, garden, and parking. Jollibee, CitiHardware, and the highway are minutes away — everything you need is close.|Apartment Building|Bulacao has strong rental demand — workers, students, and families all need affordable housing in the city. A 426 sqm lot inside a subdivision is perfect for a 4-6 door apartment.|Residential Compound|Enough space for 2-3 houses in a family compound. Inside a subdivision with established neighbors, paved roads, and city convenience. Build for your family's future.|Buy and Hold|Cebu City lot prices keep climbing, especially in accessible barangays like Bulacao near SRP. A titled lot inside a subdivision at P14,000/sqm is a smart long-term investment."
   },
@@ -358,6 +526,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "",
+    "verification": {
+      "code": "CLM-2026-L013",
+      "date": "2026-02-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This 205 sqm corner lot sits inside Vista La Playa Subdivision in Yati, Liloan — right near the guard gate entrance and along the national road. It's the kind of lot people look for but rarely find available.\n\nCorner lots are premium in any subdivision. You get more frontage, more natural light, better airflow, and more flexibility when you build. This one is even better because it's near the entrance — easy in, easy out, and maximum visibility.\n\nVista La Playa is a gated subdivision with well-built homes, concrete roads, and a residential feel. The neighbors have nice houses — you can see the quality of the community just by driving through the gate.\n\nLiloan keeps growing. It's part of Metro Cebu's northern expansion — new developments, new businesses, and new infrastructure keep coming in. Property values have been climbing steadily, especially inside subdivisions along the national road.\n\nNindot kaayo ni nga lote — corner lot, sulod sa subdivision, duol sa gate, ug naa sa national road. Kung gusto nimo mag-tukod og balay sa nindot nga lugar sa Liloan, kani ang chance nimo.\n\nTitled and ready to build on.",
     "vision_items": "Dream Home|A corner lot inside a gated subdivision — the ideal spot for your family home. More space, more light, and near the gate for easy access. Build the house you've always wanted.|Rental Property|Build a 2-3 door apartment on a corner lot with high visibility near the gate. Liloan's growing population means steady demand for rentals inside subdivisions.|Smart Investment|Corner lots appreciate faster than interior lots. Inside a gated subdivision along the national road in Liloan — this property will only go up in value.|Small Business|Corner lots near subdivision entrances have commercial potential. A small store, salon, or service business with built-in foot traffic from residents."
   },
@@ -385,6 +567,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property",
     "status": "active",
     "date_listed": "2026-02-14",
+    "verification": {
+      "code": "CLM-2026-U014",
+      "date": "2026-02-14",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This brand new 2-storey house sits in NHA, Brgy. Busay Heights — one of Cebu City's most scenic residential areas. The moment you step inside, you notice the quality: glossy tiled floors that reflect the recessed lighting, clean white walls, and a modern open layout that feels bigger than its 150 sqm.\n\nDownstairs is the living area with large sliding windows that let in natural light and frame the greenery outside. The kitchen has a marble-finish countertop and backsplash with white cabinets — clean and ready to use. A hallway leads to additional rooms on the ground floor.\n\nUpstairs, the staircase is finished with brown tile steps and white metal railings, topped with a stylish modern chandelier. The upper floor has 3 bedrooms with solid wooden doors and 2 toilet and bath. The rooms are bright and airy with windows overlooking the surrounding trees and hills.\n\nStep outside and you get a panoramic view — green hillsides, trees everywhere, and the city skyline with high-rises in the distance. It's elevated and breezy, the kind of place where mornings are cool and quiet.\n\nNindot kaayo ang location ani — naa ka sa Busay Heights, taas ug presko, pero 5 minutes ra gikan sa JY Square Lahug. Bag-o ang balay, nindot ang finish, ug ready na kaayo i-occupy. Kung gusto nimo og balay nga lahi ang feeling — hilom, fresh ang hangin, ug nindot ang view — kani gyud.\n\nTitled property with 2-car parking and its own water tank. Ready for occupancy — just move in.",
     "vision_items": "Family Home|A brand new 3-bedroom house in the Busay Heights area — cool climate, panoramic views, and just 5 minutes from JY Square. Modern finish, ready to move in, with parking for 2 cars and its own water tank. Everything a family needs.|Vacation Home or Weekend Retreat|Busay is where Cebuanos go to escape the heat. Own a modern house in the heights — cool breeze, green surroundings, city views. Perfect as a weekend retreat or a peaceful second home.|Airbnb or Short-Term Rental|Busay Heights is a popular destination for tourists and locals wanting a mountain escape near the city. A brand new, modern house with panoramic views is perfect for Airbnb — strong demand in this area.|Long-Term Investment|Busay Heights property values keep rising as the area becomes more popular for residential living and tourism. A titled, brand new house at P7M in this location is a solid appreciating asset."
   },
@@ -411,6 +607,20 @@ var LISTINGS_DATA = [
     "title_status": "Titled Property, No Encumbrances",
     "status": "active",
     "date_listed": "2026-02-14",
+    "verification": {
+      "code": "CLM-2026-N015",
+      "date": "2026-02-14",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "This is one of those lots that doesn't come around often. 6,425 square meters of titled commercial land — right along the national highway in Banilad, Cebu City. Approximately 100 meters of frontage facing the main road. You can't miss it.\n\nBanilad Town Centre is right next door. Gaisano Country Mall is across the way. UC Banilad is nearby. This stretch of the highway is one of the busiest commercial corridors in Cebu City — restaurants, banks, malls, schools, hospitals, and offices line both sides of the road. Traffic flows through here all day, every day.\n\nAt 6,425 sqm, this is a serious development-sized property. You could build a mall, a hotel, a commercial complex, a mixed-use tower, or a large-scale residential project. The highway frontage alone makes this lot worth attention — 100 meters of visibility on the main road.\n\nThe lot is identified as Lot 15-C, PSD-07-01-003041, bordered by Talamban Road and Mahiga Creek. The title is clean with no encumbrances. Seller shoulders the capital gains tax and documentary stamps — a significant savings on a property of this value.\n\nNindot kaayo ni nga lote — dako, titled, walay problema sa papeles, ug naa sa pinakanindot nga commercial area sa Cebu City. Ang Banilad usa sa pinaka-established ug pinaka-busy nga business district. Kung dako ang plano nimo, kani ang lot para nimo.\n\nPrice is P150,000 per sqm, negotiable. At this location and this size, this is a rare opportunity.",
     "vision_items": "Commercial Complex or Mall|6,425 sqm with 100 meters of highway frontage beside Banilad Town Centre — the perfect location for a large commercial development. Retail, dining, offices, and services all thrive in this area. The foot traffic and vehicle traffic are already here.|Hotel or Hospitality|Banilad is a prime location for hotels and serviced apartments. Near IT Park, Gaisano Country Mall, and major business establishments. A hotel here would serve business travelers, tourists, and medical tourists visiting nearby hospitals.|Mixed-Use Development|Ground floor commercial with residential towers above. Banilad's combination of commercial activity and residential demand makes mixed-use the highest and best use for a lot this size.|High-Rise Residential|Cebu City's skyline keeps growing, and Banilad is one of the most desirable addresses. A condominium or apartment tower on this lot would attract professionals, expats, and families who want to live in the heart of the city.|Office or BPO Building|Next to IT Park and the Cebu business district. A modern office building on the highway with this much frontage would attract BPO companies, corporate tenants, and co-working operators."
   },
@@ -438,6 +648,20 @@ var LISTINGS_DATA = [
     "title_status": "Assume Balance",
     "status": "active",
     "date_listed": "2026-02-14",
+    "verification": {
+      "code": "CLM-2026-V016",
+      "date": "2026-02-14",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "site_visited": false,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
     "story": "The Vertex Central sits right beside IT Park — the busiest business district in Cebu City. BPO offices, restaurants, cafes, coworking spaces, and convenience stores are all within walking distance. If you work in IT Park, you can literally walk to the office.\n\nThis is a Studio SOHO unit on the 11th floor — 22.45 sqm with floor-to-ceiling windows that flood the space with natural light and give you a view of the city and IT Park skyline. The wood-finish tiled floors give it a warm, modern feel. The kitchen area has wooden cabinets, a countertop with sink, and overhead storage. The bathroom is modern with gray stone-finish tiles and a rain shower head.\n\nThe building amenities are impressive — a fully-equipped gym with treadmills, benches, and free weights, plus an elegant marble lobby with modern wood-accent ceiling. Developed by Priland, one of Cebu's trusted developers.\n\nHere's the deal: the current developer price for this unit type is now P5.3 Million+. You're getting it at P600,000 cash through assume balance — that includes redocumentation and move-in fees. The loanable amount to bank is P2,825,938.80. That's a massive savings.\n\nNindot kaayo ni nga opportunity. Studio SOHO sa Vertex Central, duol ra kaayo sa IT Park — lakaw ra. Ang developer price karon sobra na P5.3 Million, pero ikaw P600K ra ang assume. Huge savings gyud. Ready na i-occupy, 11th floor, nindot ang view.\n\nReady for occupancy. Walk to IT Park. P600K cash to assume.",
     "vision_items": "Work From Home Office|A SOHO unit designed for both living and working. Set up your desk by the floor-to-ceiling windows with a view of IT Park. Walk to meetings, walk to lunch, walk home. The ultimate work-life setup.|Rental Income|IT Park workers are always looking for affordable units nearby. A studio SOHO at P600K assume is incredibly easy to rent out — strong demand, low entry cost, fast ROI.|First-Time Investment|At P600K cash to assume, this is one of the most affordable ways to own a condo unit in Cebu's prime business district. Developer price is P5.3M+ — you're getting in at a fraction of the cost.|Airbnb or Short-Term Rental|IT Park attracts business travelers, digital nomads, and tourists. A modern studio on the 11th floor with city views is perfect for short-term rentals. Low buy-in, high earning potential."
   }
