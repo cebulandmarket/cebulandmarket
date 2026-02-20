@@ -38,7 +38,7 @@ var TRUST_CHECK_LABELS = {
   title_verified: 'Title Verified',
   tax_current: 'Tax Current',
   owner_confirmed: 'Owner Confirmed',
-  site_visited: 'Site Visited',
+  documents_complete: 'Documents Complete',
   photos_authentic: 'Photos Authentic',
   no_encumbrance: 'No Encumbrance',
   boundary_clear: 'Boundary Clear',
