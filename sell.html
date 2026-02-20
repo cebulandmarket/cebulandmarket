@@ -223,25 +223,100 @@
 
     /* === TRUST === */
     .trust-section {
-      background: linear-gradient(180deg, #f0fdf4 0%, #e8f5e9 100%);
-      padding: 60px 0;
+      background: linear-gradient(135deg, #0d3b14 0%, #1b5e20 40%, #2e7d32 100%);
+      padding: 80px 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .dti-box {
+    .trust-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .trust-badge-wrapper { position: relative; z-index: 1; }
+    .trust-shield {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+      animation: pulse-glow 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.9; }
+    }
+    .trust-heading {
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .trust-sub {
+      color: rgba(255,255,255,0.8);
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto 32px;
+      line-height: 1.5;
+    }
+    .trust-card {
       display: inline-flex;
       align-items: center;
       gap: 16px;
-      background: #fff;
-      padding: 24px 36px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      padding: 20px 28px;
       border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(46,125,50,0.1);
-      margin-top: 24px;
-      border: 2px solid #c8e6c9;
+      border: 1px solid rgba(255,255,255,0.2);
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    .dti-box img { height: 50px; }
-    .dti-box div { text-align: left; }
-    .dti-box strong { font-size: 1.05rem; color: var(--dark); display: block; }
-    .dti-box span { font-size: 0.85rem; color: #777; }
+    .trust-card-icon {
+      font-size: 2rem;
+      width: 52px;
+      height: 52px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .trust-card-info { text-align: left; }
+    .trust-card-info strong { color: #fff; font-size: 1rem; display: block; margin-bottom: 2px; }
+    .trust-card-info span { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+    .trust-card-badge {
+      background: linear-gradient(135deg, #ffd54f, #ffb300);
+      color: #1b5e20;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 50px;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px rgba(255,179,0,0.3);
+    }
+    .trust-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-stat { text-align: center; }
+    .trust-stat-num {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15));
+    }
+    .trust-stat-label {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
 
     /* === TESTIMONIALS === */
     .sell-testimonials {
@@ -400,12 +475,31 @@
   <!-- Trust -->
   <section class="trust-section">
     <div class="container">
-      <h2 class="section-title" style="display:inline-block;">Registered Business</h2>
-      <p class="section-subtitle">CebuLandMarket is a legally registered property listing platform in Cebu, Philippines.</p>
-      <div class="dti-box">
-        <div>
-          <strong>CebuLandMarket</strong>
-          <span>Registered Business &middot; Region VII (Central Visayas)</span>
+      <div class="trust-badge-wrapper">
+        <div class="trust-shield">&#9989;</div>
+        <h2 class="trust-heading">Verified & Registered Business</h2>
+        <p class="trust-sub">CebuLandMarket is a legally registered property listing platform in Cebu, Philippines.</p>
+        <div class="trust-card">
+          <div class="trust-card-icon">&#128737;</div>
+          <div class="trust-card-info">
+            <strong>CEBULANDMARKET PROPERTY SERVICES</strong>
+            <span>Registered Business &middot; Region VII, Central Visayas</span>
+          </div>
+          <div class="trust-card-badge">VERIFIED</div>
+        </div>
+        <div class="trust-stats">
+          <div class="trust-stat">
+            <div class="trust-stat-num">&#9989;</div>
+            <div class="trust-stat-label">Documents Reviewed</div>
+          </div>
+          <div class="trust-stat">
+            <div class="trust-stat-num">&#128274;</div>
+            <div class="trust-stat-label">Secure Platform</div>
+          </div>
+          <div class="trust-stat">
+            <div class="trust-stat-num">&#128176;</div>
+            <div class="trust-stat-label">Refund Guarantee</div>
+          </div>
         </div>
       </div>
     </div>
