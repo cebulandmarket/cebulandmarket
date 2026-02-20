@@ -81,16 +81,6 @@ function createPropertyCard(listing) {
   var areaDisplay = formatNumber(listing.lot_area) + ' sqm';
   var floorDisplay = listing.floor_area ? formatNumber(listing.floor_area) + ' sqm floor' : '';
 
-  // Trust Score badge
-  var trustBadgeHtml = '';
-  if (listing.verification && listing.verification.checks) {
-    var score = calcTrustScore(listing.verification);
-    var color = trustScoreColor(score);
-    trustBadgeHtml = '<span class="card-trust-score"><span class="card-trust-dot trust-' + color + '"></span>Trust ' + score + '/100</span>';
-  } else {
-    trustBadgeHtml = '<span class="card-badge-verified">&#10003; Reviewed</span>';
-  }
-
   var card = document.createElement('div');
   card.className = 'property-card';
   card.innerHTML =
@@ -98,7 +88,6 @@ function createPropertyCard(listing) {
       '<div class="card-image">' +
         '<img src="' + imageUrl + '" alt="' + escapeHtml(listing.title) + '" loading="lazy" onerror="this.src=getPlaceholderImage()">' +
         '<span class="card-badge">' + escapeHtml(typeDisplay) + '</span>' +
-        trustBadgeHtml +
       '</div>' +
       '<div class="card-body">' +
         '<div class="card-price">' + priceDisplay + (pricePerSqm ? ' <small>' + pricePerSqm + '</small>' : '') + '</div>' +
