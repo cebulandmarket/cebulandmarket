@@ -425,13 +425,6 @@ function renderPropertyDetail() {
               '</div>' +
             '</div>' +
           '</div>' +
-          '<div class="detail-card" style="text-align:center;">' +
-            '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(baseUrl + 'listing-' + listing.id + '.html') + '" target="_blank" class="fb-share-prominent">' +
-              '<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>' +
-              'Share This Property on Facebook' +
-            '</a>' +
-            '<p style="font-size:0.8rem; color:var(--gray-500); margin-top:8px;">Help a friend find their perfect land</p>' +
-          '</div>' +
           '<div class="detail-card" style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border:2px solid #16a34a;">' +
             '<h2 style="color:#16a34a;">View Property Story</h2>' +
             '<p style="font-size:0.9rem; color:var(--gray-600); margin-bottom:12px;">See the owner\'s story and vision for this property on its own dedicated page.</p>' +
