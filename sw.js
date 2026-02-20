@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v13';
+var CACHE_VERSION = 'clm-v14';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -30,7 +30,23 @@ var STATIC_ASSETS = [
   'images/icon-512.png',
   'images/og-image.jpg',
   'images/gcash-qr.jpg',
-  'manifest.json'
+  'manifest.json',
+  'att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg',
+  'images/banilad-2.jpg',
+  'images/mactan-1.jpg',
+  'images/minglanilla-1.jpg',
+  'images/talamban-1.jpg',
+  'images/talamban-3.jpg',
+  'images/liloan-1.jpg',
+  'images/lahug-1.jpg',
+  'images/pakigne-1.jpg',
+  'images/canjulao-1.jpg',
+  'images/tigbao-3.jpg',
+  'images/bulacao-3.jpg',
+  'images/liloan-vlp-3.jpg',
+  'images/busay-1.jpg',
+  'images/banilad-commercial-1.jpg',
+  'images/vertex-1.jpg'
 ];
 
 // Install: cache static assets AND all HTML pages upfront
