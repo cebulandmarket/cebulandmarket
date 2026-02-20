@@ -740,11 +740,6 @@
           statsHtml += '<div class="stat"><div class="stat-value">' + esc(p.trim()) + '</div><div class="stat-label">Title</div></div>';
         });
       }
-      if (listing.verification && listing.verification.checks) {
-        var ts = calcTrustScore(listing.verification);
-        var tc = trustScoreColor(ts);
-        statsHtml += '<div class="stat"><div class="stat-value" style="color:#' + (tc === 'green' ? '22c55e' : tc === 'yellow' ? 'eab308' : tc === 'orange' ? 'f97316' : 'ef4444') + ';">' + ts + '/100</div><div class="stat-label">Trust Score</div></div>';
-      }
 
       // Build story section
       var storyHtml = '';
