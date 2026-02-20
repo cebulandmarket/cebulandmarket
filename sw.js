@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v10';
+var CACHE_VERSION = 'clm-v11';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -29,7 +29,6 @@ var STATIC_ASSETS = [
   'images/icon-192.png',
   'images/icon-512.png',
   'images/og-image.jpg',
-  'images/dti-badge.svg',
   'images/gcash-qr.jpg',
   'manifest.json'
 ];
