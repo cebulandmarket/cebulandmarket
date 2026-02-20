@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>CebuLandMarket Promo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      font-family: 'Poppins', -apple-system, sans-serif;
+    }
+
+    .screen {
+      width: 390px;
+      height: 844px;
+      position: relative;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+
+    /* ===== SCENE: Intro Logo ===== */
+    .scene-intro {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      animation: fadeOutScene 0.8s ease forwards;
+      animation-delay: 4.5s;
+    }
+
+    .intro-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/stock-beach.jpg');
+      background-size: cover;
+      background-position: center;
+      animation: kenBurnsSlow 5s ease forwards;
+    }
+    .intro-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .logo-icon {
+      width: 110px;
+      height: 110px;
+      border-radius: 28px;
+      overflow: hidden;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: logoIn 0.8s ease forwards;
+      animation-delay: 0.3s;
+      box-shadow: 0 20px 60px rgba(46,125,50,0.5);
+      position: relative;
+      z-index: 2;
+    }
+    .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+    .logo-text {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-top: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 0.6s ease forwards;
+      animation-delay: 1s;
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+    .logo-text span { color: #4caf50; }
+
+    .logo-tagline {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 8px;
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+      animation-delay: 1.6s;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-line {
+      width: 60px;
+      height: 3px;
+      background: #4caf50;
+      border-radius: 2px;
+      margin-top: 28px;
+      opacity: 0;
+      transform: scaleX(0);
+      animation: lineGrow 0.5s ease forwards;
+      animation-delay: 2.2s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-subtitle {
+      font-size: 1.15rem;
+      color: #fff;
+      margin-top: 20px;
+      opacity: 0;
+      font-weight: 600;
+      animation: fadeIn 0.6s ease forwards;
+      animation-delay: 2.8s;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .intro-count {
+      font-size: 0.85rem;
+      color: #4caf50;
+      margin-top: 12px;
+      opacity: 0;
+      font-weight: 700;
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 3.4s;
+      position: relative;
+      z-index: 2;
+      background: rgba(76,175,80,0.15);
+      padding: 6px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(76,175,80,0.3);
+    }
+
+    /* ===== Cinematic text slides ===== */
+    .scene-text-slide {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scene-text-slide .bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      animation: kenBurns 3.5s ease forwards;
+    }
+
+    .scene-text-slide .bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .scene-text-slide .text-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .scene-text-slide .big-text {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.3;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 0.6s ease forwards;
+      animation-delay: 0.3s;
+    }
+    .scene-text-slide .big-text span { color: #4caf50; }
+
+    .scene-text-slide .sub-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 16px;
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    .text-slide-1 { animation: showSlide 3s ease forwards; animation-delay: 5s; }
+    .text-slide-2 { animation: showSlide 3s ease forwards; animation-delay: 17s; }
+
+    /* ===== SCENE: Property Slides ===== */
+    .scene-properties {
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+    }
+
+    .prop-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+
+    .prop-slide .photo {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      animation: kenBurns 3.5s ease forwards;
+    }
+
+    .prop-slide .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.25) 100%);
+    }
+
+    .prop-slide .info {
+      position: absolute;
+      bottom: 80px;
+      left: 24px;
+      right: 24px;
+    }
+
+    .prop-location {
+      font-size: 0.8rem;
+      color: #4caf50;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: slideUp 0.5s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .prop-title {
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: slideUp 0.5s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    .prop-price {
+      font-size: 2.2rem;
+      color: #fff;
+      font-weight: 900;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: slideUp 0.5s ease forwards;
+      animation-delay: 0.7s;
+    }
+    .prop-price .peso { color: #4caf50; }
+
+    .prop-details {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .prop-tag {
+      display: inline-block;
+      background: rgba(76,175,80,0.2);
+      border: 1px solid rgba(76,175,80,0.5);
+      color: #4caf50;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0;
+      animation: fadeIn 0.4s ease forwards;
+      animation-delay: 0.9s;
+    }
+
+    .prop-tag-white {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      opacity: 0;
+      animation: fadeIn 0.4s ease forwards;
+      animation-delay: 1s;
+    }
+
+    /* Slide timing — 8 property slides */
+    .prop-slide:nth-child(1) { animation: showSlide 2.8s ease forwards; animation-delay: 8s; }
+    .prop-slide:nth-child(2) { animation: showSlide 2.8s ease forwards; animation-delay: 10.8s; }
+    .prop-slide:nth-child(3) { animation: showSlide 2.8s ease forwards; animation-delay: 13.6s; }
+    .prop-slide:nth-child(4) { animation: showSlide 2.8s ease forwards; animation-delay: 20s; }
+    .prop-slide:nth-child(5) { animation: showSlide 2.8s ease forwards; animation-delay: 22.8s; }
+    .prop-slide:nth-child(6) { animation: showSlide 2.8s ease forwards; animation-delay: 25.6s; }
+    .prop-slide:nth-child(7) { animation: showSlide 2.8s ease forwards; animation-delay: 28.4s; }
+    .prop-slide:nth-child(8) { animation: showSlide 2.8s ease forwards; animation-delay: 31.2s; }
+
+    /* ===== SCENE: Benefits ===== */
+    .scene-benefits {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      opacity: 0;
+      animation: showScene 8s ease forwards;
+      animation-delay: 34s;
+      padding: 40px 30px;
+    }
+
+    .benefits-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/stock-tropical-house.jpg');
+      background-size: cover;
+      background-position: center;
+      animation: kenBurnsSlow 9s ease forwards;
+    }
+    .benefits-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+    }
+
+    .benefit-header {
+      font-size: 1.6rem;
+      color: #fff;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 0.6s ease forwards;
+      animation-delay: 34.5s;
+      position: relative;
+      z-index: 2;
+    }
+    .benefit-header span { color: #4caf50; }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateX(-30px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefit-icon {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      background: rgba(76,175,80,0.2);
+      border: 1px solid rgba(76,175,80,0.3);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .benefit-text {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .benefit-text small {
+      display: block;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .benefit-item:nth-child(2) { animation: slideRight 0.5s ease forwards; animation-delay: 35s; }
+    .benefit-item:nth-child(3) { animation: slideRight 0.5s ease forwards; animation-delay: 35.5s; }
+    .benefit-item:nth-child(4) { animation: slideRight 0.5s ease forwards; animation-delay: 36s; }
+    .benefit-item:nth-child(5) { animation: slideRight 0.5s ease forwards; animation-delay: 36.5s; }
+    .benefit-item:nth-child(6) { animation: slideRight 0.5s ease forwards; animation-delay: 37s; }
+
+    .dti-badge {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: rgba(76,175,80,0.1);
+      border: 1px solid rgba(76,175,80,0.3);
+      border-radius: 12px;
+      color: #4caf50;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 37.5s;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===== SCENE: CTA ===== */
+    .scene-cta {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      opacity: 0;
+      animation: showSceneStay 5s ease forwards;
+      animation-delay: 42s;
+      padding: 40px 30px;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/stock-aerial-land.jpg');
+      background-size: cover;
+      background-position: center;
+      animation: kenBurnsSlow 6s ease forwards;
+    }
+    .cta-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .cta-price {
+      font-size: 5.5rem;
+      font-weight: 900;
+      color: #4caf50;
+      line-height: 1;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: popIn 0.6s ease forwards;
+      animation-delay: 42.5s;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 4px 30px rgba(76,175,80,0.3);
+    }
+
+    .cta-label {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+      margin-top: 8px;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 43s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-divider {
+      width: 60px;
+      height: 3px;
+      background: #4caf50;
+      border-radius: 2px;
+      margin: 30px 0;
+      opacity: 0;
+      transform: scaleX(0);
+      animation: lineGrow 0.5s ease forwards;
+      animation-delay: 43.5s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-text {
+      font-size: 1.8rem;
+      color: #fff;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 0.6s ease forwards;
+      animation-delay: 44s;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .cta-url {
+      margin-top: 30px;
+      font-size: 1.3rem;
+      color: #4caf50;
+      font-weight: 700;
+      padding: 14px 36px;
+      border: 2px solid #4caf50;
+      border-radius: 50px;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards, pulse 2s ease infinite;
+      animation-delay: 44.5s, 45s;
+      position: relative;
+      z-index: 2;
+      background: rgba(76,175,80,0.1);
+    }
+
+    .cta-sub {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 45s;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Bottom branding bar on property slides */
+    .brand-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 24px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+    }
+    .brand-bar img { width: 28px; height: 28px; border-radius: 6px; }
+    .brand-bar span { color: rgba(255,255,255,0.7); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* ===== REPLAY BUTTON ===== */
+    .replay-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 0.75rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 46s;
+      transition: background 0.2s;
+    }
+    .replay-btn:hover { background: rgba(255,255,255,0.2); }
+
+    /* ===== KEYFRAMES ===== */
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes fadeOutScene { to { opacity: 0; pointer-events: none; } }
+    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideRight { to { opacity: 1; transform: translateX(0); } }
+    @keyframes logoIn { to { opacity: 1; transform: scale(1); } }
+    @keyframes lineGrow { to { opacity: 1; transform: scaleX(1); } }
+    @keyframes popIn { to { opacity: 1; transform: scale(1); } }
+
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.15); }
+    }
+
+    @keyframes kenBurnsSlow {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+
+    @keyframes showSlide {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes showScene {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes showSceneStay {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(76,175,80,0.4); }
+      50% { box-shadow: 0 0 0 12px rgba(76,175,80,0); }
+    }
+
+    @media print { .screen { display: none; } }
+  </style>
+</head>
+<body>
+
+<div class="screen" id="screen">
+
+  <!-- SCENE 1: Logo Intro with Beach Background (0-5s) -->
+  <div class="scene-intro">
+    <div class="intro-bg"></div>
+    <div class="intro-bg-overlay"></div>
+    <div class="logo-icon"><img src="images/icon-512.png" alt="Logo"></div>
+    <div class="logo-text">Cebu<span>Land</span>Market</div>
+    <div class="logo-tagline">Cebu, Philippines</div>
+    <div class="intro-line"></div>
+    <div class="intro-subtitle">Trusted Property Listings</div>
+    <div class="intro-count">16 Active Listings</div>
+  </div>
+
+  <!-- Cinematic text slide 1: "Dream Home" with modern house (5-8s) -->
+  <div class="scene-text-slide text-slide-1">
+    <div class="bg" style="background-image: url('images/stock-tropical-house.jpg')"></div>
+    <div class="bg-overlay"></div>
+    <div class="text-content">
+      <div class="big-text">Find Your<br><span>Dream Property</span><br>in Cebu</div>
+      <div class="sub-text">Lots • Houses • Condos • Commercial</div>
+    </div>
+  </div>
+
+  <!-- Cinematic text slide 2: "Invest" with golden land (17-20s) -->
+  <div class="scene-text-slide text-slide-2">
+    <div class="bg" style="background-image: url('images/stock-aerial-land.jpg')"></div>
+    <div class="bg-overlay"></div>
+    <div class="text-content">
+      <div class="big-text">Invest in<br><span>Cebu Land</span></div>
+      <div class="sub-text">From ₱750/sqm • Direct from Owners</div>
+    </div>
+  </div>
+
+  <!-- Property Slides (8-34s) -->
+  <div class="scene-properties">
+    <!-- Slide 1: Busay House -->
+    <div class="prop-slide">
+      <div class="photo" style="background-image: url('images/busay-1.jpg')"></div>
+      <div class="overlay"></div>
+      <div class="info">
+        <div class="prop-location">Busay, Cebu City</div>
+        <div class="prop-title">House & Lot with Mountain Views</div>
+        <div class="prop-price"><span class="peso">₱</span>15,150,000</div>
+        <div class="prop-details">
+          <div class="prop-tag">Clean Title</div>
+          <div class="prop-tag-white">300 sqm</div>
+        </div>
+      </div>
+      <div class="brand-bar"><img src="images/icon-192.png" alt=""><span>cebulandmarket.com</span></div>
+    </div>
+
+    <!-- Slide 2: Banilad House -->
+    <div class="prop-slide">
+      <div class="photo" style="background-image: url('images/banilad-2.jpg')"></div>
+      <div class="overlay"></div>
+      <div class="info">
+        <div class="prop-location">Banilad, Cebu City</div>
+        <div class="prop-title">4BR House with Swimming Pool</div>
+        <div class="prop-price"><span class="peso">₱</span>30,300,000</div>
+        <div class="prop-details">
+          <div class="prop-tag">Ready to Move In</div>
+          <div class="prop-tag-white">4 Bedrooms</div>
+        </div>
+      </div>
+      <div class="brand-bar"><img src="images/icon-192.png" alt=""><span>cebulandmarket.com</span></div>
+    </div>
+
+    <!-- Slide 3: Lahug Condo -->
+    <div class="prop-slide">
+      <div class="photo" style="background-image: url('images/lahug-1.jpg')"></div>
+      <div class="overlay"></div>
+      <div class="info">
+        <div class="prop-location">Lahug, Cebu City</div>
+        <div class="prop-title">BE Residences Studio Condo</div>
+        <div class="prop-price"><span class="peso">₱</span>4,545,000</div>
+        <div class="prop-details">
+          <div class="prop-tag">Fully Furnished</div>
+          <div class="prop-tag-white">Studio</div>
+        </div>
+      </div>
+      <div class="brand-bar"><img src="images/icon-192.png" alt=""><span>cebulandmarket.com</span></div>
+    </div>
+
+    <!-- Slide 4: Mactan Commercial -->
+    <div class="prop-slide">
+      <div class="photo" style="background-image: url('images/mactan-1.jpg')"></div>
+      <div class="overlay"></div>
+      <div class="info">
+        <div class="prop-location">Mactan, Lapu-Lapu</div>
+        <div class="prop-title">Commercial Lot near Main Road</div>
+        <div class="prop-price"><span class="peso">₱</span>20,200,000</div>
+        <div class="prop-details">
+          <div class="prop-tag">Prime Location</div>
+          <div class="prop-tag-white">Commercial</div>
+        </div>
+      </div>
+      <div class="brand-bar"><img src="images/icon-192.png" alt=""><span>cebulandmarket.com</span></div>
+    </div>
+
+    <!-- Slide 5: Minglanilla House -->
+    <div class="prop-slide">
+      <div class="photo" style="background-image: url('images/minglanilla-1.jpg')"></div>
+      <div class="overlay"></div>
+      <div class="info">
+        <div class="prop-location">Minglanilla, Cebu</div>
+        <div class="prop-title">Brand New House & Lot</div>
+        <div class="prop-price"><span class="peso">₱</span>7,070,000</div>
+        <div class="prop-details">
+          <div class="prop-tag">Brand New</div>
+          <div class="prop-tag-white">House & Lot</div>
+        </div>
+      </div>
+      <div class="brand-bar"><img src="images/icon-192.png" alt=""><span>cebulandmarket.com</span></div>
+    </div>
+
+    <!-- Slide 6: Ronda Lot -->
+    <div class="prop-slide">
+      <div class="photo" style="background-image: url('att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg')"></div>
+      <div class="overlay"></div>
+      <div class="info">
+        <div class="prop-location">Ronda, Cebu</div>
+        <div class="prop-title">15,012 sqm Lot with Bamboo House</div>
+        <div class="prop-price"><span class="peso">₱</span>11,259,000</div>
+        <div class="prop-details">
+          <div class="prop-tag">15,012 sqm</div>
+          <div class="prop-tag-white">₱750/sqm</div>
+        </div>
+      </div>
+      <div class="brand-bar"><img src="images/icon-192.png" alt=""><span>cebulandmarket.com</span></div>
+    </div>
+
+    <!-- Slide 7: Vertex Condo -->
+    <div class="prop-slide">
+      <div class="photo" style="background-image: url('images/vertex-1.jpg')"></div>
+      <div class="overlay"></div>
+      <div class="info">
+        <div class="prop-location">Cebu Business Park</div>
+        <div class="prop-title">Vertex Coast 1BR Condo</div>
+        <div class="prop-price"><span class="peso">₱</span>8,080,000</div>
+        <div class="prop-details">
+          <div class="prop-tag">City View</div>
+          <div class="prop-tag-white">1 Bedroom</div>
+        </div>
+      </div>
+      <div class="brand-bar"><img src="images/icon-192.png" alt=""><span>cebulandmarket.com</span></div>
+    </div>
+
+    <!-- Slide 8: Talamban Lot -->
+    <div class="prop-slide">
+      <div class="photo" style="background-image: url('images/talamban-1.jpg')"></div>
+      <div class="overlay"></div>
+      <div class="info">
+        <div class="prop-location">Talamban, Cebu City</div>
+        <div class="prop-title">Residential Lot near Schools</div>
+        <div class="prop-price"><span class="peso">₱</span>5,353,000</div>
+        <div class="prop-details">
+          <div class="prop-tag">Clean Title</div>
+          <div class="prop-tag-white">Residential</div>
+        </div>
+      </div>
+      <div class="brand-bar"><img src="images/icon-192.png" alt=""><span>cebulandmarket.com</span></div>
+    </div>
+  </div>
+
+  <!-- SCENE: Benefits with house background (34-42s) -->
+  <div class="scene-benefits">
+    <div class="benefits-bg"></div>
+    <div class="benefits-bg-overlay"></div>
+    <div class="benefit-header">Why List With <span>Us</span>?</div>
+    <div class="benefit-item">
+      <div class="benefit-icon">💰</div>
+      <div class="benefit-text">Only ₱100 Listing Fee<small>Lowest in Cebu. Refundable if not approved.</small></div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">🚫</div>
+      <div class="benefit-text">No Agents<small>Direct from owner to buyer.</small></div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">📋</div>
+      <div class="benefit-text">Documents Verified<small>We check titles and tax declarations.</small></div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">🏠</div>
+      <div class="benefit-text">Your Own Property Page<small>Professional listing with photos.</small></div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">♾️</div>
+      <div class="benefit-text">No Expiration<small>Listing stays until sold.</small></div>
+    </div>
+    <div class="dti-badge">DTI Registered — Region VII</div>
+  </div>
+
+  <!-- SCENE: CTA with land background (42s+) -->
+  <div class="scene-cta">
+    <div class="cta-bg"></div>
+    <div class="cta-bg-overlay"></div>
+    <div class="cta-price">₱100</div>
+    <div class="cta-label">One-Time Listing Fee</div>
+    <div class="cta-divider"></div>
+    <div class="cta-text">List Your Property<br>in Cebu Today</div>
+    <div class="cta-url">cebulandmarket.com</div>
+    <div class="cta-sub">Direct from Owners • No Agents</div>
+  </div>
+
+  <!-- Replay button -->
+  <button class="replay-btn" onclick="location.reload()">↻ Replay</button>
+
+</div>
+
+</body>
+</html>
