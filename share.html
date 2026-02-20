@@ -655,7 +655,7 @@
       var locationName = getLocationName(listing.location);
 
       // Update page title and meta
-      document.title = esc(listing.title) + ' — A Personal Page by CebuLandMarket';
+      document.title = esc(listing.title) + ' — Property Story | CebuLandMarket';
       var metaDesc = document.getElementById('metaDesc');
       var ogTitleEl = document.getElementById('ogTitle');
       var ogDescEl = document.getElementById('ogDesc');
@@ -796,7 +796,7 @@
       html += '<section class="hero">';
       html += '<img src="' + esc(mainPhoto) + '" alt="' + esc(listing.title) + '">';
       html += '<div class="hero-overlay">';
-      html += '<div class="hero-badge">A Personal Page</div>';
+      html += '<div class="hero-badge">Property Story</div>';
       html += '<h1>' + esc(listing.title) + '</h1>';
       html += '<div class="hero-sub">' + esc(listing.address || locationName + ', Cebu') + '</div>';
       html += '<div class="hero-price">' + formatPrice(applyFee(listing.total_price, listing.id));
@@ -838,13 +838,13 @@
       // Dream banner
       html += '<section class="dream-banner">';
       html += '<p class="dream-heading">Every Property Has a Story</p>';
-      html += '<p>At CebuLandMarket, we create a personal page for every approved listing — because selling a property isn\'t about giving up a dream. It\'s about sharing it with someone who\'ll carry it forward.</p>';
+      html += '<p>At CebuLandMarket, we create a property story for every approved listing — because selling a property isn\'t about giving up a dream. It\'s about sharing it with someone who\'ll carry it forward.</p>';
       html += '<p style="margin-top:1rem;"><a href="sell.html" style="color:#e8b004; font-weight:600; text-decoration:none;">List your property</a> and we\'ll tell your story too.</p>';
       html += '</section>';
 
       // Footer
       html += '<footer class="page-footer">';
-      html += '<p>This personal page was created by <a href="https://cebulandmarket.com">CebuLandMarket</a> — Property Listings in Cebu, Philippines</p>';
+      html += '<p>This property story was created by <a href="https://cebulandmarket.com">CebuLandMarket</a> — Property Listings in Cebu, Philippines</p>';
       html += '</footer>';
 
       document.getElementById('pageContent').innerHTML = html;

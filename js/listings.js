@@ -470,7 +470,7 @@ function renderPropertyDetail() {
             '<p style="font-size:0.8rem; color:var(--gray-500); margin-top:8px;">Help a friend find their perfect land</p>' +
           '</div>' +
           '<div class="detail-card" style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border:2px solid #16a34a;">' +
-            '<h2 style="color:#16a34a;">View Personal Page</h2>' +
+            '<h2 style="color:#16a34a;">View Property Story</h2>' +
             '<p style="font-size:0.9rem; color:var(--gray-600); margin-bottom:12px;">See the owner\'s story and vision for this property on its own dedicated page.</p>' +
             '<a href="share.html?id=' + listing.id + '" style="display:block; text-align:center; padding:12px; background:#16a34a; color:#fff; border-radius:8px; text-decoration:none; font-weight:600;">View Property Story</a>' +
           '</div>' +
