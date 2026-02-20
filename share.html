@@ -588,6 +588,58 @@
       return Math.round(price * (1 + PLATFORM_FEE));
     }
 
+    // Trust Score
+    var TRUST_CHECK_LABELS = {
+      title_verified: 'Title Verified',
+      tax_current: 'Tax Current',
+      owner_confirmed: 'Owner Confirmed',
+      site_visited: 'Site Visited',
+      photos_authentic: 'Photos Authentic',
+      no_encumbrance: 'No Encumbrance',
+      boundary_clear: 'Boundary Clear',
+      road_access: 'Road Access'
+    };
+    function calcTrustScore(v) {
+      if (!v || !v.checks) return 0;
+      var t = 0, p = 0;
+      for (var k in v.checks) { if (v.checks.hasOwnProperty(k)) { t++; if (v.checks[k]) p++; } }
+      return t === 0 ? 0 : Math.round((p / t) * 100);
+    }
+    function trustScoreColor(s) {
+      if (s >= 75) return 'green';
+      if (s >= 50) return 'yellow';
+      if (s >= 25) return 'orange';
+      return 'red';
+    }
+    function buildTrustScoreHtml(listing) {
+      if (!listing.verification || !listing.verification.checks) return '';
+      var v = listing.verification;
+      var score = calcTrustScore(v);
+      var color = trustScoreColor(score);
+      var checks = v.checks;
+      var cl = '<ul class="trust-checklist">';
+      for (var key in TRUST_CHECK_LABELS) {
+        if (TRUST_CHECK_LABELS.hasOwnProperty(key)) {
+          var passed = checks[key];
+          cl += '<li><span class="trust-check-icon ' + (passed ? 'trust-check-pass' : 'trust-check-fail') + '">' + (passed ? '&#10003;' : '&#10007;') + '</span>' + TRUST_CHECK_LABELS[key] + '</li>';
+        }
+      }
+      cl += '</ul>';
+      return '<section style="padding:32px 0;"><div class="container" style="max-width:700px;">' +
+        '<div class="detail-trust-score">' +
+          '<div class="trust-score-header">' +
+            '<div class="trust-score-circle score-' + color + '">' + score + '</div>' +
+            '<div>' +
+              '<div class="trust-score-title">CLM Trust Score</div>' +
+              '<div class="trust-score-sub">Verified by CebuLandMarket — not a legal guarantee</div>' +
+              '<div class="trust-score-code">Code: <a href="verify.html?code=' + encodeURIComponent(v.code) + '">' + v.code + '</a></div>' +
+            '</div>' +
+          '</div>' +
+          cl +
+        '</div>' +
+      '</div></section>';
+    }
+
     // Lightbox
     var photos = [];
     var currentIndex = 0;
@@ -806,6 +858,9 @@
 
       // Quick stats
       html += '<div class="quick-stats">' + statsHtml + '</div>';
+
+      // Trust Score
+      html += buildTrustScoreHtml(listing);
 
       // Story
       html += storyHtml;
