@@ -394,33 +394,7 @@ function renderPropertyDetail() {
           '<div class="detail-card">' +
             '<div class="price-tag">' + formatPrice(applyFee(listing.total_price, listing.id)) + '</div>' +
             (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(applyFee(listing.price_per_sqm, listing.id)) + ' per sqm</div>' : '') +
-            (function() {
-              if (listing.verification && listing.verification.checks) {
-                var score = calcTrustScore(listing.verification);
-                var color = trustScoreColor(score);
-                var checks = listing.verification.checks;
-                var checklistHtml = '<ul class="trust-checklist">';
-                for (var key in TRUST_CHECK_LABELS) {
-                  if (TRUST_CHECK_LABELS.hasOwnProperty(key)) {
-                    var passed = checks[key];
-                    checklistHtml += '<li><span class="trust-check-icon ' + (passed ? 'trust-check-pass' : 'trust-check-fail') + '">' + (passed ? '&#10003;' : '&#10007;') + '</span>' + TRUST_CHECK_LABELS[key] + '</li>';
-                  }
-                }
-                checklistHtml += '</ul>';
-                return '<div class="detail-trust-score">' +
-                  '<div class="trust-score-header">' +
-                    '<div class="trust-score-circle score-' + color + '">' + score + '</div>' +
-                    '<div>' +
-                      '<div class="trust-score-title">CLM Trust Score</div>' +
-                      '<div class="trust-score-sub">Verified by CebuLandMarket — not a legal guarantee</div>' +
-                      '<div class="trust-score-code">Code: <a href="verify.html?code=' + encodeURIComponent(listing.verification.code) + '">' + listing.verification.code + '</a></div>' +
-                    '</div>' +
-                  '</div>' +
-                  checklistHtml +
-                '</div>';
-              }
-              return '<div class="detail-verified-badge"><div class="badge-icon">&#10003;</div><div><div class="badge-text">Documents Reviewed</div><div class="badge-sub">Title &amp; documents reviewed by our team — not a legal guarantee</div></div></div>';
-            })() +
+            '<div class="detail-verified-badge"><div class="badge-icon">&#10003;</div><div><div class="badge-text">Documents Reviewed</div><div class="badge-sub">Title &amp; documents reviewed by our team — not a legal guarantee</div></div></div>' +
             '<div class="detail-info">' +
               '<div class="info-item"><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
               (listing.floor_area ? '<div class="info-item"><span class="info-label">Floor Area</span><span class="info-value">' + formatNumber(listing.floor_area) + ' sqm</span></div>' : '') +
