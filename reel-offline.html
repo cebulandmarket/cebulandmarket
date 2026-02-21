@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>CebuLandMarket — Offline Reel</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      font-family: 'Poppins', -apple-system, sans-serif;
+    }
+    .screen {
+      width: 390px;
+      height: 844px;
+      position: relative;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+
+    /* ===== SCENE 1: No Signal (0s - 3.5s) ===== */
+    .scene-1 {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      z-index: 20;
+      animation: fadeOutScene 0.6s ease forwards 3.5s;
+    }
+    .signal-bars {
+      display: flex; gap: 4px; align-items: flex-end;
+      margin-bottom: 20px; opacity: 0;
+      animation: popIn 0.5s ease forwards 0.5s;
+    }
+    .signal-bar { width: 8px; background: #374151; border-radius: 2px; }
+    .signal-bar:nth-child(1) { height: 10px; }
+    .signal-bar:nth-child(2) { height: 18px; }
+    .signal-bar:nth-child(3) { height: 26px; }
+    .signal-bar:nth-child(4) { height: 34px; }
+    .no-signal-x {
+      color: #ef4444; font-size: 1.5rem; font-weight: 800;
+      margin-left: 6px; opacity: 0;
+      animation: popIn 0.3s ease forwards 1s;
+    }
+    .wifi-icon { font-size: 5rem; margin-bottom: 20px; opacity: 0; animation: popIn 0.6s ease forwards 0.3s; }
+    .wifi-slash { position: relative; display: inline-block; }
+    .wifi-slash::after {
+      content: ''; position: absolute; top: 10%; left: 50%;
+      width: 4px; height: 80%; background: #ef4444;
+      transform: translateX(-50%) rotate(45deg); border-radius: 2px;
+      opacity: 0; animation: slashIn 0.4s ease forwards 0.8s;
+    }
+    .scene-1 h2 { color: #fff; font-size: 2rem; font-weight: 800; opacity: 0; animation: slideUp 0.6s ease forwards 1.2s; }
+    .scene-1 p { color: rgba(255,255,255,0.6); font-size: 1rem; margin-top: 8px; opacity: 0; animation: slideUp 0.6s ease forwards 1.6s; }
+
+    /* ===== SCENE 2: Person on Plane (3.8s - 8s) ===== */
+    .scene-plane {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, #0c1445 0%, #162a50 50%, #1e3a5f 100%);
+      z-index: 15; opacity: 0;
+      animation: fadeInScene 0.6s ease forwards 3.8s, fadeOutScene 0.6s ease forwards 8.2s;
+    }
+    .plane-interior { position: absolute; inset: 0; overflow: hidden; }
+
+    /* Airplane mode top badge */
+    .plane-mode-badge {
+      position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+      background: rgba(249,115,22,0.9); color: #fff;
+      font-size: 0.85rem; font-weight: 700;
+      padding: 8px 20px; border-radius: 20px;
+      display: flex; align-items: center; gap: 8px;
+      opacity: 0; animation: popIn 0.4s ease forwards 4.2s;
+      z-index: 10;
+    }
+
+    /* Plane window - bigger and centered top-right */
+    .plane-window {
+      position: absolute; top: 70px; right: 20px;
+      width: 180px; height: 250px;
+      border-radius: 90px 90px 50px 50px;
+      background: linear-gradient(180deg, #4da8da 0%, #87ceeb 30%, #b8e4f9 60%, #e8f4fd 100%);
+      border: 14px solid #2a2a3e;
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(135,206,235,0.3), 0 0 40px rgba(77,168,218,0.15);
+      opacity: 0; animation: fadeInScene 0.5s ease forwards 4s;
+    }
+
+    /* Sun in window */
+    .sun {
+      position: absolute; top: 20px; left: 20px;
+      width: 40px; height: 40px;
+      background: radial-gradient(circle, #ffd700 30%, rgba(255,215,0,0.3) 70%, transparent 100%);
+      border-radius: 50%;
+    }
+
+    /* Clouds */
+    .cloud { position: absolute; background: rgba(255,255,255,0.9); border-radius: 50px; }
+    .cloud::before {
+      content: ''; position: absolute; background: rgba(255,255,255,0.9); border-radius: 50px;
+      top: -40%; left: 20%; width: 60%; height: 80%;
+    }
+    .cloud-1 { width: 70px; height: 22px; top: 60px; left: 200px; animation: floatCloud 3.5s linear infinite; }
+    .cloud-2 { width: 50px; height: 16px; top: 120px; left: 200px; animation: floatCloud 4s linear infinite 1s; }
+    .cloud-3 { width: 60px; height: 18px; top: 170px; left: 200px; animation: floatCloud 3s linear infinite 0.5s; }
+
+    /* ---- Big phone in center (the focus) ---- */
+    .big-phone {
+      position: absolute;
+      top: 300px; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 380px;
+      background: #111;
+      border-radius: 24px;
+      border: 4px solid #333;
+      padding: 8px;
+      box-shadow: 0 0 60px rgba(74,222,128,0.2), 0 20px 60px rgba(0,0,0,0.5);
+      opacity: 0;
+      animation: phoneSlideUp 0.7s ease forwards 4.5s;
+      z-index: 5;
+    }
+    .phone-inner {
+      width: 100%; height: 100%;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Phone notch */
+    .phone-notch {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 18px;
+      background: #111;
+      border-radius: 0 0 12px 12px;
+      z-index: 5;
+    }
+
+    /* Phone CLM header */
+    .phone-header {
+      background: #2e7d32;
+      padding: 24px 10px 8px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .phone-logo {
+      color: #fff; font-size: 0.7rem; font-weight: 800;
+    }
+    .phone-logo b { color: #e8b004; }
+    .phone-airplane {
+      background: #f97316; color: #fff;
+      font-size: 0.5rem; font-weight: 700;
+      padding: 2px 5px; border-radius: 3px;
+    }
+
+    /* Scrolling listings container */
+    .phone-listings {
+      position: absolute; top: 50px; left: 0; right: 0; bottom: 0;
+      overflow: hidden;
+    }
+    .phone-scroll {
+      animation: scrollListings 3.5s ease-in-out forwards 5.5s;
+    }
+
+    /* Mini listing cards */
+    .mini-card {
+      margin: 6px 8px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .mini-img {
+      height: 65px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+    .mini-img-1 { background-image: url('att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg'); }
+    .mini-img-2 { background-image: url('images/banilad-2.jpg'); }
+    .mini-img-3 { background-image: url('images/mactan-1.jpg'); }
+    .mini-img-4 { background-image: url('images/minglanilla-1.jpg'); }
+    .mini-img-5 { background-image: url('images/talamban-1.jpg'); }
+    .mini-tag {
+      position: absolute; top: 4px; left: 4px;
+      background: #2e7d32; color: #fff;
+      font-size: 0.4rem; font-weight: 700;
+      padding: 2px 5px; border-radius: 3px;
+      text-transform: uppercase;
+    }
+    .mini-body { padding: 5px 8px; }
+    .mini-price { font-size: 0.65rem; font-weight: 800; color: #2e7d32; }
+    .mini-title { font-size: 0.5rem; font-weight: 600; color: #1a1a2e; }
+    .mini-loc { font-size: 0.45rem; color: #9ca3af; margin-top: 1px; }
+
+    /* Scrolling finger/thumb */
+    .scroll-thumb {
+      position: absolute;
+      bottom: 30px; right: 15px;
+      width: 30px; height: 45px;
+      z-index: 10;
+      opacity: 0;
+      animation: thumbAppear 0.4s ease forwards 5.2s;
+    }
+    .thumb-shape {
+      width: 26px; height: 40px;
+      background: linear-gradient(180deg, #d4a574, #c4956a);
+      border-radius: 13px 13px 10px 10px;
+      position: relative;
+      animation: thumbScroll 3.5s ease-in-out forwards 5.5s;
+    }
+    .thumb-nail {
+      position: absolute; top: 2px; left: 50%; transform: translateX(-50%);
+      width: 16px; height: 10px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 8px 8px 4px 4px;
+    }
+    /* Touch ripple */
+    .touch-ripple {
+      position: absolute;
+      top: 5px; left: 50%; transform: translateX(-50%);
+      width: 20px; height: 20px;
+      border: 2px solid rgba(74,222,128,0.5);
+      border-radius: 50%;
+      opacity: 0;
+      animation: ripple 1s ease-out infinite 5.5s;
+    }
+
+    /* Hands holding phone from sides */
+    .hand-left-side {
+      position: absolute; top: 360px; left: calc(50% - 115px);
+      width: 30px; height: 120px;
+      background: linear-gradient(90deg, #c4956a, #d4a574);
+      border-radius: 15px 5px 5px 15px;
+      opacity: 0; animation: fadeInScene 0.5s ease forwards 4.5s;
+      z-index: 6;
+    }
+    .hand-right-side {
+      position: absolute; top: 360px; right: calc(50% - 115px);
+      width: 30px; height: 120px;
+      background: linear-gradient(270deg, #c4956a, #d4a574);
+      border-radius: 5px 15px 15px 5px;
+      opacity: 0; animation: fadeInScene 0.5s ease forwards 4.5s;
+      z-index: 6;
+    }
+    /* Finger wraps */
+    .finger {
+      position: absolute;
+      width: 18px; height: 28px;
+      background: #d4a574;
+      border-radius: 9px;
+    }
+    .hand-left-side .finger:nth-child(1) { top: 15px; right: -8px; }
+    .hand-left-side .finger:nth-child(2) { top: 40px; right: -10px; }
+    .hand-left-side .finger:nth-child(3) { top: 65px; right: -8px; }
+    .hand-right-side .finger:nth-child(1) { top: 15px; left: -8px; }
+    .hand-right-side .finger:nth-child(2) { top: 40px; left: -10px; }
+    .hand-right-side .finger:nth-child(3) { top: 65px; left: -8px; }
+
+    /* Text overlay */
+    .plane-text {
+      position: absolute; bottom: 30px; left: 0; right: 0;
+      text-align: center; z-index: 10;
+      opacity: 0; animation: slideUp 0.6s ease forwards 5s;
+    }
+    .plane-text h2 {
+      color: #fff; font-size: 1.2rem; font-weight: 700;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+    }
+    .plane-text p {
+      color: rgba(255,255,255,0.8); font-size: 0.8rem; margin-top: 4px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    }
+
+    /* ===== SCENE 3: CebuLandMarket full screen (8.2s - 12s) ===== */
+    .scene-2 {
+      position: absolute; inset: 0; background: #fff;
+      z-index: 10; opacity: 0;
+      animation: fadeInScene 0.6s ease forwards 8.4s;
+    }
+    .status-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 24px 8px; font-size: 0.75rem; font-weight: 600; color: #1a1a2e;
+    }
+    .status-right { display: flex; align-items: center; gap: 6px; }
+    .airplane-badge {
+      background: #f97316; color: #fff; font-size: 0.65rem;
+      padding: 2px 6px; border-radius: 4px; font-weight: 700;
+    }
+    .browser-bar {
+      margin: 0 16px; background: #f3f4f6; border-radius: 10px;
+      padding: 10px 16px; display: flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; color: #6b7280;
+    }
+    .browser-lock { color: #16a34a; font-size: 0.7rem; }
+    .browser-url { font-weight: 600; color: #1a1a2e; }
+    .clm-header { background: #2e7d32; padding: 14px 20px; margin-top: 8px; }
+    .clm-logo { color: #fff; font-size: 1.1rem; font-weight: 800; }
+    .clm-logo span { color: #e8b004; }
+    .clm-content { padding: 16px; }
+    .clm-search {
+      background: #f3f4f6; border-radius: 10px; padding: 12px 16px;
+      font-size: 0.85rem; color: #9ca3af; margin-bottom: 16px;
+    }
+    .fake-card {
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 14px; overflow: hidden; opacity: 0;
+    }
+    .fake-card:nth-child(1) { animation: slideUpCard 0.5s ease forwards 9.2s; }
+    .fake-card:nth-child(2) { animation: slideUpCard 0.5s ease forwards 9.6s; }
+    .fake-card:nth-child(3) { animation: slideUpCard 0.5s ease forwards 10s; }
+    .fake-card-img { height: 140px; position: relative; background-size: cover; background-position: center; }
+    .fake-card-img-1 { background-image: url('att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg'); }
+    .fake-card-img-2 { background-image: url('images/banilad-2.jpg'); }
+    .fake-card-img-3 { background-image: url('images/mactan-1.jpg'); }
+    .fake-badge {
+      position: absolute; top: 10px; left: 10px; background: #2e7d32;
+      color: #fff; font-size: 0.65rem; font-weight: 700;
+      padding: 4px 10px; border-radius: 4px; text-transform: uppercase;
+    }
+    .fake-card-body { padding: 12px 14px; }
+    .fake-price { font-size: 1.1rem; font-weight: 800; color: #2e7d32; }
+    .fake-title { font-size: 0.85rem; font-weight: 600; color: #1a1a2e; margin-top: 2px; }
+    .fake-location { font-size: 0.75rem; color: #9ca3af; margin-top: 4px; }
+
+    /* ===== SCENE 4: Works Without WiFi (12s - 15s) ===== */
+    .scene-3 {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
+      z-index: 5; opacity: 0;
+      animation: fadeInScene 0.6s ease forwards 12s;
+    }
+    .reveal-text { text-align: center; padding: 0 32px; }
+    .reveal-line-1 { color: #fff; font-size: 1.8rem; font-weight: 800; line-height: 1.2; opacity: 0; animation: slideUp 0.6s ease forwards 12.5s; }
+    .reveal-line-2 { color: #e8b004; font-size: 2.2rem; font-weight: 900; line-height: 1.2; margin-top: 8px; opacity: 0; animation: slideUp 0.6s ease forwards 13s; }
+    .reveal-line-3 { color: rgba(255,255,255,0.8); font-size: 1rem; margin-top: 20px; line-height: 1.6; opacity: 0; animation: slideUp 0.6s ease forwards 13.5s; }
+    .reveal-url { margin-top: 32px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; padding: 14px 28px; opacity: 0; animation: popIn 0.5s ease forwards 14s; }
+    .reveal-url span { color: #fff; font-size: 1.1rem; font-weight: 700; }
+
+    /* ===== SCENE 5: Bisaya (15s - 18s) ===== */
+    .scene-4 {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      z-index: 3; opacity: 0;
+      animation: fadeInScene 0.6s ease forwards 16s;
+    }
+    .bisaya-text { text-align: center; padding: 0 32px; }
+    .bisaya-line-1 { color: #e8b004; font-size: 1.6rem; font-weight: 800; line-height: 1.3; opacity: 0; animation: slideUp 0.6s ease forwards 16.5s; }
+    .bisaya-line-2 { color: rgba(255,255,255,0.8); font-size: 1rem; margin-top: 16px; line-height: 1.6; opacity: 0; animation: slideUp 0.6s ease forwards 17s; }
+    .bisaya-line-3 { color: #fff; font-size: 1.2rem; font-weight: 700; margin-top: 24px; opacity: 0; animation: slideUp 0.6s ease forwards 17.5s; }
+
+    /* ===== SCENE 6: Narrator ending (18s - 25s) ===== */
+    .scene-5 {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+      z-index: 1; opacity: 0;
+      animation: fadeInScene 0.8s ease forwards 19s;
+    }
+
+    /* Narrator quote */
+    .narrator {
+      text-align: center;
+      padding: 0 36px;
+      max-width: 380px;
+    }
+    .narrator-quote {
+      position: relative;
+      padding: 0 10px;
+    }
+    .narrator-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -30px; left: -5px;
+      font-size: 4rem;
+      color: rgba(232,176,4,0.3);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .narrator-line-1 {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1.7;
+      font-style: italic;
+      opacity: 0;
+      animation: narratorFade 0.8s ease forwards 19.8s;
+    }
+    .narrator-line-2 {
+      color: #e8b004;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-top: 12px;
+      font-style: italic;
+      opacity: 0;
+      animation: narratorFade 0.8s ease forwards 21s;
+    }
+    .narrator-line-3 {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-top: 20px;
+      font-style: normal;
+      opacity: 0;
+      animation: narratorFade 0.6s ease forwards 22.5s;
+    }
+
+    /* Divider line */
+    .narrator-divider {
+      width: 40px; height: 2px;
+      background: #e8b004;
+      margin: 28px auto 0;
+      opacity: 0;
+      animation: narratorFade 0.5s ease forwards 23s;
+    }
+
+    /* Logo at bottom */
+    .end-logo {
+      margin-top: 24px;
+      opacity: 0;
+      animation: narratorFade 0.6s ease forwards 23.3s;
+    }
+    .end-logo-text {
+      font-size: 1.4rem; font-weight: 900; color: #fff;
+    }
+    .end-logo-text span { color: #e8b004; }
+    .end-logo-text em { color: #4ade80; font-style: normal; }
+    .end-url {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      margin-top: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Bottom tagline */
+    .end-bottom {
+      position: absolute;
+      bottom: 40px; left: 0; right: 0;
+      text-align: center;
+      opacity: 0;
+      animation: narratorFade 0.5s ease forwards 23.8s;
+    }
+    .end-bottom p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Typing cursor */
+    .cursor {
+      animation: blink 0.8s step-end infinite;
+      color: #2e7d32;
+      font-weight: 700;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* Works offline badge on full screen */
+    .offline-badge {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      background: #16a34a; color: #fff;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 8px 18px; border-radius: 20px;
+      display: flex; align-items: center; gap: 6px;
+      opacity: 0; animation: popIn 0.4s ease forwards 10.5s;
+      z-index: 5;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeOutScene { from { opacity: 1; } to { opacity: 0; pointer-events: none; } }
+    @keyframes fadeInScene { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes popIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideUpCard { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slashIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes floatCloud { from { transform: translateX(0); } to { transform: translateX(-300px); } }
+    @keyframes phoneSlideUp { from { opacity: 0; transform: translateX(-50%) translateY(80px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+    @keyframes thumbAppear { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes thumbScroll {
+      0% { transform: translateY(0); }
+      30% { transform: translateY(-40px); }
+      50% { transform: translateY(-30px); }
+      80% { transform: translateY(-70px); }
+      100% { transform: translateY(-60px); }
+    }
+    @keyframes scrollListings {
+      0% { transform: translateY(0); }
+      30% { transform: translateY(-100px); }
+      50% { transform: translateY(-80px); }
+      80% { transform: translateY(-180px); }
+      100% { transform: translateY(-160px); }
+    }
+    @keyframes ripple {
+      0% { transform: translateX(-50%) scale(0.5); opacity: 0.6; }
+      100% { transform: translateX(-50%) scale(2); opacity: 0; }
+    }
+    @keyframes narratorFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+
+    <!-- SCENE 1: No Signal -->
+    <div class="scene-1">
+      <div class="signal-bars">
+        <div class="signal-bar"></div><div class="signal-bar"></div>
+        <div class="signal-bar"></div><div class="signal-bar"></div>
+        <span class="no-signal-x">&#10007;</span>
+      </div>
+      <div class="wifi-icon"><span class="wifi-slash">&#128246;</span></div>
+      <h2>No Signal?</h2>
+      <p>No problem.</p>
+    </div>
+
+    <!-- SCENE 2: Person on Plane with Phone showing listings -->
+    <div class="scene-plane">
+      <div class="plane-interior">
+
+        <!-- Airplane mode badge -->
+        <div class="plane-mode-badge">&#9992; Airplane Mode ON</div>
+
+        <!-- Window with sun and clouds -->
+        <div class="plane-window">
+          <div class="sun"></div>
+          <div class="cloud cloud-1"></div>
+          <div class="cloud cloud-2"></div>
+          <div class="cloud cloud-3"></div>
+        </div>
+
+        <!-- BIG phone in center showing listings -->
+        <div class="big-phone">
+          <div class="phone-inner">
+            <div class="phone-notch"></div>
+            <div class="phone-header">
+              <div class="phone-logo">Cebu<b>Land</b>Market</div>
+              <div class="phone-airplane">&#9992;</div>
+            </div>
+            <div class="phone-listings">
+              <div class="phone-scroll">
+                <!-- Mini card 1 -->
+                <div class="mini-card">
+                  <div class="mini-img mini-img-1"><div class="mini-tag">Lot / Land</div></div>
+                  <div class="mini-body">
+                    <div class="mini-price">&#8369;11,389,090</div>
+                    <div class="mini-title">15,012 sqm Mountain Lot</div>
+                    <div class="mini-loc">&#128205; Ronda, Cebu</div>
+                  </div>
+                </div>
+                <!-- Mini card 2 -->
+                <div class="mini-card">
+                  <div class="mini-img mini-img-2"><div class="mini-tag">House & Lot</div></div>
+                  <div class="mini-body">
+                    <div class="mini-price">&#8369;3,535,000</div>
+                    <div class="mini-title">Modern House in Minglanilla</div>
+                    <div class="mini-loc">&#128205; Minglanilla, Cebu</div>
+                  </div>
+                </div>
+                <!-- Mini card 3 -->
+                <div class="mini-card">
+                  <div class="mini-img mini-img-3"><div class="mini-tag">Farm Land</div></div>
+                  <div class="mini-body">
+                    <div class="mini-price">&#8369;5,050,000</div>
+                    <div class="mini-title">5-Hectare Farm</div>
+                    <div class="mini-loc">&#128205; Dalaguete, Cebu</div>
+                  </div>
+                </div>
+                <!-- Mini card 4 -->
+                <div class="mini-card">
+                  <div class="mini-img mini-img-4"><div class="mini-tag">Condo</div></div>
+                  <div class="mini-body">
+                    <div class="mini-price">&#8369;2,020,000</div>
+                    <div class="mini-title">Studio Condo Unit</div>
+                    <div class="mini-loc">&#128205; Cebu City</div>
+                  </div>
+                </div>
+                <!-- Mini card 5 -->
+                <div class="mini-card">
+                  <div class="mini-img mini-img-5"><div class="mini-tag">Commercial</div></div>
+                  <div class="mini-body">
+                    <div class="mini-price">&#8369;8,080,000</div>
+                    <div class="mini-title">Commercial Lot Mandaue</div>
+                    <div class="mini-loc">&#128205; Mandaue, Cebu</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scrolling thumb on screen -->
+          <div class="scroll-thumb">
+            <div class="thumb-shape">
+              <div class="thumb-nail"></div>
+            </div>
+            <div class="touch-ripple"></div>
+          </div>
+        </div>
+
+        <!-- Hands holding phone -->
+        <div class="hand-left-side">
+          <div class="finger"></div><div class="finger"></div><div class="finger"></div>
+        </div>
+        <div class="hand-right-side">
+          <div class="finger"></div><div class="finger"></div><div class="finger"></div>
+        </div>
+
+      </div>
+
+      <!-- Text -->
+      <div class="plane-text">
+        <h2>30,000 feet up. Still browsing.</h2>
+        <p>No WiFi needed.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 3: CebuLandMarket full screen -->
+    <div class="scene-2">
+      <div class="status-bar">
+        <span>9:41</span>
+        <div class="status-right">
+          <span class="airplane-badge">&#9992; Airplane</span>
+          <span>&#128267;</span>
+        </div>
+      </div>
+      <div class="browser-bar">
+        <span class="browser-lock">&#128274;</span>
+        <span><span class="browser-url">cebulandmarket.com</span></span>
+      </div>
+      <div class="clm-header"><div class="clm-logo">Cebu<span class="land-wrap"><span class="land-icon">&#127969;</span><span>Land</span></span>Market</div></div>
+      <div class="clm-content">
+        <div class="clm-search">&#128269; <span class="typing-text"></span><span class="cursor">|</span></div>
+        <div class="fake-card">
+          <div class="fake-card-img fake-card-img-1"><div class="fake-badge">Lot / Land</div></div>
+          <div class="fake-card-body">
+            <div class="fake-price">&#8369;11,389,090</div>
+            <div class="fake-title">15,012 sqm Mountain Lot in Ronda</div>
+            <div class="fake-location">&#128205; Ronda, Cebu</div>
+          </div>
+        </div>
+        <div class="fake-card">
+          <div class="fake-card-img fake-card-img-2"><div class="fake-badge">House & Lot</div></div>
+          <div class="fake-card-body">
+            <div class="fake-price">&#8369;3,535,000</div>
+            <div class="fake-title">Modern House & Lot in Minglanilla</div>
+            <div class="fake-location">&#128205; Minglanilla, Cebu</div>
+          </div>
+        </div>
+        <div class="fake-card">
+          <div class="fake-card-img fake-card-img-3"><div class="fake-badge">Farm Land</div></div>
+          <div class="fake-card-body">
+            <div class="fake-price">&#8369;5,050,000</div>
+            <div class="fake-title">5-Hectare Farm in Dalaguete</div>
+            <div class="fake-location">&#128205; Dalaguete, Cebu</div>
+          </div>
+        </div>
+      </div>
+      <div class="offline-badge">&#10003; Works Offline — No WiFi Needed</div>
+    </div>
+
+    <!-- SCENE 4: Works Without WiFi -->
+    <div class="scene-3">
+      <div class="reveal-text">
+        <div class="reveal-line-1">Works Even</div>
+        <div class="reveal-line-2">Without WiFi</div>
+        <div class="reveal-line-3">Browse property listings in Cebu anytime — on the bus, in the province, or 30,000 feet in the air.</div>
+        <div class="reveal-url"><span>cebulandmarket.com</span></div>
+      </div>
+    </div>
+
+    <!-- SCENE 5: Bisaya -->
+    <div class="scene-4">
+      <div class="bisaya-text">
+        <div class="bisaya-line-1">Mugana bisan walay WiFi.</div>
+        <div class="bisaya-line-2">Tan-aw og mga property sa Cebu bisan asa ka — sa bus, sa eroplano, o sa lugar nga walay signal.</div>
+        <div class="bisaya-line-3">Walay app i-download. Bisitaha lang.</div>
+      </div>
+    </div>
+
+    <!-- SCENE 6: Narrator Ending -->
+    <div class="scene-5">
+      <div class="narrator">
+        <div class="narrator-quote">
+          <div class="narrator-line-1">Somewhere in Cebu, there's a piece of land waiting for someone who'll see what it could become.</div>
+          <div class="narrator-line-2">Maybe that someone is you.</div>
+          <div class="narrator-line-3">Start looking — anytime, anywhere. Even without WiFi.</div>
+        </div>
+        <div class="narrator-divider"></div>
+        <div class="end-logo">
+          <div class="end-logo-text"><em>Cebu</em><span>Land</span>Market</div>
+          <div class="end-url">cebulandmarket.com</div>
+        </div>
+      </div>
+      <div class="end-bottom">
+        <p>Property Listings in Cebu, Philippines</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Typing animation for search bar
+    function typeText() {
+      var text = 'lot for sale in Cebu';
+      var el = document.querySelector('.typing-text');
+      if (!el) return;
+      var i = 0;
+      setTimeout(function() {
+        var interval = setInterval(function() {
+          if (i < text.length) {
+            el.textContent += text[i];
+            i++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 80);
+      }, 9000);
+    }
+    typeText();
+
+    // Auto-replay
+    setTimeout(function() {
+      setInterval(function() {
+        var s = document.querySelector('.screen');
+        s.innerHTML = s.innerHTML;
+        typeText();
+      }, 26000);
+    }, 26000);
+  </script>
+</body>
+</html>
