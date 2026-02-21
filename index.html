@@ -85,15 +85,54 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Slideshow -->
   <section class="hero">
-    <div class="container">
-      <h1>Trusted Land Listings in Cebu, Reviewed by Our Team</h1>
-      <p>Whether you're buying your first lot or selling your family land, every listing here is document-verified so you can move forward with confidence.</p>
-      <div class="hero-buttons">
-        <a href="listings.html" class="btn btn-outline" style="color:#fff; border-color:#fff; background:var(--accent);">Browse Listings</a>
-        <a href="sell.html" class="btn btn-outline" style="color:#fff; border-color:#fff;">List Your Property</a>
+    <div class="hero-slideshow">
+      <div class="hero-slide active">
+        <div class="container">
+          <h1>Trusted Land Listings in Cebu, Reviewed by Our Team</h1>
+          <p>Whether you're buying your first lot or selling your family land, every listing here is document-verified so you can move forward with confidence.</p>
+          <div class="hero-buttons">
+            <a href="listings.html" class="btn btn-outline" style="color:#fff; border-color:#fff; background:var(--accent);">Browse Listings</a>
+            <a href="sell.html" class="btn btn-outline" style="color:#fff; border-color:#fff;">List Your Property</a>
+          </div>
+        </div>
       </div>
+      <div class="hero-slide">
+        <div class="container">
+          <h1>List Your Property for Only ₱100</h1>
+          <p>Affordable listing fee with full refund if not approved. We verify documents so buyers can trust every listing.</p>
+          <div class="hero-buttons">
+            <a href="sell.html" class="btn btn-outline" style="color:#fff; border-color:#fff; background:var(--accent);">List Now</a>
+            <a href="faq.html" class="btn btn-outline" style="color:#fff; border-color:#fff;">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="container">
+          <h1>DTI-Registered & Document-Verified</h1>
+          <p>CebuLandMarket is a registered business. Every property listing is reviewed by our team before going live.</p>
+          <div class="hero-buttons">
+            <a href="about.html" class="btn btn-outline" style="color:#fff; border-color:#fff; background:var(--accent);">About Us</a>
+            <a href="listings.html" class="btn btn-outline" style="color:#fff; border-color:#fff;">View Listings</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="container">
+          <h1>Works Offline — Browse Anytime, Anywhere</h1>
+          <p>CebuLandMarket is a PWA. Install it on your phone and browse listings even without internet connection.</p>
+          <div class="hero-buttons">
+            <a href="listings.html" class="btn btn-outline" style="color:#fff; border-color:#fff; background:var(--accent);">Browse Listings</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-dots">
+      <button class="hero-dot active" aria-label="Slide 1"></button>
+      <button class="hero-dot" aria-label="Slide 2"></button>
+      <button class="hero-dot" aria-label="Slide 3"></button>
+      <button class="hero-dot" aria-label="Slide 4"></button>
     </div>
   </section>
 
@@ -422,6 +461,41 @@
       var el3 = document.getElementById('statLowest');
       if (el3 && lowest < Infinity) el3.textContent = '₱' + lowest.toLocaleString();
     });
+  </script>
+  <script>
+    // Hero Slideshow
+    (function() {
+      var slides = document.querySelectorAll('.hero-slide');
+      var dots = document.querySelectorAll('.hero-dot');
+      var current = 0;
+      var timer;
+
+      function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      function next() {
+        goTo((current + 1) % slides.length);
+      }
+
+      function startTimer() {
+        timer = setInterval(next, 5000);
+      }
+
+      dots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() {
+          clearInterval(timer);
+          goTo(i);
+          startTimer();
+        });
+      });
+
+      if (slides.length > 1) startTimer();
+    })();
   </script>
   <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
 </body>
