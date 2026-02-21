@@ -407,23 +407,6 @@ function renderPropertyDetail() {
             '<h2>Inquire About This Property</h2>' +
             '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Inquiries are forwarded to the property owner. Buyer and seller deal directly.</p>' +
             '<div class="contact-buttons">' + contactHtml + '</div>' +
-            '<div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--gray-300);">' +
-              '<p style="font-size:0.9rem; font-weight:600; color:var(--dark); margin-bottom:12px;">Or send us your details and we\'ll contact you:</p>' +
-              '<form id="inquiryForm" action="https://script.google.com/macros/s/AKfycbyVOxRN0ypOCcDRE08KMGrXL265R6dQqpS3lHgESqNB6FN1ISkgcQoZ928rL-UQ8L5M/exec" method="POST">' +
-                '<input type="hidden" name="form_type" value="buyer_inquiry">' +
-                '<input type="hidden" name="property_title" value="' + escapeHtml(listing.title) + '">' +
-                '<input type="hidden" name="property_id" value="' + listing.id + '">' +
-                '<div style="margin-bottom:10px;"><input type="text" name="buyer_name" placeholder="Your Name" required style="width:100%; padding:10px 12px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem;"></div>' +
-                '<div style="margin-bottom:10px;"><input type="tel" name="buyer_phone" placeholder="Phone Number (e.g. 09XX XXX XXXX)" required style="width:100%; padding:10px 12px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem;"></div>' +
-                '<div style="margin-bottom:10px;"><input type="email" name="buyer_email" placeholder="Email (optional)" style="width:100%; padding:10px 12px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem;"></div>' +
-                '<div style="margin-bottom:12px;"><textarea name="message" placeholder="Your message (optional)" rows="3" style="width:100%; padding:10px 12px; border:1px solid var(--gray-300); border-radius:6px; font-size:0.9rem; resize:vertical;"></textarea></div>' +
-                '<button type="submit" class="btn btn-primary" style="width:100%;">Send Inquiry</button>' +
-              '</form>' +
-              '<div id="inquirySuccess" style="display:none; text-align:center; padding:20px;">' +
-                '<p style="font-size:1.1rem; font-weight:700; color:var(--primary);">Inquiry Sent!</p>' +
-                '<p style="font-size:0.9rem; color:var(--gray-500); margin-top:8px;">We\'ll forward your details to the property owner. Expect a reply within 24 hours.</p>' +
-              '</div>' +
-            '</div>' +
           '</div>' +
           '<div class="detail-card" style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border:2px solid #16a34a;">' +
             '<h2 style="color:#16a34a;">View Property Story</h2>' +
