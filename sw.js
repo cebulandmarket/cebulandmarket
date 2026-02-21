@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v14';
+var CACHE_VERSION = 'clm-v15';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -18,7 +18,7 @@ var HTML_PAGES = [
 ];
 
 var STATIC_ASSETS = [
-  'css/style.css?v=2',
+  'css/style.css?v=5',
   'js/app.js',
   'js/listings.js',
   'js/analytics.js',
