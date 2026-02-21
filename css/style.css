@@ -815,16 +815,31 @@ ul { list-style: none; }
 .detail-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 
 .detail-info .info-item {
   display: flex;
   flex-direction: column;
+  background: linear-gradient(135deg, #f0faf0 0%, #f8fdf8 100%);
+  border: 1px solid #e0ede0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.detail-info .info-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+}
+
+.detail-info .info-icon {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
 }
 
 .detail-info .info-label {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   color: var(--gray-500);
   font-weight: 600;
@@ -832,8 +847,8 @@ ul { list-style: none; }
 }
 
 .detail-info .info-value {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: var(--dark);
 }
 
