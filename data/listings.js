@@ -664,5 +664,46 @@ var LISTINGS_DATA = [
     },
     "story": "The Vertex Central sits right beside IT Park — the busiest business district in Cebu City. BPO offices, restaurants, cafes, coworking spaces, and convenience stores are all within walking distance. If you work in IT Park, you can literally walk to the office.\n\nThis is a Studio SOHO unit on the 11th floor — 22.45 sqm with floor-to-ceiling windows that flood the space with natural light and give you a view of the city and IT Park skyline. The wood-finish tiled floors give it a warm, modern feel. The kitchen area has wooden cabinets, a countertop with sink, and overhead storage. The bathroom is modern with gray stone-finish tiles and a rain shower head.\n\nThe building amenities are impressive — a fully-equipped gym with treadmills, benches, and free weights, plus an elegant marble lobby with modern wood-accent ceiling. Developed by Priland, one of Cebu's trusted developers.\n\nHere's the deal: the current developer price for this unit type is now P5.3 Million+. You're getting it at P600,000 cash through assume balance — that includes redocumentation and move-in fees. The loanable amount to bank is P2,825,938.80. That's a massive savings.\n\nNindot kaayo ni nga opportunity. Studio SOHO sa Vertex Central, duol ra kaayo sa IT Park — lakaw ra. Ang developer price karon sobra na P5.3 Million, pero ikaw P600K ra ang assume. Huge savings gyud. Ready na i-occupy, 11th floor, nindot ang view.\n\nReady for occupancy. Walk to IT Park. P600K cash to assume.",
     "vision_items": "Work From Home Office|A SOHO unit designed for both living and working. Set up your desk by the floor-to-ceiling windows with a view of IT Park. Walk to meetings, walk to lunch, walk home. The ultimate work-life setup.|Rental Income|IT Park workers are always looking for affordable units nearby. A studio SOHO at P600K assume is incredibly easy to rent out — strong demand, low entry cost, fast ROI.|First-Time Investment|At P600K cash to assume, this is one of the most affordable ways to own a condo unit in Cebu's prime business district. Developer price is P5.3M+ — you're getting in at a fraction of the cost.|Airbnb or Short-Term Rental|IT Park attracts business travelers, digital nomads, and tourists. A modern studio on the 11th floor with city views is perfect for short-term rentals. Low buy-in, high earning potential."
+  },
+  {
+    "id": "17",
+    "title": "3-Level House and Lot in White Hills Subdivision, Banawa, Cebu City",
+    "type": "house-and-lot",
+    "location": "cebu-city",
+    "address": "White Hills Subdivision, Banawa, Cebu City",
+    "lot_area": 200,
+    "floor_area": null,
+    "price_per_sqm": null,
+    "total_price": 13000000,
+    "description": "3-level house and lot inside White Hills Subdivision in Banawa, Cebu City — 200 sqm lot area with 2-car parking. The ground floor has 3 rooms: a master's bedroom, a guest room, a walk-in closet, 1 common CR, plus kitchen, dining, and sala. The 2nd floor has 1 bedroom, 1 CR, and a large open space that can be used as a second living area — with a city view from this level. The 3rd floor has 3 boarding house units that generate rental income. Each floor from the 2nd and 3rd has a fire exit. Outside there's a dirty kitchen, wash area, and a helper's room. The interior is beautifully designed with wood and rattan furniture, modern finishes, and warm earthy tones. Banawa is a well-established residential area in Cebu City with easy access to downtown, malls, schools, and hospitals. Bank financing available.",
+    "features": "3-Level House,200 sqm Lot,2-Car Parking,Master's Bedroom,Guest Room,Walk-in Closet,Kitchen,Dining,Sala,2nd Floor Bedroom,2nd Floor CR,City View,3 Boarding House Units,Fire Exit Each Floor,Dirty Kitchen,Wash Area,Helper's Room,Air Conditioned,Bank Financing Available,White Hills Subdivision",
+    "photo_url": "images/banawa-wh-1.jpg",
+    "photo_urls": "images/banawa-wh-1.jpg,images/banawa-wh-2.jpg,images/banawa-wh-3.jpg,images/banawa-wh-4.jpg,images/banawa-wh-5.jpg,images/banawa-wh-6.jpg,images/banawa-wh-7.jpg,images/banawa-wh-8.jpg,images/banawa-wh-9.jpg",
+    "map_url": "White Hills Subdivision, Banawa, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/61587469756965",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Titled Property",
+    "status": "active",
+    "date_listed": "2026-02-22",
+    "verification": {
+      "code": "CLM-2026-W017",
+      "date": "2026-02-22",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "documents_complete": true,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
+    "story": "This 3-level house sits inside White Hills Subdivision in Banawa — one of Cebu City's most established and well-connected residential areas. From the moment you step inside, you feel the warmth. The entrance has a wooden console table, a large mirror, and a staircase with wood and metal railings. The design throughout is earthy and intentional — rattan furniture, wooden cabinets, potted plants, and warm lighting.\n\nThe ground floor is where daily life happens — a master's bedroom, guest room, walk-in closet, and a common CR. The kitchen and dining area flow into the sala, with a bamboo divider separating the TV area from the dining table. Everything feels cozy and lived-in.\n\nThe 2nd floor opens up with a bedroom, CR, and a large space that works as a second living area or home office. From here you get a city view — you can see the skyline from the windows. The 3rd floor is where the income is — 3 boarding house units already set up for tenants. That's passive income built right into the house.\n\nEvery floor has a fire exit. Outside there's a dirty kitchen, wash area, and a helper's room. The lot is 200 sqm with parking for 2 cars.\n\nNindot kaayo ang location sa Banawa — duol sa downtown, sa malls, sa eskwelahan, ug sa hospital. Established na ang subdivision, hilom ug safe. Kung gusto nimo og balay nga pwede puy-an ug pwede pa mag-income, kani gyud.\n\nBank financing available. P13M nett.",
+    "vision_items": "Family Home with Income|Live on the 1st and 2nd floors while the 3rd floor's 3 boarding house units generate monthly rental income. A home that pays for itself.|Investment Property|3 rental units already built in — plus the whole house can be rented out. Banawa is a prime location with steady demand from workers, students, and professionals.|Airbnb Potential|The beautifully designed interior with warm, Instagram-worthy decor makes this perfect for Airbnb. City view from the upper floors, established neighborhood, easy access to everything.|Multi-Generational Home|3 levels means space for everyone — parents on the ground floor, kids on the 2nd floor, and rental income on the 3rd. Or use all 3 floors for a big family compound."
   }
 ];
