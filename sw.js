@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v17';
+var CACHE_VERSION = 'clm-v18';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -26,6 +26,7 @@ var STATIC_ASSETS = [
   'js/share-card.js',
   'data/listings.js',
   'favicon.png',
+  'favicon.ico',
   'images/icon-192.png',
   'images/icon-512.png',
   'images/og-image.jpg',
