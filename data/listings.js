@@ -705,5 +705,46 @@ var LISTINGS_DATA = [
     },
     "story": "This 3-level house sits inside White Hills Subdivision in Banawa — one of Cebu City's most established and well-connected residential areas. From the moment you step inside, you feel the warmth. The entrance has a wooden console table, a large mirror, and a staircase with wood and metal railings. The design throughout is earthy and intentional — rattan furniture, wooden cabinets, potted plants, and warm lighting.\n\nThe ground floor is where daily life happens — a master's bedroom, guest room, walk-in closet, and a common CR. The kitchen and dining area flow into the sala, with a bamboo divider separating the TV area from the dining table. Everything feels cozy and lived-in.\n\nThe 2nd floor opens up with a bedroom, CR, and a large space that works as a second living area or home office. From here you get a city view — you can see the skyline from the windows. The 3rd floor is where the income is — 3 boarding house units already set up for tenants. That's passive income built right into the house.\n\nEvery floor has a fire exit. Outside there's a dirty kitchen, wash area, and a helper's room. The lot is 200 sqm with parking for 2 cars.\n\nNindot kaayo ang location sa Banawa — duol sa downtown, sa malls, sa eskwelahan, ug sa hospital. Established na ang subdivision, hilom ug safe. Kung gusto nimo og balay nga pwede puy-an ug pwede pa mag-income, kani gyud.\n\nBank financing available. P13M nett.",
     "vision_items": "Family Home with Income|Live on the 1st and 2nd floors while the 3rd floor's 3 boarding house units generate monthly rental income. A home that pays for itself.|Investment Property|3 rental units already built in — plus the whole house can be rented out. Banawa is a prime location with steady demand from workers, students, and professionals.|Airbnb Potential|The beautifully designed interior with warm, Instagram-worthy decor makes this perfect for Airbnb. City view from the upper floors, established neighborhood, easy access to everything.|Multi-Generational Home|3 levels means space for everyone — parents on the ground floor, kids on the 2nd floor, and rental income on the 3rd. Or use all 3 floors for a big family compound."
+  },
+  {
+    "id": "18",
+    "title": "Fully Furnished House & Lot in Mulberry Drive, Talamban, Cebu City",
+    "type": "house-and-lot",
+    "location": "cebu-city",
+    "address": "Mulberry Drive, Talamban, Cebu City",
+    "lot_area": 50,
+    "floor_area": 55,
+    "price_per_sqm": 94000,
+    "total_price": 4700000,
+    "description": "Fully furnished 2-storey townhouse inside Mulberry Drive subdivision in Talamban, Cebu City. 50 sqm lot, 55 sqm floor area. 2 bedrooms, 2 bathrooms. Clean title. Comes with all furniture and appliances. Located directly across Maria Montessori International School. Flood free. Gated community with 24-hour security, swimming pool, and elegant entrance. Only 51 units in the subdivision. Below current market price of P5.5M unfurnished. Buyer to shoulder all taxes and transfer costs.",
+    "features": "Clean Title,Fully Furnished,2 Storey Townhouse,2 Bedrooms,2 Bathrooms,Split Type AC,Screen Doors/Windows,Flood Free,Gated Community,24hr Security Guard,Swimming Pool,Carport,Near Schools,Near Hospital,Near Churches,With Furniture & Appliances",
+    "photo_url": "images/talamban-mulberry-10.jpg",
+    "photo_urls": "images/talamban-mulberry-10.jpg,images/talamban-mulberry-9.jpg,images/talamban-mulberry.jpg,images/talamban-mulberry-4.jpg,images/talamban-mulberry-8.jpg,images/talamban-mulberry-2.jpg,images/talamban-mulberry-5.jpg,images/talamban-mulberry-1.jpg,images/talamban-mulberry-7.jpg,images/talamban-mulberry-6.jpg,images/talamban-mulberry-3.jpg",
+    "map_url": "Mulberry Drive, Talamban, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/61587469756965",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Clean Title",
+    "status": "active",
+    "date_listed": "2026-02-24",
+    "verification": {
+      "code": "CLM-2026-T018",
+      "date": "2026-02-24",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "documents_complete": true,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
+    "story": "This fully furnished townhouse sits inside Mulberry Drive — a pocket-sized exclusive subdivision in Talamban with only 51 units. It's the kind of neighborhood where you know your neighbors, the guard knows your name, and your kids can walk to school because Maria Montessori International School is literally right across the street.\n\nThe ground floor opens up to a bright living and dining area with polished tile floors, a ceiling fan with light, a chandelier, and a cozy setup — sofa, dining table for four, TV console, and even an exercise bike. The kitchen is compact but complete with built-in cabinets and a stove. There's a CR on this floor too.\n\nUpstairs, the wood flooring gives the bedrooms a warm, homey feel. The master bedroom has a queen bed, a large wardrobe, a vanity desk, split-type AC, and opens to a balcony with a view of the subdivision street and the mountains beyond. The second bedroom fits a bunk bed comfortably — perfect for kids. The 2nd floor also has its own bathroom.\n\nOutside, there's a carport that fits two cars and the house has screen doors and windows throughout — important for ventilation in Cebu.\n\nThe subdivision has a gated entrance with a guard house, 24-hour security, and a swimming pool. The area is flood free. Talamban is one of the most in-demand residential areas in Cebu City — close to schools, hospitals, churches, and commercial centers.\n\nAt P4.7M fully furnished, this is below the current market price of P5.5M for unfurnished units in the same area. All furniture and appliances are included. Buyer to shoulder taxes and transfer costs.\n\nKung naa kay pamilya ug gusto ka og safe, hilom, ug convenient nga lugar — kani gyud. Mulabang ra sa eskwelahan, naa sa sulod sa subdivision, ug kompleto na ang gamit. Dali ra mo-settle in.",
+    "vision_items": "Family Home|Move in immediately — everything is here. Fully furnished with AC, beds, dining set, kitchen, TV. Just bring your clothes. Perfect for a young family with kids who can walk to school across the street.|Starter Investment|At P4.7M fully furnished, this is P800K below market price. Buy now, rent it out to expats or young professionals in Talamban. The gated community and proximity to MMIS make it highly rentable.|Airbnb Unit|Fully furnished, inside a secured subdivision with a pool, near schools and hospitals — ideal for short-term rental guests. The balcony mountain view and cozy interior photograph beautifully.|Student/Teacher Housing|Directly across Maria Montessori International School. Rent to teachers, staff, or families with students. Consistent demand, reliable tenants, prime location."
   }
 ];
