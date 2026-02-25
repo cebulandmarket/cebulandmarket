@@ -800,7 +800,7 @@ var LISTINGS_DATA = [
     "lot_area": 56,
     "floor_area": null,
     "price_per_sqm": null,
-    "total_price": 0,
+    "total_price": 2200000,
     "description": "2-storey townhouse at Deca Homes Phase 2 in Baywalk Subdivision, Dumlog, Talisay. 56 sqm lot with 2 bedrooms, 1 bathroom, living area, kitchen, and laundry area. Located inside a guarded subdivision with motorcycle and small car parking. Prime area with high demand for rentals — perfect for rentals, boarding house, or family business.",
     "features": "2 Bedrooms,1 Bathroom,Living Area,Kitchen,Laundry Area,Guarded Subdivision,Motorcycle & Small Car Parking,56 sqm Lot,2-Storey,Prime Rental Area,Deca Homes Phase 2",
     "photo_url": "images/deca-talisay-1.jpeg",
