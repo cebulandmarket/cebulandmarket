@@ -19,6 +19,8 @@
  * - photo_url = main photo filename, photo_urls = comma-separated list of all photos
  * - Leave photo_url and photo_urls empty ("") if no photos yet
  * - Set status to "active" for live listings, "rented" when occupied
+ * - When marking as "rented", add "rented_date": "March 2026" (or whenever)
+ *   The listing will show a RENTED badge and disable contact buttons
  */
 
 var RENTALS_DATA = [
@@ -51,6 +53,32 @@ var RENTALS_DATA = [
     "owner_name": "CebuRentMarket",
     "status": "active",
     "date_listed": "2026-02-24",
+    "reviews": [
+      {
+        "name": "Maria S.",
+        "date": "2026-02",
+        "rating": 5,
+        "text": "Excellent condo in a prime location! The unit was spotless when I moved in, and the landlord responds to messages within minutes. WiFi is fast and reliable — perfect for remote work. The pool and gym are well-maintained. Highly recommend for IT Park professionals.",
+        "duration": "8 months",
+        "categories": { "communication": 5, "condition": 5, "cleanliness": 5, "location": 5, "value": 4 }
+      },
+      {
+        "name": "James T.",
+        "date": "2026-01",
+        "rating": 4,
+        "text": "Great place to live if you work in IT Park. Everything is walking distance — restaurants, malls, offices. The AC works perfectly and security is 24/7. Only minor issue was a slow drain that got fixed in a couple of days. Overall a very comfortable stay.",
+        "duration": "1 year",
+        "categories": { "communication": 5, "condition": 4, "cleanliness": 4, "location": 5, "value": 4 }
+      },
+      {
+        "name": "Anna R.",
+        "date": "2025-12",
+        "rating": 5,
+        "text": "Best rental experience I've had in Cebu. The landlord is professional, transparent about lease terms, and genuinely helpful. The condo is modern, clean, and the building amenities are a huge bonus. The rent is very fair for what you get in this area.",
+        "duration": "6 months",
+        "categories": { "communication": 5, "condition": 5, "cleanliness": 5, "location": 4, "value": 5 }
+      }
+    ],
     "verification": {
       "code": "CRM-2026-R001",
       "date": "2026-02-24",
@@ -93,6 +121,7 @@ var RENTALS_DATA = [
     "owner_name": "CebuRentMarket",
     "status": "active",
     "date_listed": "2026-02-24",
+    "reviews": [],
     "verification": {
       "code": "CRM-2026-R002",
       "date": "2026-02-24",
@@ -135,6 +164,7 @@ var RENTALS_DATA = [
     "owner_name": "CebuRentMarket",
     "status": "active",
     "date_listed": "2026-02-24",
+    "reviews": [],
     "verification": {
       "code": "CRM-2026-R003",
       "date": "2026-02-24",

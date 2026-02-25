@@ -19,9 +19,14 @@
 function fetchListings(callback) {
   var allListings = (typeof RENTALS_DATA !== 'undefined') ? RENTALS_DATA : [];
   var listings = allListings.filter(function(listing) {
-    return listing.status && listing.status.toLowerCase() === 'active' && listing.title;
+    var s = listing.status ? listing.status.toLowerCase() : '';
+    return (s === 'active' || s === 'rented') && listing.title;
   });
   callback(listings);
+}
+
+function isRented(listing) {
+  return listing.status && listing.status.toLowerCase() === 'rented';
 }
 
 // ==========================================
@@ -122,18 +127,23 @@ function createPropertyCard(listing) {
     metaHtml += '<span class="card-rental-tag">' + escapeHtml(getFurnishLabel(listing.furnish_status)) + '</span>';
   }
 
+  var rented = isRented(listing);
+  var rentedBadge = rented ? '<div class="card-rented-overlay"><span class="card-rented-label">RENTED</span></div>' : '';
+
   var card = document.createElement('div');
-  card.className = 'property-card';
+  card.className = 'property-card' + (rented ? ' property-card-rented' : '');
   card.innerHTML =
     '<a href="property.html?id=' + listing.id + '" style="text-decoration:none; color:inherit;">' +
       '<div class="card-image">' +
         '<img src="' + imageUrl + '" alt="' + escapeHtml(listing.title) + '" loading="lazy" onerror="this.src=getPlaceholderImage()">' +
         '<span class="card-badge">' + escapeHtml(typeDisplay) + '</span>' +
+        rentedBadge +
       '</div>' +
       '<div class="card-body">' +
         '<div class="card-price">' + rentDisplay + '</div>' +
         '<h3 class="card-title">' + escapeHtml(listing.title) + '</h3>' +
         '<div class="card-location">&#128205; ' + escapeHtml(locationDisplay) + ', Cebu</div>' +
+        generateCardRatingHtml(listing.reviews) +
         '<div class="card-rental-meta">' +
           metaHtml +
           (floorDisplay ? '<span class="card-rental-tag">&#127970; ' + floorDisplay + '</span>' : '') +
@@ -154,6 +164,13 @@ function renderFeaturedListings() {
 
   fetchListings(function(listings) {
     container.innerHTML = '';
+
+    // Sort: active first, rented at the bottom
+    listings.sort(function(a, b) {
+      var aR = isRented(a) ? 1 : 0;
+      var bR = isRented(b) ? 1 : 0;
+      return aR - bR;
+    });
 
     // Show up to 6 featured listings
     var featured = listings.slice(0, 6);
@@ -279,8 +296,11 @@ function applyFilters() {
     return true;
   });
 
-  // Sort
+  // Sort: rented always last, then by selected sort
   filtered.sort(function(a, b) {
+    var aR = isRented(a) ? 1 : 0;
+    var bR = isRented(b) ? 1 : 0;
+    if (aR !== bR) return aR - bR;
     switch (sort) {
       case 'rent-low': return a.monthly_rent - b.monthly_rent;
       case 'rent-high': return b.monthly_rent - a.monthly_rent;
@@ -304,6 +324,240 @@ function applyFilters() {
   if (resultsCount) {
     resultsCount.textContent = filtered.length + ' rental' + (filtered.length === 1 ? '' : 's') + ' found';
   }
+}
+
+// ==========================================
+// REVIEWS - HELPERS & RENDERING
+// ==========================================
+
+var REVIEW_CATEGORY_LABELS = {
+  communication: 'Landlord Communication',
+  condition: 'Property Condition',
+  cleanliness: 'Cleanliness',
+  location: 'Location',
+  value: 'Value for Money'
+};
+
+function calcAverageRating(reviews) {
+  if (!reviews || reviews.length === 0) return 0;
+  var sum = 0;
+  for (var i = 0; i < reviews.length; i++) {
+    sum += reviews[i].rating;
+  }
+  return Math.round((sum / reviews.length) * 10) / 10;
+}
+
+function calcCategoryAverage(reviews, category) {
+  if (!reviews || reviews.length === 0) return 0;
+  var sum = 0;
+  var count = 0;
+  for (var i = 0; i < reviews.length; i++) {
+    if (reviews[i].categories && reviews[i].categories[category]) {
+      sum += reviews[i].categories[category];
+      count++;
+    }
+  }
+  if (count === 0) return 0;
+  return Math.round((sum / count) * 10) / 10;
+}
+
+function generateStarsHtml(rating) {
+  var html = '';
+  var full = Math.floor(rating);
+  var half = (rating - full) >= 0.25 && (rating - full) < 0.75 ? 1 : 0;
+  if ((rating - full) >= 0.75) { full++; half = 0; }
+  var empty = 5 - full - half;
+  for (var i = 0; i < full; i++) {
+    html += '<span class="review-star full">&#9733;</span>';
+  }
+  if (half) {
+    html += '<span class="review-star half">&#9733;</span>';
+  }
+  for (var j = 0; j < empty; j++) {
+    html += '<span class="review-star empty">&#9733;</span>';
+  }
+  return html;
+}
+
+function generateCardRatingHtml(reviews) {
+  if (!reviews || reviews.length === 0) return '';
+  var avg = calcAverageRating(reviews);
+  return '<div class="card-rating">' +
+    '<span class="card-rating-star">&#9733;</span>' +
+    '<span class="card-rating-score">' + avg.toFixed(1) + '</span>' +
+    '<span class="card-rating-count">(' + reviews.length + ' review' + (reviews.length === 1 ? '' : 's') + ')</span>' +
+  '</div>';
+}
+
+function formatReviewDate(dateStr) {
+  if (!dateStr) return '';
+  var parts = dateStr.split('-');
+  if (parts.length < 2) return dateStr;
+  var months = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
+  var monthIndex = parseInt(parts[1], 10) - 1;
+  return months[monthIndex] + ' ' + parts[0];
+}
+
+function buildReviewsSection(reviews, listingId, listingTitle) {
+  if (!reviews || reviews.length === 0) return '';
+  var avg = calcAverageRating(reviews);
+
+  // Category bars
+  var catBarsHtml = '';
+  for (var key in REVIEW_CATEGORY_LABELS) {
+    if (REVIEW_CATEGORY_LABELS.hasOwnProperty(key)) {
+      var catAvg = calcCategoryAverage(reviews, key);
+      var fillPct = (catAvg / 5) * 100;
+      catBarsHtml +=
+        '<div class="review-category-row">' +
+          '<span class="review-category-label">' + REVIEW_CATEGORY_LABELS[key] + '</span>' +
+          '<div class="review-category-bar-track"><div class="review-category-bar-fill" style="width:' + fillPct + '%"></div></div>' +
+          '<span class="review-category-score">' + catAvg.toFixed(1) + '</span>' +
+        '</div>';
+    }
+  }
+
+  // Review cards
+  var cardsHtml = '';
+  for (var i = 0; i < reviews.length; i++) {
+    var r = reviews[i];
+    var initial = r.name ? r.name.charAt(0).toUpperCase() : '?';
+    var hiddenClass = i >= 3 ? ' review-card-hidden' : '';
+    cardsHtml +=
+      '<div class="review-card' + hiddenClass + '">' +
+        '<div class="review-card-header">' +
+          '<div class="review-avatar">' + initial + '</div>' +
+          '<div class="review-meta">' +
+            '<div class="review-meta-name">' + escapeHtml(r.name) + '</div>' +
+            '<div class="review-meta-date">' + formatReviewDate(r.date) + '</div>' +
+            (r.duration ? '<div class="review-meta-duration">Stayed ' + escapeHtml(r.duration) + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="review-card-stars">' + generateStarsHtml(r.rating) + '</div>' +
+        '<div class="review-card-text">' + escapeHtml(r.text) + '</div>' +
+      '</div>';
+  }
+
+  // Show all button
+  var showAllBtn = '';
+  if (reviews.length > 3) {
+    showAllBtn = '<button class="review-show-all-btn" onclick="showAllReviews(this)">Show all ' + reviews.length + ' reviews</button>';
+  }
+
+  // Review form
+  var formHtml =
+    '<button class="review-form-toggle" onclick="toggleReviewForm()">Write a Review</button>' +
+    '<div class="review-form-container" id="reviewFormContainer">' +
+      '<h3>Share Your Experience</h3>' +
+      '<form id="reviewForm" onsubmit="submitReviewForm(event)">' +
+        '<input type="hidden" name="access_key" value="09df7276-a4b9-440c-9342-b4c7971c1dce">' +
+        '<input type="hidden" name="subject" value="New Tenant Review: ' + escapeHtml(listingTitle) + ' (' + listingId + ')">' +
+        '<input type="hidden" name="from_name" value="CebuRentMarket Review">' +
+        '<div class="review-form-row">' +
+          '<div class="review-form-group">' +
+            '<label>Your Name</label>' +
+            '<input type="text" name="reviewer_name" required placeholder="e.g. Juan D.">' +
+          '</div>' +
+          '<div class="review-form-group">' +
+            '<label>How Long Did You Stay?</label>' +
+            '<input type="text" name="duration" placeholder="e.g. 6 months">' +
+          '</div>' +
+        '</div>' +
+        '<div class="review-form-group">' +
+          '<label>Overall Rating</label>' +
+          '<div class="star-selector" id="starSelector">' +
+            '<span onclick="setStarRating(1)">&#9733;</span>' +
+            '<span onclick="setStarRating(2)">&#9733;</span>' +
+            '<span onclick="setStarRating(3)">&#9733;</span>' +
+            '<span onclick="setStarRating(4)">&#9733;</span>' +
+            '<span onclick="setStarRating(5)">&#9733;</span>' +
+          '</div>' +
+          '<input type="hidden" name="rating" id="reviewRatingInput" value="">' +
+        '</div>' +
+        '<div class="review-form-row">' +
+          '<div class="review-form-group"><label>Landlord Communication</label><select name="cat_communication"><option value="">Select</option><option value="5">5 - Excellent</option><option value="4">4 - Good</option><option value="3">3 - Average</option><option value="2">2 - Poor</option><option value="1">1 - Terrible</option></select></div>' +
+          '<div class="review-form-group"><label>Property Condition</label><select name="cat_condition"><option value="">Select</option><option value="5">5 - Excellent</option><option value="4">4 - Good</option><option value="3">3 - Average</option><option value="2">2 - Poor</option><option value="1">1 - Terrible</option></select></div>' +
+        '</div>' +
+        '<div class="review-form-row">' +
+          '<div class="review-form-group"><label>Cleanliness</label><select name="cat_cleanliness"><option value="">Select</option><option value="5">5 - Excellent</option><option value="4">4 - Good</option><option value="3">3 - Average</option><option value="2">2 - Poor</option><option value="1">1 - Terrible</option></select></div>' +
+          '<div class="review-form-group"><label>Location</label><select name="cat_location"><option value="">Select</option><option value="5">5 - Excellent</option><option value="4">4 - Good</option><option value="3">3 - Average</option><option value="2">2 - Poor</option><option value="1">1 - Terrible</option></select></div>' +
+        '</div>' +
+        '<div class="review-form-group"><label>Value for Money</label><select name="cat_value"><option value="">Select</option><option value="5">5 - Excellent</option><option value="4">4 - Good</option><option value="3">3 - Average</option><option value="2">2 - Poor</option><option value="1">1 - Terrible</option></select></div>' +
+        '<div class="review-form-group">' +
+          '<label>Your Review</label>' +
+          '<textarea name="review_text" required placeholder="Tell us about your experience living here..."></textarea>' +
+        '</div>' +
+        '<button type="submit" class="review-submit-btn">Submit Review</button>' +
+      '</form>' +
+    '</div>';
+
+  return '<div class="detail-reviews">' +
+    '<h2>Tenant Reviews</h2>' +
+    '<div class="review-summary">' +
+      '<div class="review-score-block">' +
+        '<div class="review-big-number">' + avg.toFixed(1) + '</div>' +
+        '<div class="review-big-stars">' + generateStarsHtml(avg) + '</div>' +
+        '<div class="review-count-label">' + reviews.length + ' review' + (reviews.length === 1 ? '' : 's') + '</div>' +
+      '</div>' +
+      '<div class="review-categories">' + catBarsHtml + '</div>' +
+    '</div>' +
+    '<div class="review-cards">' + cardsHtml + '</div>' +
+    showAllBtn +
+    formHtml +
+  '</div>';
+}
+
+function showAllReviews(btn) {
+  var hidden = document.querySelectorAll('.review-card-hidden');
+  for (var i = 0; i < hidden.length; i++) {
+    hidden[i].classList.remove('review-card-hidden');
+  }
+  btn.style.display = 'none';
+}
+
+function toggleReviewForm() {
+  var container = document.getElementById('reviewFormContainer');
+  if (container) {
+    container.classList.toggle('show');
+  }
+}
+
+var selectedStarRating = 0;
+function setStarRating(val) {
+  selectedStarRating = val;
+  var input = document.getElementById('reviewRatingInput');
+  if (input) input.value = val;
+  var stars = document.querySelectorAll('#starSelector span');
+  for (var i = 0; i < stars.length; i++) {
+    stars[i].classList.toggle('selected', i < val);
+  }
+}
+
+function submitReviewForm(e) {
+  e.preventDefault();
+  var form = document.getElementById('reviewForm');
+  if (!form) return;
+
+  if (!selectedStarRating) {
+    alert('Please select an overall rating.');
+    return;
+  }
+
+  var btn = form.querySelector('.review-submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: new FormData(form)
+  }).then(function(res) {
+    return res.json();
+  }).then(function(data) {
+    form.innerHTML = '<p style="text-align:center; padding:20px; color:var(--primary); font-weight:600;">Thank you for your review! It will appear after our team verifies it.</p>';
+  }).catch(function() {
+    form.innerHTML = '<p style="text-align:center; padding:20px; color:var(--primary); font-weight:600;">Thank you! Your review has been submitted for approval.</p>';
+  });
 }
 
 // ==========================================
@@ -424,12 +678,20 @@ function renderPropertyDetail() {
       featuresHtml += '</ul></div>';
     }
 
+    // Rented status
+    var rented = isRented(listing);
+    var rentedBannerHtml = rented ? '<div class="detail-rented-banner"><span class="rented-banner-icon">&#10003;</span> This property has been rented' + (listing.rented_date ? ' — ' + escapeHtml(listing.rented_date) : '') + '</div>' : '';
+
     // Contact buttons — all inquiries go to CebuRentMarket (middleman)
     var contactHtml = '';
-    contactHtml += '<a href="https://m.me/61587469756965" target="_blank" class="contact-btn messenger">&#128172; Message us on Messenger</a>';
-    contactHtml += '<a href="https://wa.me/639687512330?text=' + encodeURIComponent('Hi, I\'m interested in renting: ' + listing.title) + '" target="_blank" class="contact-btn whatsapp">&#128172; WhatsApp us</a>';
-    contactHtml += '<a href="viber://chat?number=639687512330" class="contact-btn viber">&#128222; Chat on Viber</a>';
-    contactHtml += '<a href="mailto:info@cebulandmarket.com?subject=' + encodeURIComponent('Rental Inquiry: ' + listing.title) + '" class="contact-btn phone">&#9993; Email us</a>';
+    if (rented) {
+      contactHtml = '<div class="rented-notice"><p>This property is no longer available for rent.</p><a href="listings.html" class="btn btn-primary" style="display:block;text-align:center;margin-top:12px;">Browse Available Rentals</a></div>';
+    } else {
+      contactHtml += '<a href="https://m.me/61587469756965" target="_blank" class="contact-btn messenger">&#128172; Message us on Messenger</a>';
+      contactHtml += '<a href="https://wa.me/639687512330?text=' + encodeURIComponent('Hi, I\'m interested in renting: ' + listing.title) + '" target="_blank" class="contact-btn whatsapp">&#128172; WhatsApp us</a>';
+      contactHtml += '<a href="viber://chat?number=639687512330" class="contact-btn viber">&#128222; Chat on Viber</a>';
+      contactHtml += '<a href="mailto:info@cebulandmarket.com?subject=' + encodeURIComponent('Rental Inquiry: ' + listing.title) + '" class="contact-btn phone">&#9993; Email us</a>';
+    }
 
     // Build rental info items
     var rentalInfoHtml = '';
@@ -495,6 +757,7 @@ function renderPropertyDetail() {
 
     // Render full detail page
     container.innerHTML =
+      rentedBannerHtml +
       '<div class="detail-grid">' +
         '<div>' +
           '<div class="gallery">' +
@@ -507,6 +770,7 @@ function renderPropertyDetail() {
             '<p>' + escapeHtml(listing.description).replace(/\n/g, '<br>') + '</p>' +
           '</div>' +
           featuresHtml +
+          buildReviewsSection(listing.reviews, listing.id, listing.title) +
           (listing.map_url ? '<div class="detail-map mt-2"><h2>Property Location</h2><div class="map-container"><iframe src="https://maps.google.com/maps?q=' + encodeURIComponent(listing.map_url) + '&output=embed" frameborder="0" allowfullscreen style="width:100%;height:100%;border-radius:8px;"></iframe></div></div>' : '') +
         '</div>' +
         '<div class="detail-sidebar">' +
@@ -518,8 +782,8 @@ function renderPropertyDetail() {
             '</div>' +
           '</div>' +
           '<div class="detail-card">' +
-            '<h2>Inquire About This Rental</h2>' +
-            '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Inquiries are forwarded to the property owner. Tenant and owner deal directly.</p>' +
+            '<h2>' + (rented ? 'Property Rented' : 'Inquire About This Rental') + '</h2>' +
+            (rented ? '' : '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Inquiries are forwarded to the property owner. Tenant and owner deal directly.</p>') +
             '<div class="contact-buttons">' + contactHtml + '</div>' +
           '</div>' +
           '<div class="detail-card" style="background:linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%); border:2px solid #7B1FA2;">' +

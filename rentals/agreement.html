@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Standard Rental Lease Agreement template for Cebu, Philippines. Free to use for landlords and tenants. Provided by CebuRentMarket.">
+  <meta property="og:title" content="Rental Lease Agreement — CebuRentMarket">
+  <meta property="og:description" content="Free standard rental lease agreement template for Cebu, Philippines. Print-ready. Fair terms for landlords and tenants.">
+  <meta property="og:image" content="https://cebulandmarket.com/images/og-image.jpg">
+  <meta property="og:url" content="https://cebulandmarket.com/rentals/agreement.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_PH">
+  <meta property="og:site_name" content="CebuRentMarket">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rental Lease Agreement — CebuRentMarket">
+  <meta name="twitter:description" content="Free standard rental lease agreement template for Cebu, Philippines. Print-ready.">
+  <meta name="twitter:image" content="https://cebulandmarket.com/images/og-image.jpg">
+  <title>Rental Lease Agreement — CebuRentMarket</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="https://cebulandmarket.com/rentals/agreement.html">
+  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#7B1FA2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="CebuRentMarket">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+  <style>
+    /* Agreement page styles */
+    .agreement-intro {
+      max-width: 800px;
+      margin: 0 auto 32px;
+      text-align: center;
+    }
+    .agreement-intro p {
+      color: var(--gray-700);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .agreement-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .agreement-actions .btn {
+      padding: 12px 28px;
+      font-size: 0.95rem;
+    }
+    .agreement-doc {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 48px 40px;
+      line-height: 1.8;
+      font-size: 0.92rem;
+      color: var(--gray-900);
+    }
+    .agreement-doc h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .agreement-doc .doc-subtitle {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      margin-bottom: 32px;
+    }
+    .agreement-doc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 28px 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .agreement-doc p {
+      margin-bottom: 12px;
+    }
+    .agreement-doc .blank {
+      display: inline-block;
+      min-width: 200px;
+      border-bottom: 1px solid var(--gray-700);
+      margin: 0 4px;
+    }
+    .agreement-doc .blank-short {
+      display: inline-block;
+      min-width: 100px;
+      border-bottom: 1px solid var(--gray-700);
+      margin: 0 4px;
+    }
+    .agreement-doc .blank-long {
+      display: inline-block;
+      min-width: 320px;
+      border-bottom: 1px solid var(--gray-700);
+      margin: 0 4px;
+    }
+    .agreement-doc ol {
+      padding-left: 24px;
+      margin-bottom: 12px;
+    }
+    .agreement-doc ol li {
+      margin-bottom: 16px;
+      list-style: none;
+      counter-increment: clause;
+      position: relative;
+      padding-left: 8px;
+    }
+    .agreement-doc ol li::before {
+      content: counter(clause) ".";
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    .agreement-doc .sub-list {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+    .agreement-doc .sub-list li {
+      list-style: lower-alpha;
+      counter-increment: none;
+      padding-left: 0;
+    }
+    .agreement-doc .sub-list li::before {
+      content: none;
+    }
+    .signature-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+    }
+    .sig-party {
+      text-align: center;
+    }
+    .sig-line {
+      border-top: 1px solid var(--gray-700);
+      margin-top: 60px;
+      padding-top: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .sig-role {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+    }
+    .witness-block {
+      margin-top: 40px;
+    }
+    .witness-block p {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .witness-lines {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 12px;
+    }
+    .witness-line {
+      border-top: 1px solid var(--gray-700);
+      padding-top: 8px;
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      text-align: center;
+    }
+    .annex-section {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 2px solid var(--gray-300);
+    }
+    .annex-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    .annex-table th,
+    .annex-table td {
+      border: 1px solid var(--gray-300);
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+    .annex-table th {
+      background: var(--gray-100);
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .annex-table td {
+      min-height: 32px;
+    }
+    .disclaimer-note {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 24px auto;
+      max-width: 800px;
+      font-size: 0.85rem;
+      color: #856404;
+      line-height: 1.6;
+    }
+
+    /* Print styles */
+    @media print {
+      .header, .footer, .float-buttons, .float-label,
+      .page-header, .agreement-intro, .agreement-actions,
+      .disclaimer-note { display: none !important; }
+      body { background: #fff; }
+      .agreement-doc {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        font-size: 11pt;
+        line-height: 1.6;
+      }
+      .agreement-doc h1 { font-size: 14pt; }
+      .agreement-doc h2 { font-size: 11pt; margin-top: 20px; }
+      .signature-block { page-break-inside: avoid; }
+      .annex-section { page-break-before: always; }
+    }
+
+    @media (max-width: 768px) {
+      .agreement-doc { padding: 24px 18px; font-size: 0.88rem; }
+      .signature-block { grid-template-columns: 1fr; gap: 32px; }
+      .witness-lines { grid-template-columns: 1fr; }
+      .blank, .blank-long { min-width: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Cebu<span class="land-wrap"><span class="land-icon">&#127968;</span><span>Rent</span></span>Market</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Rentals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="list.html" class="nav-cta">List For Rent</a></li>
+        <li><a href="../index.html" style="color:var(--accent);">Buy Land</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Rental Lease Agreement</h1>
+      <p>Standard contract template for landlords and tenants in Cebu</p>
+    </div>
+  </section>
+
+  <!-- Intro & Actions -->
+  <section class="section">
+    <div class="container">
+
+      <div class="agreement-intro">
+        <p>This is a standard residential lease agreement template provided by CebuRentMarket for landlords and tenants in Cebu, Philippines. The agreement is between the property owner (Lessor) and the tenant (Lessee) directly. CebuRentMarket is not a party to this contract.</p>
+        <p>Review the terms carefully, fill in the blank fields, and print for signing. We recommend having the agreement notarized for legal protection.</p>
+      </div>
+
+      <div class="agreement-actions">
+        <button class="btn btn-primary" onclick="window.print()">&#128424; Print Agreement</button>
+        <a href="faq.html" class="btn btn-outline">Read FAQ</a>
+        <a href="listings.html" class="btn btn-outline">Browse Rentals</a>
+      </div>
+
+      <div class="disclaimer-note">
+        <strong>Disclaimer:</strong> This template is provided for general reference only and does not constitute legal advice. CebuRentMarket recommends consulting a licensed attorney for specific legal concerns. Both parties should fully understand and agree to all terms before signing.
+      </div>
+
+      <!-- ===== THE AGREEMENT DOCUMENT ===== -->
+      <div class="agreement-doc">
+
+        <h1>CONTRACT OF LEASE</h1>
+        <p class="doc-subtitle">Residential Rental Agreement &mdash; Cebu, Philippines</p>
+
+        <p>This Contract of Lease is made and entered into this <span class="blank">&nbsp;</span> day of <span class="blank-short">&nbsp;</span>, <span class="blank-short">&nbsp;</span>, in <span class="blank">&nbsp;</span>, Cebu, Philippines, by and between:</p>
+
+        <p><strong><span class="blank-long">&nbsp;</span></strong>, Filipino, of legal age, with residence at <span class="blank-long">&nbsp;</span>, hereinafter referred to as the <strong>"LESSOR"</strong> (Property Owner);</p>
+
+        <p style="text-align:center;">&mdash; and &mdash;</p>
+
+        <p><strong><span class="blank-long">&nbsp;</span></strong>, <span class="blank-short">&nbsp;</span> (nationality), of legal age, with residence at <span class="blank-long">&nbsp;</span>, hereinafter referred to as the <strong>"LESSEE"</strong> (Tenant);</p>
+
+        <p style="text-align:center; font-weight:700; margin:24px 0;">WITNESSETH:</p>
+
+        <p>WHEREAS, the LESSOR is the owner of a residential property located at <span class="blank-long">&nbsp;</span>, Cebu, Philippines (hereinafter the "Leased Premises");</p>
+
+        <p>WHEREAS, the LESSEE desires to lease the said property, and the LESSOR is willing to let the same, subject to the terms and conditions set forth below;</p>
+
+        <p>NOW, THEREFORE, for and in consideration of the foregoing and the mutual agreements herein, the parties agree as follows:</p>
+
+        <ol>
+          <li>
+            <h2>Property Subject of Lease</h2>
+            <p>The Leased Premises consist of: <span class="blank-long">&nbsp;</span> (description: e.g., 2-bedroom condo unit, 3-bedroom house, furnished room, etc.) located at <span class="blank-long">&nbsp;</span>, Cebu, Philippines.</p>
+            <p>The property is leased <span class="blank">&nbsp;</span> (fully furnished / semi-furnished / unfurnished). If furnished, an inventory of furniture, appliances, and fixtures is attached as <strong>Annex A</strong> and forms part of this agreement.</p>
+            <p>The LESSEE acknowledges having inspected the property and found it in acceptable condition at the time of move-in.</p>
+          </li>
+
+          <li>
+            <h2>Term of Lease</h2>
+            <p>The lease shall be for a period of <span class="blank-short">&nbsp;</span> commencing on <span class="blank">&nbsp;</span> and ending on <span class="blank">&nbsp;</span>.</p>
+            <p>Renewal of the lease requires the written agreement of both parties. The LESSEE shall inform the LESSOR in writing of any intention to renew at least thirty (30) days before the lease expires.</p>
+            <p>There shall be no automatic or implied renewal. If both parties agree to renew, a new contract or written addendum shall be executed.</p>
+          </li>
+
+          <li>
+            <h2>Monthly Rent</h2>
+            <p>The LESSEE shall pay a monthly rent of <strong>Philippine Pesos <span class="blank">&nbsp;</span> (PHP <span class="blank-short">&nbsp;</span>)</strong>, payable on or before the <span class="blank-short">&nbsp;</span> day of each month.</p>
+            <p>Payment shall be made via <span class="blank">&nbsp;</span> (bank transfer / GCash / cash / other).</p>
+            <p>Failure to pay rent on time shall be considered a breach of this agreement, subject to the penalties described in Section 6.</p>
+          </li>
+
+          <li>
+            <h2>Advance Rent</h2>
+            <p>Upon signing this agreement, the LESSEE shall pay advance rent equivalent to <span class="blank-short">&nbsp;</span> month(s), amounting to <strong>PHP <span class="blank">&nbsp;</span></strong>.</p>
+            <p>This advance shall be applied to the <span class="blank">&nbsp;</span> (first / first and last) month(s) of the lease term.</p>
+          </li>
+
+          <li>
+            <h2>Security Deposit</h2>
+            <p>The LESSEE shall pay a security deposit equivalent to <span class="blank-short">&nbsp;</span> month(s) of rent, amounting to <strong>PHP <span class="blank">&nbsp;</span></strong>, upon signing of this agreement.</p>
+            <p>The security deposit shall guarantee the faithful performance of the LESSEE's obligations under this contract, including but not limited to: payment of unpaid utilities, repair of damages beyond normal wear and tear, and any outstanding obligations at the end of the lease.</p>
+            <p>The security deposit shall <strong>not</strong> be used by the LESSEE as payment for monthly rent.</p>
+            <p>The deposit shall be refunded within <span class="blank-short">&nbsp;</span> days after the LESSEE has fully vacated and surrendered the property, subject to deductions for:</p>
+            <ol class="sub-list">
+              <li>Unpaid utilities (electricity, water, internet, etc.)</li>
+              <li>Repair costs for damages beyond normal wear and tear</li>
+              <li>Any other outstanding obligations under this contract</li>
+            </ol>
+            <p>If the deductions exceed the security deposit, the LESSEE shall remain liable for the balance.</p>
+          </li>
+
+          <li>
+            <h2>Late Payment Penalty</h2>
+            <p>If any monthly rent is not paid within <span class="blank-short">&nbsp;</span> days of its due date, the LESSEE agrees to pay a late fee of <span class="blank-short">&nbsp;</span>% per month of the unpaid amount, computed from the due date until fully paid.</p>
+            <p>Repeated late payments may serve as grounds for termination of this contract at the option of the LESSOR.</p>
+          </li>
+
+          <li>
+            <h2>Utilities and Other Charges</h2>
+            <p>The LESSEE shall be responsible for payment of the following utilities consumed during the lease term:</p>
+            <ol class="sub-list">
+              <li>Electricity</li>
+              <li>Water</li>
+              <li>Internet / WiFi (if applicable)</li>
+              <li>Association dues (if applicable): <span class="blank">&nbsp;</span></li>
+              <li>Other: <span class="blank">&nbsp;</span></li>
+            </ol>
+            <p>Utilities included in the rent (if any): <span class="blank-long">&nbsp;</span></p>
+          </li>
+
+          <li>
+            <h2>Use of Property</h2>
+            <p>The Leased Premises shall be used exclusively for residential purposes by the LESSEE and the following authorized occupants (maximum <span class="blank-short">&nbsp;</span> persons):</p>
+            <p><span class="blank-long">&nbsp;</span></p>
+            <p>The LESSEE shall not use the property for any illegal, immoral, or commercial activity. The LESSEE shall be responsible for the acts of all occupants, household members, and guests.</p>
+          </li>
+
+          <li>
+            <h2>Subletting and Assignment</h2>
+            <p>The LESSEE shall <strong>not</strong> sublease, assign, or allow any other person to occupy the property without the prior written consent of the LESSOR. Listing the property on Airbnb, booking platforms, or similar services is strictly prohibited unless expressly authorized in writing.</p>
+            <p>Any violation of this clause shall be a ground for immediate termination of the lease.</p>
+          </li>
+
+          <li>
+            <h2>Modifications and Improvements</h2>
+            <p>The LESSEE shall not make any structural changes, alterations, or permanent modifications to the property without the prior written consent of the LESSOR. This includes painting walls, drilling holes, and changing electrical or plumbing installations.</p>
+            <p>Any approved improvements that cannot be removed without damaging the property shall become the property of the LESSOR upon termination, without obligation to reimburse the LESSEE.</p>
+          </li>
+
+          <li>
+            <h2>Maintenance and Repairs</h2>
+            <p>The LESSEE shall keep the property in good, clean, and sanitary condition throughout the lease and return it in the same condition as received, subject to normal wear and tear.</p>
+            <p><strong>Minor repairs</strong> (costing PHP <span class="blank-short">&nbsp;</span> or less) shall be for the LESSEE's account.</p>
+            <p><strong>Major repairs</strong> (exceeding the above amount) shall be for the LESSOR's account, provided the damage was not caused by the fault or negligence of the LESSEE, household members, or guests. The LESSEE shall promptly notify the LESSOR of any needed major repairs.</p>
+            <p>Routine maintenance of appliances (such as quarterly aircon cleaning) shall be the responsibility of the LESSEE.</p>
+          </li>
+
+          <li>
+            <h2>House Rules and Regulations</h2>
+            <p>The LESSEE shall comply with all rules and regulations of the building, subdivision, or homeowner's association where the property is located.</p>
+            <p>Additional house rules (if any): <span class="blank-long">&nbsp;</span></p>
+          </li>
+
+          <li>
+            <h2>Pets</h2>
+            <p>Pets are: <span class="blank">&nbsp;</span> (allowed / allowed with conditions / not allowed).</p>
+            <p>If allowed, conditions: <span class="blank-long">&nbsp;</span></p>
+          </li>
+
+          <li>
+            <h2>Parking</h2>
+            <p>Parking is: <span class="blank">&nbsp;</span> (included / not included / available for additional fee).</p>
+            <p>Details: <span class="blank-long">&nbsp;</span></p>
+          </li>
+
+          <li>
+            <h2>Right of Inspection</h2>
+            <p>The LESSOR or an authorized representative may inspect the property at reasonable times with at least seven (7) days prior written notice to the LESSEE, except in cases of emergency.</p>
+            <p>During the last thirty (30) days of the lease term, the LESSEE agrees to allow the LESSOR to show the property to prospective tenants with reasonable prior notice.</p>
+          </li>
+
+          <li>
+            <h2>Pre-Termination</h2>
+            <p><strong>By the LESSEE:</strong> If the LESSEE terminates the lease before the agreed term for any reason, the LESSEE shall give at least thirty (30) days written notice to the LESSOR. In such case, the security deposit shall be <strong>automatically forfeited</strong> in favor of the LESSOR by way of liquidated damages, as the parties agree that early termination results in loss of income and opportunity for the LESSOR.</p>
+            <p>The forfeiture of the security deposit shall not relieve the LESSEE from liability for any unpaid rent, unpaid utilities, or damages to the property. The LESSOR may pursue additional claims if the deposit is insufficient to cover outstanding obligations.</p>
+            <p><strong>By the LESSOR:</strong> The LESSOR may terminate this lease before the agreed term if the LESSEE commits any of the following:</p>
+            <ol class="sub-list">
+              <li>Failure to pay rent on time (as defined in Section 6)</li>
+              <li>Subletting or unauthorized occupants (as defined in Section 9)</li>
+              <li>Use of the property for illegal or immoral purposes</li>
+              <li>Causing significant damage to the property through negligence</li>
+              <li>Any other material violation of this contract</li>
+            </ol>
+            <p>In such cases, the LESSOR shall provide written notice specifying the violation. If the violation is not remedied within fifteen (15) days, the LESSOR may terminate the lease and the security deposit shall be forfeited in favor of the LESSOR.</p>
+          </li>
+
+          <li>
+            <h2>Abandonment</h2>
+            <p>If the LESSEE abandons the Leased Premises before the end of the lease term without proper notice, the security deposit shall be forfeited in favor of the LESSOR. The LESSOR shall have the right to enter and retake possession of the property and lease it to another party, without prejudice to any claims for unpaid rent, utilities, or damages.</p>
+          </li>
+
+          <li>
+            <h2>Surrender of Property</h2>
+            <p>Upon expiration or termination of this lease, the LESSEE shall immediately vacate and surrender the property to the LESSOR in the same condition as received, reasonable wear and tear excepted.</p>
+            <p>All keys, access cards, and remote controls shall be returned to the LESSOR. Any personal belongings left in the property after <span class="blank-short">&nbsp;</span> days following move-out may be disposed of by the LESSOR.</p>
+          </li>
+
+          <li>
+            <h2>Liability</h2>
+            <p>The LESSOR shall not be liable for any loss, damage, or injury sustained by the LESSEE, household members, or guests arising from the use of the property, including but not limited to: utility failures, natural disasters, accidents, theft, or pest presence, unless caused by the LESSOR's gross negligence.</p>
+            <p>The LESSEE shall be responsible for any damage to the property, furniture, and fixtures caused by the LESSEE, household members, or guests.</p>
+          </li>
+
+          <li>
+            <h2>Force Majeure</h2>
+            <p>If the property is destroyed or rendered uninhabitable by fire, earthquake, typhoon, flood, or other events beyond the control of either party, this lease shall be deemed automatically terminated. Neither party shall be liable to the other for damages resulting from such events.</p>
+          </li>
+
+          <li>
+            <h2>Role of CebuRentMarket (Platform Disclaimer)</h2>
+            <p>Both parties acknowledge that this rental agreement was facilitated through <strong>CebuRentMarket</strong> (operated by CebuLandMarket Property Services, DTI Reg. No. 7923972), an online rental listing platform.</p>
+            <p><strong>CebuRentMarket is NOT a party to this contract.</strong> CebuRentMarket is not a real estate broker, agent, or representative of either the LESSOR or the LESSEE. The platform's role is limited to:</p>
+            <ol class="sub-list">
+              <li>Publishing verified rental listings online</li>
+              <li>Connecting landlords with potential tenants</li>
+              <li>Providing this lease agreement template for convenience</li>
+            </ol>
+            <p><strong>CebuRentMarket shall not be held responsible or liable for:</strong></p>
+            <ol class="sub-list">
+              <li>Any disputes, disagreements, or conflicts between the LESSOR and LESSEE</li>
+              <li>Property conditions, maintenance issues, or repair disputes</li>
+              <li>Non-payment of rent, deposit disputes, or financial disagreements</li>
+              <li>Breach of any terms of this agreement by either party</li>
+              <li>Any loss, damage, injury, or claims arising from the tenancy</li>
+            </ol>
+            <p>All concerns, complaints, and disputes related to the property, lease terms, or tenancy shall be resolved directly between the LESSOR and the LESSEE. Neither party shall direct claims, demands, or legal action toward CebuRentMarket for matters arising from this lease.</p>
+            <p><strong>Property visits and personal safety:</strong> Any property visits, inspections, or viewings arranged between the LESSOR and the LESSEE are conducted at the sole risk of both parties. CebuRentMarket shall not be held responsible or liable for any accident, injury, death, theft, loss, damage, or any incident of any nature that occurs during property visits or at any time during the tenancy. Both parties acknowledge that they visit and occupy the property at their own risk.</p>
+          </li>
+
+          <li>
+            <h2>Platform Fee</h2>
+            <p>The LESSOR acknowledges that a one-time platform fee is payable to CebuRentMarket upon successful placement of a tenant through the platform. This fee is separate from this lease agreement and is based on the following schedule:</p>
+            <table class="annex-table" style="margin:16px 0;">
+              <thead>
+                <tr>
+                  <th>Monthly Rent</th>
+                  <th>Platform Fee (One-Time)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Under &#8369;10,000</td><td><strong>&#8369;1,000</strong></td></tr>
+                <tr><td>&#8369;10,000 &ndash; &#8369;25,000</td><td><strong>&#8369;3,000</strong></td></tr>
+                <tr><td>&#8369;25,000 &ndash; &#8369;50,000</td><td><strong>&#8369;5,000</strong></td></tr>
+                <tr><td>Above &#8369;50,000</td><td><strong>&#8369;8,000</strong></td></tr>
+              </tbody>
+            </table>
+            <p>This fee is paid by the LESSOR to CebuRentMarket via GCash (0968 751 2330 &mdash; CebuLandMarket) <strong>before</strong> the tenant's contact information is shared with the LESSOR. CebuRentMarket will only connect the LESSOR and LESSEE after the platform fee has been received. The LESSEE does not pay any platform fee.</p>
+            <p>The platform fee is non-refundable once the parties have been connected. If the LESSOR and LESSEE do not reach a rental agreement after being connected, no refund shall be issued as the platform service (listing, verification, and tenant matching) has already been rendered.</p>
+          </li>
+
+          <li>
+            <h2>Dispute Resolution</h2>
+            <p>Any dispute arising from this agreement shall first be settled through good-faith negotiation directly between the LESSOR and the LESSEE. CebuRentMarket is not involved in dispute resolution.</p>
+            <p>If no resolution is reached, the dispute shall be submitted to the proper courts of <span class="blank">&nbsp;</span>, Cebu, Philippines.</p>
+          </li>
+
+          <li>
+            <h2>Entire Agreement</h2>
+            <p>This contract, together with any annexes attached, represents the entire agreement between the LESSOR and the LESSEE. Any amendments or modifications must be made in writing and signed by both parties. CebuRentMarket is not a party to this agreement and is not bound by any of its terms.</p>
+          </li>
+
+          <li>
+            <h2>Severability</h2>
+            <p>If any provision of this agreement is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+          </li>
+
+          <li>
+            <h2>Acknowledgment</h2>
+            <p>Both parties acknowledge that they have read, understood, and voluntarily agreed to all the terms and conditions of this contract. Both parties further acknowledge that CebuRentMarket served only as the listing platform and is not responsible for any matters arising from this tenancy.</p>
+          </li>
+        </ol>
+
+        <!-- Signatures -->
+        <div class="signature-block">
+          <div class="sig-party">
+            <div class="sig-line"><span class="blank-long">&nbsp;</span></div>
+            <div class="sig-role">LESSOR (Property Owner)</div>
+          </div>
+          <div class="sig-party">
+            <div class="sig-line"><span class="blank-long">&nbsp;</span></div>
+            <div class="sig-role">LESSEE (Tenant)</div>
+          </div>
+        </div>
+
+        <div class="witness-block">
+          <p>SIGNED IN THE PRESENCE OF:</p>
+          <div class="witness-lines">
+            <div class="witness-line">Witness 1</div>
+            <div class="witness-line">Witness 2</div>
+          </div>
+        </div>
+
+        <p style="margin-top:32px; font-size:0.85rem; color:var(--gray-500); text-align:center;">Date signed: <span class="blank">&nbsp;</span> &nbsp;&nbsp;|&nbsp;&nbsp; Place: <span class="blank">&nbsp;</span>, Cebu, Philippines</p>
+
+        <!-- Annex A -->
+        <div class="annex-section">
+          <h1 style="font-size:1.2rem;">ANNEX A &mdash; Inventory of Furniture, Appliances &amp; Fixtures</h1>
+          <p style="font-size:0.85rem; color:var(--gray-500);">List all items included with the property. Both parties should inspect and sign this inventory at move-in and move-out.</p>
+
+          <table class="annex-table">
+            <thead>
+              <tr>
+                <th style="width:5%;">#</th>
+                <th style="width:35%;">Item Description</th>
+                <th style="width:10%;">Qty</th>
+                <th style="width:25%;">Condition at Move-In</th>
+                <th style="width:25%;">Condition at Move-Out</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>2</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>3</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>4</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>5</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>6</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>7</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>8</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>9</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>10</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>11</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>12</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>13</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>14</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr><td>15</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            </tbody>
+          </table>
+
+          <div class="signature-block" style="margin-top:32px;">
+            <div class="sig-party">
+              <div class="sig-line"><span class="blank-long">&nbsp;</span></div>
+              <div class="sig-role">LESSOR (Property Owner)</div>
+            </div>
+            <div class="sig-party">
+              <div class="sig-line"><span class="blank-long">&nbsp;</span></div>
+              <div class="sig-role">LESSEE (Tenant)</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end .agreement-doc -->
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>CebuRentMarket</h3>
+          <p>A trusted rental listing platform in Cebu, Philippines. Connecting landlords with tenants through verified listings. A service by CebuLandMarket Property Services (DTI Reg. No. 7923972).</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="listings.html">All Rentals</a>
+          <a href="submit.html">List a Rental</a>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+          <a href="verify.html">Verify a Listing</a>
+          <a href="agreement.html">Lease Agreement</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-col">
+          <h3>Rental Types</h3>
+          <a href="listings.html?type=house">Houses</a>
+          <a href="listings.html?type=condo">Condos & Apartments</a>
+          <a href="listings.html?type=room">Rooms & Bedspaces</a>
+          <a href="listings.html?type=commercial">Office / Commercial</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <a href="mailto:info@cebulandmarket.com">info@cebulandmarket.com</a>
+          <a href="https://m.me/61587469756965" target="_blank">Facebook Messenger</a>
+          <a href="https://www.facebook.com/profile.php?id=61587469756965" target="_blank">Facebook Page</a>
+          <a href="about.html">Cebu, Philippines</a>
+          <a href="../index.html" style="color:var(--accent); font-weight:600;">Looking to buy land? Visit CebuLandMarket</a>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 CebuRentMarket. A service by <a href="../index.html" style="color:var(--accent);">CebuLandMarket</a>. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <span class="float-label">Chat with us!</span>
+  <div class="float-buttons">
+    <button class="float-btn float-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8679;</button>
+    <a href="https://m.me/61587469756965" target="_blank" class="float-btn float-messenger" aria-label="Chat on Messenger">&#128172;</a>
+    <a href="https://wa.me/639687512330" target="_blank" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">&#128172;</a>
+    <a href="viber://chat?number=639687512330" class="float-btn float-viber" aria-label="Chat on Viber">&#128222;</a>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/analytics.js" defer></script>
+  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
+</body>
+</html>
