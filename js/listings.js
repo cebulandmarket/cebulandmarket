@@ -396,7 +396,7 @@ function renderPropertyDetail() {
             (listing.price_per_sqm ? '<div class="price-per-sqm">' + formatPrice(applyFee(listing.price_per_sqm, listing.id)) + ' per sqm</div>' : '') +
             '<div class="detail-verified-badge"><div class="badge-icon">&#10003;</div><div><div class="badge-text">Documents Reviewed</div><div class="badge-sub">Title &amp; documents reviewed by our team — not a legal guarantee</div></div></div>' +
             '<div class="detail-info">' +
-              '<div class="info-item"><span class="info-icon">&#128207;</span><span class="info-label">Lot Area</span><span class="info-value">' + formatNumber(listing.lot_area) + ' sqm</span></div>' +
+              '<div class="info-item"><span class="info-icon">&#128207;</span><span class="info-label">' + (listing.type === 'condo' ? 'Parking Area' : 'Lot Area') + '</span><span class="info-value">' + (listing.type === 'condo' ? (listing.parking_area ? formatNumber(listing.parking_area) + ' sqm' : 'Included') : formatNumber(listing.lot_area) + ' sqm') + '</span></div>' +
               (listing.floor_area ? '<div class="info-item"><span class="info-icon">&#127970;</span><span class="info-label">Floor Area</span><span class="info-value">' + formatNumber(listing.floor_area) + ' sqm</span></div>' : '') +
               '<div class="info-item"><span class="info-icon">&#127968;</span><span class="info-label">Property Type</span><span class="info-value">' + escapeHtml(getTypeName(listing.type)) + '</span></div>' +
               '<div class="info-item"><span class="info-icon">&#128205;</span><span class="info-label">Location</span><span class="info-value">' + escapeHtml(getLocationName(listing.location)) + ', Cebu</span></div>' +
