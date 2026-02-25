@@ -831,5 +831,44 @@ var LISTINGS_DATA = [
     },
     "story": "Deca Homes Phase 2 sits in Baywalk Subdivision, Dumlog, Talisay — one of the most in-demand areas in southern Cebu. This is a 2-storey townhouse on a 56 sqm lot at Block 17, Lot 12. Two bedrooms upstairs, a bathroom, a living area with tiled floors and steel trusses, a kitchen with wooden cabinets and tiled countertops, and a laundry area.\n\nThe subdivision is guarded and there's space for a motorcycle and a small car. The area is prime for rentals — Deca Homes communities always have steady demand from workers and families looking for affordable housing in Talisay.\n\nWhether you're looking for a family home, a rental property, or a boarding house setup — this unit checks the boxes. Talisay is growing fast, and Deca Homes is right in the middle of it.\n\nKung nangita ka og balay sa Talisay na affordable ug naa sa sulod sa subdivision — kani gyud. Duha ka kwarto, guarded, ug dako ang demand sa rentahan sa area.",
     "vision_items": "Family Home|A 2-bedroom townhouse inside a guarded subdivision. Living area, kitchen, laundry, and parking space — everything a small family needs. Move in and settle down.|Rental Income|Deca Homes communities have high rental demand. This unit can generate steady monthly income from workers and families in the Talisay area.|Boarding House|The layout and location make this ideal for a boarding house setup. High demand area, guarded subdivision, and affordable price point — great for passive income.|Long-Term Investment|Talisay is one of the fastest-growing cities in Cebu. Property values in Deca Homes continue to rise as the area develops. Buy now while prices are still accessible."
+  },
+  {
+    "id": "21",
+    "title": "100 sqm Lot at El Monte Grande Heights, San Vicente, Liloan",
+    "type": "lot-only",
+    "location": "liloan",
+    "address": "El Monte Grande Heights Subdivision, San Vicente, Liloan, Cebu",
+    "lot_area": 100,
+    "floor_area": null,
+    "price_per_sqm": 8000,
+    "total_price": 800000,
+    "description": "100 sqm residential lot inside El Monte Grande Heights Subdivision in San Vicente, Liloan, Cebu. Developed by Psalm Property Ventures and Development Corp. Subdivision amenities include concrete roads, electrical system, water line system, underground drainage, and a covered basketball court. Gated community with nice elevation and mountain views. Developer price is currently ₱10,000/sqm — this lot is offered at only ₱8,000/sqm. Great for building your dream home or long-term investment.",
+    "features": "100 sqm,Concrete Roads,Electrical System,Water Line System,Underground Drainage,Covered Basketball Court,Gated Subdivision,Mountain Views,Near Liloan Proper",
+    "photo_url": "images/elmonte-liloan-1.jpg",
+    "photo_urls": "images/elmonte-liloan-1.jpg,images/elmonte-liloan-2.jpg,images/elmonte-liloan-3.jpg,images/elmonte-liloan-4.jpg,images/elmonte-liloan-5.jpg",
+    "map_url": "El Monte Grande Heights, San Vicente, Liloan, Cebu, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/61575981498498",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "status": "available",
+    "featured": true,
+    "date_listed": "2026-02-25",
+    "verification": {
+      "verified": false,
+      "date": "2026-02-25",
+      "checks": {
+        "title_verified": false,
+        "tax_current": false,
+        "owner_confirmed": false,
+        "documents_complete": false,
+        "photos_authentic": true,
+        "no_encumbrance": false,
+        "boundary_clear": false,
+        "road_access": true
+      }
+    },
+    "story": "El Monte Grande Heights sits on elevated ground in San Vicente, Liloan — a quiet, growing area just north of Cebu City. This 100 sqm lot is inside a gated subdivision developed by Psalm Property Ventures and Development Corp.\n\nThe subdivision has concrete roads, electrical and water systems, underground drainage, and a covered basketball court. The lots have nice elevation with views of the surrounding hills and mountains.\n\nThe developer's current price is ₱10,000 per sqm, but this lot is being offered at only ₱8,000 per sqm — ₱800,000 total. That's ₱200,000 below developer price. Great opportunity for anyone looking to build in Liloan while prices are still affordable.\n\nLiloan is one of the fastest-growing municipalities in Cebu, with the 4th bridge project and commercial developments pushing property values up. Buy now before prices catch up.\n\nKung gusto nimo og lote sa Liloan na naa sa sulod sa subdivision — kani ang chance. Mas barato pa sa developer price, naa nay kalsada, tubig, kuryente, ug basketball court.",
+    "vision_items": "Dream Home|Build your family home on a 100 sqm lot inside a gated subdivision. Concrete roads, water, electricity, and drainage already in place. Just design and build.|Investment|Developer price is ₱10,000/sqm — this lot is only ₱8,000/sqm. That's ₱200,000 instant equity. Liloan property values are rising fast with the 4th bridge project.|Future Rental|Build a house and rent it out. Liloan's growing population means steady demand for housing. A subdivision lot with amenities commands higher rental value.|Retirement Home|Quiet, elevated location with mountain views. Away from city noise but close enough to Liloan proper and Cebu City. Perfect place to settle down."
   }
 ];
