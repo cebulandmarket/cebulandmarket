@@ -842,7 +842,7 @@ var LISTINGS_DATA = [
     "floor_area": null,
     "price_per_sqm": 8000,
     "total_price": 800000,
-    "description": "100 sqm residential lot inside El Monte Grande Heights Subdivision in San Vicente, Liloan, Cebu. Developed by Psalm Property Ventures and Development Corp. Subdivision amenities include concrete roads, electrical system, water line system, underground drainage, and a covered basketball court. Gated community with nice elevation and mountain views. Developer price is currently ₱10,000/sqm — this lot is offered at only ₱8,000/sqm. Great for building your dream home or long-term investment.",
+    "description": "100 sqm residential lot inside El Monte Grande Heights Subdivision in San Vicente, Liloan, Cebu. Developed by Psalm Property Ventures and Development Corp. Subdivision amenities include concrete roads, electrical system, water line system, underground drainage, and a covered basketball court. Gated community with nice elevation and mountain views. Developer price is currently ₱10,000/sqm — this lot is offered at only ₱8,000/sqm. Great for building your dream home or long-term investment. Price is negotiable.",
     "features": "100 sqm,Concrete Roads,Electrical System,Water Line System,Underground Drainage,Covered Basketball Court,Gated Subdivision,Mountain Views,Near Liloan Proper",
     "photo_url": "images/elmonte-liloan-1.jpg",
     "photo_urls": "images/elmonte-liloan-1.jpg,images/elmonte-liloan-2.jpg,images/elmonte-liloan-3.jpg,images/elmonte-liloan-4.jpg,images/elmonte-liloan-5.jpg",
