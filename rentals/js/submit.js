@@ -31,13 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
       if (hasData) {
-        // Show step 2 since they were already filling the form
-        var step1 = document.getElementById('step1');
-        var step2 = document.getElementById('step2');
-        if (step1 && step2) {
-          step1.style.display = 'none';
-          step2.style.display = 'block';
-        }
         // Show a friendly restore message (purple theme)
         var restoreMsg = document.createElement('div');
         restoreMsg.style.cssText = 'background:#7B1FA2; color:#fff; padding:12px 20px; border-radius:8px; margin-bottom:16px; font-size:0.9rem;';
