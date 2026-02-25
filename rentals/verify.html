@@ -6,28 +6,28 @@
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Verify a CebuLandMarket property listing. Enter the CLM verification code to check a property's Trust Score and verification details.">
-  <meta property="og:title" content="Verify a Listing — CebuLandMarket">
-  <meta property="og:description" content="Verify a CebuLandMarket property listing. Enter the CLM verification code to check Trust Score and verification details.">
+  <meta name="description" content="Verify a CebuRentMarket rental listing. Enter the CRM verification code to check a property's Trust Score and verification details.">
+  <meta property="og:title" content="Verify a Listing — CebuRentMarket">
+  <meta property="og:description" content="Verify a CebuRentMarket rental listing. Enter the CRM verification code to check Trust Score and verification details.">
   <meta property="og:image" content="https://cebulandmarket.com/images/og-image.jpg">
-  <meta property="og:url" content="https://cebulandmarket.com/verify.html">
+  <meta property="og:url" content="https://cebulandmarket.com/rentals/verify.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_PH">
-  <meta property="og:site_name" content="CebuLandMarket">
+  <meta property="og:site_name" content="CebuRentMarket">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Verify a Listing — CebuLandMarket">
-  <meta name="twitter:description" content="Verify a CebuLandMarket property listing. Enter the CLM verification code to check Trust Score and verification details.">
+  <meta name="twitter:title" content="Verify a Listing — CebuRentMarket">
+  <meta name="twitter:description" content="Verify a CebuRentMarket rental listing. Enter the CRM verification code to check Trust Score and verification details.">
   <meta name="twitter:image" content="https://cebulandmarket.com/images/og-image.jpg">
-  <title>Verify a Listing — CebuLandMarket</title>
+  <title>Verify a Listing — CebuRentMarket</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="canonical" href="https://cebulandmarket.com/verify.html">
+  <link rel="canonical" href="https://cebulandmarket.com/rentals/verify.html">
   <link rel="stylesheet" href="css/style.css?v=5">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2e7d32">
+  <meta name="theme-color" content="#7B1FA2">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="CebuLandMarket">
+  <meta name="apple-mobile-web-app-title" content="CebuRentMarket">
   <link rel="apple-touch-icon" href="images/icon-192.png">
 </head>
 <body>
@@ -35,13 +35,13 @@
   <!-- Header -->
   <header class="header">
     <nav class="navbar container">
-      <a href="index.html" class="logo">Cebu<span class="land-wrap"><span class="land-icon">&#127969;</span><span>Land</span></span>Market</a>
+      <a href="index.html" class="logo">Cebu<span class="land-wrap"><span class="land-icon">&#127968;</span><span>Rent</span></span>Market</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="listings.html">Listings</a></li>
+        <li><a href="listings.html">Rentals</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="rentals/index.html" style="color:#7B1FA2; font-weight:600;">Rentals</a></li>
-        <li><a href="sell.html" class="nav-cta">List Your Property</a></li>
+        <li><a href="list.html" class="nav-cta">List For Rent</a></li>
+        <li><a href="../index.html" style="color:var(--accent);">Buy Land</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -53,7 +53,7 @@
   <section class="page-header">
     <div class="container">
       <h1>Verify a Listing</h1>
-      <p>Enter a CLM verification code to check if a property listing is verified by CebuLandMarket.</p>
+      <p>Enter a CRM verification code to check if a rental listing is verified by CebuRentMarket.</p>
     </div>
   </section>
 
@@ -63,7 +63,7 @@
 
       <div class="verify-search">
         <form id="verifyForm" onsubmit="return false;">
-          <input type="text" id="verifyInput" placeholder="CLM-2026-XXXX" maxlength="20" autocomplete="off">
+          <input type="text" id="verifyInput" placeholder="CRM-2026-XXXX" maxlength="20" autocomplete="off">
           <br>
           <button type="submit" id="verifyBtn">Verify</button>
         </form>
@@ -72,15 +72,15 @@
       <div class="verify-result" id="verifyResult"></div>
 
       <div style="max-width:600px; margin:40px auto 0; text-align:center;">
-        <h2 style="font-size:1.2rem; margin-bottom:12px;">What is the CLM Trust Score?</h2>
+        <h2 style="font-size:1.2rem; margin-bottom:12px;">What is the CRM Trust Score?</h2>
         <p style="font-size:0.9rem; color:var(--gray-600); line-height:1.7;">
-          Every property listed on CebuLandMarket goes through a verification process. We check the title, tax records, owner identity, photos, and more. The result is a Trust Score from 0 to 100 — the higher the score, the more checks the property has passed.
+          Every rental listed on CebuRentMarket goes through a verification process. We check property ownership, confirm the property exists, verify photos, review lease terms, check for disputes, and confirm utilities. The result is a Trust Score from 0 to 100 — the higher the score, the more checks the rental has passed.
         </p>
         <p style="font-size:0.85rem; color:var(--gray-500); margin-top:12px;">
-          Each verified listing gets a unique code (e.g., CLM-2026-R001) that you can look up here. This helps buyers confirm that a listing is real and has been reviewed by our team.
+          Each verified listing gets a unique code (e.g., CRM-2026-R001) that you can look up here. This helps tenants confirm that a listing is real and has been reviewed by our team.
         </p>
         <p style="font-size:0.8rem; color:var(--gray-400); margin-top:16px;">
-          <strong>Disclaimer:</strong> The CLM Trust Score is based on our team's review and is not a legal guarantee. Always conduct your own due diligence before purchasing property.
+          <strong>Disclaimer:</strong> The CRM Trust Score is based on our team's review and is not a legal guarantee. Always visit the property in person and conduct your own due diligence before entering any rental agreement.
         </p>
       </div>
 
@@ -92,14 +92,14 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h3>Cebu<span style="color:var(--accent)">Land</span>Market</h3>
-          <p>Your trusted platform for finding and listing properties in Cebu, Philippines.</p>
+          <h3>Cebu<span style="color:var(--accent)">Rent</span>Market</h3>
+          <p>Your trusted platform for finding and listing rental properties in Cebu, Philippines. A service by CebuLandMarket.</p>
         </div>
         <div class="footer-col">
           <h3>Quick Links</h3>
           <a href="index.html">Home</a>
-          <a href="listings.html">All Listings</a>
-          <a href="submit.html">List Property</a>
+          <a href="listings.html">All Rentals</a>
+          <a href="submit.html">List a Rental</a>
           <a href="about.html">About Us</a>
           <a href="faq.html">FAQ</a>
           <a href="verify.html">Verify a Listing</a>
@@ -107,16 +107,22 @@
           <a href="privacy.html">Privacy Policy</a>
         </div>
         <div class="footer-col">
+          <h3>Rental Types</h3>
+          <a href="listings.html?type=house">Houses</a>
+          <a href="listings.html?type=condo">Condos & Apartments</a>
+          <a href="listings.html?type=room">Rooms & Bedspaces</a>
+          <a href="listings.html?type=commercial">Office / Commercial</a>
+        </div>
+        <div class="footer-col">
           <h3>Contact</h3>
           <a href="mailto:info@cebulandmarket.com">info@cebulandmarket.com</a>
           <a href="https://m.me/61587469756965" target="_blank">Facebook Messenger</a>
           <a href="https://www.facebook.com/profile.php?id=61587469756965" target="_blank">Facebook Page</a>
           <a href="about.html">Cebu, Philippines</a>
+          <a href="../index.html" style="color:var(--accent); font-weight:600;">Looking to buy land? Visit CebuLandMarket</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        &copy; 2026 CebuLandMarket. All rights reserved.
-      </div>
+      <div class="footer-bottom">&copy; 2026 CebuRentMarket. A service by <a href="../index.html" style="color:var(--accent);">CebuLandMarket</a>. All rights reserved.</div>
     </div>
   </footer>
 
@@ -129,20 +135,18 @@
     <a href="viber://chat?number=639687512330" class="float-btn float-viber" aria-label="Chat on Viber">&#128222;</a>
   </div>
 
-  <script src="data/listings.js"></script>
+  <script src="data/rentals.js"></script>
   <script src="js/app.js"></script>
   <script src="js/analytics.js"></script>
   <script>
-    // Trust Score helpers (same as listings.js)
+    // Trust Score helpers for CebuRentMarket
     var TRUST_CHECK_LABELS = {
-      title_verified: 'Title Verified',
-      tax_current: 'Tax Current',
-      owner_confirmed: 'Owner Confirmed',
-      documents_complete: 'Documents Complete',
+      owner_verified: 'Owner Verified',
+      property_exists: 'Property Exists',
       photos_authentic: 'Photos Authentic',
-      no_encumbrance: 'No Encumbrance',
-      boundary_clear: 'Boundary Clear',
-      road_access: 'Road Access'
+      lease_terms_clear: 'Lease Terms Clear',
+      no_disputes: 'No Disputes',
+      utilities_confirmed: 'Utilities Confirmed'
     };
 
     function calcTrustScore(v) {
@@ -164,7 +168,7 @@
       var result = document.getElementById('verifyResult');
       if (!input) { result.className = 'verify-result'; result.style.display = 'none'; return; }
 
-      var listings = (typeof LISTINGS_DATA !== 'undefined') ? LISTINGS_DATA : [];
+      var listings = (typeof RENTALS_DATA !== 'undefined') ? RENTALS_DATA : [];
       var found = null;
       for (var i = 0; i < listings.length; i++) {
         if (listings[i].verification && listings[i].verification.code === input) {
@@ -179,7 +183,7 @@
           '<div style="text-align:center;">' +
             '<div style="font-size:2rem; margin-bottom:8px;">&#10060;</div>' +
             '<h3 style="color:#dc2626; margin-bottom:8px;">Code Not Found</h3>' +
-            '<p style="font-size:0.9rem; color:var(--gray-600);">The code <strong>' + input + '</strong> does not match any verified listing. Please check the code and try again.</p>' +
+            '<p style="font-size:0.9rem; color:var(--gray-600);">The code <strong>' + input + '</strong> does not match any verified rental listing. Please check the code and try again.</p>' +
             '<p style="font-size:0.8rem; color:var(--gray-400); margin-top:12px;">If you believe this is an error, contact us at <a href="mailto:info@cebulandmarket.com">info@cebulandmarket.com</a></p>' +
           '</div>';
         return;
@@ -203,7 +207,7 @@
       result.innerHTML =
         '<div style="text-align:center; margin-bottom:16px;">' +
           '<div class="trust-score-circle score-' + color + '" style="margin:0 auto 12px; width:64px; height:64px; font-size:1.4rem;">' + score + '</div>' +
-          '<h3 style="color:#16a34a; margin-bottom:4px;">Verified Listing</h3>' +
+          '<h3 style="color:#7B1FA2; margin-bottom:4px;">Verified Listing</h3>' +
           '<p style="font-size:0.8rem; color:var(--gray-500);">Code: ' + v.code + ' &middot; Verified: ' + v.date + '</p>' +
         '</div>' +
         '<div style="border-top:1px solid var(--gray-300); padding-top:16px;">' +

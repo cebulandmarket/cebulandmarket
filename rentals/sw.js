@@ -1,53 +1,35 @@
-var CACHE_VERSION = 'clm-v20';
+var CACHE_VERSION = 'crm-v1';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
 var HTML_PAGES = [
-  '/',
-  '/index.html',
-  '/listings.html',
-  '/property.html',
-  '/submit.html',
-  '/about.html',
-  '/faq.html',
-  '/contact.html',
-  '/privacy.html',
-  '/terms.html',
-  '/share.html',
-  '/verify.html'
+  '/rentals/',
+  '/rentals/index.html',
+  '/rentals/listings.html',
+  '/rentals/property.html',
+  '/rentals/submit.html',
+  '/rentals/about.html',
+  '/rentals/faq.html',
+  '/rentals/privacy.html',
+  '/rentals/terms.html',
+  '/rentals/share.html',
+  '/rentals/verify.html',
+  '/rentals/list.html'
 ];
 
 var STATIC_ASSETS = [
-  'css/style.css?v=5',
+  'css/style.css',
   'js/app.js',
   'js/listings.js',
   'js/analytics.js',
   'js/submit.js',
   'js/share-card.js',
-  'data/listings.js',
+  'data/rentals.js',
   'favicon.png',
   'favicon.ico',
   'images/icon-192.png',
   'images/icon-512.png',
-  'images/og-image.jpg',
-  'images/gcash-qr.jpg',
-  'manifest.json',
-  'att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg',
-  'images/banilad-2.jpg',
-  'images/mactan-1.jpg',
-  'images/minglanilla-1.jpg',
-  'images/talamban-1.jpg',
-  'images/talamban-3.jpg',
-  'images/liloan-1.jpg',
-  'images/lahug-1.jpg',
-  'images/pakigne-1.jpg',
-  'images/canjulao-1.jpg',
-  'images/tigbao-3.jpg',
-  'images/bulacao-3.jpg',
-  'images/liloan-vlp-3.jpg',
-  'images/busay-1.jpg',
-  'images/banilad-commercial-1.jpg',
-  'images/vertex-1.jpg'
+  'manifest.json'
 ];
 
 // Install: cache static assets AND all HTML pages upfront
@@ -99,15 +81,6 @@ self.addEventListener('fetch', function(event) {
   // Skip cross-origin requests
   if (!request.url.startsWith(self.location.origin)) return;
 
-  var url = new URL(request.url);
-
-  // Fix old /cebulandmarket/ paths — redirect to root
-  if (url.pathname.indexOf('/cebulandmarket/') === 0) {
-    var fixedPath = url.pathname.replace('/cebulandmarket/', '/');
-    event.respondWith(Response.redirect(url.origin + fixedPath + url.search, 301));
-    return;
-  }
-
   // HTML pages: network-first, fallback to cache, then offline message
   if (request.headers.get('Accept') && request.headers.get('Accept').indexOf('text/html') !== -1) {
     event.respondWith(
@@ -121,7 +94,7 @@ self.addEventListener('fetch', function(event) {
         return caches.match(request).then(function(cached) {
           if (cached) return cached;
           return new Response(
-            '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline — CebuLandMarket</title><style>body{font-family:-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#f5f5f5;color:#333;text-align:center;padding:20px}h1{color:#2e7d32;font-size:1.5rem}p{margin:12px 0;color:#666}a{color:#2e7d32;font-weight:600}</style></head><body><div><h1>You\'re Offline</h1><p>Check your internet connection and try again.</p><p><a href="/">Go to Homepage</a></p></div></body></html>',
+            '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline — CebuRentMarket</title><style>body{font-family:-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#f5f5f5;color:#333;text-align:center;padding:20px}h1{color:#7B1FA2;font-size:1.5rem}p{margin:12px 0;color:#666}a{color:#7B1FA2;font-weight:600}</style></head><body><div><h1>You\'re Offline</h1><p>Check your internet connection and try again.</p><p><a href="/rentals/">Go to Homepage</a></p></div></body></html>',
             { headers: { 'Content-Type': 'text/html' } }
           );
         });

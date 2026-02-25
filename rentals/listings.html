@@ -6,36 +6,36 @@
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Browse cheap lots for sale in Cebu, land for sale in Ronda, Moalboal, Oslob, Cebu City and all Cebu towns. Documents reviewed, listings from direct owners. Filter by location, price, and property type.">
-  <meta property="og:title" content="CebuLandMarket — Trusted Property Listings in Cebu">
-  <meta property="og:description" content="Trusted land listings in Cebu, Philippines. Documents verified. Direct from property owners. Registered business.">
-  <meta property="og:image" content="https://cebulandmarket.com/images/og-image.jpg">
-  <meta property="og:url" content="https://cebulandmarket.com/listings.html">
+  <meta name="description" content="Browse rental properties in Cebu — houses, condos, apartments, rooms, and commercial spaces for rent. Filter by location, price, type, bedrooms, and furnishing. Verified landlords.">
+  <meta property="og:title" content="Rentals in Cebu — All Listings | CebuRentMarket">
+  <meta property="og:description" content="Browse rental properties in Cebu, Philippines. Verified landlords, houses, condos, rooms for rent. Filter by location, rent, and type.">
+  <meta property="og:image" content="https://cebulandmarket.com/rentals/images/og-image.jpg">
+  <meta property="og:url" content="https://cebulandmarket.com/rentals/listings.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_PH">
-  <meta property="og:site_name" content="CebuLandMarket">
+  <meta property="og:site_name" content="CebuRentMarket">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CebuLandMarket — Trusted Property Listings in Cebu">
-  <meta name="twitter:description" content="Browse cheap lots for sale in Cebu. Documents reviewed, listings from direct owners.">
-  <meta name="twitter:image" content="https://cebulandmarket.com/images/og-image.jpg">
-  <title>Lot for Sale in Cebu — All Listings | CebuLandMarket</title>
+  <meta name="twitter:title" content="Rentals in Cebu — All Listings | CebuRentMarket">
+  <meta name="twitter:description" content="Browse rental properties in Cebu. Verified landlords, houses, condos, rooms for rent.">
+  <meta name="twitter:image" content="https://cebulandmarket.com/rentals/images/og-image.jpg">
+  <title>Rentals in Cebu — All Listings | CebuRentMarket</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="canonical" href="https://cebulandmarket.com/listings.html">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="canonical" href="https://cebulandmarket.com/rentals/listings.html">
+  <link rel="stylesheet" href="css/style.css?v=1">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2e7d32">
+  <meta name="theme-color" content="#7B1FA2">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="CebuLandMarket">
+  <meta name="apple-mobile-web-app-title" content="CebuRentMarket">
   <link rel="apple-touch-icon" href="images/icon-192.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cebulandmarket.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Listings", "item": "https://cebulandmarket.com/listings.html"}
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cebulandmarket.com/rentals/"},
+      {"@type": "ListItem", "position": 2, "name": "Rentals", "item": "https://cebulandmarket.com/rentals/listings.html"}
     ]
   }
   </script>
@@ -45,13 +45,13 @@
   <!-- Header -->
   <header class="header">
     <nav class="navbar container">
-      <a href="index.html" class="logo">Cebu<span class="land-wrap"><span class="land-icon">&#127969;</span><span>Land</span></span>Market</a>
+      <a href="index.html" class="logo">Cebu<span class="land-wrap"><span class="land-icon">&#127968;</span><span>Rent</span></span>Market</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="listings.html" class="active">Listings</a></li>
+        <li><a href="listings.html" class="active">Rentals</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="rentals/index.html" style="color:#7B1FA2; font-weight:600;">Rentals</a></li>
-        <li><a href="sell.html" class="nav-cta">List Your Property</a></li>
+        <li><a href="list.html" class="nav-cta">List For Rent</a></li>
+        <li><a href="../index.html" style="color:var(--accent);">Buy Land</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -62,8 +62,8 @@
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <h1>Property Listings</h1>
-      <p>Browse all available properties across Cebu Province</p>
+      <h1>Rental Listings</h1>
+      <p>Browse all available rental properties across Cebu Province</p>
     </div>
   </section>
 
@@ -141,32 +141,45 @@
           </select>
         </div>
         <div class="field">
-          <label for="filterPrice">Max Price</label>
-          <select id="filterPrice">
-            <option value="">Any Price</option>
-            <option value="500000">Under ₱500K</option>
-            <option value="1000000">Under ₱1M</option>
-            <option value="3000000">Under ₱3M</option>
-            <option value="5000000">Under ₱5M</option>
-            <option value="10000000">Under ₱10M</option>
-            <option value="20000000">Under ₱20M</option>
+          <label for="filterRent">Max Rent</label>
+          <select id="filterRent">
+            <option value="">Any Rent</option>
+            <option value="5000">Under &#8369;5K</option>
+            <option value="10000">Under &#8369;10K</option>
+            <option value="15000">Under &#8369;15K</option>
+            <option value="20000">Under &#8369;20K</option>
+            <option value="30000">Under &#8369;30K</option>
+            <option value="50000">Under &#8369;50K</option>
           </select>
         </div>
         <div class="field">
           <label for="filterType">Property Type</label>
           <select id="filterType">
             <option value="">All Types</option>
-            <option value="lot">Lot / Land</option>
-            <option value="house-and-lot">House & Lot</option>
-            <option value="farm">Farm Land</option>
-            <option value="commercial">Commercial</option>
-            <option value="condominium">Condominium</option>
-            <option value="beach">Beach Property</option>
+            <option value="house">House</option>
+            <option value="condo">Condo / Apartment</option>
+            <option value="room">Room / Bedspace</option>
+            <option value="commercial">Office / Commercial</option>
           </select>
         </div>
         <div class="field">
-          <label for="filterSize">Min Size (sqm)</label>
-          <input type="number" id="filterSize" placeholder="e.g. 500">
+          <label for="filterBedrooms">Bedrooms</label>
+          <select id="filterBedrooms">
+            <option value="">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="filterFurnishing">Furnishing</label>
+          <select id="filterFurnishing">
+            <option value="">Any</option>
+            <option value="fully-furnished">Fully Furnished</option>
+            <option value="semi-furnished">Semi-Furnished</option>
+            <option value="unfurnished">Unfurnished</option>
+          </select>
         </div>
         <div class="field">
           <label for="filterKeyword">Search</label>
@@ -181,13 +194,12 @@
   <section class="section">
     <div class="container">
       <div class="listing-controls">
-        <span class="results-count" id="resultsCount">Loading listings...</span>
+        <span class="results-count" id="resultsCount">Loading rentals...</span>
         <div class="sort-by">
           <select id="sortBy">
             <option value="newest">Newest First</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="size-large">Size: Largest First</option>
+            <option value="rent-low">Rent: Low to High</option>
+            <option value="rent-high">Rent: High to Low</option>
           </select>
         </div>
       </div>
@@ -200,9 +212,9 @@
   <!-- CTA -->
   <section class="cta-banner">
     <div class="container">
-      <h2>Have a Property to Sell?</h2>
-      <p>Get your property seen by thousands of potential buyers in Cebu.</p>
-      <a href="sell.html" class="btn btn-primary" style="background:#fff; color:var(--primary);">List Your Property</a>
+      <h2>Have a Property to Rent Out?</h2>
+      <p>Get your rental property seen by thousands of potential tenants in Cebu.</p>
+      <a href="list.html" class="btn btn-primary" style="background:#fff; color:var(--primary);">List For Rent</a>
     </div>
   </section>
 
@@ -211,29 +223,26 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h3>Cebu<span style="color:var(--accent)">Land</span>Market</h3>
-          <p>Your trusted platform for finding and listing properties in Cebu, Philippines.</p>
+          <h3>Cebu<span style="color:var(--accent)">Rent</span>Market</h3>
+          <p>Your trusted platform for finding and listing rental properties in Cebu, Philippines. A service by CebuLandMarket.</p>
         </div>
         <div class="footer-col">
           <h3>Quick Links</h3>
           <a href="index.html">Home</a>
-          <a href="listings.html">All Listings</a>
-          <a href="submit.html">List Property</a>
+          <a href="listings.html">All Rentals</a>
+          <a href="submit.html">List a Rental</a>
           <a href="about.html">About Us</a>
           <a href="faq.html">FAQ</a>
           <a href="verify.html">Verify a Listing</a>
-          <a href="about.html#manage">Edit My Listing</a>
           <a href="terms.html">Terms of Service</a>
           <a href="privacy.html">Privacy Policy</a>
         </div>
         <div class="footer-col">
-          <h3>Property Types</h3>
-          <a href="listings.html?type=lot">Lots & Land</a>
-          <a href="listings.html?type=house-and-lot">House & Lot</a>
-          <a href="listings.html?type=farm">Farm Land</a>
-          <a href="listings.html?type=commercial">Commercial</a>
-          <a href="listings.html?type=condominium">Condominium</a>
-          <a href="rentals/index.html" style="color:#7B1FA2; font-weight:600;">Looking to rent? Visit CebuRentMarket</a>
+          <h3>Rental Types</h3>
+          <a href="listings.html?type=house">Houses</a>
+          <a href="listings.html?type=condo">Condos &amp; Apartments</a>
+          <a href="listings.html?type=room">Rooms &amp; Bedspaces</a>
+          <a href="listings.html?type=commercial">Office / Commercial</a>
         </div>
         <div class="footer-col">
           <h3>Contact</h3>
@@ -241,10 +250,11 @@
           <a href="https://m.me/61587469756965" target="_blank">Facebook Messenger</a>
           <a href="https://www.facebook.com/profile.php?id=61587469756965" target="_blank">Facebook Page</a>
           <a href="about.html">Cebu, Philippines</a>
+          <a href="../index.html" style="color:var(--accent); font-weight:600;">Looking to buy land? Visit CebuLandMarket</a>
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 CebuLandMarket. All rights reserved.
+        &copy; 2026 CebuRentMarket. A service by <a href="../index.html" style="color:var(--accent);">CebuLandMarket</a>. All rights reserved.
       </div>
     </div>
   </footer>
@@ -259,7 +269,7 @@
   </div>
 
   <script src="js/app.js" defer></script>
-  <script src="data/listings.js" defer></script>
+  <script src="data/rentals.js" defer></script>
   <script src="js/listings.js" defer></script>
   <script src="js/analytics.js" defer></script>
   <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>

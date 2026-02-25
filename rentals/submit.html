@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="List your rental property in Cebu for FREE. Submit your house, condo, apartment, or room for rent. Verified listings on CebuRentMarket.">
+  <meta property="og:title" content="List Your Rental Property | CebuRentMarket">
+  <meta property="og:description" content="List your rental property in Cebu for FREE. Houses, condos, apartments, rooms. Verified listings by CebuRentMarket.">
+  <meta property="og:image" content="https://cebulandmarket.com/rentals/images/og-image.jpg">
+  <meta property="og:url" content="https://cebulandmarket.com/rentals/submit.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_PH">
+  <meta property="og:site_name" content="CebuRentMarket">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="List Your Rental Property | CebuRentMarket">
+  <meta name="twitter:description" content="List your rental property in Cebu for FREE. Verified listings by CebuRentMarket.">
+  <meta name="twitter:image" content="https://cebulandmarket.com/rentals/images/og-image.jpg">
+  <title>List Your Rental Property | CebuRentMarket</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="https://cebulandmarket.com/rentals/submit.html">
+  <link rel="stylesheet" href="css/style.css?v=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#7B1FA2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="CebuRentMarket">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Cebu<span class="land-wrap"><span class="land-icon">&#127968;</span><span>Rent</span></span>Market</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Rentals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="list.html" class="nav-cta active">List For Rent</a></li>
+        <li><a href="../index.html" style="color:var(--accent);">Buy Land</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>List Your Rental Property</h1>
+      <p>Reach thousands of potential tenants in Cebu.</p>
+    </div>
+  </section>
+
+  <!-- STEP 1: Terms (visible first) -->
+  <section class="submit-section" id="step1">
+    <div class="container">
+      <div class="form-card" style="max-width:700px; margin:0 auto;">
+        <h2>Before You Start</h2>
+        <p class="form-subtitle">Please read and agree to the following terms before submitting your rental listing.</p>
+
+        <div class="payment-method" style="margin-bottom:16px; background:#f3e5f5; border-left:4px solid #7B1FA2;">
+          <h4 style="color:#7B1FA2;">FREE to List — No Upfront Fee!</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">Listing your rental property on CebuRentMarket is <strong>completely FREE</strong>. There is no listing fee, no upfront cost, and no monthly charges. You pay nothing to get your property in front of thousands of potential tenants.</p>
+          <p style="font-size:0.9rem; margin-top:6px;">A small platform fee is only charged when you <strong>successfully find a tenant</strong> through our platform. If no tenant is found, you pay nothing.</p>
+        </div>
+
+        <div class="payment-method" style="margin-bottom:16px; background:#f3e5f5; border-left:4px solid #9C27B0;">
+          <h4 style="color:#9C27B0;">We'll Create a Property Story for Your Listing</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">Every approved listing gets its own dedicated page — a property story that shows what makes your rental special. The location, the amenities, the neighborhood. We present it so the right tenant can see what you offer.</p>
+          <p style="font-size:0.9rem; margin-top:6px;">A great listing attracts great tenants. Let us help you find the right match.</p>
+        </div>
+
+        <div class="payment-method" style="margin-bottom:16px;">
+          <h4>Document Verification (Due Diligence)</h4>
+          <p style="font-size:0.9rem; margin-top:6px;">We take verification seriously. Our team reviews your property documents before any listing goes live. This protects tenants and keeps our platform trustworthy. Properties with clean documentation get approved within 24-48 hours.</p>
+          <p style="font-size:0.9rem; margin-top:6px;">If your documents are incomplete or have unresolved issues, we will not approve the listing. Since listing is free, there's nothing to refund — zero risk for you.</p>
+          <p style="font-size:0.9rem; margin-top:6px;">Not sure if your papers are ready? Contact us first — we'll give you a free assessment before you submit.</p>
+        </div>
+
+        <div style="margin-bottom:20px; background:#f3e5f5; border:5px solid #7B1FA2; border-radius:14px; padding:32px; box-shadow:0 8px 24px rgba(123,31,162,0.15);">
+          <h2 style="font-size:1.8rem; color:#7B1FA2; margin-bottom:6px; text-align:center; letter-spacing:1px; text-transform:uppercase; font-weight:900;">LANDLORD AGREEMENT</h2>
+          <p style="font-size:0.95rem; color:#4A148C; text-align:center; margin-bottom:4px; font-weight:700;">READ THIS CAREFULLY BEFORE PROCEEDING</p>
+          <p style="font-size:0.85rem; color:#1565c0; text-align:center; margin-bottom:24px; font-style:italic;">Basaha pag-ayo sa dili pa mo-proceed</p>
+          <div style="background:#fff; border-radius:10px; padding:24px 28px; border:2px solid #CE93D8;">
+            <p style="font-size:1.05rem; font-weight:800; margin-bottom:16px; color:#333;">By listing your rental property on CebuRentMarket, I agree that:</p>
+            <ol style="font-size:1rem; padding-left:24px; line-height:2; color:#333;">
+              <li>CebuRentMarket is <strong>FREE to list</strong>. There is no upfront listing fee.<br><em style="color:#1565c0; font-size:0.9rem;">Ang CebuRentMarket kay <strong>FREE i-list</strong>. Walay listing fee.</em></li>
+              <li>A small <strong>platform fee applies only when a tenant is successfully matched</strong> through the platform.<br><em style="color:#1565c0; font-size:0.9rem;">Adunay gamay nga <strong>platform fee kung makit-an na ang tenant</strong> pinaagi sa platform.</em></li>
+              <li>I will be <strong>responsive</strong> when potential tenants inquire about my property.<br><em style="color:#1565c0; font-size:0.9rem;">Mag-<strong>tubag dayon</strong> ko kung dunay tenant nga mag-inquire bahin sa akong property.</em></li>
+              <li>I will <strong>show the property</strong> to interested tenants and arrange viewings directly with them.<br><em style="color:#1565c0; font-size:0.9rem;"><strong>Ipakita nako ang property</strong> sa mga interesado nga tenant ug mag-arrange ug viewing.</em></li>
+              <li>All information I provide is <strong>true and accurate</strong>.<br><em style="color:#1565c0; font-size:0.9rem;">Tanan nga impormasyon nga akong gihatag kay <strong>tinuod ug husto</strong>.</em></li>
+              <li>I will <strong>provide my digital signature</strong> to confirm this agreement.<br><em style="color:#1565c0; font-size:0.9rem;">Maghatag ko ug <strong>digital signature</strong> para makumpirma kini nga kasabutan.</em></li>
+            </ol>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:8px;">
+          <p style="font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:16px;">How would you like to submit your listing?</p>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:16px;">
+            <div style="flex:1; min-width:260px; max-width:400px; background:#fff; border:3px solid #1565c0; border-radius:12px; padding:24px; text-align:center;">
+              <h4 style="color:#1565c0; margin-bottom:4px; font-size:1.1rem;">Message Us Directly</h4>
+              <p style="font-size:0.9rem; color:#555; margin-bottom:6px;">Easiest way — just message us your rental property details. We'll handle the rest.</p>
+              <p style="font-size:0.85rem; color:#1565c0; margin-bottom:14px; font-style:italic;">Send message, kami na mo process para nimu — para walay hassle!</p>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <a href="https://m.me/61587469756965" target="_blank" style="display:block; padding:14px; background:#1565c0; color:#fff; border-radius:8px; text-decoration:none; font-weight:700; font-size:1rem;">Send via Messenger</a>
+                <a href="mailto:info@cebulandmarket.com?subject=Rental%20Listing%20Submission&body=Hi%20CebuRentMarket%2C%0A%0AI%20want%20to%20list%20my%20rental%20property.%0A%0AMy%20Name%3A%20%0AContact%20Number%3A%20%0AProperty%20Type%3A%20%0AProperty%20Location%3A%20%0AMonthly%20Rent%3A%20%0ABedrooms%3A%20%0ABathrooms%3A%20%0AFurnishing%3A%20%0A%0AI%20agree%20to%20the%20Landlord%20Agreement.%0A%0A(Please%20attach%20property%20photos%20and%20documents)" style="display:block; padding:14px; background:#7B1FA2; color:#fff; border-radius:8px; text-decoration:none; font-weight:700; font-size:1rem;">Send via Email</a>
+              </div>
+            </div>
+
+            <div style="flex:1; min-width:260px; max-width:400px; background:#fff; border:3px solid #7B1FA2; border-radius:12px; padding:24px; text-align:center;">
+              <h4 style="color:#7B1FA2; margin-bottom:4px;">Or Fill Out the Form</h4>
+              <p style="font-size:0.85rem; color:#555; margin-bottom:14px;">Prefer to type it yourself? Fill out a short form with your rental property details.</p>
+              <button class="btn btn-primary btn-block" id="agreeBtn" onclick="document.getElementById('step1').style.display='none'; document.getElementById('step2').style.display='block'; window.scrollTo(0,0);" style="background:#7B1FA2; border-color:#7B1FA2;">I Agree — Continue to Form</button>
+            </div>
+          </div>
+
+          <div style="background:#f3e5f5; border:1px solid #CE93D8; border-radius:8px; padding:12px 16px; max-width:600px; margin:0 auto;">
+            <p style="font-size:0.85rem; color:#4A148C;"><strong>What to send if messaging directly:</strong> Your name, contact number, property type, location, monthly rent, number of bedrooms/bathrooms, furnishing status, and photos of your property. We'll guide you through the rest.</p>
+          </div>
+
+          <p style="font-size:0.82rem; color:var(--gray-500); margin-top:12px;">By choosing either option, you agree to the Landlord Agreement and terms above.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2: Form (hidden until they agree) -->
+  <section class="submit-section" id="step2" style="display:none;">
+    <div class="container">
+      <div class="submit-grid">
+
+        <!-- Form -->
+        <div class="form-card" id="formCard">
+          <button type="button" onclick="document.getElementById('step2').style.display='none'; document.getElementById('step1').style.display='block'; window.scrollTo(0,0);" style="background:none; border:none; color:#7B1FA2; font-size:0.95rem; font-weight:600; cursor:pointer; padding:0 0 12px 0; display:flex; align-items:center; gap:6px;">&#8592; Back to submission options</button>
+          <h2>Rental Property Details</h2>
+          <p class="form-subtitle">Fill in all required fields. Our team will review and publish your listing within 24-48 hours.</p>
+
+          <form id="submitForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="09df7276-a4b9-440c-9342-b4c7971c1dce">
+            <input type="hidden" name="subject" value="New Rental Submission - CebuRentMarket">
+            <input type="hidden" name="from_name" value="CebuRentMarket Form">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+
+            <h3 style="margin-bottom:16px; color:var(--dark);">Owner / Landlord Information</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name <span class="required">*</span></label>
+                <input type="text" name="owner_name" required placeholder="Juan Dela Cruz">
+              </div>
+              <div class="form-group">
+                <label>Contact Number <span class="required">*</span></label>
+                <input type="tel" name="contact_number" required placeholder="09XX XXX XXXX">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email Address <span class="required">*</span></label>
+                <input type="email" name="email" required placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label>Facebook Profile Link</label>
+                <input type="url" name="facebook" placeholder="https://facebook.com/yourprofile">
+              </div>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Property Information</h3>
+
+            <div class="form-group">
+              <label>Property Title <span class="required">*</span></label>
+              <input type="text" name="property_title" required placeholder="e.g. 2BR Condo in IT Park, Cebu City">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Property Type <span class="required">*</span></label>
+                <select name="property_type" required>
+                  <option value="">Select type</option>
+                  <option value="house">House</option>
+                  <option value="condo">Condo / Apartment</option>
+                  <option value="room">Room / Bedspace</option>
+                  <option value="commercial">Office / Commercial</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Location / Municipality <span class="required">*</span></label>
+                <select name="location" required>
+                  <option value="">Select location</option>
+                  <optgroup label="Cities">
+                    <option value="cebu-city">Cebu City</option>
+                    <option value="mandaue">Mandaue</option>
+                    <option value="lapu-lapu">Lapu-Lapu</option>
+                    <option value="talisay">Talisay</option>
+                    <option value="toledo">Toledo</option>
+                    <option value="danao">Danao</option>
+                    <option value="naga">Naga</option>
+                    <option value="carcar">Carcar</option>
+                    <option value="bogo">Bogo</option>
+                  </optgroup>
+                  <optgroup label="North Cebu">
+                    <option value="liloan">Liloan</option>
+                    <option value="consolacion">Consolacion</option>
+                    <option value="compostela">Compostela</option>
+                    <option value="carmen">Carmen</option>
+                    <option value="catmon">Catmon</option>
+                    <option value="sogod">Sogod</option>
+                    <option value="borbon">Borbon</option>
+                    <option value="tabogon">Tabogon</option>
+                    <option value="san-remigio">San Remigio</option>
+                    <option value="medellin">Medellin</option>
+                    <option value="daanbantayan">Daanbantayan</option>
+                    <option value="bantayan">Bantayan</option>
+                    <option value="madridejos">Madridejos</option>
+                    <option value="santa-fe">Santa Fe</option>
+                    <option value="tuburan">Tuburan</option>
+                    <option value="tabuelan">Tabuelan</option>
+                  </optgroup>
+                  <optgroup label="South Cebu">
+                    <option value="minglanilla">Minglanilla</option>
+                    <option value="san-fernando">San Fernando</option>
+                    <option value="sibonga">Sibonga</option>
+                    <option value="argao">Argao</option>
+                    <option value="dalaguete">Dalaguete</option>
+                    <option value="alcoy">Alcoy</option>
+                    <option value="boljoon">Boljoon</option>
+                    <option value="oslob">Oslob</option>
+                    <option value="santander">Santander</option>
+                    <option value="samboan">Samboan</option>
+                    <option value="ginatilan">Ginatilan</option>
+                    <option value="malabuyoc">Malabuyoc</option>
+                    <option value="alegria">Alegria</option>
+                    <option value="badian">Badian</option>
+                    <option value="moalboal">Moalboal</option>
+                    <option value="ronda">Ronda</option>
+                    <option value="alcantara">Alcantara</option>
+                    <option value="dumanjug">Dumanjug</option>
+                    <option value="barili">Barili</option>
+                  </optgroup>
+                  <optgroup label="West Cebu">
+                    <option value="balamban">Balamban</option>
+                    <option value="asturias">Asturias</option>
+                    <option value="pinamungajan">Pinamungajan</option>
+                    <option value="aloguinsan">Aloguinsan</option>
+                  </optgroup>
+                  <optgroup label="Islands">
+                    <option value="cordova">Cordova</option>
+                    <option value="olango">Olango</option>
+                    <option value="camotes">Camotes</option>
+                  </optgroup>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Full Address / Barangay</label>
+              <input type="text" name="address" placeholder="e.g. Brgy. Apas, Cebu City">
+            </div>
+
+            <div class="form-group">
+              <label>Google Maps Link (optional — helps tenants find the exact location)</label>
+              <input type="text" name="map_url" placeholder="e.g. https://maps.app.goo.gl/...">
+              <p style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">Open Google Maps, find your property, tap "Share" and paste the link here.</p>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Rental Details</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Monthly Rent (₱) <span class="required">*</span></label>
+                <input type="number" name="monthly_rent" required placeholder="e.g. 15000">
+              </div>
+              <div class="form-group">
+                <label>Bedrooms <span class="required">*</span></label>
+                <select name="bedrooms" required>
+                  <option value="">Select</option>
+                  <option value="studio">Studio</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5+">5+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Bathrooms <span class="required">*</span></label>
+                <select name="bathrooms" required>
+                  <option value="">Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4+">4+</option>
+                  <option value="shared">Shared</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Floor Area (sqm)</label>
+                <input type="number" name="floor_area" placeholder="e.g. 45">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Furnishing Status <span class="required">*</span></label>
+                <select name="furnishing" required>
+                  <option value="">Select</option>
+                  <option value="fully-furnished">Fully Furnished</option>
+                  <option value="semi-furnished">Semi-Furnished</option>
+                  <option value="unfurnished">Unfurnished</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Lease Term <span class="required">*</span></label>
+                <select name="lease_term" required>
+                  <option value="">Select</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="6-months">6 Months Minimum</option>
+                  <option value="1-year">1 Year Minimum</option>
+                  <option value="2-years">2 Years Minimum</option>
+                  <option value="flexible">Flexible / Negotiable</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Deposit / Advance <span class="required">*</span></label>
+                <select name="deposit_advance" required>
+                  <option value="">Select</option>
+                  <option value="1-month-advance-1-month-deposit">1 Month Advance + 1 Month Deposit</option>
+                  <option value="2-months-advance-1-month-deposit">2 Months Advance + 1 Month Deposit</option>
+                  <option value="1-month-advance-2-months-deposit">1 Month Advance + 2 Months Deposit</option>
+                  <option value="2-months-advance-2-months-deposit">2 Months Advance + 2 Months Deposit</option>
+                  <option value="negotiable">Negotiable</option>
+                  <option value="other">Other (specify in description)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Availability Date</label>
+                <input type="date" name="availability_date">
+                <p style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">When is the property available for move-in?</p>
+              </div>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <label style="font-weight:600; display:block; margin-bottom:10px;">Additional Amenities</label>
+              <div style="display:flex; gap:16px; flex-wrap:wrap;">
+                <label style="display:flex; align-items:center; gap:6px; font-size:0.95rem; cursor:pointer;">
+                  <input type="checkbox" name="pet_friendly" value="yes" style="accent-color:#7B1FA2; width:18px; height:18px;"> Pet Friendly
+                </label>
+                <label style="display:flex; align-items:center; gap:6px; font-size:0.95rem; cursor:pointer;">
+                  <input type="checkbox" name="parking_available" value="yes" style="accent-color:#7B1FA2; width:18px; height:18px;"> Parking Available
+                </label>
+                <label style="display:flex; align-items:center; gap:6px; font-size:0.95rem; cursor:pointer;">
+                  <input type="checkbox" name="utilities_included" value="yes" style="accent-color:#7B1FA2; width:18px; height:18px;"> Utilities Included
+                </label>
+              </div>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Documents</h3>
+
+            <div class="form-group">
+              <label>Share your documents (photos or links)</label>
+              <textarea name="document_links" placeholder="Send us photos of your property ownership documents, lease contract template, or any relevant papers. You can paste Google Drive or Facebook links here — or just send them to us via Messenger." rows="3"></textarea>
+              <p class="form-hint">Tip: You can also send document photos directly through Messenger if that's easier.</p>
+            </div>
+
+            <div class="form-group">
+              <label>Anything else we should know?</label>
+              <textarea name="document_notes" placeholder="Any details about your property documents or special conditions (optional)." rows="2"></textarea>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Property Details</h3>
+
+            <div class="form-group">
+              <label>Property Description <span class="required">*</span></label>
+              <textarea name="description" required placeholder="Describe the property - number of rooms, amenities, nearby landmarks, neighborhood, transportation access, etc." rows="5"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Property Features (comma separated)</label>
+              <input type="text" name="features" placeholder="e.g. WiFi, Aircon, Hot shower, Swimming pool, Gym, 24/7 security">
+            </div>
+
+            <div class="form-group">
+              <label>Photo Links (Google Drive / Imgur / Facebook links)</label>
+              <textarea name="photo_links" placeholder="Paste links to your property photos (Google Drive, Imgur, Facebook album, etc.). Separate each link with a new line." rows="3"></textarea>
+              <p class="form-hint">Upload your photos to Google Drive or Imgur first, then paste the links here. Make sure links are set to public/anyone with the link.</p>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Your Contact Details</h3>
+            <p class="form-hint mb-2">How can CebuRentMarket reach you? We'll use this to contact you when there's a tenant inquiry. Your contact info will NOT be shown publicly. Provide at least one.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Messenger Link</label>
+                <input type="url" name="messenger_link" placeholder="https://m.me/yourprofile">
+                <p style="font-size:0.8rem; color:var(--gray-500); margin-top:4px;">For us to message you about inquiries.</p>
+              </div>
+              <div class="form-group">
+                <label>Viber Number</label>
+                <input type="tel" name="viber" placeholder="09XX XXX XXXX">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>WhatsApp Number</label>
+                <input type="tel" name="whatsapp" placeholder="+639XXXXXXXXX">
+              </div>
+              <div class="form-group">
+                <label>Phone / SMS</label>
+                <input type="tel" name="phone" placeholder="09XX XXX XXXX">
+              </div>
+            </div>
+
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--gray-300);">
+            <h3 style="margin-bottom:16px; color:var(--dark);">Sign & Submit</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-bottom:12px;">By signing below, you confirm that all information is true and you agree to the Landlord Agreement.</p>
+
+            <div class="form-group">
+              <label>Type Your Full Name as Signature <span class="required">*</span></label>
+              <input type="text" name="digital_signature" id="signatureName" required placeholder="Type your full name here" style="font-family: 'Brush Script MT', 'Segoe Script', cursive; font-size:1.4rem; padding:14px 16px; border:2px dashed #7B1FA2; background:#faf5ff;">
+            </div>
+
+            <div id="signaturePreview" style="display:none; background:#fff; border:2px solid #7B1FA2; border-radius:8px; padding:20px; margin-bottom:16px; text-align:center;">
+              <p style="font-size:0.8rem; color:var(--gray-500); margin-bottom:8px;">LANDLORD'S DIGITAL SIGNATURE</p>
+              <p id="signatureDisplay" style="font-family:'Brush Script MT','Segoe Script',cursive; font-size:2rem; color:#7B1FA2; border-bottom:1px solid #ccc; display:inline-block; padding:0 20px 4px;"></p>
+              <p style="font-size:0.8rem; color:var(--gray-500); margin-top:8px;">Date: <span id="signatureDate"></span></p>
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px;">
+              <label class="fee-option" style="display:flex; align-items:flex-start; gap:10px; padding:12px 16px; background:#f3e5f5; border:2px solid #CE93D8; border-radius:8px; cursor:pointer;">
+                <input type="checkbox" name="agreement_confirmed" id="agreementCheck" required style="margin-top:3px; accent-color:#7B1FA2; width:18px; height:18px;">
+                <div>
+                  <strong>I confirm and agree</strong>
+                  <p style="font-size:0.85rem; color:#555; margin-top:4px;">I confirm that all the information I provided is truthful. I agree to the listing terms and the Landlord Agreement. I understand that my digital signature above is legally binding.</p>
+                </div>
+              </label>
+            </div>
+
+            <div class="mt-3">
+              <button type="submit" class="btn btn-primary btn-block" style="background:#7B1FA2; border-color:#7B1FA2;">Submit Rental Listing</button>
+            </div>
+
+          </form>
+
+          <!-- Success Message -->
+          <div class="form-success" id="formSuccess">
+            <h2>Submission Received!</h2>
+            <p>Thank you for submitting your rental property!</p>
+            <p class="mt-2"><strong>Your Reference ID:</strong> <span id="refId" style="color:#7B1FA2; font-size:1.3rem; font-weight:700;"></span></p>
+            <div style="background:#f3e5f5; padding:16px; border-radius:8px; margin-top:16px; border-left:4px solid #7B1FA2;">
+              <p style="font-weight:700; margin-bottom:8px;">Next Steps:</p>
+              <ol style="margin:0; padding-left:20px; font-size:0.9rem; line-height:1.8;">
+                <li>We will verify your property details and documents within <strong>24-48 hours</strong></li>
+                <li><strong>No payment needed</strong> — listing is completely FREE</li>
+                <li>Once approved, your listing goes live with its own dedicated page</li>
+                <li>We'll notify you when tenant inquiries come in</li>
+              </ol>
+              <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a href="https://m.me/61587469756965" target="_blank" style="background:#1565c0; color:#fff; padding:10px 20px; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.9rem;">Message Us on Messenger</a>
+                <a href="mailto:info@cebulandmarket.com" style="background:#7B1FA2; color:#fff; padding:10px 20px; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.9rem;">Send via Email</a>
+              </div>
+            </div>
+            <p style="margin-top:16px; font-size:0.85rem; color:var(--gray-500);">We will review and verify your property within 24-48 hours. No payment needed.</p>
+            <a href="index.html" class="btn btn-outline mt-3" style="color:#7B1FA2; border-color:#7B1FA2;">Back to Home</a>
+          </div>
+        </div>
+
+        <!-- Sidebar: Why List With Us? (replaces payment sidebar) -->
+        <div>
+          <div class="payment-card" style="border: 2px solid #7B1FA2;">
+            <h3 style="color:#7B1FA2;">Why List With Us?</h3>
+            <div style="margin-top:16px;">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                <span style="background:#f3e5f5; width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0;">&#127381;</span>
+                <div>
+                  <strong style="font-size:0.9rem; color:var(--dark);">100% FREE to List</strong>
+                  <p style="font-size:0.8rem; color:#666; margin-top:2px;">No listing fee. No hidden charges. Zero cost.</p>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                <span style="background:#f3e5f5; width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0;">&#9989;</span>
+                <div>
+                  <strong style="font-size:0.9rem; color:var(--dark);">Verified Listings</strong>
+                  <p style="font-size:0.8rem; color:#666; margin-top:2px;">We review documents for tenant trust.</p>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                <span style="background:#f3e5f5; width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0;">&#127760;</span>
+                <div>
+                  <strong style="font-size:0.9rem; color:var(--dark);">Dedicated Property Page</strong>
+                  <p style="font-size:0.8rem; color:#666; margin-top:2px;">Photos, description, map & contact options.</p>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                <span style="background:#f3e5f5; width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0;">&#128172;</span>
+                <div>
+                  <strong style="font-size:0.9rem; color:var(--dark);">Inquiries Forwarded to You</strong>
+                  <p style="font-size:0.8rem; color:#666; margin-top:2px;">We connect you directly with tenants.</p>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                <span style="background:#f3e5f5; width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0;">&#9203;</span>
+                <div>
+                  <strong style="font-size:0.9rem; color:var(--dark);">No Expiration</strong>
+                  <p style="font-size:0.8rem; color:#666; margin-top:2px;">Listing stays active until you find a tenant.</p>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="background:#f3e5f5; width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0;">&#128737;</span>
+                <div>
+                  <strong style="font-size:0.9rem; color:var(--dark);">Trusted Platform</strong>
+                  <p style="font-size:0.8rem; color:#666; margin-top:2px;">A service by CebuLandMarket. DTI registered.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-card mt-2" style="background:#f3e5f5; border: 2px solid #7B1FA2;">
+            <h4 style="color:#7B1FA2;">Need Help?</h4>
+            <p style="font-size:0.9rem; color:var(--gray-700); margin-top:8px;">Not sure about the details? Contact us first — we're happy to help.</p>
+            <p style="font-size:0.9rem; margin-top:8px;"><strong>Email:</strong> info@cebulandmarket.com</p>
+            <p style="font-size:0.9rem; margin-top:4px;"><strong>Messenger:</strong> <a href="https://m.me/61587469756965" target="_blank" style="color:#7B1FA2;">Send us a message</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Cebu<span style="color:var(--accent)">Rent</span>Market</h3>
+          <p>Your trusted platform for finding and listing rental properties in Cebu, Philippines. A service by CebuLandMarket.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="listings.html">All Rentals</a>
+          <a href="submit.html">List a Rental</a>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+          <a href="verify.html">Verify a Listing</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-col">
+          <h3>Rental Types</h3>
+          <a href="listings.html?type=house">Houses</a>
+          <a href="listings.html?type=condo">Condos & Apartments</a>
+          <a href="listings.html?type=room">Rooms & Bedspaces</a>
+          <a href="listings.html?type=commercial">Office / Commercial</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <a href="mailto:info@cebulandmarket.com">info@cebulandmarket.com</a>
+          <a href="https://m.me/61587469756965" target="_blank">Facebook Messenger</a>
+          <a href="https://www.facebook.com/profile.php?id=61587469756965" target="_blank">Facebook Page</a>
+          <a href="about.html">Cebu, Philippines</a>
+          <a href="../index.html" style="color:var(--accent); font-weight:600;">Looking to buy land? Visit CebuLandMarket</a>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 CebuRentMarket. A service by <a href="../index.html" style="color:var(--accent);">CebuLandMarket</a>. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <span class="float-label">Chat with us!</span>
+  <div class="float-buttons">
+    <button class="float-btn float-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8679;</button>
+    <a href="https://m.me/61587469756965" target="_blank" class="float-btn float-messenger" aria-label="Chat on Messenger">&#128172;</a>
+    <a href="https://wa.me/639687512330" target="_blank" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">&#128172;</a>
+    <a href="viber://chat?number=639687512330" class="float-btn float-viber" aria-label="Chat on Viber">&#128222;</a>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/submit.js" defer></script>
+  <script src="js/analytics.js" defer></script>
+  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
+</body>
+</html>

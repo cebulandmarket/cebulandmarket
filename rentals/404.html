@@ -6,17 +6,18 @@
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Page not found. Browse property listings in Cebu or return to the CebuLandMarket homepage.">
-  <title>Page Not Found — CebuLandMarket</title>
+  <meta name="description" content="Page not found. Browse rental listings in Cebu or return to the CebuRentMarket homepage.">
+  <meta property="og:site_name" content="CebuRentMarket">
+  <title>Page Not Found — CebuRentMarket</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="canonical" href="https://cebulandmarket.com/404.html">
+  <link rel="canonical" href="https://cebulandmarket.com/rentals/404.html">
   <link rel="stylesheet" href="css/style.css?v=5">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2e7d32">
+  <meta name="theme-color" content="#7B1FA2">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="CebuLandMarket">
+  <meta name="apple-mobile-web-app-title" content="CebuRentMarket">
   <link rel="apple-touch-icon" href="images/icon-192.png">
   <style>
     .error-page { padding: 100px 0; text-align: center; }
@@ -30,13 +31,13 @@
   <!-- Header -->
   <header class="header">
     <nav class="navbar container">
-      <a href="index.html" class="logo">Cebu<span class="land-wrap"><span class="land-icon">&#127969;</span><span>Land</span></span>Market</a>
+      <a href="index.html" class="logo">Cebu<span class="land-wrap"><span class="land-icon">&#127968;</span><span>Rent</span></span>Market</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="listings.html">Listings</a></li>
+        <li><a href="listings.html">Rentals</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="rentals/index.html" style="color:#7B1FA2; font-weight:600;">Rentals</a></li>
-        <li><a href="sell.html" class="nav-cta">List Your Property</a></li>
+        <li><a href="list.html" class="nav-cta">List For Rent</a></li>
+        <li><a href="../index.html" style="color:var(--accent);">Buy Land</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -51,7 +52,7 @@
       <p>Sorry, the page you're looking for doesn't exist or has been moved.</p>
       <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
         <a href="index.html" class="btn btn-primary">Go to Homepage</a>
-        <a href="listings.html" class="btn btn-outline">Browse Listings</a>
+        <a href="listings.html" class="btn btn-outline">Browse Rentals</a>
       </div>
     </div>
   </section>
@@ -60,10 +61,18 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-bottom">
-        &copy; 2026 CebuLandMarket. All rights reserved.
+        &copy; 2026 CebuRentMarket. A service by <a href="../index.html" style="color:var(--accent);">CebuLandMarket</a>. All rights reserved.
       </div>
     </div>
   </footer>
+
+  <span class="float-label">Chat with us!</span>
+  <div class="float-buttons">
+    <button class="float-btn float-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8679;</button>
+    <a href="https://m.me/61587469756965" target="_blank" class="float-btn float-messenger" aria-label="Chat on Messenger">&#128172;</a>
+    <a href="https://wa.me/639687512330" target="_blank" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">&#128172;</a>
+    <a href="viber://chat?number=639687512330" class="float-btn float-viber" aria-label="Chat on Viber">&#128222;</a>
+  </div>
 
   <script src="js/app.js" defer></script>
   <script src="js/analytics.js" defer></script>
