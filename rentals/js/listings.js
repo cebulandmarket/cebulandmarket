@@ -400,7 +400,7 @@ function formatReviewDate(dateStr) {
 }
 
 function buildReviewsSection(reviews, listingId, listingTitle) {
-  if (!reviews || reviews.length === 0) return '';
+  var hasReviews = reviews && reviews.length > 0;
   var avg = calcAverageRating(reviews);
 
   // Category bars
@@ -492,18 +492,26 @@ function buildReviewsSection(reviews, listingId, listingTitle) {
       '</form>' +
     '</div>';
 
+  var summaryHtml = '';
+  if (hasReviews) {
+    summaryHtml =
+      '<div class="review-summary">' +
+        '<div class="review-score-block">' +
+          '<div class="review-big-number">' + avg.toFixed(1) + '</div>' +
+          '<div class="review-big-stars">' + generateStarsHtml(avg) + '</div>' +
+          '<div class="review-count-label">' + reviews.length + ' review' + (reviews.length === 1 ? '' : 's') + '</div>' +
+        '</div>' +
+        '<div class="review-categories">' + catBarsHtml + '</div>' +
+      '</div>' +
+      '<div class="review-cards">' + cardsHtml + '</div>' +
+      showAllBtn;
+  } else {
+    summaryHtml = '<p style="color:var(--gray-500); margin-bottom:16px;">No reviews yet. Be the first to share your experience!</p>';
+  }
+
   return '<div class="detail-reviews">' +
     '<h2>Tenant Reviews</h2>' +
-    '<div class="review-summary">' +
-      '<div class="review-score-block">' +
-        '<div class="review-big-number">' + avg.toFixed(1) + '</div>' +
-        '<div class="review-big-stars">' + generateStarsHtml(avg) + '</div>' +
-        '<div class="review-count-label">' + reviews.length + ' review' + (reviews.length === 1 ? '' : 's') + '</div>' +
-      '</div>' +
-      '<div class="review-categories">' + catBarsHtml + '</div>' +
-    '</div>' +
-    '<div class="review-cards">' + cardsHtml + '</div>' +
-    showAllBtn +
+    summaryHtml +
     formHtml +
   '</div>';
 }
