@@ -266,7 +266,7 @@ ul { list-style: none; }
 
 /* --- Hero --- */
 .hero {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
   color: var(--white);
   padding: 80px 0;
   text-align: center;
@@ -477,7 +477,7 @@ ul { list-style: none; }
   position: absolute;
   top: 12px;
   left: 12px;
-  background: linear-gradient(135deg, var(--primary), #9C27B0);
+  background: var(--primary);
   color: var(--white);
   padding: 5px 14px;
   border-radius: 50px;
@@ -485,7 +485,7 @@ ul { list-style: none; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   z-index: 2;
 }
 
@@ -1247,7 +1247,7 @@ ul { list-style: none; }
 
 /* --- About Page --- */
 .about-hero {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  background: linear-gradient(135deg, #1a1a2e, #2d2d44);
   color: var(--white);
   padding: 60px 0;
   text-align: center;
@@ -1405,7 +1405,7 @@ ul { list-style: none; }
 
 /* --- CTA Banner --- */
 .cta-banner {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: linear-gradient(135deg, #2d2d44, #1a1a2e);
   color: var(--white);
   padding: 60px 0;
   text-align: center;
@@ -1539,7 +1539,7 @@ ul { list-style: none; }
 
 /* --- Page Header (for inner pages) --- */
 .page-header {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  background: linear-gradient(135deg, #1a1a2e, #2d2d44);
   color: var(--white);
   padding: 40px 0;
   text-align: center;
