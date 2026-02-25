@@ -746,5 +746,46 @@ var LISTINGS_DATA = [
     },
     "story": "This fully furnished townhouse sits inside Mulberry Drive — a pocket-sized exclusive subdivision in Talamban with only 51 units. It's the kind of neighborhood where you know your neighbors, the guard knows your name, and your kids can walk to school because Maria Montessori International School is literally right across the street.\n\nThe ground floor opens up to a bright living and dining area with polished tile floors, a ceiling fan with light, a chandelier, and a cozy setup — sofa, dining table for four, TV console, and even an exercise bike. The kitchen is compact but complete with built-in cabinets and a stove. There's a CR on this floor too.\n\nUpstairs, the wood flooring gives the bedrooms a warm, homey feel. The master bedroom has a queen bed, a large wardrobe, a vanity desk, split-type AC, and opens to a balcony with a view of the subdivision street and the mountains beyond. The second bedroom fits a bunk bed comfortably — perfect for kids. The 2nd floor also has its own bathroom.\n\nOutside, there's a carport that fits two cars and the house has screen doors and windows throughout — important for ventilation in Cebu.\n\nThe subdivision has a gated entrance with a guard house, 24-hour security, and a swimming pool. The area is flood free. Talamban is one of the most in-demand residential areas in Cebu City — close to schools, hospitals, churches, and commercial centers.\n\nAt P4.7M fully furnished, this is below the current market price of P5.5M for unfurnished units in the same area. All furniture and appliances are included. Buyer to shoulder taxes and transfer costs.\n\nKung naa kay pamilya ug gusto ka og safe, hilom, ug convenient nga lugar — kani gyud. Mulabang ra sa eskwelahan, naa sa sulod sa subdivision, ug kompleto na ang gamit. Dali ra mo-settle in.",
     "vision_items": "Family Home|Move in immediately — everything is here. Fully furnished with AC, beds, dining set, kitchen, TV. Just bring your clothes. Perfect for a young family with kids who can walk to school across the street.|Starter Investment|At P4.7M fully furnished, this is P800K below market price. Buy now, rent it out to expats or young professionals in Talamban. The gated community and proximity to MMIS make it highly rentable.|Airbnb Unit|Fully furnished, inside a secured subdivision with a pool, near schools and hospitals — ideal for short-term rental guests. The balcony mountain view and cozy interior photograph beautifully.|Student/Teacher Housing|Directly across Maria Montessori International School. Rent to teachers, staff, or families with students. Consistent demand, reliable tenants, prime location."
+  },
+  {
+    "id": "19",
+    "title": "20 sqm Studio Unit at Mivesa Garden Residences, Lahug, Cebu City",
+    "type": "condo",
+    "location": "cebu-city",
+    "address": "Mivesa Garden Residences, Lahug, Cebu City",
+    "lot_area": null,
+    "floor_area": 20,
+    "price_per_sqm": null,
+    "total_price": 3700000,
+    "description": "Fully furnished studio unit at Mivesa Garden Residences in Lahug, Cebu City — one of the most accessible locations in the city. 20 sqm floor area with a 12.5 sqm parking slot included. The unit comes move-in ready with TV, refrigerator, bed, sofa, and aircon — just bring your clothes. Very accessible to schools, malls, hospitals, and major city establishments. Originally listed at P4,000,000 — now offered at P3,700,000 (lowest offer). Installment option available: P2.5M downpayment, remaining balance payable within 6 months. Excluding taxes and transfer fees. Transfer of ownership once fully paid. Can move in ASAP.",
+    "features": "Studio Unit,Fully Furnished,With Parking (12.5 sqm),Move-in Ready,With TV,With Refrigerator,With Bed,With Sofa,With Aircon,Near Schools,Near Malls,Near Hospitals,Condominium Title,Installment Available,20 sqm Floor Area,Mivesa Garden Residences",
+    "photo_url": "",
+    "photo_urls": "",
+    "map_url": "Mivesa Garden Residences, Lahug, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Condominium Title",
+    "status": "active",
+    "date_listed": "2026-02-25",
+    "verification": {
+      "code": "CLM-2026-C019",
+      "date": "2026-02-25",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "documents_complete": true,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
+    "story": "Mivesa Garden Residences is one of those condos in Lahug that just makes sense. It's right in the middle of everything — schools, malls, hospitals, and all the major establishments in Cebu City are nearby. You don't have to go far for anything.\n\nThis is a compact studio unit at 20 sqm, but it comes fully loaded. TV, refrigerator, bed, sofa, and aircon are all staying with the unit. You literally just move in. There's also a 12.5 sqm parking slot included — hard to find at this price point in Lahug.\n\nThe seller originally listed this at P4,000,000 but is now offering it at P3,700,000 — the lowest they'll go. There's also an installment option: P2.5M downpayment, then the remaining balance spread over 6 months. Transfer of ownership happens once fully paid. Taxes and transfer fees are on the buyer.\n\nKung naghanap ka og affordable na condo unit sa Lahug na move-in ready — kani gyud. Fully furnished na, naa pay parking, ug accessible kaayo ang location. P3.7M lang — dili na gyud mu-ubos pa.",
+    "vision_items": "Personal Residence|Move in immediately with everything included — TV, ref, bed, sofa, aircon. Perfect for a young professional or student who wants to live in the heart of Cebu City without the hassle of furnishing.|Rental Income|Lahug is high-demand for renters — students, BPO workers, and expats are always looking for furnished studios. This unit is ready to rent out day one. Parking slot adds extra value.|Airbnb Investment|Fully furnished studio in a prime Lahug location near schools, malls, and hospitals. Ideal for short-term rental guests visiting Cebu City. Plug and play.|Starter Investment|At P3.7M with parking in Lahug, this is below market for Mivesa units. Condo values in Lahug continue to appreciate as the area develops. A solid entry-level investment."
   }
 ];
