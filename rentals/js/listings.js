@@ -400,7 +400,8 @@ function formatReviewDate(dateStr) {
 }
 
 function buildReviewsSection(reviews, listingId, listingTitle) {
-  var hasReviews = reviews && reviews.length > 0;
+  if (!reviews) reviews = [];
+  var hasReviews = reviews.length > 0;
   var avg = calcAverageRating(reviews);
 
   // Category bars
