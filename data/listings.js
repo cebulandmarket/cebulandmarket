@@ -790,5 +790,46 @@ var LISTINGS_DATA = [
     },
     "story": "Mivesa Garden Residences is one of those condos in Lahug that just makes sense. It's right in the middle of everything — schools, malls, hospitals, and all the major establishments in Cebu City are nearby. You don't have to go far for anything.\n\nThis is a compact studio unit at 20 sqm, but it comes fully loaded. TV, refrigerator, bed, sofa, and aircon are all staying with the unit. You literally just move in. There's also a 12.5 sqm parking slot included — hard to find at this price point in Lahug.\n\nInstallment option available: P2.5M downpayment, then the remaining balance spread over 6 months. Transfer of ownership happens once fully paid. Taxes and transfer fees are on the buyer.\n\nKung naghanap ka og affordable na condo unit sa Lahug na move-in ready — kani gyud. Fully furnished na, naa pay parking, ug accessible kaayo ang location.",
     "vision_items": "Personal Residence|Move in immediately with everything included — TV, ref, bed, sofa, aircon. Perfect for a young professional or student who wants to live in the heart of Cebu City without the hassle of furnishing.|Rental Income|Lahug is high-demand for renters — students, BPO workers, and expats are always looking for furnished studios. This unit is ready to rent out day one. Parking slot adds extra value.|Airbnb Investment|Fully furnished studio in a prime Lahug location near schools, malls, and hospitals. Ideal for short-term rental guests visiting Cebu City. Plug and play.|Starter Investment|At P3.7M with parking in Lahug, this is below market for Mivesa units. Condo values in Lahug continue to appreciate as the area develops. A solid entry-level investment."
+  },
+  {
+    "id": "20",
+    "title": "2-Bedroom Townhouse at Deca Homes Phase 2, Dumlog, Talisay",
+    "type": "house-and-lot",
+    "location": "talisay",
+    "address": "Blk 17 Lot 12, Deca Homes Phase 2, Baywalk Subdivision, Dumlog, Talisay, Cebu",
+    "lot_area": 56,
+    "floor_area": null,
+    "price_per_sqm": null,
+    "total_price": 0,
+    "description": "2-storey townhouse at Deca Homes Phase 2 in Baywalk Subdivision, Dumlog, Talisay. 56 sqm lot with 2 bedrooms, 1 bathroom, living area, kitchen, and laundry area. Located inside a guarded subdivision with motorcycle and small car parking. Prime area with high demand for rentals — perfect for rentals, boarding house, or family business.",
+    "features": "2 Bedrooms,1 Bathroom,Living Area,Kitchen,Laundry Area,Guarded Subdivision,Motorcycle & Small Car Parking,56 sqm Lot,2-Storey,Prime Rental Area,Deca Homes Phase 2",
+    "photo_url": "images/deca-talisay-1.jpeg",
+    "photo_urls": "images/deca-talisay-1.jpeg,images/deca-talisay-2.jpeg,images/deca-talisay-3.jpeg,images/deca-talisay-4.jpeg",
+    "map_url": "Deca Homes Phase 2, Dumlog, Talisay, Cebu, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Inquire for details",
+    "status": "active",
+    "date_listed": "2026-02-25",
+    "verification": {
+      "code": "CLM-2026-T020",
+      "date": "2026-02-25",
+      "checks": {
+        "title_verified": false,
+        "tax_current": false,
+        "owner_confirmed": false,
+        "documents_complete": false,
+        "photos_authentic": true,
+        "no_encumbrance": false,
+        "boundary_clear": false,
+        "road_access": true
+      }
+    },
+    "story": "Deca Homes Phase 2 sits in Baywalk Subdivision, Dumlog, Talisay — one of the most in-demand areas in southern Cebu. This is a 2-storey townhouse on a 56 sqm lot at Block 17, Lot 12. Two bedrooms upstairs, a bathroom, a living area with tiled floors and steel trusses, a kitchen with wooden cabinets and tiled countertops, and a laundry area.\n\nThe subdivision is guarded and there's space for a motorcycle and a small car. The area is prime for rentals — Deca Homes communities always have steady demand from workers and families looking for affordable housing in Talisay.\n\nWhether you're looking for a family home, a rental property, or a boarding house setup — this unit checks the boxes. Talisay is growing fast, and Deca Homes is right in the middle of it.\n\nKung nangita ka og balay sa Talisay na affordable ug naa sa sulod sa subdivision — kani gyud. Duha ka kwarto, guarded, ug dako ang demand sa rentahan sa area.",
+    "vision_items": "Family Home|A 2-bedroom townhouse inside a guarded subdivision. Living area, kitchen, laundry, and parking space — everything a small family needs. Move in and settle down.|Rental Income|Deca Homes communities have high rental demand. This unit can generate steady monthly income from workers and families in the Talisay area.|Boarding House|The layout and location make this ideal for a boarding house setup. High demand area, guarded subdivision, and affordable price point — great for passive income.|Long-Term Investment|Talisay is one of the fastest-growing cities in Cebu. Property values in Deca Homes continue to rise as the area develops. Buy now while prices are still accessible."
   }
 ];
