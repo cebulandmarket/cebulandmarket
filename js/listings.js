@@ -78,7 +78,7 @@ function createPropertyCard(listing) {
   var pricePerSqm = listing.price_per_sqm ? formatPrice(applyFee(listing.price_per_sqm, listing.id)) + '/sqm' : '';
   var locationDisplay = getLocationName(listing.location);
   var typeDisplay = getTypeName(listing.type);
-  var areaDisplay = formatNumber(listing.lot_area) + ' sqm';
+  var areaDisplay = listing.type === 'condo' ? (listing.parking_area ? formatNumber(listing.parking_area) + ' sqm parking' : 'With Parking') : formatNumber(listing.lot_area) + ' sqm';
   var floorDisplay = listing.floor_area ? formatNumber(listing.floor_area) + ' sqm floor' : '';
 
   var card = document.createElement('div');
