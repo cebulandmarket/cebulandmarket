@@ -251,7 +251,7 @@ function applyFilters() {
   }
 
   if (resultsCount) {
-    resultsCount.textContent = filtered.length + ' propert' + (filtered.length === 1 ? 'y' : 'ies') + ' found';
+    resultsCount.style.display = 'none';
   }
 }
 
