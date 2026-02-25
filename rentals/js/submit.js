@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
     'owner_name': 'Please enter your full name so we know who to contact.',
     'contact_number': 'Please enter your phone number (e.g. 09XX XXX XXXX).',
     'email': 'Please enter a valid email address so we can send you updates.',
-    'property_title': 'Give your rental a short title (e.g. "2BR Condo in IT Park, Cebu City").',
     'property_type': 'Please select what type of rental property this is.',
     'location': 'Please select the municipality where your rental is located.',
     'monthly_rent': 'Please enter the monthly rent amount in pesos.',
