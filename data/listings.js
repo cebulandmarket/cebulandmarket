@@ -851,7 +851,7 @@ var LISTINGS_DATA = [
     "messenger": "https://m.me/61575981498498",
     "viber": "639687512330",
     "whatsapp": "639687512330",
-    "status": "available",
+    "status": "active",
     "featured": true,
     "date_listed": "2026-02-25",
     "verification": {
