@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Format price to PHP currency
 function formatPrice(price) {
-  if (!price || isNaN(price)) return '₱0';
+  if (!price || isNaN(price) || price === 0) return 'TBD';
   return '₱' + Number(price).toLocaleString('en-PH');
 }
 
