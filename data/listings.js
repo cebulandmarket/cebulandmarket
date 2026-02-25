@@ -835,7 +835,7 @@ var LISTINGS_DATA = [
   {
     "id": "21",
     "title": "100 sqm Lot at El Monte Grande Heights, San Vicente, Liloan",
-    "type": "lot-only",
+    "type": "lot",
     "location": "liloan",
     "address": "El Monte Grande Heights Subdivision, San Vicente, Liloan, Cebu",
     "lot_area": 100,
@@ -851,6 +851,7 @@ var LISTINGS_DATA = [
     "messenger": "https://m.me/61575981498498",
     "viber": "639687512330",
     "whatsapp": "639687512330",
+    "title_status": "Inquire for details",
     "status": "active",
     "featured": true,
     "date_listed": "2026-02-25",
