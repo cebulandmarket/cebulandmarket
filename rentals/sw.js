@@ -17,7 +17,8 @@ var HTML_PAGES = [
   '/rentals/list.html',
   '/rentals/agreement.html',
   '/rentals/landlord-agreement.html',
-  '/rentals/404.html'
+  '/rentals/404.html',
+  '/rentals/install.html'
 ];
 
 var STATIC_ASSETS = [

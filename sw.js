@@ -14,7 +14,8 @@ var HTML_PAGES = [
   '/privacy.html',
   '/terms.html',
   '/share.html',
-  '/verify.html'
+  '/verify.html',
+  '/install.html'
 ];
 
 var STATIC_ASSETS = [
