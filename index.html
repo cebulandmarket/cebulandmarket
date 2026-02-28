@@ -133,47 +133,112 @@
   <section style="background:#f0fdf4; padding:32px 0; border-bottom:1px solid #d1fae5;">
     <div class="container" style="max-width:720px;">
       <p style="font-size:1.25rem; color:#166534; font-weight:700; margin:0 0 12px 0; text-align:center;">Para sa mga Cebuano — Basaha ni ha!</p>
-      <p style="font-size:1rem; color:#15803d; margin:0 0 16px 0; line-height:1.7; text-align:center;">
-        Ang CebuLandMarket kay <strong>platform ra</strong> — website ra ni siya kung asa ang mga property owner magpost sa ilang lupa o yuta nga ibaligya. <strong>Dili mi real estate agent, dili mi broker, ug wala mi gina-charge nga hidden fees.</strong>
-      </p>
-      <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #16a34a;">
-        <p style="font-weight:700; color:#166534; margin:0 0 8px 0;">Kung ikaw ang mopalit (Buyer):</p>
-        <ul style="margin:0; padding-left:20px; color:#15803d; line-height:1.8;">
-          <li>Libre ra ang pagtan-aw sa mga listings sa website</li>
-          <li>Kung naay property nga gusto nimo, <strong>mag-inquire sa among platform</strong> — dili ka mo-message direkta sa owner</li>
-          <li>Among i-connect ka sa seller pagkahuman sa imong inquiry</li>
-          <li>Pwede gyud ka movisita sa property mismo sa dili pa ka modesisyon — pero <strong>dili mi agent</strong>, <span style="background:#fef08a; padding:2px 6px; border-radius:4px; font-weight:700;">dili mi mo-uban nimo sa pagtan-aw</span></li>
-          <li>Ikaw ug ang seller ang mag-deal — wala mi apil sa negotiation</li>
-        </ul>
+      <div style="text-align:center; margin-bottom:16px;">
+        <button id="langToggle" onclick="document.getElementById('bisayaContent').style.display=document.getElementById('bisayaContent').style.display==='none'?'block':'none';document.getElementById('englishContent').style.display=document.getElementById('englishContent').style.display==='none'?'block':'none';this.textContent=this.textContent==='Read in English'?'Basaha sa Bisaya':'Read in English';" style="background:#16a34a; color:#fff; border:2px solid #16a34a; padding:12px 28px; border-radius:25px; font-size:1rem; font-weight:700; cursor:pointer; box-shadow:0 2px 8px rgba(22,163,74,0.3); transition:all 0.2s;" onmouseover="this.style.background='#fff';this.style.color='#16a34a';" onmouseout="this.style.background='#16a34a';this.style.color='#fff';">Read in English</button>
       </div>
-      <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #16a34a;">
-        <p style="font-weight:700; color:#166534; margin:0 0 8px 0;">Kung ikaw ang mobaligya (Seller):</p>
-        <ul style="margin:0; padding-left:20px; color:#15803d; line-height:1.8;">
-          <li>Mag-submit lang sa imong property details sa among website</li>
-          <li>Among i-verify ang mga documents para masiguro nga legit ang listing</li>
-          <li>Kung approved, makita ang imong property sa libo-libo nga mga buyer online</li>
-          <li>Ikaw ang mag-set sa imong kaugalingong presyo</li>
-          <li><strong style="background:#fef08a; padding:2px 6px; border-radius:4px;">I-check ang agreement sa dili pa ka mo-list sa imong property</strong></li>
-        </ul>
+
+      <!-- Bisaya Version (Default) -->
+      <div id="bisayaContent">
+        <p style="font-size:1rem; color:#15803d; margin:0 0 16px 0; line-height:1.7; text-align:center;">
+          Ang CebuLandMarket kay <strong>platform ra</strong> — website ra ni siya kung asa ang mga property owner magpost sa ilang lupa o yuta nga ibaligya. <strong>Dili mi real estate agent, dili mi broker, ug wala mi gina-charge nga hidden fees.</strong>
+        </p>
+        <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #16a34a;">
+          <p style="font-weight:700; color:#166534; margin:0 0 8px 0;">Kung ikaw ang mopalit (Buyer):</p>
+          <ul style="margin:0; padding-left:20px; color:#15803d; line-height:1.8;">
+            <li>Libre ra ang pagtan-aw sa mga listings sa website</li>
+            <li>Kung naay property nga gusto nimo, <strong>mag-inquire sa among platform</strong> — dili ka mo-message direkta sa owner</li>
+            <li>Among i-connect ka sa seller pagkahuman sa imong inquiry</li>
+            <li>Pwede gyud ka movisita sa property mismo sa dili pa ka modesisyon — pero <strong>dili mi agent</strong>, <span style="background:#fef08a; padding:2px 6px; border-radius:4px; font-weight:700;">dili mi mo-uban nimo sa pagtan-aw</span></li>
+            <li>Ikaw ug ang seller ang mag-deal — wala mi apil sa negotiation</li>
+          </ul>
+        </div>
+        <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #16a34a;">
+          <p style="font-weight:700; color:#166534; margin:0 0 8px 0;">Kung ikaw ang mobaligya (Seller):</p>
+          <ul style="margin:0; padding-left:20px; color:#15803d; line-height:1.8;">
+            <li>Mag-submit lang sa imong property details sa among website</li>
+            <li>Among i-verify ang mga documents para masiguro nga legit ang listing</li>
+            <li>Kung approved, makita ang imong property sa libo-libo nga mga buyer online</li>
+            <li>Ikaw ang mag-set sa imong kaugalingong presyo</li>
+            <li><strong style="background:#fef08a; padding:2px 6px; border-radius:4px;">I-check ang agreement sa dili pa ka mo-list sa imong property</strong></li>
+          </ul>
+        </div>
+        <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #dc2626;">
+          <p style="font-weight:700; color:#dc2626; margin:0 0 8px 0;">Unsa ang wala namo ginabuhat:</p>
+          <ul style="margin:0; padding-left:20px; color:#555; line-height:1.8;">
+            <li><strong>Dili mi nag-cleaning</strong> sa property</li>
+            <li><strong>Dili mi caretaker</strong> o magbantay sa yuta</li>
+            <li><strong>Dili mi mo-negotiate</strong> para nimo — ikaw ang magdeal sa imong kaugalingon</li>
+          </ul>
+        </div>
+        <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #16a34a;">
+          <p style="font-weight:700; color:#166534; margin:0 0 8px 0;">Tips para safe ka:</p>
+          <ul style="margin:0; padding-left:20px; color:#15803d; line-height:1.8;">
+            <li>Ang tanan nga listing dinhi <strong>gi-verify na namo</strong> — gi-check namo ang documents sa dili pa ma-approve</li>
+            <li><strong>Moadto gyud ka sa property mismo</strong> sa dili pa mopalit — para makita nimo sa imong kaugalingon</li>
+            <li>Kung mag-meet mo sa seller, pwede ka magdala ug kauban</li>
+            <li>Ayaw gyud ug bayad kung wala pa ka kabisita sa property ug wala pa ka sure</li>
+            <li>Kung naa kay duda o pangutana, <strong>message ra namo — libre ra, tabangan ka namo</strong></li>
+          </ul>
+        </div>
+        <div style="background:#fefce8; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #ca8a04; border:2px solid #ca8a04;">
+          <p style="font-weight:700; color:#854d0e; margin:0 0 10px 0; font-size:1.05rem;">📄 MGA DOCUMENTO DIRI LEGIT.</p>
+          <p style="color:#713f12; margin:0; line-height:1.8;">
+            <strong>Dili mi modawat ug property nga kuwang sa documento o lisod ang documento.</strong> Ang mga listing nga imong makita diri, mga <strong>wala nay problema</strong> — ma-process ra dayon. Mao na nga makasigurado gyud ka nga <strong>legit ang imong gipalit nga property</strong> kay <strong>gi-check na sa among team usa pa namo i-post.</strong>
+          </p>
+        </div>
       </div>
-      <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #dc2626;">
-        <p style="font-weight:700; color:#dc2626; margin:0 0 8px 0;">Unsa ang wala namo ginabuhat:</p>
-        <ul style="margin:0; padding-left:20px; color:#555; line-height:1.8;">
-          <li><strong>Dili mi nag-cleaning</strong> sa property</li>
-          <li><strong>Dili mi caretaker</strong> o magbantay sa yuta</li>
-          <li><strong>Dili mi mo-negotiate</strong> para nimo — ikaw ang magdeal sa imong kaugalingon</li>
-        </ul>
+
+      <!-- English Version (Hidden by default) -->
+      <div id="englishContent" style="display:none;">
+        <p style="font-size:1rem; color:#15803d; margin:0 0 16px 0; line-height:1.7; text-align:center;">
+          CebuLandMarket is <strong>just a platform</strong> — a website where property owners can post their land or lot for sale. <strong>We are not real estate agents, not brokers, and we don't charge any hidden fees.</strong>
+        </p>
+        <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #16a34a;">
+          <p style="font-weight:700; color:#166534; margin:0 0 8px 0;">If you're buying (Buyer):</p>
+          <ul style="margin:0; padding-left:20px; color:#15803d; line-height:1.8;">
+            <li>Browsing listings on the website is completely free</li>
+            <li>If you find a property you like, <strong>submit an inquiry through our platform</strong> — don't message the owner directly</li>
+            <li>We'll connect you with the seller after your inquiry</li>
+            <li>You can visit the property in person before deciding — but <strong>we are not agents</strong>, <span style="background:#fef08a; padding:2px 6px; border-radius:4px; font-weight:700;">we won't accompany you on viewings</span></li>
+            <li>You and the seller deal directly — we don't get involved in negotiations</li>
+          </ul>
+        </div>
+        <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #16a34a;">
+          <p style="font-weight:700; color:#166534; margin:0 0 8px 0;">If you're selling (Seller):</p>
+          <ul style="margin:0; padding-left:20px; color:#15803d; line-height:1.8;">
+            <li>Just submit your property details on our website</li>
+            <li>We verify your documents to make sure the listing is legit</li>
+            <li>Once approved, your property will be seen by thousands of buyers online</li>
+            <li>You set your own price</li>
+            <li><strong style="background:#fef08a; padding:2px 6px; border-radius:4px;">Check the agreement before listing your property</strong></li>
+          </ul>
+        </div>
+        <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #dc2626;">
+          <p style="font-weight:700; color:#dc2626; margin:0 0 8px 0;">What we don't do:</p>
+          <ul style="margin:0; padding-left:20px; color:#555; line-height:1.8;">
+            <li><strong>We don't clean</strong> the property</li>
+            <li><strong>We are not caretakers</strong> or property guards</li>
+            <li><strong>We don't negotiate</strong> for you — you handle the deal yourself</li>
+          </ul>
+        </div>
+        <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #16a34a;">
+          <p style="font-weight:700; color:#166534; margin:0 0 8px 0;">Tips to stay safe:</p>
+          <ul style="margin:0; padding-left:20px; color:#15803d; line-height:1.8;">
+            <li>All listings here are <strong>already verified</strong> — we check documents before approving</li>
+            <li><strong>Always visit the property in person</strong> before buying — so you can see it for yourself</li>
+            <li>When meeting the seller, bring someone with you</li>
+            <li>Never pay if you haven't visited the property and aren't sure yet</li>
+            <li>If you have any doubts or questions, <strong>just message us — it's free, we'll help you</strong></li>
+          </ul>
+        </div>
+        <div style="background:#fefce8; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #ca8a04; border:2px solid #ca8a04;">
+          <p style="font-weight:700; color:#854d0e; margin:0 0 10px 0; font-size:1.05rem;">📄 ALL DOCUMENTS HERE ARE LEGIT.</p>
+          <p style="color:#713f12; margin:0; line-height:1.8;">
+            <strong>We don't accept properties with incomplete or problematic documents.</strong> The listings you see here have <strong>no issues</strong> — they can be processed right away. You can be confident that <strong>the property you're buying is legit</strong> because <strong>our team has already checked it before posting.</strong>
+          </p>
+        </div>
       </div>
-      <div style="background:#fff; border-radius:12px; padding:20px; margin-bottom:14px; border-left:4px solid #16a34a;">
-        <p style="font-weight:700; color:#166534; margin:0 0 8px 0;">Tips para safe ka:</p>
-        <ul style="margin:0; padding-left:20px; color:#15803d; line-height:1.8;">
-          <li>Ang tanan nga listing dinhi <strong>gi-verify na namo</strong> — gi-check namo ang documents sa dili pa ma-approve</li>
-          <li><strong>Moadto gyud ka sa property mismo</strong> sa dili pa mopalit — para makita nimo sa imong kaugalingon</li>
-          <li>Kung mag-meet mo sa seller, pwede ka magdala ug kauban</li>
-          <li>Ayaw gyud ug bayad kung wala pa ka kabisita sa property ug wala pa ka sure</li>
-          <li>Kung naa kay duda o pangutana, <strong>message ra namo — libre ra, tabangan ka namo</strong></li>
-        </ul>
-      </div>
+
       <p style="text-align:center; color:#15803d; margin:8px 0 0 0;">Nangita ka og rentahan? <a href="rentals/index.html" style="color:#7B1FA2; font-weight:700;">Adto sa CebuRentMarket →</a></p>
     </div>
   </section>
