@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'crm-v20';
+var CACHE_VERSION = 'crm-v21';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -16,7 +16,8 @@ var HTML_PAGES = [
   '/rentals/verify.html',
   '/rentals/list.html',
   '/rentals/agreement.html',
-  '/rentals/landlord-agreement.html'
+  '/rentals/landlord-agreement.html',
+  '/rentals/404.html'
 ];
 
 var STATIC_ASSETS = [

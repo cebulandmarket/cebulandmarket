@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v36';
+var CACHE_VERSION = 'clm-v37';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -10,7 +10,7 @@ var HTML_PAGES = [
   '/submit.html',
   '/about.html',
   '/faq.html',
-  '/contact.html',
+  '/sell.html',
   '/privacy.html',
   '/terms.html',
   '/share.html',
