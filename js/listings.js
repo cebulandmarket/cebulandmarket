@@ -412,7 +412,9 @@ function renderPropertyDetail() {
           '<div class="detail-card">' +
             '<h2>Inquire About This Property</h2>' +
             '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Inquiries are forwarded to the property owner. Buyer and seller deal directly.</p>' +
-            '<div class="contact-buttons">' + contactHtml + '</div>' +
+            '<div id="inquirySuccessMsg" class="inquiry-success-msg" style="display:none;">Your inquiry has been recorded. You may now contact us about this property. Please include your name when you message us.</div>' +
+            '<div id="contactButtonsContainer" style="display:none;"><div class="contact-buttons">' + contactHtml + '</div></div>' +
+            '<button id="inquiryGateBtn" class="inquiry-gate-btn" onclick="openInquiryModal()">Get Seller\'s Contact Info</button>' +
           '</div>' +
           '<div class="detail-card" style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border:2px solid #16a34a;">' +
             '<h2 style="color:#16a34a;">View Property Story</h2>' +
@@ -433,6 +435,16 @@ function renderPropertyDetail() {
           '</div>' +
         '</div>' +
       '</div>';
+
+    // Gate contact buttons until inquiry form is submitted
+    document.body.classList.add('contacts-gated');
+
+    // Store listing info for inquiry modal
+    window._inquiryListing = {
+      id: listing.id,
+      title: listing.title,
+      code: listingCode
+    };
 
     // Update floating buttons with listing-specific pre-filled messages
     var floatMessenger = document.querySelector('.float-messenger');
@@ -456,6 +468,197 @@ function renderPropertyDetail() {
     initLightbox(photoUrls);
   });
 }
+
+// ==========================================
+// INQUIRY REGISTRATION MODAL
+// ==========================================
+
+var _inquiryActiveTab = 'facebook';
+
+function openInquiryModal() {
+  var info = window._inquiryListing;
+  if (!info) return;
+
+  // Create modal once
+  if (!document.getElementById('inquiryRegModal')) {
+    var modal = document.createElement('div');
+    modal.className = 'inquiry-modal';
+    modal.id = 'inquiryRegModal';
+    modal.innerHTML =
+      '<div class="inquiry-modal-content">' +
+        '<button class="inquiry-modal-close" onclick="closeInquiryModal()">&times;</button>' +
+        '<h2>Inquiry Registration</h2>' +
+        '<p class="inquiry-subtitle">Property: <strong>' + escapeHtml(info.title) + '</strong> (' + info.code + ')</p>' +
+        '<div class="inquiry-notice">' +
+          'For everyone\'s safety, we record all inquiries before releasing contact information. Your details are kept confidential and will only be used to verify your identity in case of any issues during the property viewing. By submitting, you agree to our <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.' +
+        '</div>' +
+        '<form id="inquiryRegForm" onsubmit="submitInquiryRegistration(event)">' +
+          '<div class="inquiry-form-row">' +
+            '<div class="inquiry-form-group">' +
+              '<label>Full Name <span class="required">*</span></label>' +
+              '<input type="text" name="full_name" required placeholder="Your full name">' +
+            '</div>' +
+            '<div class="inquiry-form-group">' +
+              '<label>Contact Number <span class="required">*</span></label>' +
+              '<input type="tel" name="contact_number" required placeholder="e.g. 09XX XXX XXXX">' +
+            '</div>' +
+          '</div>' +
+          '<div class="inquiry-form-group">' +
+            '<label>Email Address <span class="required">*</span></label>' +
+            '<input type="email" name="email" required placeholder="your@email.com">' +
+          '</div>' +
+          '<div class="inquiry-form-group">' +
+            '<label>Intended Viewing Date</label>' +
+            '<input type="date" name="viewing_date">' +
+          '</div>' +
+          '<div class="inquiry-form-group">' +
+            '<label>Message</label>' +
+            '<textarea name="message" placeholder="Any questions or details about your inquiry..."></textarea>' +
+          '</div>' +
+          '<div class="id-verify-section">' +
+            '<label>Identity Verification <span class="required">*</span></label>' +
+            '<div class="id-verify-tabs">' +
+              '<button type="button" class="id-verify-tab active" onclick="switchIdTab(\'facebook\', this)">Facebook Link</button>' +
+              '<button type="button" class="id-verify-tab" onclick="switchIdTab(\'selfie\', this)">Selfie Photo</button>' +
+              '<button type="button" class="id-verify-tab" onclick="switchIdTab(\'valid-id\', this)">Valid ID Photo</button>' +
+            '</div>' +
+            '<div class="id-tab-panel active" id="idTab-facebook">' +
+              '<div class="inquiry-form-group" style="margin-bottom:0;">' +
+                '<input type="url" name="facebook_link" placeholder="https://facebook.com/yourprofile">' +
+              '</div>' +
+            '</div>' +
+            '<div class="id-tab-panel" id="idTab-selfie">' +
+              '<div class="inquiry-form-group" style="margin-bottom:0;">' +
+                '<input type="file" name="attachment" accept="image/*" capture="user">' +
+              '</div>' +
+            '</div>' +
+            '<div class="id-tab-panel" id="idTab-valid-id">' +
+              '<div class="inquiry-form-group" style="margin-bottom:0;">' +
+                '<input type="file" name="attachment" accept="image/*">' +
+              '</div>' +
+            '</div>' +
+            '<p class="id-verify-note">This is for identity verification only. Your information will not be shared publicly and will only be used in case of issues during the property viewing.</p>' +
+          '</div>' +
+          '<button type="submit" class="inquiry-submit-btn">Submit Inquiry</button>' +
+        '</form>' +
+      '</div>';
+    document.body.appendChild(modal);
+
+    // Close on backdrop click
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeInquiryModal();
+    });
+  }
+
+  var modal = document.getElementById('inquiryRegModal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeInquiryModal() {
+  var modal = document.getElementById('inquiryRegModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function switchIdTab(tabName, btn) {
+  _inquiryActiveTab = tabName;
+  // Update tab buttons
+  var tabs = btn.parentElement.querySelectorAll('.id-verify-tab');
+  for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+  btn.classList.add('active');
+
+  // Update panels
+  var panels = btn.parentElement.parentElement.querySelectorAll('.id-tab-panel');
+  for (var j = 0; j < panels.length; j++) panels[j].classList.remove('active');
+  document.getElementById('idTab-' + tabName).classList.add('active');
+
+  // Clear inactive file inputs to avoid sending wrong file
+  var inactivePanels = btn.parentElement.parentElement.querySelectorAll('.id-tab-panel:not(.active)');
+  for (var k = 0; k < inactivePanels.length; k++) {
+    var fileInput = inactivePanels[k].querySelector('input[type="file"]');
+    if (fileInput) fileInput.value = '';
+    var textInput = inactivePanels[k].querySelector('input[type="url"], input[type="text"]');
+    if (textInput) textInput.value = '';
+  }
+}
+
+function submitInquiryRegistration(e) {
+  e.preventDefault();
+  var form = document.getElementById('inquiryRegForm');
+  if (!form) return;
+
+  // Validate identity verification
+  var hasId = false;
+  if (_inquiryActiveTab === 'facebook') {
+    var fbInput = form.querySelector('#idTab-facebook input');
+    if (fbInput && fbInput.value.trim()) hasId = true;
+  } else if (_inquiryActiveTab === 'selfie') {
+    var selfieInput = form.querySelector('#idTab-selfie input[type="file"]');
+    if (selfieInput && selfieInput.files.length > 0) hasId = true;
+  } else if (_inquiryActiveTab === 'valid-id') {
+    var idInput = form.querySelector('#idTab-valid-id input[type="file"]');
+    if (idInput && idInput.files.length > 0) hasId = true;
+  }
+
+  if (!hasId) {
+    alert('Please provide identity verification (Facebook link, selfie, or valid ID photo).');
+    return;
+  }
+
+  var info = window._inquiryListing;
+  var btn = form.querySelector('.inquiry-submit-btn');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  // Build FormData
+  var fd = new FormData(form);
+  fd.append('access_key', '09df7276-a4b9-440c-9342-b4c7971c1dce');
+  fd.append('subject', 'New Inquiry \u2014 ' + info.title + ' (' + info.code + ')');
+  fd.append('from_name', 'CebuLandMarket Inquiry');
+  fd.append('property_name', info.title);
+  fd.append('listing_id', info.code);
+  fd.append('id_verification_method', _inquiryActiveTab === 'facebook' ? 'Facebook Profile Link' : _inquiryActiveTab === 'selfie' ? 'Selfie Photo' : 'Valid ID Photo');
+  fd.append('inquiry_date_time', new Date().toLocaleString('en-PH', { timeZone: 'Asia/Manila' }));
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: fd
+  }).then(function(res) {
+    return res.json();
+  }).then(function(data) {
+    revealContacts();
+  }).catch(function() {
+    // Still reveal contacts on network error (form was attempted)
+    revealContacts();
+  });
+}
+
+function revealContacts() {
+  closeInquiryModal();
+  document.body.classList.remove('contacts-gated');
+
+  var gateBtn = document.getElementById('inquiryGateBtn');
+  if (gateBtn) gateBtn.style.display = 'none';
+
+  var successMsg = document.getElementById('inquirySuccessMsg');
+  if (successMsg) successMsg.style.display = 'block';
+
+  var contactsContainer = document.getElementById('contactButtonsContainer');
+  if (contactsContainer) contactsContainer.style.display = 'block';
+}
+
+// Close inquiry modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var modal = document.getElementById('inquiryRegModal');
+    if (modal && modal.classList.contains('active')) {
+      closeInquiryModal();
+    }
+  }
+});
 
 // Inquiry form handler
 document.addEventListener('click', function(e) {
