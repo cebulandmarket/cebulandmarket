@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'crm-v24';
+var CACHE_VERSION = 'crm-v25';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
