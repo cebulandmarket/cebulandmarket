@@ -86,21 +86,28 @@
       <p style="font-size:0.85rem; color:#7c3aed; margin:6px 0 0 0;">Ang tenant walay bayad. Ang owner ra ang mag-bayad kung successful ang placement.</p>
       <p style="font-size:0.85rem; color:#581c87; margin:6px 0 0 0; font-weight:700;">ONE-TIME PAYMENT RA BISAN PA UG SHORT-TERM OR LONG-TERM RENT.</p>
       <div style="background:#fefce8; border-radius:10px; padding:16px 20px; margin-top:16px; border:2px solid #ca8a04;">
-        <p style="font-weight:700; color:#854d0e; margin:0 0 8px 0; font-size:0.95rem;">📋 Example — Para masabtan nimo:</p>
-        <p style="color:#713f12; margin:0; font-size:0.88rem; line-height:1.8;">
-          Naa kay <strong>apartment nga ipaabang sa ₱8,000/month</strong>.<br>
-          Mag-list ka diri — <strong>FREE, walay bayad</strong>.<br>
-          Naay tenant nga nakita → <strong>i-notify ka namo</strong> → magbayad ka ug <strong>₱1,000 one-time fee</strong> via GCash.<br>
-          Among i-prepare ang <strong>rental agreement</strong> → ikaw ug ang tenant mag-deal na directly. Done!
-        </p>
-        <hr style="border:none; border-top:1px solid #e5c76b; margin:12px 0;">
-        <p style="font-weight:700; color:#854d0e; margin:0 0 8px 0; font-size:0.95rem;">📋 Example — So you understand how it works:</p>
-        <p style="color:#713f12; margin:0; font-size:0.88rem; line-height:1.8;">
-          You have an <strong>apartment for rent at ₱8,000/month</strong>.<br>
-          You list it here — <strong>FREE, no charge</strong>.<br>
-          A tenant is found → <strong>we notify you</strong> → you pay a <strong>₱1,000 one-time fee</strong> via GCash.<br>
-          We prepare the <strong>rental agreement</strong> → you and the tenant deal directly. Done!
-        </p>
+        <div style="display:flex; gap:6px; margin-bottom:10px;">
+          <button onclick="document.getElementById('exBisaya').style.display='block';document.getElementById('exEnglish').style.display='none';this.style.background='#854d0e';this.style.color='#fff';this.nextElementSibling.style.background='#fff';this.nextElementSibling.style.color='#854d0e';" style="padding:6px 16px; border:2px solid #854d0e; border-radius:20px; background:#854d0e; color:#fff; font-size:0.82rem; font-weight:700; cursor:pointer;">Bisaya</button>
+          <button onclick="document.getElementById('exEnglish').style.display='block';document.getElementById('exBisaya').style.display='none';this.style.background='#854d0e';this.style.color='#fff';this.previousElementSibling.style.background='#fff';this.previousElementSibling.style.color='#854d0e';" style="padding:6px 16px; border:2px solid #854d0e; border-radius:20px; background:#fff; color:#854d0e; font-size:0.82rem; font-weight:700; cursor:pointer;">English</button>
+        </div>
+        <div id="exBisaya">
+          <p style="font-weight:700; color:#854d0e; margin:0 0 8px 0; font-size:0.95rem;">📋 Example — Para masabtan nimo:</p>
+          <p style="color:#713f12; margin:0; font-size:0.88rem; line-height:1.8;">
+            Naa kay <strong>apartment nga ipaabang sa ₱8,000/month</strong>.<br>
+            Mag-list ka diri — <strong>FREE, walay bayad</strong>.<br>
+            Naay tenant nga nakita → <strong>i-notify ka namo</strong> → magbayad ka ug <strong>₱1,000 one-time fee</strong> via GCash.<br>
+            Among i-prepare ang <strong>rental agreement</strong> → ikaw ug ang tenant mag-deal na directly. Done!
+          </p>
+        </div>
+        <div id="exEnglish" style="display:none;">
+          <p style="font-weight:700; color:#854d0e; margin:0 0 8px 0; font-size:0.95rem;">📋 Example — So you understand how it works:</p>
+          <p style="color:#713f12; margin:0; font-size:0.88rem; line-height:1.8;">
+            You have an <strong>apartment for rent at ₱8,000/month</strong>.<br>
+            You list it here — <strong>FREE, no charge</strong>.<br>
+            A tenant is found → <strong>we notify you</strong> → you pay a <strong>₱1,000 one-time fee</strong> via GCash.<br>
+            We prepare the <strong>rental agreement</strong> → you and the tenant deal directly. Done!
+          </p>
+        </div>
       </div>
     </div>
   </section>
