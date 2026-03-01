@@ -367,12 +367,18 @@ function renderPropertyDetail() {
       featuresHtml += '</ul></div>';
     }
 
-    // Contact buttons — all inquiries go to CebuLandMarket (middleman)
+    // Contact buttons — pre-filled with property name and listing ID
+    var listingCode = 'CLM-' + listing.id;
+    var listingSlug = listing.title.replace(/[^a-zA-Z0-9]/g, '-').replace(/-+/g, '-');
+    var waText = encodeURIComponent('Hi CebuLandMarket! I\'m interested in: ' + listing.title + ' \u2014 Listing ID: ' + listingCode + '. Please send me the seller\'s contact info.');
+    var viberText = encodeURIComponent('Hi CebuLandMarket! I\'m interested in: ' + listing.title + ' \u2014 Listing ID: ' + listingCode + '. Please send me the seller\'s contact info.');
+    var emailSubject = encodeURIComponent('Property Inquiry \u2014 ' + listing.title + ' (' + listingCode + ')');
+    var emailBody = encodeURIComponent('Hi CebuLandMarket,\n\nI am interested in the following property:\n\nProperty Name: ' + listing.title + '\nListing ID: ' + listingCode + '\n\nPlease send me the seller\'s contact information.\n\nThank you!');
     var contactHtml = '';
-    contactHtml += '<a href="https://m.me/61587469756965" target="_blank" class="contact-btn messenger">&#128172; Message us on Messenger</a>';
-    contactHtml += '<a href="https://wa.me/639687512330?text=' + encodeURIComponent('Hi, I\'m interested in: ' + listing.title) + '" target="_blank" class="contact-btn whatsapp">&#128172; WhatsApp us</a>';
-    contactHtml += '<a href="viber://chat?number=639687512330" class="contact-btn viber">&#128222; Chat on Viber</a>';
-    contactHtml += '<a href="mailto:info@cebulandmarket.com?subject=' + encodeURIComponent('Inquiry: ' + listing.title) + '" class="contact-btn phone">&#9993; Email us</a>';
+    contactHtml += '<a href="https://wa.me/639687512330?text=' + waText + '" target="_blank" class="contact-btn whatsapp">&#128172; Inquire on WhatsApp</a>';
+    contactHtml += '<a href="https://m.me/61587469756965?ref=' + listingCode + '_' + listingSlug + '" target="_blank" class="contact-btn messenger">&#128172; Inquire on Messenger</a>';
+    contactHtml += '<a href="viber://chat?number=639687512330&text=' + viberText + '" class="contact-btn viber">&#128222; Inquire on Viber</a>';
+    contactHtml += '<a href="mailto:info@cebulandmarket.com?subject=' + emailSubject + '&body=' + emailBody + '" class="contact-btn phone">&#9993; Inquire by Email</a>';
 
     // Render full detail page
     container.innerHTML =
@@ -428,10 +434,22 @@ function renderPropertyDetail() {
         '</div>' +
       '</div>';
 
-    // Update mobile sticky bar WhatsApp link with listing title
+    // Update floating buttons with listing-specific pre-filled messages
+    var floatMessenger = document.querySelector('.float-messenger');
+    var floatWhatsapp = document.querySelector('.float-whatsapp');
+    var floatViber = document.querySelector('.float-viber');
+    if (floatMessenger) floatMessenger.href = 'https://m.me/61587469756965?ref=' + listingCode + '_' + listingSlug;
+    if (floatWhatsapp) floatWhatsapp.href = 'https://wa.me/639687512330?text=' + waText;
+    if (floatViber) floatViber.href = 'viber://chat?number=639687512330&text=' + viberText;
+
+    // Update mobile sticky bar with pre-filled messages
     var stickyWa = document.getElementById('stickyWhatsapp');
     if (stickyWa) {
-      stickyWa.href = 'https://wa.me/639687512330?text=' + encodeURIComponent('Hi, I\'m interested in: ' + listing.title);
+      stickyWa.href = 'https://wa.me/639687512330?text=' + waText;
+    }
+    var stickyMsg = document.querySelector('.sticky-btn.messenger-btn');
+    if (stickyMsg) {
+      stickyMsg.href = 'https://m.me/61587469756965?ref=' + listingCode + '_' + listingSlug;
     }
 
     // Init lightbox for gallery photos
