@@ -411,7 +411,6 @@ function renderPropertyDetail() {
           '</div>' +
           '<div class="detail-card">' +
             '<h2>Inquire About This Property</h2>' +
-            '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Inquiries are forwarded to the property owner. Buyer and seller deal directly.</p>' +
             '<div id="inquirySuccessMsg" class="inquiry-success-msg" style="display:none;">Your inquiry has been recorded. You may now contact us about this property. Please include your name when you message us.</div>' +
             '<div id="contactButtonsContainer" style="display:none;"><div class="contact-buttons">' + contactHtml + '</div></div>' +
             '<button id="inquiryGateBtn" class="inquiry-gate-btn" onclick="openInquiryModal()">Get Seller\'s Contact Info</button>' +

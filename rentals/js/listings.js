@@ -798,7 +798,6 @@ function renderPropertyDetail() {
           '</div>' +
           '<div class="detail-card">' +
             '<h2>' + (rented ? 'Property Rented' : 'Inquire About This Rental') + '</h2>' +
-            (rented ? '' : '<p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px;">Inquiries are forwarded to the property owner. Tenant and owner deal directly.</p>') +
             (!rented ? '<div id="inquirySuccessMsg" class="inquiry-success-msg" style="display:none;">Your inquiry has been recorded. You may now contact us about this rental. Please include your name when you message us.</div>' : '') +
             (!rented ? '<div id="contactButtonsContainer" style="display:none;"><div class="contact-buttons">' + contactHtml + '</div></div>' : '<div class="contact-buttons">' + contactHtml + '</div>') +
             (!rented ? '<button id="inquiryGateBtn" class="inquiry-gate-btn" onclick="openInquiryModal()">Get Landlord\'s Contact Info</button>' : '') +
