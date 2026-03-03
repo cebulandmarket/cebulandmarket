@@ -871,5 +871,45 @@ var LISTINGS_DATA = [
     },
     "story": "El Monte Grande Heights sits on elevated ground in San Vicente, Liloan — a quiet, growing area just north of Cebu City. This 100 sqm lot is inside a gated subdivision developed by Psalm Property Ventures and Development Corp.\n\nThe subdivision has concrete roads, electrical and water systems, underground drainage, and a covered basketball court. The lots have nice elevation with views of the surrounding hills and mountains.\n\nThe developer's current price is ₱10,000 per sqm, but this lot is being offered at only ₱8,000 per sqm — ₱800,000 total. That's ₱200,000 below developer price. Great opportunity for anyone looking to build in Liloan while prices are still affordable.\n\nLiloan is one of the fastest-growing municipalities in Cebu, with the 4th bridge project and commercial developments pushing property values up. Buy now before prices catch up.\n\nKung gusto nimo og lote sa Liloan na naa sa sulod sa subdivision — kani ang chance. Mas barato pa sa developer price, naa nay kalsada, tubig, kuryente, ug basketball court.",
     "vision_items": "Dream Home|Build your family home on a 100 sqm lot inside a gated subdivision. Concrete roads, water, electricity, and drainage already in place. Just design and build.|Investment|Developer price is ₱10,000/sqm — this lot is only ₱8,000/sqm. That's ₱200,000 instant equity. Liloan property values are rising fast with the 4th bridge project.|Future Rental|Build a house and rent it out. Liloan's growing population means steady demand for housing. A subdivision lot with amenities commands higher rental value.|Retirement Home|Quiet, elevated location with mountain views. Away from city noise but close enough to Liloan proper and Cebu City. Perfect place to settle down."
+  },
+  {
+    "id": "22",
+    "title": "Overlooking Lot in Montabor Hills, Talamban, Cebu City",
+    "type": "lot",
+    "location": "cebu-city",
+    "address": "Montabor Hills, Talamban, Cebu City",
+    "lot_area": 200,
+    "floor_area": null,
+    "price_per_sqm": 10000,
+    "total_price": 2000000,
+    "description": "Overlooking residential lot for sale in Montabor Hills, Talamban, Cebu City. Lot sizes range from 200 to 300 sqm — cutting depends on buyer preference. Priced at ₱10,000 per sqm (nett). The property has a clean title and sits on elevated ground with beautiful overlooking views of the surrounding hills and the city below. Located near a barangay cemented road and just minutes from North General Hospital Cebu. Ideal for building a dream home, retirement house, or business establishment. Talamban is one of the most sought-after areas in Cebu City — quiet, elevated, and close to schools, hospitals, and commercial centers.",
+    "features": "Clean Title,200-300 sqm,Overlooking View,Near Cemented Road,Near North General Hospital Cebu,Good for Residential,Good for Retirement,Good for Business,Elevated Location,Talamban Cebu City",
+    "photo_url": "images/montabor-talamban-4.jpg",
+    "photo_urls": "images/montabor-talamban-4.jpg,images/montabor-talamban-2.jpg,images/montabor-talamban-3.jpg,images/montabor-talamban-1.jpg",
+    "map_url": "Montabor Hills, Talamban, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/61575981498498",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "title_status": "Clean Title",
+    "status": "active",
+    "featured": true,
+    "date_listed": "2026-03-03",
+    "verification": {
+      "verified": false,
+      "date": "2026-03-03",
+      "checks": {
+        "title_verified": false,
+        "tax_current": false,
+        "owner_confirmed": false,
+        "documents_complete": false,
+        "photos_authentic": true,
+        "no_encumbrance": false,
+        "boundary_clear": false,
+        "road_access": true
+      }
+    },
+    "story": "Montabor Hills sits on elevated ground in Talamban, Cebu City — one of the most desirable locations in the metro. This overlooking lot offers stunning views of the surrounding hills and the cityscape below.\n\nLot sizes range from 200 to 300 sqm, with cutting flexible depending on what the buyer needs. At ₱10,000 per sqm, this is a solid opportunity in an area where prices keep climbing.\n\nThe location is near a barangay cemented road, making access easy. North General Hospital Cebu is just nearby — a big plus for families. Schools, commercial centers, and the main Talamban road are all within reach.\n\nTalamban has been growing fast. New subdivisions, businesses, and infrastructure are popping up everywhere. Buying here now means getting in while the price is still reasonable.\n\nWhether you want to build your dream home on a hilltop, set up a retirement property with fresh air and views, or invest in land that appreciates — this lot checks the boxes.\n\nNindot kaayo ang view dinhi sa Montabor Hills. Habog, presko ang hangin, ug duol sa hospital ug eskwelahan. Kung nangita ka og lote sa Talamban — kini ang chance.",
+    "vision_items": "Dream Home|Build your dream home on an overlooking lot in Talamban. Wake up to hilltop views every morning. Near hospitals, schools, and commercial centers.|Investment|Talamban land values keep rising. At ₱10,000/sqm, this is below market rate for an overlooking lot in Cebu City. Buy now before prices go higher.|Retirement Home|Fresh air, quiet hillside, beautiful views. Near North General Hospital for peace of mind. The perfect place to settle down and enjoy life.|Business|Elevated location with road access. Good for a small resort, pension house, or bed & breakfast serving Cebu City visitors."
   }
 ];
