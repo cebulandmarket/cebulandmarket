@@ -14,14 +14,14 @@
 var LISTINGS_DATA = [
   {
     "id": "1",
-    "title": "15,012 sqm Lot in Sta. Cruz, Ronda, Cebu",
+    "title": "1.5 Hectare Lot in Sta. Cruz, Ronda, Cebu",
     "type": "lot",
     "location": "ronda",
     "address": "Sta. Cruz, Ronda, Cebu",
     "lot_area": 15012,
     "price_per_sqm": 680,
     "total_price": 10208160,
-    "description": "When we first walked this land, we weren't looking to buy anything. We just ended up here. The mountains were everywhere, the air was cool, and it was so quiet you could hear yourself think. So we stayed. We put up a bamboo house, connected water and electricity, brought in a bed and a table. Mornings here, the mist rolls in and sits low on the slope. At night the breeze is cool, the air is fresh, and everything is shady and windy. We used to picture small cottages tucked into the hillside, a yoga shala, an open-space kubo for meditation, a garden with coffee and cacao. The slope is perfect for it — every level would have its own view. Private road access, 2 minutes to the main highway. We're moving abroad now, so this vision needs someone new. We'd rather it go to someone who gets it.",
+    "description": "1.5 hectare sloping mountain lot — own the whole hill. The entire 1.5 hectares is slope land, perfect for tiered development with panoramic mountain views. When we first walked this land, we weren't looking to buy anything. We just ended up here. The mountains were everywhere, the air was cool, and it was so quiet you could hear yourself think. So we stayed. We put up a bamboo house, connected water and electricity, brought in a bed and a table. Mornings here, the mist rolls in and sits low on the slope. At night the breeze is cool, the air is fresh, and everything is shady and windy. We used to picture small cottages tucked into the hillside, a yoga shala, an open-space kubo for meditation, a garden with coffee and cacao. The slope is perfect for it — every level would have its own view. Private road access, 2 minutes to the main highway. We're moving abroad now, so this vision needs someone new. We'd rather it go to someone who gets it.",
     "features": "Private road access,2 mins to main highway,Mountain view,Sloping terrain,Good for resort,Clean title,With electricity,With water,Bamboo house included,Fully furnished,Liveable",
     "photo_url": "att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg",
     "photo_urls": "att.k0OivdrTbggDP2oVXbyAk7F4NYyO-o2cy26pCwMJN0M.jpg,att.86A-w2tIW5njVJhIchaRYFf8WhD4mmIzbmk9jwEk204.jpg,att.ZfeRDjBgv8hOZhIML58jcIcuSUkvMQV9XmRrQlehr3Y.jpg,ronda-photo-4.jpg,ronda-photo-5.jpg,ronda-photo-6.jpg,ronda-photo-7.jpg,images/ronda-bamboo-house.jpg,images/ronda-bedroom.jpg,images/ronda-update-1600.jpg,images/ronda-update-1703.jpg,images/ronda-update-1736.jpg,images/ronda-update-1778.jpg,images/ronda-update-1790.jpg,ronda-aerial-map.jpeg,ronda-lot-survey.jpeg",
