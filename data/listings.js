@@ -74,7 +74,7 @@ var LISTINGS_DATA = [
     "phone": "09687512330",
     "owner_name": "CebuLandMarket",
     "title_status": "Clean Title, 1 Owner",
-    "status": "active",
+    "status": "removed",
     "date_listed": "2026-02-12",
     "verification": {
       "code": "CLM-2026-B002",
