@@ -911,5 +911,45 @@ var LISTINGS_DATA = [
     },
     "story": "Montabor Hills sits on elevated ground in Talamban, Cebu City — one of the most desirable locations in the metro. This overlooking lot offers stunning views of the surrounding hills and the cityscape below.\n\nLot sizes range from 200 to 300 sqm, with cutting flexible depending on what the buyer needs. At ₱10,000 per sqm, this is a solid opportunity in an area where prices keep climbing.\n\nThe location is near a barangay cemented road, making access easy. North General Hospital Cebu is just nearby — a big plus for families. Schools, commercial centers, and the main Talamban road are all within reach.\n\nTalamban has been growing fast. New subdivisions, businesses, and infrastructure are popping up everywhere. Buying here now means getting in while the price is still reasonable.\n\nWhether you want to build your dream home on a hilltop, set up a retirement property with fresh air and views, or invest in land that appreciates — this lot checks the boxes.\n\nNindot kaayo ang view dinhi sa Montabor Hills. Habog, presko ang hangin, ug duol sa hospital ug eskwelahan. Kung nangita ka og lote sa Talamban — kini ang chance.",
     "vision_items": "Dream Home|Build your dream home on an overlooking lot in Talamban. Wake up to hilltop views every morning. Near hospitals, schools, and commercial centers.|Investment|Talamban land values keep rising. At ₱10,000/sqm, this is below market rate for an overlooking lot in Cebu City. Buy now before prices go higher.|Retirement Home|Fresh air, quiet hillside, beautiful views. Near North General Hospital for peace of mind. The perfect place to settle down and enjoy life.|Business|Elevated location with road access. Good for a small resort, pension house, or bed & breakfast serving Cebu City visitors."
+  },
+  {
+    "id": "23",
+    "title": "1,039 sqm Titled Lot in Babag, Lapu-Lapu City",
+    "type": "lot",
+    "location": "lapu-lapu",
+    "address": "Timpolok, Babag, Lapu-Lapu City, Cebu",
+    "lot_area": 1039,
+    "floor_area": null,
+    "price_per_sqm": 20000,
+    "total_price": 20780000,
+    "description": "1,039 sqm titled lot for sale in Timpolok, Babag, Lapu-Lapu City. Priced at ₱20,000 per sqm (nett). All expenses related to the transfer of title and other fees are on the buyer's account. The property has a clean title and is located along Timpolok Road in Babag — a residential area near Babag-1 Elementary School, Our Mother of Perpetual Help Church, and Lapu-Lapu City College. The lot has been recently cleared and leveled, ready for development. Fenced and gated with road access from Timpolok Road. Ideal for residential development, a private compound, commercial building, or long-term land investment. Close to Mactan's economic zones, resorts, and the Mactan-Cebu International Airport.",
+    "features": "Clean Title,1039 sqm,Timpolok Babag Lapu-Lapu,Near Babag-1 Elementary School,Near Lapu-Lapu City College,Near Church,Road Access,Cleared and Leveled,Fenced and Gated,Good for Residential,Good for Commercial,Good for Investment,Nett Price,Transfer Fees on Buyer",
+    "photo_url": "images/babag-lapu-lapu-1.jpg",
+    "photo_urls": "images/babag-lapu-lapu-1.jpg,images/babag-lapu-lapu-2.jpg,images/babag-lapu-lapu-3.jpg,images/babag-lapu-lapu-4.jpg,images/babag-lapu-lapu-5.jpg,images/babag-lapu-lapu-map.jpg",
+    "map_url": "Timpolok, Babag, Lapu-Lapu City, Cebu, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/61575981498498",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "title_status": "Clean Title",
+    "status": "active",
+    "featured": false,
+    "date_listed": "2026-03-22",
+    "verification": {
+      "verified": false,
+      "date": "2026-03-22",
+      "checks": {
+        "title_verified": false,
+        "tax_current": false,
+        "owner_confirmed": false,
+        "documents_complete": false,
+        "photos_authentic": false,
+        "no_encumbrance": false,
+        "boundary_clear": false,
+        "road_access": false
+      }
+    },
+    "story": "This 1,039 sqm lot is located along Timpolok Road in Babag, Lapu-Lapu City — right in the heart of a well-established residential neighborhood on Mactan Island.\n\nThe lot has been recently cleared, leveled, and fenced — ready for immediate development. No demolition needed, no squatter issues. Just a clean, flat lot waiting for your project.\n\nThe vicinity map tells the story of the location: Babag-1 Elementary School is nearby, Our Mother of Perpetual Help Church is down the road, Lapu-Lapu City College (formerly Casa Isabel) is just around the corner, and Timpolok Road connects directly to Babag Road and then to the main highway.\n\nAt ₱20,000 per sqm, the seller's price is nett — all transfer and title expenses are on the buyer. The lot has a clean title.\n\nWith over 1,000 sqm in a residential area of Lapu-Lapu City, the possibilities are wide open — townhouse development, a family compound, commercial space, or a mix of everything. Mactan land doesn't stay available for long, especially lots this size with clean titles and road access.\n\nNindot kaayo ang lokasyon — duol sa eskwelahan, simbahan, ug main road. Cleared na ug fenced, ready na i-develop. Kun nangita ka og dako nga lote sa Lapu-Lapu — kini na.",
+    "vision_items": "Family Compound|Build a spacious family compound on over 1,000 sqm in Babag. Enough room for multiple houses, a garden, and parking — all on one titled lot.|Investment|Mactan land values keep rising with airport expansion and economic zone growth. Over 1,000 sqm of titled land at ₱20,000/sqm is a strong hold for the future.|Residential Development|Subdivide into smaller lots or build townhouses. Babag's elevated location and proximity to Mactan's commercial hubs make it attractive for buyers.|Private Estate|Create your own private estate on the hillside of Mactan Island. Space, privacy, and convenience — all in one property."
   }
 ];
