@@ -26,6 +26,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="canonical" href="https://cebulandmarket.com/">
   <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/modern.css?v=1">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#2e7d32">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,31 +88,16 @@
     </nav>
   </header>
 
-  <!-- Hero Slideshow -->
+  <!-- Hero Section — Animated -->
   <section class="hero">
+    <canvas id="heroParticles"></canvas>
     <div class="hero-slideshow">
       <div class="hero-slide active">
         <div class="container">
-          <h1>Buy or Sell Property in Cebu</h1>
+          <div class="hero-badge"><span class="badge-dot"></span> DTI-Registered Business</div>
+          <h1><span id="heroTypingText">Buy or Sell Property in Cebu</span><span class="typing-cursor"></span></h1>
           <p>Land, houses, and condos for sale. Every listing is checked by our team before it goes live.</p>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <div class="container">
-          <h1>List Your Property — ₱100 Only</h1>
-          <p>₱100 bayad para i-check ang papers sa imong property. Kung lisod ang documents, i-refund ang ₱100.</p>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <div class="container">
-          <h1>DTI-Registered &amp; Verified</h1>
-          <p>We are a legit, registered business. We check all documents before any listing goes live.</p>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <div class="container">
-          <h1>Works Offline — No WiFi Needed</h1>
-          <p>Install the app on your phone. Browse properties even without internet.</p>
+          <div class="hero-glow-line"></div>
         </div>
       </div>
     </div>
@@ -120,12 +106,6 @@
         <a href="listings.html" class="btn btn-outline" style="color:#fff; border-color:#fff; background:var(--accent);">Browse Listings</a>
         <a href="sell.html" class="btn btn-outline" style="color:#fff; border-color:#fff;">List Your Property</a>
       </div>
-    </div>
-    <div class="hero-dots">
-      <button class="hero-dot active" aria-label="Slide 1"></button>
-      <button class="hero-dot" aria-label="Slide 2"></button>
-      <button class="hero-dot" aria-label="Slide 3"></button>
-      <button class="hero-dot" aria-label="Slide 4"></button>
     </div>
   </section>
 
@@ -381,6 +361,7 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">Featured Properties</h2>
+      <div class="section-divider" style="margin:0 0 8px 0;"></div>
       <p class="section-subtitle">Hand-picked listings across Cebu Province</p>
       <div class="listings-grid" id="featuredListings">
         <div class="spinner"></div>
@@ -395,6 +376,7 @@
   <section class="how-it-works">
     <div class="container">
       <h2 class="section-title text-center">How It Works</h2>
+      <div class="section-divider"></div>
       <p class="section-subtitle text-center">Simple steps to list or find your property</p>
       <div class="steps-grid">
         <div class="step-card">
@@ -430,7 +412,7 @@
           <div class="stat-label">Registered Business</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">20+</div>
+          <div class="stat-number" data-count="20" data-suffix="+">0</div>
           <div class="stat-label">Cebu Locations</div>
         </div>
         <div class="stat-item">
@@ -438,7 +420,7 @@
           <div class="stat-label">Lowest Price/sqm</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">100%</div>
+          <div class="stat-number" data-count="100" data-suffix="%">0</div>
           <div class="stat-label">Documents Reviewed</div>
         </div>
       </div>
@@ -478,6 +460,7 @@
   <section class="section" style="background:var(--primary-light);">
     <div class="container" style="max-width:600px; text-align:center;">
       <h2 class="section-title">Get Notified of New Listings</h2>
+      <div class="section-divider"></div>
       <p class="section-subtitle">Be the first to know when new properties are listed in Cebu.</p>
       <form id="notifyForm" action="https://script.google.com/macros/s/AKfycbyVOxRN0ypOCcDRE08KMGrXL265R6dQqpS3lHgESqNB6FN1ISkgcQoZ928rL-UQ8L5M/exec" method="POST" style="display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; justify-content:center;">
         <input type="hidden" name="form_type" value="new_listing_notification">
@@ -485,6 +468,88 @@
         <button type="submit" class="btn btn-primary">Notify Me</button>
       </form>
       <p id="notifySuccess" style="display:none; color:var(--primary); font-weight:600; margin-top:12px;">You're signed up! We'll email you when new listings go live.</p>
+    </div>
+  </section>
+
+  <!-- Floating Marquee -->
+  <div class="floating-marquee" aria-hidden="true">
+    <span class="floating-marquee-inner">CEBULANDMARKET &bull; TRUSTED PROPERTY PLATFORM &bull; DTI-REGISTERED &bull; DOCUMENT-VERIFIED &bull; CEBULANDMARKET &bull; TRUSTED PROPERTY PLATFORM &bull; DTI-REGISTERED &bull; DOCUMENT-VERIFIED &bull;&nbsp;</span>
+  </div>
+
+  <!-- Website Showcase -->
+  <section class="showcase-section">
+    <div class="container">
+      <h2 class="section-title text-center">Built by CebuLandMarket</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle text-center">We don't just list properties — we build digital platforms for Cebuanos.</p>
+      <div class="showcase-grid">
+        <div class="showcase-card">
+          <div class="showcase-card-image-wrap">
+            <img src="images/og-image.jpg" alt="CebuLandMarket" class="showcase-card-image" loading="lazy">
+          </div>
+          <div class="showcase-card-body">
+            <h3>CebuLandMarket</h3>
+            <p>The original — Cebu's trusted property listing platform. Document-verified listings, offline-ready PWA, worldwide access.</p>
+            <div><span class="showcase-tag green">Real Estate</span><span class="showcase-tag green">PWA</span><span class="showcase-tag green">Verified</span></div>
+            <br>
+            <a href="index.html" class="showcase-link">Visit Site <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-image-wrap">
+            <img src="rentals/images/og-image.jpg" alt="CebuRentMarket" class="showcase-card-image" loading="lazy">
+          </div>
+          <div class="showcase-card-body">
+            <h3>CebuRentMarket</h3>
+            <p>Find your next rental in Cebu. Condos, apartments, rooms, and houses — all verified and ready for move-in.</p>
+            <div><span class="showcase-tag purple">Rentals</span><span class="showcase-tag purple">Cebu</span><span class="showcase-tag purple">Verified</span></div>
+            <br>
+            <a href="rentals/index.html" class="showcase-link" style="color:#7B1FA2;">Visit Site <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-image-wrap">
+            <div style="width:100%;height:200px;background:linear-gradient(135deg,#f59e0b,#fbbf24);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.5rem;font-weight:900;letter-spacing:2px;">SKILLBLOOM</div>
+          </div>
+          <div class="showcase-card-body">
+            <h3>SkillBloom</h3>
+            <p>Discover your hidden talents. A free interactive quiz that helps you find what you're naturally good at.</p>
+            <div><span class="showcase-tag amber">Education</span><span class="showcase-tag amber">Free Tool</span><span class="showcase-tag amber">Interactive</span></div>
+            <br>
+            <a href="https://cebulandmarket.github.io/skillbloom/" target="_blank" class="showcase-link" style="color:#d97706;">Visit Site <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-image-wrap">
+            <div style="width:100%;height:200px;background:linear-gradient(135deg,#1a1a2e,#374151);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.5rem;font-weight:900;letter-spacing:3px;">BAHAW</div>
+          </div>
+          <div class="showcase-card-body">
+            <h3>BAHAW Studio</h3>
+            <p>Cebuano-themed caps, hats, and apparel. Wear your Bisaya pride. Available worldwide on Etsy.</p>
+            <div><span class="showcase-tag blue">Apparel</span><span class="showcase-tag blue">Cebuano</span><span class="showcase-tag blue">Etsy</span></div>
+            <br>
+            <a href="https://bahaw-studio.github.io/" target="_blank" class="showcase-link" style="color:#1e40af;">Visit Site <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section">
+    <div class="container">
+      <h2 class="section-title">See CebuLandMarket in Action</h2>
+      <div class="section-divider" style="background:linear-gradient(90deg, var(--accent), #f5d923, var(--accent));"></div>
+      <p class="section-subtitle">Watch how easy it is to find and list property in Cebu.</p>
+      <div class="video-wrapper reveal-scale">
+        <video src="" poster="images/og-image.jpg" preload="none" playsinline>
+          Your browser does not support video.
+        </video>
+        <div class="video-play-overlay">
+          <div class="play-btn-circle"></div>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,0.4); font-size:0.85rem; margin-top:20px;">Coming soon — full walkthrough video</p>
     </div>
   </section>
 
@@ -553,6 +618,7 @@
   <script src="js/app.js" defer></script>
   <script src="data/listings.js" defer></script>
   <script src="js/listings.js" defer></script>
+  <script src="js/modern.js" defer></script>
   <script src="js/analytics.js" defer></script>
   <script>
     // Auto-update stats from actual listings data
@@ -567,41 +633,7 @@
       if (el3 && lowest < Infinity) el3.textContent = '₱' + lowest.toLocaleString();
     });
   </script>
-  <script>
-    // Hero Slideshow
-    (function() {
-      var slides = document.querySelectorAll('.hero-slide');
-      var dots = document.querySelectorAll('.hero-dot');
-      var current = 0;
-      var timer;
-
-      function goTo(index) {
-        slides[current].classList.remove('active');
-        dots[current].classList.remove('active');
-        current = index;
-        slides[current].classList.add('active');
-        dots[current].classList.add('active');
-      }
-
-      function next() {
-        goTo((current + 1) % slides.length);
-      }
-
-      function startTimer() {
-        timer = setInterval(next, 5000);
-      }
-
-      dots.forEach(function(dot, i) {
-        dot.addEventListener('click', function() {
-          clearInterval(timer);
-          goTo(i);
-          startTimer();
-        });
-      });
-
-      if (slides.length > 1) startTimer();
-    })();
-  </script>
+  <!-- Hero typing effect is now in js/modern.js -->
   <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
 </body>
 </html>
