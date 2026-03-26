@@ -132,8 +132,7 @@ function createPropertyCard(listing) {
 
   var card = document.createElement('div');
   card.className = 'property-card' + (rented ? ' property-card-rented' : '');
-  card.innerHTML =
-    '<a href="property.html?id=' + listing.id + '" style="text-decoration:none; color:inherit;">' +
+  var cardContent =
       '<div class="card-image">' +
         '<img src="' + imageUrl + '" alt="' + escapeHtml(listing.title) + '" loading="lazy" onerror="this.src=getPlaceholderImage()">' +
         '<span class="card-badge">' + escapeHtml(typeDisplay) + '</span>' +
@@ -148,8 +147,14 @@ function createPropertyCard(listing) {
           metaHtml +
           (floorDisplay ? '<span class="card-rental-tag">&#127970; ' + floorDisplay + '</span>' : '') +
         '</div>' +
-      '</div>' +
-    '</a>';
+      '</div>';
+
+  if (rented) {
+    card.style.cursor = 'default';
+    card.innerHTML = cardContent;
+  } else {
+    card.innerHTML = '<a href="property.html?id=' + listing.id + '" style="text-decoration:none; color:inherit;">' + cardContent + '</a>';
+  }
 
   return card;
 }
