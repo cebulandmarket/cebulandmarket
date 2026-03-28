@@ -951,5 +951,47 @@ var LISTINGS_DATA = [
     },
     "story": "This 1,039 sqm lot is located along Timpolok Road in Babag, Lapu-Lapu City — right in the heart of a well-established residential neighborhood on Mactan Island.\n\nThe lot has been recently cleared, leveled, and fenced — ready for immediate development. No demolition needed, no squatter issues. Just a clean, flat lot waiting for your project.\n\nThe vicinity map tells the story of the location: Babag-1 Elementary School is nearby, Our Mother of Perpetual Help Church is down the road, Lapu-Lapu City College (formerly Casa Isabel) is just around the corner, and Timpolok Road connects directly to Babag Road and then to the main highway.\n\nAt ₱20,000 per sqm, the seller's price is nett — all transfer and title expenses are on the buyer. The lot has a clean title.\n\nWith over 1,000 sqm in a residential area of Lapu-Lapu City, the possibilities are wide open — townhouse development, a family compound, commercial space, or a mix of everything. Mactan land doesn't stay available for long, especially lots this size with clean titles and road access.\n\nNindot kaayo ang lokasyon — duol sa eskwelahan, simbahan, ug main road. Cleared na ug fenced, ready na i-develop. Kun nangita ka og dako nga lote sa Lapu-Lapu — kini na.",
     "vision_items": "Family Compound|Build a spacious family compound on over 1,000 sqm in Babag. Enough room for multiple houses, a garden, and parking — all on one titled lot.|Investment|Mactan land values keep rising with airport expansion and economic zone growth. Over 1,000 sqm of titled land at ₱20,000/sqm is a strong hold for the future.|Residential Development|Subdivide into smaller lots or build townhouses. Babag's elevated location and proximity to Mactan's commercial hubs make it attractive for buyers.|Private Estate|Create your own private estate on the hillside of Mactan Island. Space, privacy, and convenience — all in one property."
+  },
+  {
+    "id": "24",
+    "title": "200 sqm Residential Lot in Talisay City",
+    "type": "lot",
+    "location": "talisay",
+    "address": "Lawaan, Talisay City, Cebu",
+    "lot_area": 200,
+    "floor_area": null,
+    "price_per_sqm": 12000,
+    "total_price": 2400000,
+    "description": "200 sqm residential lot in Lawaan, Talisay City. Flat terrain, clean title, ready for construction. Located in a quiet residential area with easy access to the main road. Near schools, churches, and commercial establishments.",
+    "features": "Clean Title,200 sqm,Flat Terrain,Residential Area,Near Main Road,Ready for Construction",
+    "photo_url": "images/placeholder.jpg",
+    "photo_urls": "",
+    "map_url": "Lawaan, Talisay City, Cebu, Philippines",
+    "video_url": "",
+    "messenger": "",
+    "viber": "",
+    "whatsapp": "",
+    "phone": "",
+    "owner_name": "",
+    "title_status": "Clean Title",
+    "status": "sold",
+    "sold_date": "March 2026",
+    "date_listed": "2026-02-15",
+    "verification": {
+      "code": "CLM-2026-T024",
+      "date": "2026-02-15",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "documents_complete": true,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
+    "story": "",
+    "vision_items": ""
   }
 ];

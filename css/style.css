@@ -489,6 +489,35 @@ ul { list-style: none; }
   z-index: 2;
 }
 
+/* ===== SOLD Status Styles ===== */
+.card-sold-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+.card-sold-label {
+  background: #e74c3c;
+  color: #fff;
+  padding: 8px 28px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  transform: rotate(-8deg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+.property-card-sold .card-body {
+  opacity: 0.65;
+}
+
 .property-card .card-body {
   padding: 20px 22px;
 }

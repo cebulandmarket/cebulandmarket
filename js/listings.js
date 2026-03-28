@@ -19,9 +19,14 @@
 function fetchListings(callback) {
   var allListings = (typeof LISTINGS_DATA !== 'undefined') ? LISTINGS_DATA : [];
   var listings = allListings.filter(function(listing) {
-    return listing.status && listing.status.toLowerCase() === 'active' && listing.title;
+    var s = listing.status ? listing.status.toLowerCase() : '';
+    return (s === 'active' || s === 'sold') && listing.title;
   });
   callback(listings);
+}
+
+function isSold(listing) {
+  return listing.status && listing.status.toLowerCase() === 'sold';
 }
 
 // ==========================================
@@ -81,13 +86,16 @@ function createPropertyCard(listing) {
   var areaDisplay = listing.type === 'condo' ? (listing.parking_area ? formatNumber(listing.parking_area) + ' sqm parking' : 'With Parking') : formatNumber(listing.lot_area) + ' sqm';
   var floorDisplay = listing.floor_area ? formatNumber(listing.floor_area) + ' sqm floor' : '';
 
+  var sold = isSold(listing);
+  var soldBadge = sold ? '<div class="card-sold-overlay"><span class="card-sold-label">SOLD</span></div>' : '';
+
   var card = document.createElement('div');
-  card.className = 'property-card';
-  card.innerHTML =
-    '<a href="property.html?id=' + listing.id + '" style="text-decoration:none; color:inherit;">' +
+  card.className = 'property-card' + (sold ? ' property-card-sold' : '');
+  var cardContent =
       '<div class="card-image">' +
         '<img src="' + imageUrl + '" alt="' + escapeHtml(listing.title) + '" loading="lazy" onerror="this.src=getPlaceholderImage()">' +
         '<span class="card-badge">' + escapeHtml(typeDisplay) + '</span>' +
+        soldBadge +
       '</div>' +
       '<div class="card-body">' +
         '<div class="card-price">' + priceDisplay + (pricePerSqm ? ' <small>' + pricePerSqm + '</small>' : '') + '</div>' +
@@ -97,8 +105,14 @@ function createPropertyCard(listing) {
           '<span>&#128207; ' + areaDisplay + '</span>' +
           (floorDisplay ? '<span>&#127970; ' + floorDisplay + '</span>' : '') +
         '</div>' +
-      '</div>' +
-    '</a>';
+      '</div>';
+
+  if (sold) {
+    card.style.cursor = 'default';
+    card.innerHTML = cardContent;
+  } else {
+    card.innerHTML = '<a href="property.html?id=' + listing.id + '" style="text-decoration:none; color:inherit;">' + cardContent + '</a>';
+  }
 
   return card;
 }
@@ -227,8 +241,11 @@ function applyFilters() {
     return true;
   });
 
-  // Sort
+  // Sort: sold always last, then by selected sort
   filtered.sort(function(a, b) {
+    var aSold = isSold(a) ? 1 : 0;
+    var bSold = isSold(b) ? 1 : 0;
+    if (aSold !== bSold) return aSold - bSold;
     switch (sort) {
       case 'price-low': return a.total_price - b.total_price;
       case 'price-high': return b.total_price - a.total_price;
