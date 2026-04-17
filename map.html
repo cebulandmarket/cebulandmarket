@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive map of all property listings in Cebu. Browse lots, houses, and condos by location — CebuLandMarket.">
+  <meta property="og:title" content="Property Map — CebuLandMarket">
+  <meta property="og:description" content="Browse Cebu property listings on an interactive map. Filter by type, zoom in on any area.">
+  <meta property="og:image" content="https://cebulandmarket.com/images/og-image.jpg">
+  <meta property="og:url" content="https://cebulandmarket.com/map.html">
+  <meta property="og:type" content="website">
+  <title>Property Map — CebuLandMarket</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="canonical" href="https://cebulandmarket.com/map.html">
+  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/modern.css?v=2">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2e7d32">
+
+  <!-- Leaflet core -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <!-- MarkerCluster CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+
+  <style>
+    /* Page layout: header at top, filters below, map fills the rest */
+    html, body { height: 100%; }
+    body { display: flex; flex-direction: column; margin: 0; }
+    main.map-main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+
+    /* Filter bar — the pill chips like the screenshot */
+    .map-toolbar {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 12px 16px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      position: sticky;
+      top: 0;
+      z-index: 400;
+    }
+    .map-chip {
+      flex: 0 0 auto;
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    .map-chip:hover { background: #e5e7eb; }
+    .map-chip.active {
+      background: #2e7d32;
+      color: #fff;
+      border-color: #2e7d32;
+    }
+    .map-count {
+      margin-left: 8px;
+      color: #6b7280;
+      font-size: 14px;
+      align-self: center;
+      white-space: nowrap;
+    }
+    .map-chip.active .map-chip-count,
+    .map-chip .map-chip-count {
+      opacity: .7;
+      margin-left: 4px;
+      font-weight: 500;
+    }
+
+    /* The actual map */
+    #map { flex: 1; width: 100%; min-height: 400px; }
+
+    /* Price pin — custom div icon */
+    .price-pin {
+      background: #2e7d32;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 13px;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      border: 2px solid #fff;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .price-pin.sold { background: #6b7280; text-decoration: line-through; }
+    .price-pin.type-house-and-lot { background: #1d4ed8; }
+    .price-pin.type-condo { background: #7c3aed; }
+
+    /* Popup styling */
+    .leaflet-popup-content { margin: 10px 12px; min-width: 220px; }
+    .popup-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .popup-title { font-weight: 700; font-size: 14px; color: #111827; margin: 0 0 4px 0; line-height: 1.3; }
+    .popup-price { color: #2e7d32; font-weight: 700; font-size: 15px; margin: 0 0 8px 0; }
+    .popup-btn {
+      display: block;
+      background: #2e7d32;
+      color: #fff !important;
+      text-decoration: none;
+      text-align: center;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .popup-btn:hover { background: #1b5e20; }
+
+    /* Loading state */
+    .map-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 16px 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header (same as index.html) -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Cebu<span class="land-wrap"><span class="land-icon">&#127969;</span><span>Land</span></span>Market</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="map.html" class="active">Map</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="rentals/index.html" style="color:#7B1FA2; font-weight:600;">Rentals</a></li>
+        <li><a href="sell.html" class="nav-cta">List Your Property</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="map-main">
+    <div class="map-toolbar" id="mapToolbar">
+      <button class="map-chip active" data-filter="all">All <span class="map-chip-count" id="count-all"></span></button>
+      <button class="map-chip" data-filter="lot">Lots &amp; Land <span class="map-chip-count" id="count-lot"></span></button>
+      <button class="map-chip" data-filter="house-and-lot">House &amp; Lot <span class="map-chip-count" id="count-house-and-lot"></span></button>
+      <button class="map-chip" data-filter="condo">Condo <span class="map-chip-count" id="count-condo"></span></button>
+      <span class="map-count" id="mapCount">Loading…</span>
+    </div>
+    <div id="map"></div>
+  </main>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <!-- CLM data & logic -->
+  <script src="js/app.js" defer></script>
+  <script src="data/listings.js"></script>
+  <script src="data/coordinates.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/analytics.js" defer></script>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Wait until Leaflet + listings loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof L === 'undefined' || typeof LISTINGS_DATA === 'undefined' || typeof LISTING_COORDINATES === 'undefined') {
+          console.error('Map dependencies missing');
+          return;
+        }
+
+        // Build the map, centered roughly on Cebu Province
+        var map = L.map('map', {
+          center: [10.32, 123.90],
+          zoom: 10,
+          scrollWheelZoom: true
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Cluster group — the "43" / "4" bubbles when zoomed out
+        var cluster = L.markerClusterGroup({
+          showCoverageOnHover: false,
+          maxClusterRadius: 50
+        });
+        map.addLayer(cluster);
+
+        // Collect active+sold listings with coordinates
+        var markers = []; // { marker, listing, type }
+        var counts = { all: 0, lot: 0, 'house-and-lot': 0, condo: 0 };
+
+        LISTINGS_DATA.forEach(function(listing) {
+          var status = (listing.status || '').toLowerCase();
+          if (status !== 'active' && status !== 'sold') return;
+          var coords = LISTING_COORDINATES[listing.id];
+          if (!coords) return;
+
+          var finalPrice = applyFee(listing.total_price, listing.id);
+          var priceLabel = formatPrice(finalPrice);
+          var typeClass = 'type-' + (listing.type || 'lot');
+          var soldClass = status === 'sold' ? ' sold' : '';
+
+          var icon = L.divIcon({
+            className: '',
+            html: '<div class="price-pin ' + typeClass + soldClass + '">' + priceLabel + '</div>',
+            iconSize: null,
+            iconAnchor: [35, 14]
+          });
+
+          var marker = L.marker([coords.lat, coords.lng], { icon: icon });
+
+          // Popup: thumbnail, title, price, View Listing link
+          var thumb = listing.photo_url || (listing.photo_urls ? listing.photo_urls.split(',')[0] : '');
+          var popupHtml =
+            '<div class="popup-card">' +
+              (thumb ? '<img src="' + thumb + '" alt="" loading="lazy">' : '') +
+              '<div class="popup-title">' + escapeHtml(listing.title) + '</div>' +
+              '<div class="popup-price">' + priceLabel +
+                (status === 'sold' ? ' <span style="color:#ef4444;font-size:12px;">(SOLD)</span>' : '') +
+              '</div>' +
+              '<a class="popup-btn" href="listing-' + listing.id + '.html">View Listing</a>' +
+            '</div>';
+          marker.bindPopup(popupHtml);
+
+          markers.push({ marker: marker, listing: listing, type: listing.type });
+          counts.all++;
+          if (counts.hasOwnProperty(listing.type)) counts[listing.type]++;
+        });
+
+        // Update chip counts
+        Object.keys(counts).forEach(function(k) {
+          var el = document.getElementById('count-' + k);
+          if (el) el.textContent = '(' + counts[k] + ')';
+        });
+        document.getElementById('mapCount').textContent = counts.all + ' properties on map';
+
+        // Add all markers initially
+        applyFilter('all');
+
+        function applyFilter(filter) {
+          cluster.clearLayers();
+          var shown = 0;
+          markers.forEach(function(m) {
+            if (filter === 'all' || m.type === filter) {
+              cluster.addLayer(m.marker);
+              shown++;
+            }
+          });
+          document.getElementById('mapCount').textContent = shown + ' properties on map';
+        }
+
+        // Wire chips
+        document.querySelectorAll('.map-chip').forEach(function(chip) {
+          chip.addEventListener('click', function() {
+            document.querySelectorAll('.map-chip').forEach(function(c) { c.classList.remove('active'); });
+            chip.classList.add('active');
+            applyFilter(chip.getAttribute('data-filter'));
+          });
+        });
+
+        // Fit bounds to all markers if any exist
+        if (markers.length) {
+          var group = L.featureGroup(markers.map(function(m) { return m.marker; }));
+          map.fitBounds(group.getBounds().pad(0.1));
+        }
+      });
+
+      // Minimal escaping — popup titles come from our own data but still worth guarding
+      function escapeHtml(s) {
+        return String(s || '').replace(/[&<>"']/g, function(c) {
+          return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+        });
+      }
+    })();
+  </script>
+
+  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
+</body>
+</html>
