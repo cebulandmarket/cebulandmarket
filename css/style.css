@@ -2591,7 +2591,7 @@ section[style*="f0fdf4"] #englishContent > p {
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
-  border-radius: 2px !important;
+  border-radius: 999px !important;
   padding: 11px 26px !important;
   box-shadow: 0 2px 0 rgba(138,106,31,0.8),
               0 8px 24px rgba(212, 175, 55, 0.35),
@@ -2632,7 +2632,7 @@ section[style*="f0fdf4"] div[style*="background: #fff"] {
   box-shadow: 0 14px 42px rgba(0,0,0,0.40),
               0 0 0 1px rgba(212, 175, 55, 0.18),
               inset 0 1px 0 rgba(255,255,255,0.85) !important;
-  border-radius: 4px !important;
+  border-radius: 18px !important;
   padding: 24px 26px !important;
 }
 /* Dark-green "worldwide" highlight card → deep navy + gold accents */
@@ -2641,7 +2641,7 @@ section[style*="f0fdf4"] div[style*="background:#166534"] {
   border: 1px solid rgba(212, 175, 55, 0.45) !important;
   box-shadow: 0 12px 40px rgba(0,0,0,0.55),
               inset 0 0 0 1px rgba(232, 212, 162, 0.12) !important;
-  border-radius: 4px !important;
+  border-radius: 14px !important;
 }
 section[style*="f0fdf4"] div[style*="background:#166534"] a {
   color: #f4e4b2 !important;
@@ -2652,7 +2652,7 @@ section[style*="f0fdf4"] div[style*="background:#fefce8"] {
   border: 1px solid rgba(168, 126, 34, 0.45) !important;
   box-shadow: 0 14px 42px rgba(0,0,0,0.42),
               inset 0 1px 0 rgba(255,255,255,0.7) !important;
-  border-radius: 4px !important;
+  border-radius: 14px !important;
 }
 
 /* Section headings readable on dark bg */
