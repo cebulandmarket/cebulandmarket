@@ -802,10 +802,8 @@ function renderPropertyDetail() {
             '</div>' +
           '</div>' +
           '<div class="detail-card">' +
-            '<h2>' + (rented ? 'Property Rented' : 'Inquire About This Rental') + '</h2>' +
-            (!rented ? '<div id="inquirySuccessMsg" class="inquiry-success-msg" style="display:none;">Your inquiry has been recorded. You may now contact us about this rental. Please include your name when you message us.</div>' : '') +
-            (!rented ? '<div id="contactButtonsContainer" style="display:none;"><div class="contact-buttons">' + contactHtml + '</div></div>' : '<div class="contact-buttons">' + contactHtml + '</div>') +
-            (!rented ? '<button id="inquiryGateBtn" class="inquiry-gate-btn" onclick="openInquiryModal()">Get Landlord\'s Contact Info</button>' : '') +
+            '<h2>' + (rented ? 'Property Rented' : 'Contact Landlord') + '</h2>' +
+            '<div class="contact-buttons">' + contactHtml + '</div>' +
           '</div>' +
           '<div class="detail-card" style="background:linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%); border:2px solid #7B1FA2;">' +
             '<h2 style="color:#7B1FA2;">View Property Story</h2>' +
