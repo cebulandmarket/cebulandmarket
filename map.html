@@ -30,40 +30,74 @@
   <style>
     /* Page layout: header at top, filters below, map fills the rest */
     html, body { height: 100%; }
-    body { display: flex; flex-direction: column; margin: 0; }
+    body {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
     main.map-main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 
-    /* Filter bar — the pill chips like the screenshot */
+    /* Kill the 300ms mobile tap delay everywhere on this page */
+    a, button, .map-chip, .leaflet-control a, .leaflet-marker-icon, .leaflet-popup-content * {
+      touch-action: manipulation;
+    }
+
+    /* Filter bar — soft white with subtle depth, not a hard border line */
     .map-toolbar {
-      background: #fff;
-      border-bottom: 1px solid #e5e7eb;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      box-shadow:
+        0 1px 0 rgba(0,0,0,0.03),
+        0 6px 20px -10px rgba(0,0,0,0.12);
       padding: 12px 16px;
       display: flex;
       gap: 8px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
       position: sticky;
       top: 0;
       z-index: 400;
     }
+    .map-toolbar::-webkit-scrollbar { display: none; }
+
     .map-chip {
       flex: 0 0 auto;
       background: #f3f4f6;
       color: #374151;
-      border: 1px solid #e5e7eb;
+      border: 1px solid transparent;
       border-radius: 999px;
-      padding: 8px 16px;
+      padding: 9px 18px;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
       white-space: nowrap;
-      transition: all .15s;
+      /* Compound transition — color, transform, shadow ease together */
+      transition:
+        background-color .22s cubic-bezier(.4,0,.2,1),
+        color .22s cubic-bezier(.4,0,.2,1),
+        transform .18s cubic-bezier(.4,0,.2,1),
+        box-shadow .22s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
     }
-    .map-chip:hover { background: #e5e7eb; }
+    .map-chip:hover {
+      background: #e5e7eb;
+      transform: translateY(-1px);
+    }
+    .map-chip:active {
+      transform: translateY(0) scale(.97);
+    }
     .map-chip.active {
       background: #2e7d32;
       color: #fff;
       border-color: #2e7d32;
+      /* Soft tinted shadow, matches the brand green */
+      box-shadow:
+        0 1px 2px rgba(46,125,50,0.20),
+        0 6px 14px -4px rgba(46,125,50,0.35);
     }
     .map-count {
       margin-left: 8px;
@@ -79,34 +113,92 @@
       font-weight: 500;
     }
 
-    /* The actual map */
-    #map { flex: 1; width: 100%; min-height: 400px; }
+    /* The actual map — smoother tile loading */
+    #map {
+      flex: 1;
+      width: 100%;
+      min-height: 400px;
+      background: #e8eef2; /* soft tile-loading background, not white */
+    }
+    /* Gentle fade when tiles arrive — removes the pop-in feel */
+    .leaflet-tile {
+      transition: opacity .35s ease-out;
+    }
+    /* Smooth cluster bubble hover */
+    .leaflet-marker-icon, .leaflet-marker-shadow {
+      transition: transform .18s cubic-bezier(.4,0,.2,1);
+    }
 
-    /* Price pin — custom div icon */
+    /* Price pin — layered shadows give depth without harshness */
     .price-pin {
       background: #2e7d32;
       color: #fff;
-      padding: 4px 10px;
-      border-radius: 16px;
+      padding: 5px 12px;
+      border-radius: 18px;
       font-weight: 700;
       font-size: 13px;
       white-space: nowrap;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
       border: 2px solid #fff;
       text-align: center;
       line-height: 1.2;
+      /* Two-layer shadow = ambient + direct, like iOS buttons */
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.08),
+        0 4px 12px -2px rgba(0,0,0,0.22);
+      transition: transform .18s cubic-bezier(.4,0,.2,1),
+                  box-shadow .22s cubic-bezier(.4,0,.2,1);
+      cursor: pointer;
+    }
+    .price-pin:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.08),
+        0 10px 24px -4px rgba(0,0,0,0.32);
     }
     .price-pin.sold { background: #6b7280; text-decoration: line-through; }
     .price-pin.type-house-and-lot { background: #1d4ed8; }
     .price-pin.type-condo { background: #7c3aed; }
 
-    /* Popup styling */
+    /* Cluster bubbles — soften Leaflet's default harsh blue gradient */
+    .marker-cluster {
+      background-clip: padding-box;
+      border-radius: 50%;
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.08),
+        0 8px 20px -4px rgba(0,0,0,0.25) !important;
+    }
+    .marker-cluster div {
+      background: rgba(46,125,50,0.92) !important;
+      color: #fff !important;
+      font-weight: 700 !important;
+      border-radius: 50%;
+    }
+    .marker-cluster-small,
+    .marker-cluster-medium,
+    .marker-cluster-large {
+      background-color: rgba(46,125,50,0.18) !important;
+    }
+
+    /* Popup — softer corners, ambient shadow, smooth fade in */
+    .leaflet-popup-content-wrapper {
+      border-radius: 14px !important;
+      box-shadow:
+        0 2px 8px rgba(0,0,0,0.06),
+        0 20px 40px -10px rgba(0,0,0,0.25) !important;
+      padding: 4px !important;
+    }
+    .leaflet-popup-tip {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
     .leaflet-popup-content { margin: 10px 12px; min-width: 220px; }
+    .leaflet-fade-anim .leaflet-popup {
+      transition: opacity .28s ease-out;
+    }
     .popup-card img {
       width: 100%;
       height: 130px;
       object-fit: cover;
-      border-radius: 6px;
+      border-radius: 10px;
       margin-bottom: 8px;
       display: block;
     }
@@ -118,12 +210,33 @@
       color: #fff !important;
       text-decoration: none;
       text-align: center;
-      padding: 8px 12px;
-      border-radius: 6px;
+      padding: 10px 12px;
+      border-radius: 10px;
       font-weight: 600;
       font-size: 13px;
+      box-shadow: 0 1px 2px rgba(46,125,50,0.2), 0 4px 10px -2px rgba(46,125,50,0.3);
+      transition:
+        background-color .2s cubic-bezier(.4,0,.2,1),
+        transform .15s cubic-bezier(.4,0,.2,1),
+        box-shadow .22s cubic-bezier(.4,0,.2,1);
     }
-    .popup-btn:hover { background: #1b5e20; }
+    .popup-btn:hover {
+      background: #1b5e20;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(46,125,50,0.2), 0 8px 18px -4px rgba(46,125,50,0.4);
+    }
+    .popup-btn:active { transform: translateY(0) scale(.98); }
+
+    /* Zoom controls — round, soft, matching */
+    .leaflet-control-zoom {
+      border: none !important;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 10px 24px -8px rgba(0,0,0,0.2) !important;
+      border-radius: 10px !important;
+      overflow: hidden;
+    }
+    .leaflet-control-zoom a {
+      transition: background-color .18s ease;
+    }
 
     /* Loading state */
     .map-loading {
@@ -133,9 +246,17 @@
       transform: translate(-50%, -50%);
       background: #fff;
       padding: 16px 24px;
-      border-radius: 8px;
+      border-radius: 12px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
       z-index: 1000;
+    }
+
+    /* Respect accessibility — no animation for users who've opted out */
+    @media (prefers-reduced-motion: reduce) {
+      .map-chip, .price-pin, .popup-btn, .leaflet-tile, .leaflet-marker-icon {
+        transition: none !important;
+      }
+      .leaflet-fade-anim .leaflet-popup { transition: none !important; }
     }
   </style>
 </head>
@@ -193,22 +314,47 @@
           return;
         }
 
-        // Build the map, centered roughly on Cebu Province
+        // Build the map — tuned for a soft, physical "silky" feel
         var map = L.map('map', {
           center: [10.32, 123.90],
           zoom: 10,
-          scrollWheelZoom: true
+          scrollWheelZoom: true,
+          // Motion polish: animations on, inertia with longer glide
+          zoomAnimation: true,
+          fadeAnimation: true,
+          markerZoomAnimation: true,
+          zoomSnap: 0.25,          // finer zoom steps — feels continuous, not stepped
+          zoomDelta: 0.5,          // each +/- click = gentler zoom change
+          wheelPxPerZoomLevel: 120, // slower scroll-wheel zoom = more control
+          inertia: true,
+          inertiaDeceleration: 2000, // lower = longer glide (default 3000)
+          inertiaMaxSpeed: 1500,
+          easeLinearity: 0.2,      // smoother easing curve on programmatic moves
+          worldCopyJump: false,
+          tap: true,
+          tapTolerance: 15,        // more forgiving taps on mobile
+          bounceAtZoomLimits: false
         });
 
+        // Use a softer-looking OSM tile style — keeps it free and offline-friendly
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          // Preload a ring of tiles around the view — reduces the "popping in" at pan edges
+          keepBuffer: 4,
+          updateWhenIdle: false,
+          updateWhenZooming: false
         }).addTo(map);
 
-        // Cluster group — the "43" / "4" bubbles when zoomed out
+        // Cluster group — soft clustering, smooth spiderfy on click
         var cluster = L.markerClusterGroup({
           showCoverageOnHover: false,
-          maxClusterRadius: 50
+          maxClusterRadius: 50,
+          animate: true,
+          animateAddingMarkers: true,
+          spiderfyOnMaxZoom: true,
+          chunkedLoading: true,    // non-blocking add — keeps the UI smooth
+          disableClusteringAtZoom: 17
         });
         map.addLayer(cluster);
 
