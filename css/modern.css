@@ -548,12 +548,7 @@ body {
   box-shadow: 0 24px 60px rgba(14, 124, 74, 0.15) !important;
 }
 
-/* --- Navbar Glass Effect --- */
-.header {
-  backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.92) !important;
-  border-bottom: 1px solid rgba(14, 124, 74, 0.08);
-}
+/* --- Navbar: luxury midnight (actual styling in style.css) --- */
 
 /* --- Search Section Glow --- */
 .search-section {
