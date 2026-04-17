@@ -2504,6 +2504,66 @@ section[style*="f0fdf4"] #englishContent > p {
   color: #f5f5fa !important;
 }
 
+/* ---- Header: glass-morphism dark bar ---- */
+.header {
+  background: rgba(15, 20, 35, 0.72) !important;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.30),
+              inset 0 -1px 0 rgba(255,255,255,0.08) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.navbar .logo {
+  color: #8fe0b1 !important;
+  text-shadow: 0 0 14px rgba(143, 224, 177, 0.35);
+}
+.navbar .logo span { color: #f5c571 !important; }
+.navbar .logo .land-wrap > span:last-child { color: #f5c571 !important; }
+
+.nav-links a {
+  color: rgba(240, 245, 250, 0.86) !important;
+  transition: color 0.25s, text-shadow 0.25s;
+}
+.nav-links a:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(143, 224, 177, 0.55);
+}
+.nav-links a.active { color: #ffffff !important; }
+.nav-links a.active::after {
+  background: linear-gradient(90deg, #8fe0b1, #f5c571) !important;
+  height: 3px !important;
+  box-shadow: 0 0 10px rgba(143, 224, 177, 0.6);
+  border-radius: 3px;
+}
+
+/* CTA: animated gradient pill with glow */
+.nav-cta {
+  background: linear-gradient(135deg, #0e7c4a 0%, #43a047 45%, #f5a623 100%) !important;
+  background-size: 220% 220% !important;
+  animation: clmCtaShift 5s ease infinite;
+  border-radius: 999px !important;
+  padding: 9px 24px !important;
+  box-shadow: 0 4px 22px rgba(14, 124, 74, 0.45),
+              inset 0 0 0 1px rgba(255,255,255,0.14);
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(245, 166, 35, 0.55),
+              inset 0 0 0 1px rgba(255,255,255,0.25);
+  background: linear-gradient(135deg, #095e37 0%, #0e7c4a 45%, #d4891a 100%) !important;
+}
+@keyframes clmCtaShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hamburger bars — visible on dark glass nav (mobile) */
+.hamburger span {
+  background: #f0f5fa !important;
+}
+
 /* Section headings readable on dark bg */
 .section-title,
 .section-subtitle {
