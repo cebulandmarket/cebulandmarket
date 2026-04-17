@@ -270,7 +270,7 @@ body {
 /* --- Website Showcase Section --- */
 .showcase-section {
   padding: 80px 0;
-  background: linear-gradient(180deg, #f8fffe 0%, #e8f5ee 100%);
+  background: linear-gradient(180deg, #faf6ed 0%, #f2e9d2 100%);
   position: relative;
   overflow: hidden;
 }
