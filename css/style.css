@@ -36,7 +36,12 @@ html {
 body {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   color: var(--gray-900);
-  background: var(--gray-100);
+  background:
+    radial-gradient(ellipse 80% 60% at 90% 15%, rgba(200, 70, 95, 0.55), transparent 60%),
+    radial-gradient(ellipse 70% 70% at 5% 40%, rgba(45, 115, 135, 0.55), transparent 62%),
+    radial-gradient(ellipse 60% 50% at 100% 90%, rgba(190, 75, 100, 0.30), transparent 55%),
+    linear-gradient(135deg, #141428 0%, #0f1a24 50%, #141428 100%);
+  background-attachment: fixed;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
