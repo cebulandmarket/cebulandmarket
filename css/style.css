@@ -2618,6 +2618,43 @@ section[style*="f0fdf4"] #englishContent > p {
 
 .hamburger span { background: #e8d4a2 !important; }
 
+/* ---- Luxury cream cards (replaces plain white inline cards) ---- */
+section[style*="f0fdf4"] div[style*="background:#fff"],
+section[style*="f0fdf4"] div[style*="background: #fff"] {
+  background: linear-gradient(145deg, #fbf7ed 0%, #f3ecd8 100%) !important;
+  border-left: 3px solid transparent !important;
+  border-image: linear-gradient(180deg,
+                rgba(212,175,55,0) 0%,
+                #d4af37 20%,
+                #f4e4b2 50%,
+                #d4af37 80%,
+                rgba(212,175,55,0) 100%) 1 !important;
+  box-shadow: 0 14px 42px rgba(0,0,0,0.40),
+              0 0 0 1px rgba(212, 175, 55, 0.18),
+              inset 0 1px 0 rgba(255,255,255,0.85) !important;
+  border-radius: 4px !important;
+  padding: 24px 26px !important;
+}
+/* Dark-green "worldwide" highlight card → deep navy + gold accents */
+section[style*="f0fdf4"] div[style*="background:#166534"] {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1a2e 50%, #0a0e1a 100%) !important;
+  border: 1px solid rgba(212, 175, 55, 0.45) !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55),
+              inset 0 0 0 1px rgba(232, 212, 162, 0.12) !important;
+  border-radius: 4px !important;
+}
+section[style*="f0fdf4"] div[style*="background:#166534"] a {
+  color: #f4e4b2 !important;
+}
+/* Warning/documents card → aged parchment with gold trim */
+section[style*="f0fdf4"] div[style*="background:#fefce8"] {
+  background: linear-gradient(145deg, #f9f0d8 0%, #f0e4b8 100%) !important;
+  border: 1px solid rgba(168, 126, 34, 0.45) !important;
+  box-shadow: 0 14px 42px rgba(0,0,0,0.42),
+              inset 0 1px 0 rgba(255,255,255,0.7) !important;
+  border-radius: 4px !important;
+}
+
 /* Section headings readable on dark bg */
 .section-title,
 .section-subtitle {
