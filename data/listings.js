@@ -1004,7 +1004,7 @@ var LISTINGS_DATA = [
     "floor_area": null,
     "price_per_sqm": 50000,
     "total_price": 17500000,
-    "description": "Premium 350 sqm titled lot inside Monterrazas de Cebu — one of Cebu City's most prestigious high-end subdivisions. Located in the North Ridge area, Block 19 Lot 16, with sweeping seaview and cityview overlooking. Very near the clubhouse. Price is net at ₱50,000 per sqm. Payment options: Cash or Bank Financing.",
+    "description": "Premium 350 sqm titled lot inside Monterrazas de Cebu — one of Cebu City's most prestigious high-end subdivisions. Located in the North Ridge area, Block 19 Lot 16, with sweeping seaview and cityview overlooking. Very near the clubhouse. Price is at ₱50,500 per sqm. Payment options: Cash or Bank Financing.",
     "features": "Clean Title,350 sqm,High-End Subdivision,Seaview,Cityview Overlooking,Near Clubhouse,North Ridge Location,Gated Community,Monterrazas de Cebu,Cash or Bank Financing",
     "photo_url": "images/monterrazas-north-ridge-1.jpg",
     "photo_urls": "images/monterrazas-north-ridge-1.jpg,images/monterrazas-north-ridge-2.jpg,images/monterrazas-view-arrow.jpg,images/monterrazas-map.jpg,images/monterrazas-pavilion.jpg,images/monterrazas-entrance.jpg",
