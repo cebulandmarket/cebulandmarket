@@ -2512,3 +2512,19 @@ section[style*="f0fdf4"] #englishContent > p {
 .section-subtitle {
   color: rgba(245, 245, 250, 0.75) !important;
 }
+
+/* About page — text sits directly on body gradient, flip to light */
+.about-content { background: transparent !important; }
+.about-text h2 { color: #ffffff !important; }
+.about-text p  { color: rgba(245, 245, 250, 0.88) !important; }
+.about-text li { color: rgba(245, 245, 250, 0.88) !important; }
+.about-text a  { color: #8fd3a8 !important; }
+
+/* Generic: any loose paragraph/heading directly in a transparent section
+   container (not inside a card) gets light text on the dark gradient. */
+section:not(.hero):not(.stats-bar):not(.cta-banner):not(.about-hero):not(.footer) > .container > p,
+section:not(.hero):not(.stats-bar):not(.cta-banner):not(.about-hero):not(.footer) > .container > h1,
+section:not(.hero):not(.stats-bar):not(.cta-banner):not(.about-hero):not(.footer) > .container > h2,
+section:not(.hero):not(.stats-bar):not(.cta-banner):not(.about-hero):not(.footer) > .container > h3 {
+  color: #f5f5fa;
+}
