@@ -2480,3 +2480,35 @@ body.contacts-gated .mobile-sticky-bar {
     padding: 10px 12px;
   }
 }
+
+/* ===== Dark Noble Theme Overrides =====
+   Body has a dark gradient. Strip full-width section backgrounds so it
+   shows through. Inner cards keep their own bg/text for readability. */
+.search-section,
+.how-it-works,
+.showcase-section,
+.video-section {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Bisaya/English explainer: drop inline green bg, flip only the OUTER text
+   (direct children), leave text inside white cards alone. */
+section[style*="f0fdf4"] {
+  background: transparent !important;
+  border-bottom: none !important;
+}
+section[style*="f0fdf4"] > .container > p,
+section[style*="f0fdf4"] #bisayaContent > p,
+section[style*="f0fdf4"] #englishContent > p {
+  color: #f5f5fa !important;
+}
+
+/* Section headings readable on dark bg */
+.section-title,
+.section-subtitle {
+  color: #f5f5fa !important;
+}
+.section-subtitle {
+  color: rgba(245, 245, 250, 0.75) !important;
+}
