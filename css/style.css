@@ -1,4 +1,5 @@
 /* ===== CebuLandMarket - Main Stylesheet ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
 
 /* --- Reset & Base --- */
 *, *::before, *::after {
@@ -2504,65 +2505,118 @@ section[style*="f0fdf4"] #englishContent > p {
   color: #f5f5fa !important;
 }
 
-/* ---- Header: glass-morphism dark bar ---- */
+/* ---- Luxury Header: midnight + gold ---- */
 .header {
-  background: rgba(15, 20, 35, 0.72) !important;
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  box-shadow: 0 4px 30px rgba(0,0,0,0.30),
-              inset 0 -1px 0 rgba(255,255,255,0.08) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, #0a0e1a 0%, #111526 100%) !important;
+  box-shadow: 0 6px 34px rgba(0,0,0,0.55),
+              inset 0 -1px 0 rgba(201, 169, 97, 0.35) !important;
+  border-bottom: 1px solid rgba(201, 169, 97, 0.22);
 }
-.navbar .logo {
-  color: #8fe0b1 !important;
-  text-shadow: 0 0 14px rgba(143, 224, 177, 0.35);
+/* subtle gold shimmer line at the very bottom of the header */
+.header::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+              transparent 0%,
+              rgba(201,169,97,0) 10%,
+              rgba(232,212,162,0.85) 50%,
+              rgba(201,169,97,0) 90%,
+              transparent 100%);
+  pointer-events: none;
 }
-.navbar .logo span { color: #f5c571 !important; }
-.navbar .logo .land-wrap > span:last-child { color: #f5c571 !important; }
+.header { position: sticky; }
 
+/* Logo — elegant serif-leaning stack with gold-foil word */
+.navbar .logo {
+  font-family: 'Cormorant Garamond', 'Playfair Display', 'Didot',
+               'Georgia', 'Times New Roman', serif !important;
+  font-weight: 600 !important;
+  font-size: 1.7rem !important;
+  letter-spacing: 0.5px !important;
+  color: #f5f1e8 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+.navbar .logo span { color: #f5f1e8 !important; }
+.navbar .logo .land-wrap > span:last-child {
+  background: linear-gradient(180deg, #f4e4b2 0%, #d4af37 55%, #a17a2e 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  font-style: italic;
+}
+.navbar .logo .land-icon {
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+}
+
+/* Nav links — small-caps, letter-spaced, ivory with gold hover */
+.nav-links { gap: 36px !important; }
 .nav-links a {
-  color: rgba(240, 245, 250, 0.86) !important;
-  transition: color 0.25s, text-shadow 0.25s;
+  color: rgba(245, 241, 232, 0.78) !important;
+  font-family: 'Helvetica Neue', 'Inter', 'Segoe UI', sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.4px !important;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 .nav-links a:hover {
-  color: #ffffff !important;
-  text-shadow: 0 0 10px rgba(143, 224, 177, 0.55);
+  color: #e8d4a2 !important;
+  text-shadow: 0 0 14px rgba(212, 175, 55, 0.55);
 }
-.nav-links a.active { color: #ffffff !important; }
+.nav-links a.active {
+  color: #f4e4b2 !important;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
 .nav-links a.active::after {
-  background: linear-gradient(90deg, #8fe0b1, #f5c571) !important;
-  height: 3px !important;
-  box-shadow: 0 0 10px rgba(143, 224, 177, 0.6);
-  border-radius: 3px;
+  background: linear-gradient(90deg,
+              transparent 0%, #d4af37 35%, #f4e4b2 50%, #d4af37 65%, transparent 100%) !important;
+  height: 1.5px !important;
+  bottom: -8px !important;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.45);
+  border-radius: 0 !important;
 }
 
-/* CTA: animated gradient pill with glow */
+/* CTA — gold-foil pill with shimmer sweep */
 .nav-cta {
-  background: linear-gradient(135deg, #0e7c4a 0%, #43a047 45%, #f5a623 100%) !important;
+  background: linear-gradient(135deg,
+              #8a6a1f 0%, #d4af37 30%, #f4e4b2 50%, #d4af37 70%, #8a6a1f 100%) !important;
   background-size: 220% 220% !important;
-  animation: clmCtaShift 5s ease infinite;
-  border-radius: 999px !important;
-  padding: 9px 24px !important;
-  box-shadow: 0 4px 22px rgba(14, 124, 74, 0.45),
-              inset 0 0 0 1px rgba(255,255,255,0.14);
-  transition: transform 0.2s, box-shadow 0.2s !important;
+  animation: goldShimmer 6s ease-in-out infinite;
+  color: #1a1308 !important;
+  font-family: 'Helvetica Neue', 'Inter', sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-radius: 2px !important;
+  padding: 11px 26px !important;
+  box-shadow: 0 2px 0 rgba(138,106,31,0.8),
+              0 8px 24px rgba(212, 175, 55, 0.35),
+              inset 0 1px 0 rgba(255, 248, 220, 0.55),
+              inset 0 -1px 0 rgba(79, 54, 12, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease !important;
+  border: 1px solid rgba(232, 212, 162, 0.6);
 }
 .nav-cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 28px rgba(245, 166, 35, 0.55),
-              inset 0 0 0 1px rgba(255,255,255,0.25);
-  background: linear-gradient(135deg, #095e37 0%, #0e7c4a 45%, #d4891a 100%) !important;
+  filter: brightness(1.08);
+  box-shadow: 0 4px 0 rgba(138,106,31,0.8),
+              0 12px 32px rgba(212, 175, 55, 0.55),
+              inset 0 1px 0 rgba(255, 248, 220, 0.75),
+              inset 0 -1px 0 rgba(79, 54, 12, 0.4);
 }
-@keyframes clmCtaShift {
+@keyframes goldShimmer {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Hamburger bars — visible on dark glass nav (mobile) */
-.hamburger span {
-  background: #f0f5fa !important;
-}
+.navbar { padding: 18px 0 !important; }
+
+.hamburger span { background: #e8d4a2 !important; }
 
 /* Section headings readable on dark bg */
 .section-title,
