@@ -426,12 +426,6 @@ function renderPropertyDetail() {
               '<div class="info-item"><span class="info-icon">&#128196;</span><span class="info-label">Title Status</span><span class="info-value">' + escapeHtml(listing.title_status || 'Inquire for details') + '</span></div>' +
             '</div>' +
           '</div>' +
-          '<div class="detail-card">' +
-            '<h2>Inquire About This Property</h2>' +
-            '<div id="inquirySuccessMsg" class="inquiry-success-msg" style="display:none;">Your inquiry has been recorded. You may now contact us about this property. Please include your name when you message us.</div>' +
-            '<div id="contactButtonsContainer" style="display:none;"><div class="contact-buttons">' + contactHtml + '</div></div>' +
-            '<button id="inquiryGateBtn" class="inquiry-gate-btn" onclick="openInquiryModal()">Get Seller\'s Contact Info</button>' +
-          '</div>' +
           '<div class="detail-card" style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border:2px solid #16a34a;">' +
             '<h2 style="color:#16a34a;">View Property Story</h2>' +
             '<p style="font-size:0.9rem; color:var(--gray-600); margin-bottom:12px;">See the owner\'s story and vision for this property on its own dedicated page.</p>' +
