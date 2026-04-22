@@ -159,22 +159,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Glow line under hero text */
-.hero-glow-line {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), #f5d923, var(--accent));
-  background-size: 200% 100%;
-  animation: glowSlide 2s linear infinite;
-  border-radius: 2px;
-  margin: 16px 0 24px 0;
-}
-
-@keyframes glowSlide {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
 /* --- Glassmorphism Cards --- */
 .glass-card {
   background: rgba(255, 255, 255, 0.7);
