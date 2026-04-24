@@ -654,11 +654,11 @@ ul { list-style: none; }
 .trust-item h4 {
   font-size: 1rem;
   margin-bottom: 6px;
-  color: var(--dark);
+  color: #f5f5fa;
 }
 .trust-item p {
   font-size: 0.85rem;
-  color: var(--gray-500);
+  color: rgba(245, 245, 250, 0.75);
 }
 
 @media (max-width: 768px) {
@@ -2662,6 +2662,14 @@ section[style*="f0fdf4"] div[style*="background:#fefce8"] {
 }
 .section-subtitle {
   color: rgba(245, 245, 250, 0.75) !important;
+}
+
+/* Sections with a light inline background (var(--primary-light)) flip titles back to dark so they stay readable */
+section[style*="primary-light"] .section-title {
+  color: var(--dark) !important;
+}
+section[style*="primary-light"] .section-subtitle {
+  color: var(--gray-700) !important;
 }
 
 /* About page — text sits directly on body gradient, flip to light */
