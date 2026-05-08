@@ -708,7 +708,7 @@ function renderPropertyDetail() {
       contactHtml = '<div class="rented-notice"><p>This property is no longer available for rent.</p><a href="listings.html" class="btn btn-primary" style="display:block;text-align:center;margin-top:12px;">Browse Available Rentals</a></div>';
     } else {
       contactHtml += '<a href="https://wa.me/639687512330?text=' + waText + '" target="_blank" class="contact-btn whatsapp">&#128172; Inquire on WhatsApp</a>';
-      contactHtml += '<a href="https://m.me/61587469756965?ref=' + listingCode + '_' + listingSlug + '" target="_blank" class="contact-btn messenger">&#128172; Inquire on Messenger</a>';
+      contactHtml += '<a href="https://www.facebook.com/cebulandmarket/?ref=' + listingCode + '_' + listingSlug + '" target="_blank" class="contact-btn messenger">&#128172; Inquire on Messenger</a>';
       contactHtml += '<a href="viber://chat?number=639687512330&text=' + viberText + '" class="contact-btn viber">&#128222; Inquire on Viber</a>';
       contactHtml += '<a href="mailto:info@cebulandmarket.com?subject=' + emailSubject + '&body=' + emailBody + '" class="contact-btn phone">&#9993; Inquire by Email</a>';
     }
@@ -840,7 +840,7 @@ function renderPropertyDetail() {
     var floatMessenger = document.querySelector('.float-messenger');
     var floatWhatsapp = document.querySelector('.float-whatsapp');
     var floatViber = document.querySelector('.float-viber');
-    if (floatMessenger) floatMessenger.href = 'https://m.me/61587469756965?ref=' + listingCode + '_' + listingSlug;
+    if (floatMessenger) floatMessenger.href = 'https://www.facebook.com/cebulandmarket/?ref=' + listingCode + '_' + listingSlug;
     if (floatWhatsapp) floatWhatsapp.href = 'https://wa.me/639687512330?text=' + waText;
     if (floatViber) floatViber.href = 'viber://chat?number=639687512330&text=' + viberText;
 
@@ -851,7 +851,7 @@ function renderPropertyDetail() {
     }
     var stickyMsg = document.querySelector('.sticky-btn.messenger-btn');
     if (stickyMsg) {
-      stickyMsg.href = 'https://m.me/61587469756965?ref=' + listingCode + '_' + listingSlug;
+      stickyMsg.href = 'https://www.facebook.com/cebulandmarket/?ref=' + listingCode + '_' + listingSlug;
     }
 
     // Init lightbox for gallery photos
