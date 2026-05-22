@@ -1075,5 +1075,46 @@ var LISTINGS_DATA = [
     },
     "story": "",
     "vision_items": ""
+  },
+  {
+    "id": "27",
+    "title": "221 sqm Lot in Maryville Subdivision, Talamban, Cebu City",
+    "type": "lot",
+    "location": "cebu-city",
+    "address": "Maryville Subdivision, Talamban, Cebu City",
+    "lot_area": 221,
+    "floor_area": null,
+    "price_per_sqm": 48000,
+    "total_price": 10608000,
+    "description": "Premium 221 sqm titled lot inside Maryville Subdivision — developed by Agro-Macro and managed by the prestigious Maria Luisa Properties. A sanctuary for families seeking security and quality infrastructure in the heart of Talamban.\n\nTop-Tier Amenities:\n• 24/7 Gated Security & Fully Fenced Perimeter\n• Exclusive Clubhouse & Landscaped Picnic Parks\n• Sports Facilities: Tennis & Basketball Courts\n• Reliable Infrastructure: Underground drainage & centralized water system\n\nPrime Location:\n• Education: Minutes away from Cebu International School (CIS) & Ateneo de Cebu\n• Healthcare: Just a 2-minute drive to North General Hospital\n• Essentials: Near Gaisano Grand Mall, Robinsons, and the vibrant Talamban-Banilad dining corridor",
+    "features": "Clean Title,Titled,221 sqm,24/7 Gated Security,Fully Fenced Perimeter,Exclusive Clubhouse,Landscaped Parks,Tennis Court,Basketball Court,Underground Drainage,Centralized Water System,Maria Luisa Managed,Near CIS & Ateneo de Cebu,2 mins to North General Hospital,Near Gaisano Grand Mall,Near Robinsons",
+    "photo_url": "",
+    "photo_urls": "",
+    "map_url": "Maryville Subdivision, Talamban, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Titled",
+    "status": "active",
+    "date_listed": "2026-05-22",
+    "verification": {
+      "code": "CLM-2026-M027",
+      "date": "2026-05-22",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "documents_complete": true,
+        "photos_authentic": false,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
+    "story": "",
+    "vision_items": ""
   }
 ];
