@@ -34,5 +34,7 @@ var LISTING_COORDINATES = {
   "22": { lat: 10.3790, lng: 123.9217 }, // Montabor Hills, Talamban
   "23": { lat: 10.3096, lng: 123.9854 }, // Timpolok, Babag, Lapu-Lapu
   "24": { lat: 10.2616, lng: 123.8300 }, // Lawaan, Talisay
+  "25": { lat: 10.2998, lng: 123.8920 }, // Monterrazas de Cebu (North Ridge, Block 19 Lot 16), Guadalupe
+  "26": { lat: 10.3001, lng: 123.8924 }, // Monterrazas de Cebu (North Ridge, Block 19 Lot 17), Guadalupe — jittered
   "27": { lat: 10.3744849, lng: 123.9179152 } // Maryville Subdivision, Talamban
 };
