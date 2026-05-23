@@ -33,5 +33,6 @@ var LISTING_COORDINATES = {
   "21": { lat: 10.4042, lng: 123.9790 }, // El Monte Grande, San Vicente, Liloan
   "22": { lat: 10.3790, lng: 123.9217 }, // Montabor Hills, Talamban
   "23": { lat: 10.3096, lng: 123.9854 }, // Timpolok, Babag, Lapu-Lapu
-  "24": { lat: 10.2616, lng: 123.8300 }  // Lawaan, Talisay
+  "24": { lat: 10.2616, lng: 123.8300 }, // Lawaan, Talisay
+  "27": { lat: 10.3744849, lng: 123.9179152 } // Maryville Subdivision, Talamban
 };
