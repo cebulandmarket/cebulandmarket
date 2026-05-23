@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v59';
+var CACHE_VERSION = 'clm-v60';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
