@@ -803,3 +803,144 @@ a:hover { color: var(--primary-dark); }
   .float-btn { width: 46px; height: 46px; font-size: 20px; }
   .float-label { bottom: 52px; right: 70px; font-size: 0.72rem; padding: 6px 11px; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   LUXURY HEADER — midnight + gold (matches CLM)
+═══════════════════════════════════════════════════════════ */
+.header {
+  background: linear-gradient(180deg, #0a0e1a 0%, #111526 100%) !important;
+  box-shadow: 0 6px 34px rgba(0,0,0,0.55),
+              inset 0 -1px 0 rgba(201, 169, 97, 0.35) !important;
+  border-bottom: 1px solid rgba(201, 169, 97, 0.22) !important;
+  position: sticky;
+}
+/* Gold shimmer line at bottom of header */
+.header::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+              transparent 0%,
+              rgba(201,169,97,0) 10%,
+              rgba(232,212,162,0.85) 50%,
+              rgba(201,169,97,0) 90%,
+              transparent 100%);
+  pointer-events: none;
+}
+
+.header-inner {
+  padding: 0.95rem 1.5rem;
+}
+
+/* Logo — serif stack, ivory with gold-foil "Vehicle" word */
+.logo {
+  font-family: 'Cormorant Garamond', 'Playfair Display', 'Didot',
+               'Georgia', 'Times New Roman', serif !important;
+  font-weight: 600 !important;
+  font-size: 1.7rem !important;
+  letter-spacing: 0.5px !important;
+  color: #f5f1e8 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+.logo > span { color: #f5f1e8 !important; }
+
+/* Vehicle-wrap holds the icon + "Vehicle" word stacked */
+.logo .vehicle-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 1;
+  margin: -4px 2px 0;
+}
+.logo .vehicle-wrap > span:last-child {
+  background: linear-gradient(180deg, #f4e4b2 0%, #d4af37 55%, #a17a2e 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  font-style: italic;
+}
+.logo .vehicle-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  margin-bottom: -4px;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+  animation: carDrive 2.2s ease-in-out infinite;
+}
+@keyframes carDrive {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25%      { transform: translateX(2px) rotate(-1deg); }
+  50%      { transform: translateX(0) rotate(0deg); }
+  75%      { transform: translateX(-2px) rotate(1deg); }
+}
+
+/* Nav links — uppercase, letter-spaced, ivory → gold on hover */
+.nav {
+  gap: 2.25rem !important;
+  align-items: center;
+}
+.nav a {
+  color: rgba(245, 241, 232, 0.78) !important;
+  font-family: 'Helvetica Neue', 'Inter', 'Segoe UI', sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.4px !important;
+  transition: color 0.3s ease, text-shadow 0.3s ease !important;
+}
+.nav a:hover {
+  color: #e8d4a2 !important;
+  text-shadow: 0 0 14px rgba(212, 175, 55, 0.55);
+}
+
+/* CTA — gold-foil pill with animated shimmer */
+.nav .btn-sell {
+  background: linear-gradient(135deg,
+              #8a6a1f 0%, #d4af37 30%, #f4e4b2 50%, #d4af37 70%, #8a6a1f 100%) !important;
+  background-size: 220% 220% !important;
+  animation: goldShimmer 6s ease-in-out infinite;
+  color: #1a1308 !important;
+  font-family: 'Helvetica Neue', 'Inter', sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-radius: 999px !important;
+  padding: 0.65rem 1.5rem !important;
+  border: 1px solid rgba(232, 212, 162, 0.6) !important;
+  box-shadow: 0 2px 0 rgba(138,106,31,0.8),
+              0 8px 24px rgba(212, 175, 55, 0.35),
+              inset 0 1px 0 rgba(255, 248, 220, 0.55),
+              inset 0 -1px 0 rgba(79, 54, 12, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease !important;
+}
+.nav .btn-sell:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  color: #1a1308 !important;
+  box-shadow: 0 4px 0 rgba(138,106,31,0.8),
+              0 12px 32px rgba(212, 175, 55, 0.55),
+              inset 0 1px 0 rgba(255, 248, 220, 0.75),
+              inset 0 -1px 0 rgba(79, 54, 12, 0.4);
+}
+@keyframes goldShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mobile menu toggle — ivory on dark */
+.menu-toggle { color: #f5f1e8 !important; }
+@media (max-width: 768px) {
+  .nav {
+    background: #0a0e1a !important;
+    border-top: 1px solid rgba(201, 169, 97, 0.22);
+    padding: 1rem 1.5rem !important;
+  }
+  .nav a { padding: 0.5rem 0; }
+}
