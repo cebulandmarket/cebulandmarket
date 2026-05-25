@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-cal-v1';
+var CACHE_VERSION = 'tempo-v2';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -10,7 +10,6 @@ var HTML_PAGES = [
 var STATIC_ASSETS = [
   'css/style.css',
   'js/app.js',
-  '../data/listings.js',
   'favicon.png',
   'favicon.ico',
   'images/icon-192.png',
@@ -52,9 +51,6 @@ self.addEventListener('fetch', function (event) {
   if (request.method !== 'GET') return;
   if (!request.url.startsWith(self.location.origin)) return;
 
-  // Never cache the booking submission
-  if (request.url.indexOf('web3forms.com') !== -1) return;
-
   if (request.headers.get('Accept') && request.headers.get('Accept').indexOf('text/html') !== -1) {
     event.respondWith(
       fetch(request).then(function (response) {
@@ -65,7 +61,7 @@ self.addEventListener('fetch', function (event) {
         return caches.match(request).then(function (cached) {
           if (cached) return cached;
           return new Response(
-            '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline</title><style>body{font-family:-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#f8fafc;color:#0f172a;text-align:center;padding:20px}h1{color:#0891b2;font-size:1.5rem}p{color:#64748b}a{color:#0891b2;font-weight:600}</style></head><body><div><h1>You\'re Offline</h1><p>Can\'t reach the booking server right now.</p><p><a href="/calendar/">Reload Calendar</a></p></div></body></html>',
+            '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tempo</title><style>body{font-family:-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#0a0a0f;color:#f5f5f7;text-align:center;padding:20px}h1{color:#a855f7;font-size:1.5rem}p{color:#8a8a99}a{color:#a855f7;font-weight:600}</style></head><body><div><h1>Tempo</h1><p>Reload to open your calendar.</p><p><a href="/calendar/">Reload</a></p></div></body></html>',
             { headers: { 'Content-Type': 'text/html' } }
           );
         });

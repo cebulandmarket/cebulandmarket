@@ -1,566 +1,597 @@
 /* ============================================================
-   CebuLandMarket Calendar — Booking App
-   Static, no backend. Submits via Web3Forms, reminders via .ics
+   Tempo — Personal calendar app
+   100% client-side. localStorage only. International.
    ============================================================ */
 (function () {
   'use strict';
 
   // ---------- CONFIG ----------
-  var CONFIG = {
-    web3formsKey: '09df7276-a4b9-440c-9342-b4c7971c1dce',
-    web3formsUrl: 'https://api.web3forms.com/submit',
-    timezone: 'Asia/Manila',
-    workingHours: { start: 9, end: 17 },  // 9 AM – 5 PM
-    slotMinutes: 30,
-    lunchHour: 12,                         // 12:00–13:00 blocked
-    daysAhead: 14,
-    closedDays: [0],                       // Sunday = 0
-    storageKey: 'clm_calendar_bookings_v1',
-    ownerPhone: '+639687512330',
-    ownerName: 'Rea (CebuLandMarket)',
-    siteUrl: 'https://cebulandmarket.com/calendar/'
-  };
+  var STORAGE_KEY = 'tempo_events_v1';
+  var THEME_KEY = 'tempo_theme';
+  var REMINDER_TIMERS = {};      // eventId -> timeout id
+  var SYSTEM_TZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  var SYSTEM_LOCALE = navigator.language || 'en';
 
   // ---------- STATE ----------
-  var state = {
-    step: 1,
-    property: null,        // { id, title, address } or { id:'general', title:'…' }
-    date: null,            // ISO YYYY-MM-DD
-    time: null,            // 'HH:MM'
-    name: '', phone: '', email: '', note: '',
-    remind: true
-  };
+  var events = [];   // {id, title, date, time, durationMin, location, notes, color, repeat, remindMin, createdAt}
 
   // ============================================================
-  // LIVE CLOCK — Cebu / GMT+8
-  // Uses Intl.DateTimeFormat to render in the local Cebu TZ no
-  // matter where the user actually is — important for precision.
+  // STORAGE
+  // ============================================================
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      events = raw ? JSON.parse(raw) : [];
+    } catch (e) { events = []; }
+  }
+  function save() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(events)); } catch (e) {}
+  }
+
+  // ============================================================
+  // THEME
+  // ============================================================
+  function loadTheme() {
+    var t = localStorage.getItem(THEME_KEY) || 'auto';
+    document.body.dataset.theme = t;
+  }
+  function toggleTheme() {
+    var cur = document.body.dataset.theme || 'auto';
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // auto → light → dark → auto
+    var next;
+    if (cur === 'auto') next = prefersDark ? 'light' : 'dark';
+    else if (cur === 'light') next = 'dark';
+    else next = 'light';
+    document.body.dataset.theme = next;
+    localStorage.setItem(THEME_KEY, next);
+    toast('Theme: ' + next);
+  }
+
+  // ============================================================
+  // LIVE CLOCK
+  // Uses the user's own timezone — no hardcoded region.
   // ============================================================
   function tickClock() {
-    var el = document.getElementById('liveClock');
-    if (!el) return;
     var now = new Date();
-    var fmt = new Intl.DateTimeFormat('en-PH', {
-      timeZone: CONFIG.timezone,
-      weekday: 'short', month: 'short', day: 'numeric',
-      hour: 'numeric', minute: '2-digit', second: '2-digit',
-      hour12: true
-    });
-    el.textContent = fmt.format(now);
+    var timeEl = document.getElementById('clockTime');
+    var dateEl = document.getElementById('clockDate');
+    var tzEl = document.getElementById('clockTz');
+    if (!timeEl) return;
+    timeEl.textContent = new Intl.DateTimeFormat(SYSTEM_LOCALE, {
+      hour: '2-digit', minute: '2-digit', hour12: false
+    }).format(now);
+    dateEl.textContent = new Intl.DateTimeFormat(SYSTEM_LOCALE, {
+      weekday: 'long', month: 'long', day: 'numeric'
+    }).format(now);
+    tzEl.textContent = SYSTEM_TZ.replace(/_/g, ' ');
   }
   setInterval(tickClock, 1000);
   tickClock();
 
   // ============================================================
-  // STEP NAVIGATION
+  // EVENT MODEL HELPERS
   // ============================================================
-  function goToStep(n) {
-    state.step = n;
-    var steps = document.querySelectorAll('.step');
-    steps.forEach(function (el) {
-      el.classList.toggle('active', parseInt(el.dataset.step, 10) === n);
-    });
-    var progress = document.querySelectorAll('.progress-step');
-    progress.forEach(function (el) {
-      var s = parseInt(el.dataset.step, 10);
-      el.classList.toggle('active', s === n);
-      el.classList.toggle('done', s < n);
-    });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  function newId() {
+    return 'e_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8);
   }
 
-  // Back buttons
-  document.querySelectorAll('[data-back]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      goToStep(parseInt(btn.dataset.back, 10));
-    });
-  });
-
-  // ============================================================
-  // STEP 1 — PROPERTY PICKER
-  // Pulls from LISTINGS_DATA loaded via ../data/listings.js
-  // ============================================================
-  function renderProperties() {
-    var list = document.getElementById('propertyList');
-    if (typeof LISTINGS_DATA === 'undefined') return;
-
-    var active = LISTINGS_DATA.filter(function (l) {
-      return l.status === 'active';
-    });
-
-    active.forEach(function (l) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'property-card';
-      btn.dataset.property = l.id;
-      btn.innerHTML =
-        '<div class="prop-emoji">' + (l.type === 'house' ? '&#127968;' : '&#127757;') + '</div>' +
-        '<div class="prop-info">' +
-          '<div class="prop-title">' + escape(l.title) + '</div>' +
-          '<div class="prop-meta">' + escape(l.address || '') + '</div>' +
-        '</div>';
-      btn.addEventListener('click', function () { selectProperty(l, btn); });
-      list.appendChild(btn);
-    });
-
-    // General consultation button (already in HTML)
-    var generalBtn = list.querySelector('[data-property="general"]');
-    generalBtn.addEventListener('click', function () {
-      selectProperty({ id: 'general', title: 'General Consultation', address: 'To be agreed' }, generalBtn);
-    });
+  function eventStartDate(e) {
+    // Treat date+time as user's local timezone (matches how they entered it)
+    return new Date(e.date + 'T' + e.time);
+  }
+  function eventEndDate(e) {
+    var s = eventStartDate(e);
+    var dur = e.durationMin > 0 ? e.durationMin : 60;
+    return new Date(s.getTime() + dur * 60000);
   }
 
-  function selectProperty(prop, btn) {
-    state.property = prop;
-    document.querySelectorAll('.property-card').forEach(function (c) {
-      c.classList.remove('selected');
-    });
-    btn.classList.add('selected');
-    document.getElementById('step1Next').disabled = false;
+  // For recurring events, compute the next occurrence on/after `from`
+  function nextOccurrence(e, from) {
+    if (e.repeat === 'none' || !e.repeat) return eventStartDate(e);
+    var s = eventStartDate(e);
+    if (s >= from) return s;
+    if (e.repeat === 'daily') {
+      var diffDays = Math.ceil((from - s) / 86400000);
+      return new Date(s.getTime() + diffDays * 86400000);
+    }
+    if (e.repeat === 'weekly') {
+      var diffWeeks = Math.ceil((from - s) / (7 * 86400000));
+      return new Date(s.getTime() + diffWeeks * 7 * 86400000);
+    }
+    if (e.repeat === 'monthly') {
+      var d = new Date(s);
+      while (d < from) { d.setMonth(d.getMonth() + 1); }
+      return d;
+    }
+    return s;
   }
-
-  document.getElementById('step1Next').addEventListener('click', function () {
-    if (!state.property) return;
-    renderDates();
-    goToStep(2);
-  });
 
   // ============================================================
-  // STEP 2 — DATE GRID
-  // Generates next 14 days starting today (Cebu time), skipping
-  // Sundays. "Today" is detected via Asia/Manila Intl date parts
-  // so the picker is correct regardless of the user's device TZ.
+  // QUICK PRESETS
   // ============================================================
-  function cebuToday() {
-    var parts = new Intl.DateTimeFormat('en-CA', {
-      timeZone: CONFIG.timezone,
-      year: 'numeric', month: '2-digit', day: 'numeric'
-    }).formatToParts(new Date());
-    var y = parts.find(function (p) { return p.type === 'year'; }).value;
-    var m = parts.find(function (p) { return p.type === 'month'; }).value;
-    var d = parts.find(function (p) { return p.type === 'day'; }).value;
-    return y + '-' + m + '-' + d;
+  function applyPreset(key) {
+    var now = new Date();
+    var d = new Date(now);
+    if (key === '30m') d = new Date(now.getTime() + 30 * 60000);
+    else if (key === '1h') d = new Date(now.getTime() + 60 * 60000);
+    else if (key === '3h') d = new Date(now.getTime() + 3 * 60 * 60000);
+    else if (key === 'tom9') {
+      d.setDate(now.getDate() + 1);
+      d.setHours(9, 0, 0, 0);
+    } else if (key === 'mon9') {
+      var daysUntilMon = (8 - now.getDay()) % 7 || 7;
+      d.setDate(now.getDate() + daysUntilMon);
+      d.setHours(9, 0, 0, 0);
+    }
+    // Round 30m/1h/3h presets to nearest 5 min for cleanliness
+    if (key === '30m' || key === '1h' || key === '3h') {
+      var ms = 5 * 60 * 1000;
+      d = new Date(Math.round(d.getTime() / ms) * ms);
+    }
+    document.getElementById('ev_date').value = isoDate(d);
+    document.getElementById('ev_time').value = isoTime(d);
   }
 
-  function addDaysISO(iso, n) {
-    var d = new Date(iso + 'T12:00:00Z');
-    d.setUTCDate(d.getUTCDate() + n);
-    return d.toISOString().slice(0, 10);
+  function isoDate(d) {
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
   }
-
-  function dayOfWeekISO(iso) {
-    // weekday in Cebu TZ
-    return new Date(iso + 'T12:00:00+08:00').getUTCDay();
+  function isoTime(d) {
+    return pad(d.getHours()) + ':' + pad(d.getMinutes());
   }
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
-  function renderDates() {
-    var grid = document.getElementById('dateGrid');
-    grid.innerHTML = '';
-    var today = cebuToday();
-    var count = 0;
-    var offset = 0;
-    while (count < CONFIG.daysAhead) {
-      var iso = addDaysISO(today, offset);
-      offset++;
-      var dow = dayOfWeekISO(iso);
-      var closed = CONFIG.closedDays.indexOf(dow) !== -1;
+  // ============================================================
+  // RENDER FEED
+  // Groups: Now, Today, Tomorrow, This Week, Later, Past
+  // ============================================================
+  function render() {
+    var feed = document.getElementById('eventFeed');
+    var empty = document.getElementById('emptyState');
+    feed.querySelectorAll('.event-group, .event-card').forEach(function (n) { n.remove(); });
 
-      var date = new Date(iso + 'T12:00:00+08:00');
-      var dowName = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dow];
-      var monthName = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][date.getUTCMonth()];
-      var dayNum = date.getUTCDate();
+    if (!events.length) {
+      empty.style.display = '';
+      return;
+    }
+    empty.style.display = 'none';
 
-      var cell = document.createElement('button');
-      cell.type = 'button';
-      cell.className = 'date-cell';
-      if (iso === today) cell.classList.add('today');
-      cell.disabled = closed;
-      cell.dataset.iso = iso;
-      cell.innerHTML =
-        '<span class="dow">' + dowName + '</span>' +
-        '<span class="day-num">' + dayNum + '</span>' +
-        '<span class="month">' + monthName + '</span>';
-      if (!closed) {
-        cell.addEventListener('click', function (e) { selectDate(this); });
-      }
-      grid.appendChild(cell);
-      count++;
+    var now = new Date();
+    var todayStart = new Date(now); todayStart.setHours(0, 0, 0, 0);
+    var tomorrowStart = new Date(todayStart); tomorrowStart.setDate(tomorrowStart.getDate() + 1);
+    var dayAfter = new Date(tomorrowStart); dayAfter.setDate(dayAfter.getDate() + 1);
+    var weekEnd = new Date(todayStart); weekEnd.setDate(weekEnd.getDate() + 7);
+
+    // Build a list of (event, effectiveStart) — using next occurrence for recurring
+    var items = events.map(function (e) {
+      var start = e.repeat && e.repeat !== 'none' ? nextOccurrence(e, now) : eventStartDate(e);
+      return { e: e, start: start, end: new Date(start.getTime() + (e.durationMin > 0 ? e.durationMin : 60) * 60000) };
+    });
+    items.sort(function (a, b) { return a.start - b.start; });
+
+    var buckets = { now: [], today: [], tomorrow: [], week: [], later: [], past: [] };
+    items.forEach(function (it) {
+      if (it.end < now) buckets.past.push(it);
+      else if (it.start <= now && it.end >= now) buckets.now.push(it);
+      else if (it.start < tomorrowStart) buckets.today.push(it);
+      else if (it.start < dayAfter) buckets.tomorrow.push(it);
+      else if (it.start < weekEnd) buckets.week.push(it);
+      else buckets.later.push(it);
+    });
+
+    var groups = [
+      ['Now', buckets.now],
+      ['Today', buckets.today],
+      ['Tomorrow', buckets.tomorrow],
+      ['This Week', buckets.week],
+      ['Later', buckets.later]
+    ];
+    groups.forEach(function (g) {
+      if (!g[1].length) return;
+      var h = document.createElement('div');
+      h.className = 'group-header event-group';
+      h.textContent = g[0];
+      feed.appendChild(h);
+      g[1].forEach(function (it) { feed.appendChild(renderCard(it.e, it.start, it.end)); });
+    });
+
+    // Past — collapsed at the bottom if any
+    if (buckets.past.length) {
+      var ph = document.createElement('div');
+      ph.className = 'group-header event-group';
+      ph.textContent = 'Past';
+      feed.appendChild(ph);
+      buckets.past.slice(-5).forEach(function (it) {
+        feed.appendChild(renderCard(it.e, it.start, it.end, true));
+      });
     }
   }
 
-  function selectDate(cell) {
-    state.date = cell.dataset.iso;
-    document.querySelectorAll('.date-cell').forEach(function (c) {
-      c.classList.remove('selected');
-    });
-    cell.classList.add('selected');
-    document.getElementById('step2Next').disabled = false;
+  function renderCard(e, start, end, isPast) {
+    var card = document.createElement('button');
+    card.className = 'event-card';
+    if (isPast) card.classList.add('past');
+    var now = new Date();
+    if (start <= now && end >= now) card.classList.add('now');
+    card.dataset.color = e.color || 'violet';
+    card.dataset.id = e.id;
+    card.type = 'button';
+
+    var until = humanUntil(start, now, isPast);
+    var timeStr = new Intl.DateTimeFormat(SYSTEM_LOCALE, {
+      hour: '2-digit', minute: '2-digit'
+    }).format(start);
+    var dayStr = sameDay(start, now) ? '' :
+      new Intl.DateTimeFormat(SYSTEM_LOCALE, { weekday: 'short', month: 'short', day: 'numeric' }).format(start);
+
+    card.innerHTML =
+      '<div class="event-stripe"></div>' +
+      '<div class="event-body">' +
+        '<div class="event-title">' + esc(e.title) + '</div>' +
+        '<div class="event-when">' +
+          '<span>' + (dayStr ? dayStr + ' · ' : '') + timeStr + '</span>' +
+          (until ? '<span class="until-tag ' + until.cls + '">' + esc(until.text) + '</span>' : '') +
+          (e.repeat && e.repeat !== 'none' ? '<span class="event-repeat">' + e.repeat.toUpperCase() + '</span>' : '') +
+        '</div>' +
+        (e.location ? '<div class="event-loc">&#128205; ' + esc(e.location) + '</div>' : '') +
+      '</div>';
+
+    card.addEventListener('click', function () { openDetail(e.id); });
+    return card;
   }
 
-  document.getElementById('step2Next').addEventListener('click', function () {
-    if (!state.date) return;
-    renderTimes();
-    goToStep(3);
-  });
-
-  // ============================================================
-  // STEP 3 — TIME SLOTS
-  // 30-min slots within working hours. Lunch hour shown but
-  // disabled. For TODAY in Cebu time, past slots are disabled.
-  // ============================================================
-  function nowCebuMinutes() {
-    var parts = new Intl.DateTimeFormat('en-GB', {
-      timeZone: CONFIG.timezone,
-      hour: '2-digit', minute: '2-digit', hour12: false
-    }).formatToParts(new Date());
-    var h = parseInt(parts.find(function (p) { return p.type === 'hour'; }).value, 10);
-    var m = parseInt(parts.find(function (p) { return p.type === 'minute'; }).value, 10);
-    return h * 60 + m;
+  function sameDay(a, b) {
+    return a.getFullYear() === b.getFullYear() &&
+      a.getMonth() === b.getMonth() &&
+      a.getDate() === b.getDate();
   }
 
-  function renderTimes() {
-    var grid = document.getElementById('timeGrid');
-    grid.innerHTML = '';
-    var hint = document.getElementById('step3Hint');
-    var date = new Date(state.date + 'T12:00:00+08:00');
-    var pretty = date.toLocaleDateString('en-PH', { weekday: 'long', month: 'long', day: 'numeric' });
-    hint.textContent = 'Slots for ' + pretty + ' — Cebu time (GMT+8).';
+  function humanUntil(target, now, isPast) {
+    var diff = target - now;
+    if (isPast || diff < -60000) {
+      var absMs = Math.abs(diff);
+      if (absMs < 3600000) return { text: Math.floor(absMs / 60000) + 'm ago', cls: 'past' };
+      if (absMs < 86400000) return { text: Math.floor(absMs / 3600000) + 'h ago', cls: 'past' };
+      return { text: Math.floor(absMs / 86400000) + 'd ago', cls: 'past' };
+    }
+    if (diff < 60000) return { text: 'now', cls: 'soon' };
+    if (diff < 3600000) {
+      var m = Math.floor(diff / 60000);
+      return { text: 'in ' + m + 'm', cls: m < 30 ? 'soon' : '' };
+    }
+    if (diff < 86400000) {
+      var h = Math.floor(diff / 3600000);
+      var min = Math.floor((diff % 3600000) / 60000);
+      return { text: 'in ' + h + 'h' + (min ? ' ' + min + 'm' : ''), cls: '' };
+    }
+    var days = Math.floor(diff / 86400000);
+    return { text: 'in ' + days + 'd', cls: '' };
+  }
 
-    var isToday = state.date === cebuToday();
-    var nowMin = nowCebuMinutes();
+  // Refresh "in X minutes" labels every 30s without re-rendering everything
+  setInterval(function () { render(); }, 30000);
 
-    for (var h = CONFIG.workingHours.start; h < CONFIG.workingHours.end; h++) {
-      for (var m = 0; m < 60; m += CONFIG.slotMinutes) {
-        var cell = document.createElement('button');
-        cell.type = 'button';
-        var slotMin = h * 60 + m;
+  // ============================================================
+  // ADD / EDIT MODAL
+  // ============================================================
+  function openModal(eventId) {
+    var modal = document.getElementById('modalShroud');
+    var form = document.getElementById('eventForm');
+    form.reset();
+    document.getElementById('ev_id').value = '';
+    document.getElementById('modalTitle').textContent = 'New event';
+    document.getElementById('deleteBtn').hidden = true;
 
-        if (h === CONFIG.lunchHour) {
-          cell.className = 'time-cell lunch';
-          cell.disabled = true;
-          cell.textContent = 'Lunch';
-        } else {
-          cell.className = 'time-cell';
-          cell.textContent = format12h(h, m);
-          var hh = h < 10 ? '0' + h : '' + h;
-          var mm = m < 10 ? '0' + m : '' + m;
-          cell.dataset.time = hh + ':' + mm;
-          if (isToday && slotMin <= nowMin + 30) {
-            // require at least 30min lead time
-            cell.disabled = true;
-          } else {
-            cell.addEventListener('click', function () { selectTime(this); });
-          }
-        }
-        grid.appendChild(cell);
+    // Default date/time = 1 hour from now, rounded
+    var d = new Date(Date.now() + 60 * 60000);
+    var mins = d.getMinutes();
+    d.setMinutes(mins - (mins % 15) + 15, 0, 0);
+    document.getElementById('ev_date').value = isoDate(d);
+    document.getElementById('ev_time').value = isoTime(d);
+    selectColor('violet');
+
+    if (eventId) {
+      var e = events.find(function (x) { return x.id === eventId; });
+      if (e) {
+        document.getElementById('modalTitle').textContent = 'Edit event';
+        document.getElementById('ev_id').value = e.id;
+        document.getElementById('ev_title').value = e.title;
+        document.getElementById('ev_date').value = e.date;
+        document.getElementById('ev_time').value = e.time;
+        document.getElementById('ev_duration').value = e.durationMin;
+        document.getElementById('ev_repeat').value = e.repeat || 'none';
+        document.getElementById('ev_location').value = e.location || '';
+        document.getElementById('ev_notes').value = e.notes || '';
+        document.getElementById('ev_remind').checked = e.remindMin !== null && e.remindMin !== undefined;
+        if (e.remindMin) document.getElementById('ev_remind_when').value = e.remindMin;
+        selectColor(e.color || 'violet');
+        document.getElementById('deleteBtn').hidden = false;
       }
     }
+    modal.hidden = false;
+    setTimeout(function () { document.getElementById('ev_title').focus(); }, 100);
+  }
+  function closeModal() {
+    document.getElementById('modalShroud').hidden = true;
   }
 
-  function format12h(h, m) {
-    var ampm = h >= 12 ? 'PM' : 'AM';
-    var hr = h % 12 === 0 ? 12 : h % 12;
-    return hr + ':' + (m < 10 ? '0' + m : m) + ' ' + ampm;
-  }
-
-  function selectTime(cell) {
-    state.time = cell.dataset.time;
-    document.querySelectorAll('.time-cell').forEach(function (c) {
-      c.classList.remove('selected');
+  function selectColor(c) {
+    document.querySelectorAll('.swatch').forEach(function (s) {
+      s.classList.toggle('selected', s.dataset.color === c);
     });
-    cell.classList.add('selected');
-    document.getElementById('step3Next').disabled = false;
   }
 
-  document.getElementById('step3Next').addEventListener('click', function () {
-    if (!state.time) return;
-    renderSummary();
-    goToStep(4);
-  });
+  // Save event
+  document.getElementById('eventForm').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var id = document.getElementById('ev_id').value || newId();
+    var existing = events.find(function (x) { return x.id === id; });
+    var selectedSwatch = document.querySelector('.swatch.selected');
+    var color = selectedSwatch ? selectedSwatch.dataset.color : 'violet';
+    var remind = document.getElementById('ev_remind').checked;
 
-  // ============================================================
-  // STEP 4 — DETAILS + SUMMARY + SUBMIT
-  // ============================================================
-  function renderSummary() {
-    var box = document.getElementById('summaryBox');
-    var dt = new Date(state.date + 'T' + state.time + ':00+08:00');
-    var prettyDate = dt.toLocaleDateString('en-PH', {
-      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
-    });
-    var prettyTime = dt.toLocaleTimeString('en-PH', {
-      hour: 'numeric', minute: '2-digit', hour12: true, timeZone: CONFIG.timezone
-    });
-    box.innerHTML =
-      '<div class="summary-row"><span class="label">Viewing:</span><span class="value">' + escape(state.property.title) + '</span></div>' +
-      '<div class="summary-row"><span class="label">Date:</span><span class="value">' + prettyDate + '</span></div>' +
-      '<div class="summary-row"><span class="label">Time:</span><span class="value">' + prettyTime + ' (Cebu time)</span></div>' +
-      '<div class="summary-row"><span class="label">Duration:</span><span class="value">30 minutes</span></div>';
-  }
+    var payload = {
+      id: id,
+      title: document.getElementById('ev_title').value.trim(),
+      date: document.getElementById('ev_date').value,
+      time: document.getElementById('ev_time').value,
+      durationMin: parseInt(document.getElementById('ev_duration').value, 10),
+      repeat: document.getElementById('ev_repeat').value,
+      location: document.getElementById('ev_location').value.trim(),
+      notes: document.getElementById('ev_notes').value.trim(),
+      color: color,
+      remindMin: remind ? parseInt(document.getElementById('ev_remind_when').value, 10) : null,
+      createdAt: existing ? existing.createdAt : new Date().toISOString()
+    };
 
-  document.getElementById('bookingForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var form = e.target;
-    state.name = form.name.value.trim();
-    state.phone = form.phone.value.trim();
-    state.email = form.email.value.trim();
-    state.note = form.note.value.trim();
-    state.remind = document.getElementById('bk_remind').checked;
-
-    if (state.name.length < 2 || state.phone.length < 7) {
-      alert('Please enter your name and a valid mobile number.');
+    if (!payload.title || !payload.date || !payload.time) {
+      toast('Please fill in title, date, and time');
       return;
     }
 
-    var btn = document.getElementById('confirmBtn');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
+    if (existing) {
+      Object.assign(existing, payload);
+    } else {
+      events.push(payload);
+    }
+    save();
+    scheduleReminders();
+    closeModal();
+    render();
+    toast(existing ? 'Event updated' : 'Event saved');
 
-    submitBooking().then(function () {
-      saveBookingLocal();
-      scheduleReminder();
-      renderConfirmation();
-      goToStep(5);
-    }).catch(function (err) {
-      btn.disabled = false;
-      btn.textContent = 'Confirm Booking';
-      alert('Sorry, something went wrong sending your booking. Please call Rea directly at ' + CONFIG.ownerPhone);
-      console.error(err);
-    });
-  });
-
-  // ============================================================
-  // SUBMIT — Web3Forms (matches the rest of CLM's submission path)
-  // ============================================================
-  function submitBooking() {
-    var fd = new FormData();
-    fd.append('access_key', CONFIG.web3formsKey);
-    fd.append('subject', '[Calendar] Viewing booked — ' + state.property.title);
-    fd.append('from_name', 'CLM Calendar');
-    fd.append('Booking_Type', 'Property Viewing');
-    fd.append('Property', state.property.title);
-    fd.append('Property_Address', state.property.address || '');
-    fd.append('Property_ID', state.property.id);
-    fd.append('Date', state.date);
-    fd.append('Time_Cebu', state.time + ' (GMT+8)');
-    fd.append('Visitor_Name', state.name);
-    fd.append('Visitor_Phone', state.phone);
-    fd.append('Visitor_Email', state.email || 'not provided');
-    fd.append('Note', state.note || '(none)');
-    fd.append('Booked_At', new Date().toISOString());
-
-    return fetch(CONFIG.web3formsUrl, { method: 'POST', body: fd })
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (data) {
-        if (!data.success) throw new Error(data.message || 'Submission failed');
-        return data;
-      });
-  }
-
-  // ============================================================
-  // LOCALSTORAGE — track this user's bookings
-  // ============================================================
-  function saveBookingLocal() {
-    try {
-      var list = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '[]');
-      list.push({
-        id: state.property.id,
-        title: state.property.title,
-        address: state.property.address,
-        date: state.date,
-        time: state.time,
-        name: state.name,
-        phone: state.phone,
-        bookedAt: new Date().toISOString()
-      });
-      localStorage.setItem(CONFIG.storageKey, JSON.stringify(list));
-    } catch (e) { /* private mode etc. */ }
-  }
-
-  function renderHistory() {
-    try {
-      var list = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '[]');
-      if (!list.length) return;
-      var section = document.getElementById('myBookings');
-      var box = document.getElementById('bookingHistory');
-      box.innerHTML = '';
-      list.slice().reverse().forEach(function (b) {
-        var dt = new Date(b.date + 'T' + b.time + ':00+08:00');
-        var pretty = dt.toLocaleString('en-PH', {
-          weekday: 'short', month: 'short', day: 'numeric',
-          hour: 'numeric', minute: '2-digit', hour12: true,
-          timeZone: CONFIG.timezone
-        });
-        var item = document.createElement('div');
-        item.className = 'booking-item';
-        item.innerHTML =
-          '<div class="bk-when">' + pretty + '</div>' +
-          '<div class="bk-prop">' + escape(b.title) + '</div>';
-        box.appendChild(item);
-      });
-      section.hidden = false;
-    } catch (e) { /* ignore */ }
-  }
-
-  // ============================================================
-  // REMINDER — request Notification permission, fire setTimeout
-  // 60 minutes before the slot if the page is open.
-  // Real reliability comes from the .ics file (OS calendar).
-  // ============================================================
-  function scheduleReminder() {
-    if (!state.remind) return;
-    if (!('Notification' in window)) return;
-    if (Notification.permission === 'default') {
+    if (remind && 'Notification' in window && Notification.permission === 'default') {
       Notification.requestPermission();
     }
-    var when = new Date(state.date + 'T' + state.time + ':00+08:00').getTime();
-    var ms = when - Date.now() - 60 * 60 * 1000;
-    if (ms > 0 && ms < 24 * 60 * 60 * 1000) {
-      setTimeout(function () {
-        if (Notification.permission === 'granted') {
-          new Notification('Property viewing in 1 hour', {
-            body: state.property.title + ' — see you soon!',
-            icon: 'images/icon-192.png'
-          });
-        }
-      }, ms);
+  });
+
+  // Color swatches
+  document.getElementById('colorRow').addEventListener('click', function (e) {
+    var sw = e.target.closest('.swatch');
+    if (sw) selectColor(sw.dataset.color);
+  });
+
+  // Quick presets
+  document.getElementById('quickPresets').addEventListener('click', function (e) {
+    var chip = e.target.closest('.chip');
+    if (chip) applyPreset(chip.dataset.preset);
+  });
+
+  // Delete event
+  document.getElementById('deleteBtn').addEventListener('click', function () {
+    var id = document.getElementById('ev_id').value;
+    if (!id) return;
+    if (!confirm('Delete this event?')) return;
+    events = events.filter(function (x) { return x.id !== id; });
+    save();
+    clearReminder(id);
+    closeModal();
+    closeDetail();
+    render();
+    toast('Event deleted');
+  });
+
+  document.getElementById('cancelBtn').addEventListener('click', closeModal);
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+
+  // Click outside to close modals
+  ['modalShroud', 'detailShroud', 'aboutShroud'].forEach(function (id) {
+    document.getElementById(id).addEventListener('click', function (e) {
+      if (e.target === this) this.hidden = true;
+    });
+  });
+
+  // ============================================================
+  // DETAIL SHEET
+  // ============================================================
+  function openDetail(id) {
+    var e = events.find(function (x) { return x.id === id; });
+    if (!e) return;
+    var modal = document.getElementById('detailShroud');
+    var start = e.repeat && e.repeat !== 'none' ? nextOccurrence(e, new Date()) : eventStartDate(e);
+    var end = new Date(start.getTime() + (e.durationMin > 0 ? e.durationMin : 60) * 60000);
+
+    document.getElementById('detailTitle').textContent = e.title;
+    var body = document.getElementById('detailBody');
+    body.innerHTML =
+      '<div class="detail-row"><span class="detail-label">When</span><span class="detail-value large">' +
+        new Intl.DateTimeFormat(SYSTEM_LOCALE, { weekday:'long', month:'long', day:'numeric', year:'numeric' }).format(start) +
+      '</span></div>' +
+      '<div class="detail-row"><span class="detail-label">Time</span><span class="detail-value mono">' +
+        new Intl.DateTimeFormat(SYSTEM_LOCALE, { hour:'2-digit', minute:'2-digit' }).format(start) + ' – ' +
+        new Intl.DateTimeFormat(SYSTEM_LOCALE, { hour:'2-digit', minute:'2-digit' }).format(end) +
+      '</span></div>' +
+      (e.location ? '<div class="detail-row"><span class="detail-label">Where</span><span class="detail-value">' + esc(e.location) + '</span></div>' : '') +
+      (e.notes ? '<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-value">' + esc(e.notes) + '</span></div>' : '') +
+      (e.repeat && e.repeat !== 'none' ? '<div class="detail-row"><span class="detail-label">Repeats</span><span class="detail-value">' + e.repeat + '</span></div>' : '') +
+      (e.remindMin ? '<div class="detail-row"><span class="detail-label">Reminder</span><span class="detail-value">' + e.remindMin + ' min before</span></div>' : '');
+
+    document.getElementById('detailIcs').href = makeIcsDataUrl(e, start, end);
+    document.getElementById('detailIcs').download = (e.title || 'event').replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '.ics';
+    document.getElementById('detailGcal').href = makeGoogleCalUrl(e, start, end);
+    document.getElementById('detailOutlook').href = makeOutlookUrl(e, start, end);
+    document.getElementById('detailEdit').onclick = function () { closeDetail(); openModal(e.id); };
+
+    modal.hidden = false;
+  }
+  function closeDetail() { document.getElementById('detailShroud').hidden = true; }
+  document.getElementById('detailClose').addEventListener('click', closeDetail);
+
+  // ============================================================
+  // .ICS GENERATION + CALENDAR LINKS
+  // The .ics file is the precision-timing backbone — its VALARM
+  // creates OS-level reminders that fire even with the app closed.
+  // ============================================================
+  function icsTime(d) {
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + 'Z';
+  }
+  function makeIcsDataUrl(e, start, end) {
+    var uid = e.id + '@tempo.app';
+    var trigger = e.remindMin ? '-PT' + e.remindMin + 'M' : '-PT10M';
+    var lines = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Tempo//Calendar//EN',
+      'CALSCALE:GREGORIAN',
+      'BEGIN:VEVENT',
+      'UID:' + uid,
+      'DTSTAMP:' + icsTime(new Date()),
+      'DTSTART:' + icsTime(start),
+      'DTEND:' + icsTime(end),
+      'SUMMARY:' + icsEsc(e.title)
+    ];
+    if (e.location) lines.push('LOCATION:' + icsEsc(e.location));
+    if (e.notes) lines.push('DESCRIPTION:' + icsEsc(e.notes));
+    if (e.repeat === 'daily') lines.push('RRULE:FREQ=DAILY');
+    else if (e.repeat === 'weekly') lines.push('RRULE:FREQ=WEEKLY');
+    else if (e.repeat === 'monthly') lines.push('RRULE:FREQ=MONTHLY');
+    if (e.remindMin) {
+      lines.push('BEGIN:VALARM', 'ACTION:DISPLAY',
+        'DESCRIPTION:' + icsEsc(e.title), 'TRIGGER:' + trigger, 'END:VALARM');
+    }
+    lines.push('END:VEVENT', 'END:VCALENDAR');
+    return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(lines.join('\r\n'));
+  }
+  function icsEsc(s) {
+    return String(s || '').replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
+  }
+  function makeGoogleCalUrl(e, start, end) {
+    var p = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: e.title,
+      dates: icsTime(start) + '/' + icsTime(end),
+      details: e.notes || '',
+      location: e.location || ''
+    });
+    return 'https://calendar.google.com/calendar/render?' + p.toString();
+  }
+  function makeOutlookUrl(e, start, end) {
+    var p = new URLSearchParams({
+      path: '/calendar/action/compose',
+      rru: 'addevent',
+      subject: e.title,
+      startdt: start.toISOString(),
+      enddt: end.toISOString(),
+      body: e.notes || '',
+      location: e.location || ''
+    });
+    return 'https://outlook.live.com/calendar/0/deeplink/compose?' + p.toString();
+  }
+
+  // ============================================================
+  // REMINDERS
+  // Browser notifications fire via setTimeout while the app is
+  // open. The .ics file handles the case where it's not.
+  // ============================================================
+  function scheduleReminders() {
+    Object.keys(REMINDER_TIMERS).forEach(function (id) {
+      clearTimeout(REMINDER_TIMERS[id]);
+      delete REMINDER_TIMERS[id];
+    });
+    if (!('Notification' in window)) return;
+    var now = Date.now();
+    events.forEach(function (e) {
+      if (!e.remindMin) return;
+      var start = e.repeat && e.repeat !== 'none' ? nextOccurrence(e, new Date()) : eventStartDate(e);
+      var fireAt = start.getTime() - e.remindMin * 60000;
+      var ms = fireAt - now;
+      if (ms > 0 && ms < 24 * 60 * 60 * 1000) {
+        REMINDER_TIMERS[e.id] = setTimeout(function () {
+          if (Notification.permission === 'granted') {
+            new Notification(e.title, {
+              body: 'In ' + e.remindMin + ' min' + (e.location ? ' · ' + e.location : ''),
+              icon: 'images/icon-192.png',
+              tag: e.id
+            });
+          }
+        }, ms);
+      }
+    });
+  }
+  function clearReminder(id) {
+    if (REMINDER_TIMERS[id]) {
+      clearTimeout(REMINDER_TIMERS[id]);
+      delete REMINDER_TIMERS[id];
     }
   }
 
   // ============================================================
-  // CONFIRMATION — .ics + Google Calendar link
-  // The .ics file is the precision-timing backbone: it contains
-  // a VALARM for 1 day + 1 hour before, so the user's native
-  // calendar will alert them even with the browser closed.
+  // TOAST
   // ============================================================
-  function renderConfirmation() {
-    var dt = new Date(state.date + 'T' + state.time + ':00+08:00');
-    var prettyDate = dt.toLocaleDateString('en-PH', {
-      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
-    });
-    var prettyTime = dt.toLocaleTimeString('en-PH', {
-      hour: 'numeric', minute: '2-digit', hour12: true, timeZone: CONFIG.timezone
-    });
-
-    document.getElementById('confirmDetails').innerHTML =
-      '<div class="summary-row"><span class="label">What:</span><span class="value">' + escape(state.property.title) + '</span></div>' +
-      '<div class="summary-row"><span class="label">When:</span><span class="value">' + prettyDate + '</span></div>' +
-      '<div class="summary-row"><span class="label">Time:</span><span class="value">' + prettyTime + ' Cebu time</span></div>' +
-      '<div class="summary-row"><span class="label">Where:</span><span class="value">' + escape(state.property.address || 'To be confirmed') + '</span></div>' +
-      '<div class="summary-row"><span class="label">Owner:</span><span class="value">' + CONFIG.ownerName + ' — ' + CONFIG.ownerPhone + '</span></div>';
-
-    // .ics download
-    var icsUrl = makeIcsDataUrl();
-    var dl = document.getElementById('downloadIcs');
-    dl.href = icsUrl;
-    dl.download = 'cebulandmarket-viewing.ics';
-
-    // Google Calendar URL
-    document.getElementById('addGoogle').href = makeGoogleCalUrl();
+  var toastTimer = null;
+  function toast(msg) {
+    var el = document.getElementById('toast');
+    el.textContent = msg;
+    el.hidden = false;
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.hidden = true; }, 2200);
   }
 
-  function pad(n) { return n < 10 ? '0' + n : '' + n; }
-
-  // UTC timestamp formatted for ICS: YYYYMMDDTHHMMSSZ
-  function icsTime(d) {
-    return d.getUTCFullYear() +
-      pad(d.getUTCMonth() + 1) +
-      pad(d.getUTCDate()) + 'T' +
-      pad(d.getUTCHours()) +
-      pad(d.getUTCMinutes()) +
-      pad(d.getUTCSeconds()) + 'Z';
-  }
-
-  function makeIcsDataUrl() {
-    var start = new Date(state.date + 'T' + state.time + ':00+08:00');
-    var end = new Date(start.getTime() + 30 * 60 * 1000);
-    var now = new Date();
-    var uid = 'clm-' + start.getTime() + '-' + Math.random().toString(36).slice(2, 10) + '@cebulandmarket.com';
-
-    var desc = 'Property viewing booked via CebuLandMarket.\\n\\n' +
-      'Property: ' + state.property.title + '\\n' +
-      'Location: ' + (state.property.address || 'TBC') + '\\n' +
-      'Owner: ' + CONFIG.ownerName + '\\n' +
-      'Phone: ' + CONFIG.ownerPhone + '\\n\\n' +
-      'Booked by: ' + state.name + ' (' + state.phone + ')';
-
-    var ics = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//CebuLandMarket//Calendar//EN',
-      'CALSCALE:GREGORIAN',
-      'METHOD:PUBLISH',
-      'BEGIN:VEVENT',
-      'UID:' + uid,
-      'DTSTAMP:' + icsTime(now),
-      'DTSTART:' + icsTime(start),
-      'DTEND:' + icsTime(end),
-      'SUMMARY:Property Viewing — ' + state.property.title,
-      'DESCRIPTION:' + desc,
-      'LOCATION:' + (state.property.address || 'Cebu, Philippines'),
-      'URL:' + CONFIG.siteUrl,
-      'STATUS:CONFIRMED',
-      'BEGIN:VALARM',
-      'ACTION:DISPLAY',
-      'DESCRIPTION:Property viewing tomorrow',
-      'TRIGGER:-P1D',
-      'END:VALARM',
-      'BEGIN:VALARM',
-      'ACTION:DISPLAY',
-      'DESCRIPTION:Property viewing in 1 hour',
-      'TRIGGER:-PT1H',
-      'END:VALARM',
-      'END:VEVENT',
-      'END:VCALENDAR'
-    ].join('\r\n');
-
-    return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
-  }
-
-  // Google Calendar pre-fill URL (works on web + mobile app)
-  function makeGoogleCalUrl() {
-    var start = new Date(state.date + 'T' + state.time + ':00+08:00');
-    var end = new Date(start.getTime() + 30 * 60 * 1000);
-    var params = new URLSearchParams({
-      action: 'TEMPLATE',
-      text: 'Property Viewing — ' + state.property.title,
-      dates: icsTime(start) + '/' + icsTime(end),
-      details: 'Booked via CebuLandMarket.\nOwner: ' + CONFIG.ownerName + ' — ' + CONFIG.ownerPhone,
-      location: state.property.address || 'Cebu, Philippines'
-    });
-    return 'https://calendar.google.com/calendar/render?' + params.toString();
-  }
-
-  // "Book another" — reset state, back to step 1
-  document.getElementById('newBookingBtn').addEventListener('click', function () {
-    state = {
-      step: 1, property: null, date: null, time: null,
-      name: '', phone: '', email: '', note: '', remind: true
-    };
-    document.querySelectorAll('.property-card').forEach(function (c) {
-      c.classList.remove('selected');
-    });
-    document.getElementById('bookingForm').reset();
-    document.getElementById('step1Next').disabled = true;
-    document.getElementById('step2Next').disabled = true;
-    document.getElementById('step3Next').disabled = true;
-    document.getElementById('confirmBtn').disabled = false;
-    document.getElementById('confirmBtn').textContent = 'Confirm Booking';
-    renderHistory();
-    goToStep(1);
+  // ============================================================
+  // EVENT WIRING
+  // ============================================================
+  document.getElementById('fabAdd').addEventListener('click', function () { openModal(); });
+  document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+  document.getElementById('aboutBtn').addEventListener('click', function () {
+    document.getElementById('aboutShroud').hidden = false;
+  });
+  document.getElementById('aboutClose').addEventListener('click', function () {
+    document.getElementById('aboutShroud').hidden = true;
   });
 
-  // ---------- UTIL ----------
-  function escape(s) {
+  // Keyboard: ESC closes modals, Cmd/Ctrl+N opens new event
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      ['modalShroud', 'detailShroud', 'aboutShroud'].forEach(function (id) {
+        document.getElementById(id).hidden = true;
+      });
+    }
+    if ((e.metaKey || e.ctrlKey) && e.key === 'n') {
+      e.preventDefault();
+      openModal();
+    }
+  });
+
+  // ---------- util ----------
+  function esc(s) {
     return String(s || '').replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
 
-  // ---------- BOOTSTRAP ----------
-  renderProperties();
-  renderHistory();
+  // ---------- bootstrap ----------
+  loadTheme();
+  load();
+  render();
+  scheduleReminders();
+
+  // Re-schedule when tab regains focus (in case setTimeout was paused)
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) {
+      scheduleReminders();
+      render();
+    }
+  });
 
 })();

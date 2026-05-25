@@ -3,188 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Book a property viewing in Cebu. Pick a date and time that works for you — instant confirmation, automatic calendar reminders. CebuLandMarket viewing scheduler.">
-  <meta property="og:title" content="Book a Viewing — CebuLandMarket Calendar">
-  <meta property="og:description" content="Book a property viewing in Cebu. Pick a date and time that works for you.">
-  <meta property="og:url" content="https://cebulandmarket.com/calendar/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="description" content="Tempo — a beautiful personal calendar. Plan moments, get reminders, sync to any device. Works offline, no account needed.">
+  <meta property="og:title" content="Tempo — Plan moments. Remember everything.">
+  <meta property="og:description" content="A beautiful personal calendar that works on any device. No account. No tracking. Just time, well kept.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="CebuLandMarket">
-  <title>Book a Viewing — CebuLandMarket Calendar</title>
+  <title>Tempo — Plan moments. Remember everything.</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="canonical" href="https://cebulandmarket.com/calendar/">
-  <link rel="stylesheet" href="css/style.css?v=1">
+  <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0891b2">
+  <meta name="theme-color" content="#0a0a0f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="CLM Calendar">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tempo">
   <link rel="apple-touch-icon" href="images/icon-192.png">
 </head>
-<body>
+<body data-theme="auto">
 
-  <header class="header">
-    <nav class="navbar">
-      <a href="index.html" class="logo">
-        <span class="logo-icon">&#128197;</span>
-        <span>Cebu<span class="logo-accent">Calendar</span></span>
-      </a>
-      <div class="nav-right">
-        <a href="../index.html" class="nav-link-back">&#8592; Main Site</a>
-      </div>
-    </nav>
-    <div class="live-clock-bar">
-      <span class="clock-dot"></span>
-      <span id="liveClock">Loading time…</span>
-      <span class="tz-tag">Cebu / GMT+8</span>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span class="brand-name">Tempo</span>
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Theme">
+        <span class="ico-sun">&#9728;</span>
+        <span class="ico-moon">&#9790;</span>
+      </button>
+      <button class="icon-btn" id="aboutBtn" aria-label="About" title="About">?</button>
     </div>
   </header>
 
-  <main class="container">
+  <!-- Live clock hero -->
+  <section class="clock-hero">
+    <div class="clock-time" id="clockTime">--:--</div>
+    <div class="clock-date" id="clockDate">Loading…</div>
+    <div class="clock-tz" id="clockTz"></div>
+  </section>
 
-    <section class="hero">
-      <h1>Book a Property Viewing</h1>
-      <p class="hero-sub">Pick a slot that works for you. Owner Rea will meet you on-site. Auto-reminders are added to your phone calendar.</p>
-    </section>
-
-    <!-- Progress -->
-    <div class="progress" id="progress" aria-label="Booking progress">
-      <div class="progress-step active" data-step="1"><span>1</span><label>Property</label></div>
-      <div class="progress-line"></div>
-      <div class="progress-step" data-step="2"><span>2</span><label>Date</label></div>
-      <div class="progress-line"></div>
-      <div class="progress-step" data-step="3"><span>3</span><label>Time</label></div>
-      <div class="progress-line"></div>
-      <div class="progress-step" data-step="4"><span>4</span><label>Details</label></div>
+  <!-- Event list -->
+  <main class="event-feed" id="eventFeed">
+    <!-- Empty state -->
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">&#10022;</div>
+      <h2>Nothing on the calendar</h2>
+      <p>Tap the + button to plan your first moment.</p>
+      <div class="empty-tips">
+        <span class="tip">All data stays on your device</span>
+        <span class="tip">Works offline</span>
+        <span class="tip">No account needed</span>
+      </div>
     </div>
-
-    <!-- STEP 1: Property -->
-    <section class="step active" id="step1" data-step="1">
-      <h2>What would you like to view?</h2>
-      <div class="property-list" id="propertyList">
-        <button type="button" class="property-card" data-property="general">
-          <div class="prop-emoji">&#128172;</div>
-          <div class="prop-info">
-            <div class="prop-title">General Consultation</div>
-            <div class="prop-meta">Talk about buying / renting / selling — no specific property</div>
-          </div>
-        </button>
-        <!-- Property cards injected by app.js -->
-      </div>
-      <div class="step-actions">
-        <button type="button" class="btn btn-primary" id="step1Next" disabled>Continue &#8594;</button>
-      </div>
-    </section>
-
-    <!-- STEP 2: Date -->
-    <section class="step" id="step2" data-step="2">
-      <h2>Pick a date</h2>
-      <p class="step-hint">Showing the next 14 days. Sundays are closed.</p>
-      <div class="date-grid" id="dateGrid"></div>
-      <div class="step-actions">
-        <button type="button" class="btn btn-ghost" data-back="1">&#8592; Back</button>
-        <button type="button" class="btn btn-primary" id="step2Next" disabled>Continue &#8594;</button>
-      </div>
-    </section>
-
-    <!-- STEP 3: Time -->
-    <section class="step" id="step3" data-step="3">
-      <h2>Pick a time slot</h2>
-      <p class="step-hint" id="step3Hint">Slots are 30 minutes long. Times in Cebu (GMT+8).</p>
-      <div class="time-grid" id="timeGrid"></div>
-      <div class="step-actions">
-        <button type="button" class="btn btn-ghost" data-back="2">&#8592; Back</button>
-        <button type="button" class="btn btn-primary" id="step3Next" disabled>Continue &#8594;</button>
-      </div>
-    </section>
-
-    <!-- STEP 4: Details -->
-    <section class="step" id="step4" data-step="4">
-      <h2>Your contact info</h2>
-      <div class="summary-box" id="summaryBox"></div>
-      <form id="bookingForm" autocomplete="on" novalidate>
-        <label class="field">
-          <span>Full Name <em>*</em></span>
-          <input type="text" name="name" id="bk_name" required minlength="2" maxlength="80" placeholder="Maria Santos">
-        </label>
-        <label class="field">
-          <span>Mobile Number <em>*</em></span>
-          <input type="tel" name="phone" id="bk_phone" required pattern="[0-9 +()-]{7,}" placeholder="0917 123 4567" inputmode="tel">
-        </label>
-        <label class="field">
-          <span>Email (optional)</span>
-          <input type="email" name="email" id="bk_email" maxlength="120" placeholder="you@email.com">
-        </label>
-        <label class="field">
-          <span>Note for Rea (optional)</span>
-          <textarea name="note" id="bk_note" rows="3" maxlength="500" placeholder="Anything we should know before the viewing?"></textarea>
-        </label>
-
-        <label class="checkbox-field">
-          <input type="checkbox" id="bk_remind" checked>
-          <span>Send me a browser reminder 1 hour before the viewing</span>
-        </label>
-
-        <div class="step-actions">
-          <button type="button" class="btn btn-ghost" data-back="3">&#8592; Back</button>
-          <button type="submit" class="btn btn-primary" id="confirmBtn">Confirm Booking</button>
-        </div>
-        <p class="form-foot">By confirming, you agree Rea may contact you to coordinate the viewing.</p>
-      </form>
-    </section>
-
-    <!-- STEP 5: Confirmation -->
-    <section class="step" id="step5" data-step="5">
-      <div class="confirm-card">
-        <div class="confirm-icon">&#10003;</div>
-        <h2>Booking Confirmed</h2>
-        <p class="confirm-msg">Your viewing request was sent to Rea. She'll reach out to confirm the meet-up point shortly.</p>
-
-        <div class="confirm-details" id="confirmDetails"></div>
-
-        <div class="confirm-actions">
-          <a href="#" id="downloadIcs" class="btn btn-primary">&#128197; Add to Phone Calendar</a>
-          <a href="#" id="addGoogle" class="btn btn-ghost" target="_blank" rel="noopener">Add to Google Calendar</a>
-        </div>
-
-        <div class="confirm-tips">
-          <strong>What happens next?</strong>
-          <ul>
-            <li>Rea will message you within a few hours to confirm.</li>
-            <li>Tap <em>Add to Phone Calendar</em> — your phone will remind you 1 day and 1 hour before.</li>
-            <li>Need to reschedule? Call/text <a href="tel:+639687512330">0968 751 2330</a>.</li>
-          </ul>
-        </div>
-
-        <button type="button" class="btn btn-link" id="newBookingBtn">Book another viewing</button>
-      </div>
-    </section>
-
-    <!-- My Bookings -->
-    <section class="my-bookings" id="myBookings" hidden>
-      <h2>Your Previous Bookings</h2>
-      <div id="bookingHistory"></div>
-    </section>
-
+    <!-- Event groups injected here -->
   </main>
 
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> CebuLandMarket — Owner: Reafil Rusiana &middot; <a href="tel:+639687512330">0968 751 2330</a></p>
-    <p class="footer-tiny"><a href="../index.html">Land</a> &middot; <a href="../rentals/">Rentals</a> &middot; <a href="../vehicles/">Vehicles</a></p>
-  </footer>
+  <!-- Floating add button -->
+  <button class="fab" id="fabAdd" aria-label="Add event">
+    <span>+</span>
+  </button>
 
-  <script src="../data/listings.js"></script>
-  <script src="js/app.js?v=1"></script>
+  <!-- ============================================================
+       Event modal (add / edit)
+       ============================================================ -->
+  <div class="modal-shroud" id="modalShroud" hidden>
+    <div class="modal" id="eventModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-head">
+        <h2 id="modalTitle">New event</h2>
+        <button class="icon-btn modal-close" id="modalClose" aria-label="Close">&times;</button>
+      </header>
+
+      <form id="eventForm" autocomplete="off" novalidate>
+        <input type="hidden" id="ev_id">
+
+        <label class="field">
+          <span class="field-label">What's happening?</span>
+          <input type="text" id="ev_title" required maxlength="120" placeholder="Lunch with Alex" autofocus>
+        </label>
+
+        <div class="quick-presets" id="quickPresets">
+          <span class="quick-label">Quick set:</span>
+          <button type="button" class="chip" data-preset="30m">In 30 min</button>
+          <button type="button" class="chip" data-preset="1h">In 1 hour</button>
+          <button type="button" class="chip" data-preset="3h">In 3 hours</button>
+          <button type="button" class="chip" data-preset="tom9">Tomorrow 9 AM</button>
+          <button type="button" class="chip" data-preset="mon9">Next Mon 9 AM</button>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span class="field-label">Date</span>
+            <input type="date" id="ev_date" required>
+          </label>
+          <label class="field">
+            <span class="field-label">Time</span>
+            <input type="time" id="ev_time" required>
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span class="field-label">Duration</span>
+            <select id="ev_duration">
+              <option value="15">15 min</option>
+              <option value="30" selected>30 min</option>
+              <option value="45">45 min</option>
+              <option value="60">1 hour</option>
+              <option value="90">1.5 hours</option>
+              <option value="120">2 hours</option>
+              <option value="180">3 hours</option>
+              <option value="240">4 hours</option>
+              <option value="0">All-day-ish</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field-label">Repeat</span>
+            <select id="ev_repeat">
+              <option value="none" selected>One-time</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span class="field-label">Location (optional)</span>
+          <input type="text" id="ev_location" maxlength="200" placeholder="Cafe, Zoom link, address…">
+        </label>
+
+        <label class="field">
+          <span class="field-label">Notes (optional)</span>
+          <textarea id="ev_notes" rows="2" maxlength="800" placeholder="Anything to remember"></textarea>
+        </label>
+
+        <div class="field">
+          <span class="field-label">Color</span>
+          <div class="color-row" id="colorRow">
+            <button type="button" class="swatch selected" data-color="violet" style="--c:#a855f7" aria-label="Violet"></button>
+            <button type="button" class="swatch" data-color="cyan" style="--c:#06b6d4" aria-label="Cyan"></button>
+            <button type="button" class="swatch" data-color="emerald" style="--c:#10b981" aria-label="Emerald"></button>
+            <button type="button" class="swatch" data-color="amber" style="--c:#f59e0b" aria-label="Amber"></button>
+            <button type="button" class="swatch" data-color="rose" style="--c:#f43f5e" aria-label="Rose"></button>
+            <button type="button" class="swatch" data-color="slate" style="--c:#64748b" aria-label="Slate"></button>
+          </div>
+        </div>
+
+        <label class="checkbox-field">
+          <input type="checkbox" id="ev_remind" checked>
+          <select id="ev_remind_when">
+            <option value="5">5 min before</option>
+            <option value="10" selected>10 min before</option>
+            <option value="30">30 min before</option>
+            <option value="60">1 hour before</option>
+            <option value="1440">1 day before</option>
+          </select>
+          <span class="checkbox-text">Remind me</span>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-danger" id="deleteBtn" hidden>Delete</button>
+          <button type="button" class="btn btn-ghost" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveBtn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Event detail sheet
+       ============================================================ -->
+  <div class="modal-shroud" id="detailShroud" hidden>
+    <div class="modal detail-modal" role="dialog" aria-modal="true">
+      <header class="modal-head">
+        <h2 id="detailTitle">Event</h2>
+        <button class="icon-btn modal-close" id="detailClose" aria-label="Close">&times;</button>
+      </header>
+      <div id="detailBody" class="detail-body"></div>
+      <div class="modal-actions">
+        <a href="#" class="btn btn-ghost" id="detailGcal" target="_blank" rel="noopener">Google</a>
+        <a href="#" class="btn btn-ghost" id="detailOutlook" target="_blank" rel="noopener">Outlook</a>
+        <a href="#" class="btn btn-primary" id="detailIcs">Add to Calendar</a>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="detailEdit">Edit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       About sheet
+       ============================================================ -->
+  <div class="modal-shroud" id="aboutShroud" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <header class="modal-head">
+        <h2>About Tempo</h2>
+        <button class="icon-btn modal-close" id="aboutClose" aria-label="Close">&times;</button>
+      </header>
+      <div class="about-body">
+        <p><strong>Tempo</strong> is a tiny, beautiful calendar that lives on your device.</p>
+        <ul>
+          <li><strong>Private by design.</strong> Everything stays in your browser. No accounts, no servers, no tracking.</li>
+          <li><strong>Works offline.</strong> Install it as an app from your browser menu.</li>
+          <li><strong>Syncs to any calendar.</strong> Export to Apple, Google, Outlook with one tap.</li>
+          <li><strong>Reminders that actually fire.</strong> Browser notifications + downloadable .ics with OS-level alarms.</li>
+        </ul>
+        <p class="muted">Made with care. Free, forever.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="js/app.js?v=2"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('sw.js').catch(function(){});
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function () {});
       });
     }
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

@@ -1,13 +1,13 @@
 {
-  "name": "CebuLandMarket Calendar — Book a Viewing",
-  "short_name": "CLM Calendar",
-  "description": "Book a property viewing in Cebu. Precise time slots, auto calendar reminders.",
+  "name": "Tempo — Plan moments. Remember everything.",
+  "short_name": "Tempo",
+  "description": "A beautiful personal calendar that lives on your device. No account, no tracking. Works offline.",
   "start_url": "/calendar/",
   "scope": "/calendar/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0891b2",
-  "theme_color": "#0891b2",
+  "background_color": "#0a0a0f",
+  "theme_color": "#a855f7",
   "icons": [
     {
       "src": "images/icon-192.png",
@@ -22,5 +22,5 @@
       "purpose": "any"
     }
   ],
-  "categories": ["productivity", "business", "lifestyle"]
+  "categories": ["productivity", "lifestyle", "utilities"]
 }
