@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Book a property viewing in Cebu. Pick a date and time that works for you — instant confirmation, automatic calendar reminders. CebuLandMarket viewing scheduler.">
+  <meta property="og:title" content="Book a Viewing — CebuLandMarket Calendar">
+  <meta property="og:description" content="Book a property viewing in Cebu. Pick a date and time that works for you.">
+  <meta property="og:url" content="https://cebulandmarket.com/calendar/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CebuLandMarket">
+  <title>Book a Viewing — CebuLandMarket Calendar</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="https://cebulandmarket.com/calendar/">
+  <link rel="stylesheet" href="css/style.css?v=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0891b2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="CLM Calendar">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#128197;</span>
+        <span>Cebu<span class="logo-accent">Calendar</span></span>
+      </a>
+      <div class="nav-right">
+        <a href="../index.html" class="nav-link-back">&#8592; Main Site</a>
+      </div>
+    </nav>
+    <div class="live-clock-bar">
+      <span class="clock-dot"></span>
+      <span id="liveClock">Loading time…</span>
+      <span class="tz-tag">Cebu / GMT+8</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <h1>Book a Property Viewing</h1>
+      <p class="hero-sub">Pick a slot that works for you. Owner Rea will meet you on-site. Auto-reminders are added to your phone calendar.</p>
+    </section>
+
+    <!-- Progress -->
+    <div class="progress" id="progress" aria-label="Booking progress">
+      <div class="progress-step active" data-step="1"><span>1</span><label>Property</label></div>
+      <div class="progress-line"></div>
+      <div class="progress-step" data-step="2"><span>2</span><label>Date</label></div>
+      <div class="progress-line"></div>
+      <div class="progress-step" data-step="3"><span>3</span><label>Time</label></div>
+      <div class="progress-line"></div>
+      <div class="progress-step" data-step="4"><span>4</span><label>Details</label></div>
+    </div>
+
+    <!-- STEP 1: Property -->
+    <section class="step active" id="step1" data-step="1">
+      <h2>What would you like to view?</h2>
+      <div class="property-list" id="propertyList">
+        <button type="button" class="property-card" data-property="general">
+          <div class="prop-emoji">&#128172;</div>
+          <div class="prop-info">
+            <div class="prop-title">General Consultation</div>
+            <div class="prop-meta">Talk about buying / renting / selling — no specific property</div>
+          </div>
+        </button>
+        <!-- Property cards injected by app.js -->
+      </div>
+      <div class="step-actions">
+        <button type="button" class="btn btn-primary" id="step1Next" disabled>Continue &#8594;</button>
+      </div>
+    </section>
+
+    <!-- STEP 2: Date -->
+    <section class="step" id="step2" data-step="2">
+      <h2>Pick a date</h2>
+      <p class="step-hint">Showing the next 14 days. Sundays are closed.</p>
+      <div class="date-grid" id="dateGrid"></div>
+      <div class="step-actions">
+        <button type="button" class="btn btn-ghost" data-back="1">&#8592; Back</button>
+        <button type="button" class="btn btn-primary" id="step2Next" disabled>Continue &#8594;</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: Time -->
+    <section class="step" id="step3" data-step="3">
+      <h2>Pick a time slot</h2>
+      <p class="step-hint" id="step3Hint">Slots are 30 minutes long. Times in Cebu (GMT+8).</p>
+      <div class="time-grid" id="timeGrid"></div>
+      <div class="step-actions">
+        <button type="button" class="btn btn-ghost" data-back="2">&#8592; Back</button>
+        <button type="button" class="btn btn-primary" id="step3Next" disabled>Continue &#8594;</button>
+      </div>
+    </section>
+
+    <!-- STEP 4: Details -->
+    <section class="step" id="step4" data-step="4">
+      <h2>Your contact info</h2>
+      <div class="summary-box" id="summaryBox"></div>
+      <form id="bookingForm" autocomplete="on" novalidate>
+        <label class="field">
+          <span>Full Name <em>*</em></span>
+          <input type="text" name="name" id="bk_name" required minlength="2" maxlength="80" placeholder="Maria Santos">
+        </label>
+        <label class="field">
+          <span>Mobile Number <em>*</em></span>
+          <input type="tel" name="phone" id="bk_phone" required pattern="[0-9 +()-]{7,}" placeholder="0917 123 4567" inputmode="tel">
+        </label>
+        <label class="field">
+          <span>Email (optional)</span>
+          <input type="email" name="email" id="bk_email" maxlength="120" placeholder="you@email.com">
+        </label>
+        <label class="field">
+          <span>Note for Rea (optional)</span>
+          <textarea name="note" id="bk_note" rows="3" maxlength="500" placeholder="Anything we should know before the viewing?"></textarea>
+        </label>
+
+        <label class="checkbox-field">
+          <input type="checkbox" id="bk_remind" checked>
+          <span>Send me a browser reminder 1 hour before the viewing</span>
+        </label>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn-ghost" data-back="3">&#8592; Back</button>
+          <button type="submit" class="btn btn-primary" id="confirmBtn">Confirm Booking</button>
+        </div>
+        <p class="form-foot">By confirming, you agree Rea may contact you to coordinate the viewing.</p>
+      </form>
+    </section>
+
+    <!-- STEP 5: Confirmation -->
+    <section class="step" id="step5" data-step="5">
+      <div class="confirm-card">
+        <div class="confirm-icon">&#10003;</div>
+        <h2>Booking Confirmed</h2>
+        <p class="confirm-msg">Your viewing request was sent to Rea. She'll reach out to confirm the meet-up point shortly.</p>
+
+        <div class="confirm-details" id="confirmDetails"></div>
+
+        <div class="confirm-actions">
+          <a href="#" id="downloadIcs" class="btn btn-primary">&#128197; Add to Phone Calendar</a>
+          <a href="#" id="addGoogle" class="btn btn-ghost" target="_blank" rel="noopener">Add to Google Calendar</a>
+        </div>
+
+        <div class="confirm-tips">
+          <strong>What happens next?</strong>
+          <ul>
+            <li>Rea will message you within a few hours to confirm.</li>
+            <li>Tap <em>Add to Phone Calendar</em> — your phone will remind you 1 day and 1 hour before.</li>
+            <li>Need to reschedule? Call/text <a href="tel:+639687512330">0968 751 2330</a>.</li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn btn-link" id="newBookingBtn">Book another viewing</button>
+      </div>
+    </section>
+
+    <!-- My Bookings -->
+    <section class="my-bookings" id="myBookings" hidden>
+      <h2>Your Previous Bookings</h2>
+      <div id="bookingHistory"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> CebuLandMarket — Owner: Reafil Rusiana &middot; <a href="tel:+639687512330">0968 751 2330</a></p>
+    <p class="footer-tiny"><a href="../index.html">Land</a> &middot; <a href="../rentals/">Rentals</a> &middot; <a href="../vehicles/">Vehicles</a></p>
+  </footer>
+
+  <script src="../data/listings.js"></script>
+  <script src="js/app.js?v=1"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js').catch(function(){});
+      });
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
