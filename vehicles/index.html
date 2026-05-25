@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CebuVehicleMarket — Verified Vehicles for Sale in Cebu</title>
   <meta name="description" content="Cebu's trusted marketplace for verified cars, motorbikes, SUVs, and trucks. Every listing is checked for clean OR/CR, no encumbrance, and no accident history.">
-  <meta name="keywords" content="cars for sale Cebu, used cars Cebu, motorbikes Cebu, second hand cars Cebu, vehicles for sale Philippines">
+  <meta name="keywords" content="cars for sale Cebu, used cars Cebu, motorbikes Cebu, second hand cars Cebu, vehicles for sale Philippines, SUV Cebu, truck for sale Cebu">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CebuVehicleMarket">
@@ -20,7 +20,7 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="../favicon.ico">
   <meta name="theme-color" content="#1e40af">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -32,30 +32,212 @@
       <a href="index.html">Browse</a>
       <a href="#how-it-works">How It Works</a>
       <a href="https://cebulandmarket.com" target="_blank" rel="noopener">Land</a>
-      <a href="https://cebulandmarket.com/rentals/" target="_blank" rel="noopener">Rentals</a>
+      <!-- HIDE-RENTALS-FOR-NOW: <a href="https://cebulandmarket.com/rentals/" target="_blank" rel="noopener">Rentals</a> -->
       <a href="submit.html" class="btn-sell">Sell Yours</a>
     </nav>
   </div>
 </header>
 
+<!-- Hero Slideshow -->
 <section class="hero">
-  <h1>Cebu's Trusted Marketplace for Verified Vehicles</h1>
-  <p>Every listing is checked for clean OR/CR, no encumbrance, and no accident history. Buy with confidence. Sell to serious buyers.</p>
+  <div class="hero-slideshow">
+    <div class="hero-slide active">
+      <div class="hero-inner">
+        <div class="hero-badge"><span class="badge-dot"></span> DTI-Registered Business</div>
+        <h1>Cebu's Trusted Marketplace for Verified Vehicles</h1>
+        <p>Every listing is checked for clean OR/CR, no encumbrance, and no accident history. Buy with confidence. Sell to serious buyers.</p>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <div class="hero-inner">
+        <div class="hero-badge"><span class="badge-dot"></span> Documents Verified</div>
+        <h1>No Hidden Liens. No Surprise History.</h1>
+        <p>We check OR/CR, encumbrance, and chassis numbers against records before any listing goes live. What you see is what you get.</p>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <div class="hero-inner">
+        <div class="hero-badge"><span class="badge-dot"></span> Free for Buyers</div>
+        <h1>Sell Your Vehicle for Just ₱100</h1>
+        <p>Pay ₱100 to verify your documents. Refunded if your papers aren't approved. We list verified vehicles only — that's why buyers trust us.</p>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <div class="hero-inner">
+        <div class="hero-badge"><span class="badge-dot"></span> Works Offline</div>
+        <h1>Browse Anywhere — No WiFi Needed</h1>
+        <p>Install CebuVehicleMarket on your phone. Check listings, save favorites, and contact sellers even offline.</p>
+      </div>
+    </div>
+  </div>
   <div class="hero-ctas">
     <a class="btn btn-primary" href="#listings">Browse Vehicles</a>
     <a class="btn btn-secondary" href="submit.html">Sell Your Vehicle</a>
   </div>
-</section>
-
-<section class="trust">
-  <div class="trust-inner">
-    <div class="trust-item"><strong>✓ Verified OR/CR</strong>Every vehicle checked</div>
-    <div class="trust-item"><strong>✓ No Encumbrance</strong>Clean ownership only</div>
-    <div class="trust-item"><strong>✓ Chassis Match</strong>Confirmed against records</div>
-    <div class="trust-item"><strong>✓ Real Sellers</strong>Identity verified</div>
+  <div class="hero-dots">
+    <button class="hero-dot active" aria-label="Slide 1"></button>
+    <button class="hero-dot" aria-label="Slide 2"></button>
+    <button class="hero-dot" aria-label="Slide 3"></button>
+    <button class="hero-dot" aria-label="Slide 4"></button>
   </div>
 </section>
 
+<!-- Trust strip (under hero) -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-item-mini"><strong>✓ Verified OR/CR</strong>Every vehicle checked</div>
+    <div class="trust-item-mini"><strong>✓ No Encumbrance</strong>Clean ownership only</div>
+    <div class="trust-item-mini"><strong>✓ Chassis Match</strong>Confirmed against records</div>
+    <div class="trust-item-mini"><strong>✓ Real Sellers</strong>Identity verified</div>
+  </div>
+</section>
+
+<!-- Bisaya / English Platform Explainer -->
+<section class="bisaya-section">
+  <div class="bisaya-inner">
+    <p class="bisaya-heading">Para sa mga Cebuano — Basaha ni ha!</p>
+    <div class="bisaya-toggle-wrap">
+      <button id="langToggle" class="bisaya-toggle" onclick="
+        var b=document.getElementById('bisayaContent');
+        var e=document.getElementById('englishContent');
+        var showEng = b.style.display!=='none';
+        b.style.display = showEng?'none':'block';
+        e.style.display = showEng?'block':'none';
+        this.textContent = showEng?'Basaha sa Bisaya':'Read in English';
+      ">Read in English</button>
+    </div>
+
+    <!-- Bisaya (default) -->
+    <div id="bisayaContent">
+      <p class="bisaya-lead">
+        Ang CebuVehicleMarket kay <strong>platform ra</strong> — website ra ni siya kung asa ang mga tag-iya sa sakyanan magpost sa ilang kotse, motor, SUV, o trak nga ibaligya. <strong>Dili mi car dealer, dili mi broker, ug wala mi hidden fees.</strong>
+      </p>
+      <div class="bisaya-banner">
+        🌐 <strong>Worldwide ang among platform!</strong> Mga OFW, balikbayan, ug taga-Cebu nga nangita ug sakyanan — makakita ug makainstall sa CebuVehicleMarket bisan asa sa mundo.
+      </div>
+
+      <div class="bisaya-card">
+        <p class="card-head">Kung ikaw ang mopalit (Buyer):</p>
+        <ul>
+          <li>Libre ra ang pagtanaw sa mga listings sa website</li>
+          <li><strong class="hl-blue">Tanan nga sakyanan giverify sa OR/CR, encumbrance, ug chassis number</strong> — makasiguro ka nga legit ug walay tago nga problema sa dili pa ka mocontact sa seller.</li>
+          <li>Kung naay sakyanan nga gusto nimo, <strong>magcontact direkta sa seller</strong> via Messenger, Viber, WhatsApp, o tawag</li>
+          <li>Pwede gyud ka motanaw ug motest drive sa sakyanan — <span class="hl-yellow">dili mi mouban nimo sa pagtanaw</span></li>
+          <li>Ikaw ug ang seller ang magnegotiate — wala mi apil sa price o sa deal</li>
+        </ul>
+      </div>
+
+      <div class="bisaya-card">
+        <p class="card-head">Kung ikaw ang mobaligya (Seller):</p>
+        <p class="card-italic">Pagbaligya ug sakyanan sa Cebu wala pa gyud kasimple ani — walay agent, walay tago nga charges.</p>
+        <ul>
+          <li>Naay <strong>₱100 listing fee</strong> para icheck namo ang OR/CR ug records sa imong sakyanan — kung dili clean ang papers, <strong>irefund ang ₱100</strong></li>
+          <li>Among iverify ang imong documents una — para ang seryosong buyers mosalig dayon</li>
+          <li>Makita ang imong sakyanan sa libo-libo nga tinuod nga buyer sa Cebu</li>
+          <li>Ikaw ang magset sa imong kaugalingong presyo — walay mopressure</li>
+          <li>Magdeal ka direkta sa buyer — among trabaho kay iconnect lang ka sa sakto nga buyer</li>
+          <li><strong class="hl-yellow">Walay monthly fee, walay commission. ₱100 one-time ra.</strong></li>
+        </ul>
+      </div>
+
+      <div class="bisaya-card danger">
+        <p class="card-head red">Unsa ang wala namo ginabuhat:</p>
+        <ul class="gray">
+          <li><strong>Dili mi car dealer</strong> — wala mi inventory, wala mi showroom</li>
+          <li><strong>Dili mi monegotiate</strong> sa imong puli — ikaw ang magbuot</li>
+          <li><strong>Dili mi mechanic</strong> — wala mi giinspect ang engine o physical condition</li>
+          <li><strong>Dili mi magguarantee</strong> sa mileage o sa giingon nga history sa seller</li>
+          <li><strong>Dili mi mag-process</strong> sa transfer of ownership — kamo na sa LTO</li>
+        </ul>
+      </div>
+
+      <div class="bisaya-card">
+        <p class="card-head">Tips para safe ka:</p>
+        <ul>
+          <li><strong>Motanaw gyud ka sa sakyanan mismo</strong> sa dili pa mopalit — pakit-a ang OR/CR original</li>
+          <li>Magdala ug kasamang mechanic kung dili ka sigurado sa condition</li>
+          <li>Ayaw gyud ug bayad ug deposit kung wala pa ka kabisita sa sakyanan</li>
+          <li><strong>Ayaw bayad direkta sa CebuVehicleMarket</strong> — walay platform fee from buyers</li>
+          <li>Tan-awa ang LTO records sa plate number para makita ang tinuod nga history</li>
+          <li><strong class="red-text">Hinumdumi: Dili gyud mi mangayo sa imong bank details o passwords</strong></li>
+        </ul>
+      </div>
+
+      <div class="bisaya-card warning">
+        <p class="card-head yellow">📋 TANAN DOCUMENTS DIRI LEGIT.</p>
+        <p class="card-body">
+          <strong>Dili mi modawat ug sakyanan nga kuwang sa OR/CR o naa pay encumbrance.</strong> Ang mga listing nga imong makita diri kay <strong>clean na</strong> — pwede dayon nimo i-transfer sa LTO. Mao na nga makasigurado gyud ka nga <strong>legit ang imong gipalit nga sakyanan</strong> kay <strong>gicheck na sa among team usa pa namo ipost.</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- English (hidden) -->
+    <div id="englishContent" style="display:none;">
+      <p class="bisaya-lead">
+        CebuVehicleMarket is <strong>just a platform</strong> — a website where vehicle owners can post their car, motorbike, SUV, or truck for sale. <strong>We are not a car dealer, not a broker, and we don't charge any hidden fees.</strong>
+      </p>
+      <div class="bisaya-banner">
+        🌐 <strong>Our platform is worldwide!</strong> OFWs, balikbayans, and anyone looking for a vehicle in Cebu can view and install CebuVehicleMarket from anywhere in the world.
+      </div>
+
+      <div class="bisaya-card">
+        <p class="card-head">If you're buying (Buyer):</p>
+        <ul>
+          <li>Browsing listings on the website is completely free</li>
+          <li><strong class="hl-blue">Every vehicle is verified — OR/CR, encumbrance, and chassis number</strong> — so you can be sure the listing is legit and has no hidden problems before contacting the seller.</li>
+          <li>If you find a vehicle you like, <strong>contact the seller directly</strong> via Messenger, Viber, WhatsApp, or phone</li>
+          <li>You can inspect and test drive the vehicle — <span class="hl-yellow">we won't accompany you on viewings</span></li>
+          <li>You and the seller negotiate — we don't get involved in price or the deal itself</li>
+        </ul>
+      </div>
+
+      <div class="bisaya-card">
+        <p class="card-head">If you're selling (Seller):</p>
+        <p class="card-italic">Selling a vehicle in Cebu has never been this simple — no agents, no hidden charges.</p>
+        <ul>
+          <li>There's a <strong>₱100 listing fee</strong> to check your OR/CR and vehicle records — if your papers aren't clean, <strong>you get a full refund</strong></li>
+          <li>We verify your documents first — so serious buyers trust your listing immediately</li>
+          <li>Your vehicle gets seen by thousands of real buyers in Cebu</li>
+          <li>You set your own price — no one pressures you</li>
+          <li>You deal directly with the buyer — our job is just to connect you to the right one</li>
+          <li><strong class="hl-yellow">No monthly fee, no commission. Just ₱100 one-time.</strong></li>
+        </ul>
+      </div>
+
+      <div class="bisaya-card danger">
+        <p class="card-head red">What we don't do:</p>
+        <ul class="gray">
+          <li><strong>We are not a car dealer</strong> — we have no inventory, no showroom</li>
+          <li><strong>We don't negotiate</strong> for you — you decide</li>
+          <li><strong>We are not mechanics</strong> — we don't inspect engines or physical condition</li>
+          <li><strong>We don't guarantee</strong> mileage or the seller's stated history</li>
+          <li><strong>We don't process</strong> transfer of ownership — that's between you and the LTO</li>
+        </ul>
+      </div>
+
+      <div class="bisaya-card">
+        <p class="card-head">Tips to stay safe:</p>
+        <ul>
+          <li><strong>Always inspect the vehicle in person</strong> before buying — ask to see the original OR/CR</li>
+          <li>Bring a trusted mechanic if you're not sure about the condition</li>
+          <li>Never pay a deposit before visiting the vehicle</li>
+          <li><strong>Never pay any amount directly to CebuVehicleMarket</strong> — there's no platform fee from buyers</li>
+          <li>Check the LTO records using the plate number to see the real history</li>
+          <li><strong class="red-text">Remember: we'll never ask for your bank details or passwords</strong></li>
+        </ul>
+      </div>
+
+      <div class="bisaya-card warning">
+        <p class="card-head yellow">📋 ALL DOCUMENTS HERE ARE LEGIT.</p>
+        <p class="card-body">
+          <strong>We don't accept vehicles with incomplete OR/CR or active encumbrance.</strong> The listings you see here are <strong>clean</strong> — ready for transfer at the LTO. You can be confident <strong>the vehicle you're buying is legit</strong> because <strong>our team has already checked it before posting.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Available Vehicles -->
 <section class="section" id="listings">
   <h2 class="section-title">Available Vehicles</h2>
   <p class="section-sub">All listings verified by CebuVehicleMarket</p>
@@ -74,46 +256,164 @@
   </div>
 </section>
 
-<section class="section" id="how-it-works" style="background:var(--white); margin-top:2rem; border-radius:12px;">
+<!-- How It Works -->
+<section class="section how-it-works" id="how-it-works">
   <h2 class="section-title">How It Works</h2>
   <p class="section-sub">A simple, trusted way to buy and sell vehicles in Cebu</p>
 
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
-    <div style="padding:1.2rem;">
-      <div style="font-size:2rem; color:var(--primary); font-weight:800;">1</div>
-      <h3 style="font-size:1.15rem; font-weight:700; margin:0.5rem 0;">Sellers list their vehicle</h3>
-      <p style="color:var(--gray-700); font-size:0.95rem;">Submit your vehicle for ₱100. We verify your OR/CR, no encumbrance, and chassis number before going live.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <h3>Sellers list their vehicle</h3>
+      <p>Submit your vehicle for ₱100. We verify your OR/CR, no encumbrance, and chassis number before going live.</p>
     </div>
-    <div style="padding:1.2rem;">
-      <div style="font-size:2rem; color:var(--primary); font-weight:800;">2</div>
-      <h3 style="font-size:1.15rem; font-weight:700; margin:0.5rem 0;">Buyers browse with confidence</h3>
-      <p style="color:var(--gray-700); font-size:0.95rem;">Every listing carries a verification code. You see only legitimately documented vehicles — no scams, no flooded units, no hidden liens.</p>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <h3>Buyers browse with confidence</h3>
+      <p>Every listing carries a verification code. You see only legitimately documented vehicles — no scams, no flooded units, no hidden liens.</p>
     </div>
-    <div style="padding:1.2rem;">
-      <div style="font-size:2rem; color:var(--primary); font-weight:800;">3</div>
-      <h3 style="font-size:1.15rem; font-weight:700; margin:0.5rem 0;">Direct contact, fair deal</h3>
-      <p style="color:var(--gray-700); font-size:0.95rem;">Message the seller directly via Messenger, Viber, WhatsApp, or call. Inspect, negotiate, and close on your own terms.</p>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <h3>Direct contact, fair deal</h3>
+      <p>Message the seller directly via Messenger, Viber, WhatsApp, or call. Inspect, negotiate, and close on your own terms.</p>
     </div>
   </div>
 </section>
 
+<!-- Stats Bar -->
+<section class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">✓</div>
+      <div class="stat-label">DTI-Registered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" id="statCount">—</div>
+      <div class="stat-label">Verified Vehicles</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Vehicle Types</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">OR/CR Reviewed</div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Badges (icon cards) -->
+<section class="section">
+  <h2 class="section-title text-center">Why Buyers Trust Us</h2>
+  <p class="section-sub text-center">Four checks every listing goes through before it's published</p>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-icon">📄</div>
+      <h4>OR/CR Reviewed</h4>
+      <p>Original documents inspected before any listing is approved</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon">🔒</div>
+      <h4>No Encumbrance</h4>
+      <p>Only vehicles with clean ownership and no active liens</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon">🔢</div>
+      <h4>Chassis Match</h4>
+      <p>Chassis & engine numbers confirmed against official records</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon">💰</div>
+      <h4>Money-Back</h4>
+      <p>Full ₱100 refund if your documents aren't approved</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <h2>Ready to Sell Your Vehicle?</h2>
+    <p>List your car, motorbike, SUV, or truck on CebuVehicleMarket and reach serious buyers across Cebu.</p>
+    <a href="submit.html" class="btn btn-primary">List Your Vehicle</a>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer class="footer">
-  <div class="footer-eco">
-    Part of the <strong>Cebu Market Ecosystem</strong> —
-    <a href="https://cebulandmarket.com" target="_blank" rel="noopener">CebuLandMarket</a> ·
-    <a href="https://cebulandmarket.com/rentals/" target="_blank" rel="noopener">CebuRentMarket</a> ·
-    <a href="index.html">CebuVehicleMarket</a>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Cebu<span>Vehicle</span>Market</h3>
+      <p>Cebu's trusted marketplace for verified vehicles. Every listing checked for clean OR/CR, no encumbrance, and chassis match before going live.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Browse</h3>
+      <a href="index.html#listings">All Vehicles</a>
+      <a href="index.html#listings">Cars</a>
+      <a href="index.html#listings">SUVs</a>
+      <a href="index.html#listings">Motorbikes</a>
+      <a href="index.html#listings">Trucks &amp; Vans</a>
+    </div>
+    <div class="footer-col">
+      <h3>Sell</h3>
+      <a href="submit.html">List Your Vehicle</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#how-it-works">Verification Process</a>
+    </div>
+    <div class="footer-col">
+      <h3>Ecosystem</h3>
+      <a href="https://cebulandmarket.com" target="_blank" rel="noopener">CebuLandMarket</a>
+      <!-- HIDE-RENTALS-FOR-NOW: <a href="https://cebulandmarket.com/rentals/" target="_blank" rel="noopener">CebuRentMarket</a> -->
+      <a href="mailto:info@cebulandmarket.com">info@cebulandmarket.com</a>
+      <a href="https://www.facebook.com/cebulandmarket/" target="_blank" rel="noopener">Facebook</a>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="submit.html">Sell Your Vehicle</a>
-    <a href="https://cebulandmarket.com" target="_blank" rel="noopener">Land for Sale</a>
-    <a href="https://cebulandmarket.com/rentals/" target="_blank" rel="noopener">Rentals</a>
+  <div class="footer-bottom">
+    © 2026 CebuVehicleMarket — A CebuLandMarket Property Services venture · Cebu, Philippines
   </div>
-  <div class="footer-copy">© 2026 CebuVehicleMarket — A CebuLandMarket Property Services venture · Cebu, Philippines</div>
 </footer>
 
+<!-- Floating chat dock -->
+<span class="float-label">Chat with us!</span>
+<div class="float-buttons">
+  <button class="float-btn float-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">⇧</button>
+  <a href="https://www.facebook.com/cebulandmarket/" target="_blank" rel="noopener" class="float-btn float-messenger" aria-label="Messenger">💬</a>
+  <a href="https://wa.me/639687512330" target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="WhatsApp">💬</a>
+  <a href="viber://chat?number=639687512330" class="float-btn float-viber" aria-label="Viber">📞</a>
+</div>
+
 <script src="data/vehicles.js"></script>
-<script src="js/app.js"></script>
+<script src="js/app.js?v=2"></script>
 <script src="js/listings.js"></script>
+<script>
+  // Hero slideshow
+  (function(){
+    var slides = document.querySelectorAll('.hero-slide');
+    var dots = document.querySelectorAll('.hero-dot');
+    var i = 0;
+    function show(n){
+      slides.forEach(function(s,k){ s.classList.toggle('active', k===n); });
+      dots.forEach(function(d,k){ d.classList.toggle('active', k===n); });
+      i = n;
+    }
+    dots.forEach(function(d,k){ d.addEventListener('click', function(){ show(k); }); });
+    setInterval(function(){ show((i+1) % slides.length); }, 5500);
+  })();
+
+  // Back-to-top visibility
+  window.addEventListener('scroll', function(){
+    var btn = document.getElementById('backToTop');
+    if (btn) btn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Stat counter
+  document.addEventListener('DOMContentLoaded', function(){
+    if (typeof VEHICLES_DATA !== 'undefined') {
+      var n = VEHICLES_DATA.filter(function(v){ return v.status==='active'; }).length;
+      var el = document.getElementById('statCount');
+      if (el) el.textContent = n + '+';
+    }
+  });
+</script>
 </body>
 </html>
