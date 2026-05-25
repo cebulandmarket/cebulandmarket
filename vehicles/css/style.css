@@ -1184,3 +1184,46 @@ body {
   .wheels-inner { gap: 1.5rem; }
   .vehicle-emojis { gap: 1rem; font-size: 1.8rem; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   OPTIONAL HELPER CARD — gold-tinted, premium feel
+═══════════════════════════════════════════════════════════ */
+.bisaya-card.optional {
+  background: linear-gradient(135deg, #fffdf5 0%, #fff8e6 100%);
+  border-left: 4px solid #d4af37;
+  box-shadow: 0 4px 18px rgba(212,175,55,0.15);
+  position: relative;
+}
+.bisaya-card.optional::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 60px; height: 60px;
+  background: radial-gradient(circle at top right, rgba(212,175,55,0.18), transparent 70%);
+  pointer-events: none;
+  border-top-right-radius: 12px;
+}
+.bisaya-card.optional .card-head {
+  color: #7a5d12 !important;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.bisaya-card.optional .card-italic { color: #7a5d12 !important; }
+.bisaya-card.optional ul { color: #5c4710 !important; }
+.bisaya-card.optional strong { color: #5c4710; }
+
+.opt-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4af37 0%, #a17a2e 100%);
+  color: #0a0e1a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(212,175,55,0.35), inset 0 1px 0 rgba(255,248,220,0.6);
+  font-family: 'Helvetica Neue', 'Inter', sans-serif;
+}
