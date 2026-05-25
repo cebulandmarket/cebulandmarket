@@ -40,6 +40,32 @@
 
 <!-- Hero Slideshow -->
 <section class="hero">
+  <!-- Decorative spinning wheels flanking the hero text -->
+  <svg class="hero-wheel hero-wheel-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="50" cy="50" r="46" fill="#0a0e1a" stroke="#d4af37" stroke-width="2.5"/>
+    <circle cx="50" cy="50" r="36" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+    <circle cx="50" cy="50" r="10" fill="#d4af37"/>
+    <circle cx="50" cy="50" r="4" fill="#0a0e1a"/>
+    <g stroke="#d4af37" stroke-width="2.5" stroke-linecap="round">
+      <line x1="50" y1="10" x2="50" y2="90"/>
+      <line x1="10" y1="50" x2="90" y2="50"/>
+      <line x1="21.7" y1="21.7" x2="78.3" y2="78.3"/>
+      <line x1="21.7" y1="78.3" x2="78.3" y2="21.7"/>
+    </g>
+  </svg>
+  <svg class="hero-wheel hero-wheel-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="50" cy="50" r="46" fill="#0a0e1a" stroke="#d4af37" stroke-width="2.5"/>
+    <circle cx="50" cy="50" r="36" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+    <circle cx="50" cy="50" r="10" fill="#d4af37"/>
+    <circle cx="50" cy="50" r="4" fill="#0a0e1a"/>
+    <g stroke="#d4af37" stroke-width="2.5" stroke-linecap="round">
+      <line x1="50" y1="10" x2="50" y2="90"/>
+      <line x1="10" y1="50" x2="90" y2="50"/>
+      <line x1="21.7" y1="21.7" x2="78.3" y2="78.3"/>
+      <line x1="21.7" y1="78.3" x2="78.3" y2="21.7"/>
+    </g>
+  </svg>
+
   <div class="hero-slideshow">
     <div class="hero-slide active">
       <div class="hero-inner">
@@ -79,6 +105,13 @@
     <button class="hero-dot" aria-label="Slide 2"></button>
     <button class="hero-dot" aria-label="Slide 3"></button>
     <button class="hero-dot" aria-label="Slide 4"></button>
+  </div>
+
+  <!-- Animated road at the bottom of the hero -->
+  <div class="hero-road">
+    <div class="road-cars" aria-hidden="true">
+      <span>&#128663;</span><span>&#127949;</span><span>&#128665;</span><span>&#128666;</span><span>&#128656;</span><span>&#128663;</span><span>&#127949;</span>
+    </div>
   </div>
 </section>
 
@@ -298,52 +331,6 @@
       <div class="step-number">3</div>
       <h3>Direct contact, fair deal</h3>
       <p>Message the seller directly via Messenger, Viber, WhatsApp, or call. Inspect, negotiate, and close on your own terms.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Wheels & Cars Feature -->
-<section class="wheels-feature">
-  <div class="wheels-inner">
-    <svg class="wheel wheel-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="50" cy="50" r="46" fill="#0a0e1a" stroke="#d4af37" stroke-width="2.5"/>
-      <circle cx="50" cy="50" r="36" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
-      <circle cx="50" cy="50" r="10" fill="#d4af37"/>
-      <circle cx="50" cy="50" r="4" fill="#0a0e1a"/>
-      <g stroke="#d4af37" stroke-width="2.5" stroke-linecap="round">
-        <line x1="50" y1="10" x2="50" y2="90"/>
-        <line x1="10" y1="50" x2="90" y2="50"/>
-        <line x1="21.7" y1="21.7" x2="78.3" y2="78.3"/>
-        <line x1="21.7" y1="78.3" x2="78.3" y2="21.7"/>
-      </g>
-    </svg>
-    <div class="wheels-text">
-      <h2>Built for Every <span class="gold-foil">Wheel</span> in Cebu</h2>
-      <p>From compact city cars to heavy-duty trucks — every type of vehicle gets the same verification. OR/CR, encumbrance, chassis match.</p>
-      <div class="vehicle-emojis">
-        <span title="Car" aria-label="Car">&#128663;</span>
-        <span title="SUV" aria-label="SUV">&#128665;</span>
-        <span title="Motorbike" aria-label="Motorbike">&#127949;</span>
-        <span title="Truck" aria-label="Truck">&#128666;</span>
-        <span title="Van" aria-label="Van">&#128656;</span>
-      </div>
-    </div>
-    <svg class="wheel wheel-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="50" cy="50" r="46" fill="#0a0e1a" stroke="#d4af37" stroke-width="2.5"/>
-      <circle cx="50" cy="50" r="36" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
-      <circle cx="50" cy="50" r="10" fill="#d4af37"/>
-      <circle cx="50" cy="50" r="4" fill="#0a0e1a"/>
-      <g stroke="#d4af37" stroke-width="2.5" stroke-linecap="round">
-        <line x1="50" y1="10" x2="50" y2="90"/>
-        <line x1="10" y1="50" x2="90" y2="50"/>
-        <line x1="21.7" y1="21.7" x2="78.3" y2="78.3"/>
-        <line x1="21.7" y1="78.3" x2="78.3" y2="21.7"/>
-      </g>
-    </svg>
-  </div>
-  <div class="road">
-    <div class="road-cars" aria-hidden="true">
-      <span>&#128663;</span><span>&#127949;</span><span>&#128665;</span><span>&#128666;</span><span>&#128656;</span><span>&#128663;</span><span>&#127949;</span>
     </div>
   </div>
 </section>
