@@ -134,8 +134,14 @@ function renderFeaturedListings() {
   fetchListings(function(listings) {
     container.innerHTML = '';
 
-    // Show up to 6 featured listings
-    var featured = listings.slice(0, 6);
+    // Show the 6 newest listings (sold always last) so newly added properties are featured
+    var sorted = listings.slice().sort(function(a, b) {
+      var aSold = isSold(a) ? 1 : 0;
+      var bSold = isSold(b) ? 1 : 0;
+      if (aSold !== bSold) return aSold - bSold;
+      return (b.date_listed || '').localeCompare(a.date_listed || '');
+    });
+    var featured = sorted.slice(0, 6);
 
     if (featured.length === 0) {
       container.innerHTML = '<div class="no-results"><h3>No listings yet</h3><p>Be the first to list your property!</p></div>';

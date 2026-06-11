@@ -122,6 +122,7 @@ var typeNames = {
   'house-and-lot': 'House & Lot',
   'farm': 'Farm Land',
   'commercial': 'Commercial',
+  'condo': 'Condominium',
   'beach': 'Beach Property'
 };
 
