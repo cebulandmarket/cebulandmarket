@@ -1128,7 +1128,7 @@ var LISTINGS_DATA = [
     "floor_area": null,
     "price_per_sqm": 5000,
     "total_price": 18660000,
-    "description": "3,732 sqm titled lot in Brgy. Bonbon, Cebu City — two adjoining 1,866 sqm lots sold together as one parcel. Asking price ₱5,050 per sqm.",
+    "description": "3,732 sqm titled lot in Brgy. Bonbon, Cebu City — a cool upland barangay near Busay, inside Cebu City's mountain farming belt. Two adjoining 1,866 sqm lots sold together as one parcel, ideal for a farm, rest house, or vacation property. Asking price ₱5,050 per sqm.",
     "features": "Titled,3,732 sqm,Two Adjoining 1,866 sqm Lots,Brgy. Bonbon Cebu City",
     "photo_url": "images/bonbon-1.jpg",
     "photo_urls": "images/bonbon-1.jpg,images/bonbon-2.jpg,images/bonbon-3.jpg,images/bonbon-4.jpg",
@@ -1156,7 +1156,7 @@ var LISTINGS_DATA = [
         "road_access": true
       }
     },
-    "story": "",
-    "vision_items": ""
+    "story": "Bonbon sits high in Cebu City's mountain barangays, just beyond Busay, inside the cool upland belt that many city residents escape to on weekends. This is farm country — banana, coconut, and vegetable plots cover the hillsides, and the air here is noticeably cooler than the coastal city below. It's part of the same upland corridor as the Busay Highlands farm villages and the Central Cebu Protected Landscape, an area steadily drawing interest for farm lots, rest houses, and vacation homes.\n\nThis 3,732 sqm parcel is actually two adjoining 1,866 sqm titled lots, sold together as one larger holding. That combined size gives you real flexibility — a working farm, an orchard, a private rest house with room for animals or crops, or simply land banking as Cebu City's mountain barangays continue to fill in with weekend properties.\n\nThe terrain here — cool, elevated, and green — is exactly what makes barangays like Bonbon attractive as an escape from city heat and traffic. It isn't resort-developed the way parts of Busay Highlands are, which keeps the entry price reasonable at ₱5,050 per sqm, even as it sits in the same general upland belt.\n\nIf you've been looking for space to build a rest house, start a small farm, or simply hold titled mountain land in Cebu City while the upland corridor develops further, this combined 3,732 sqm parcel in Bonbon gives you room to do it — clean title, two adjoining lots already sold as one usable whole.",
+    "vision_items": "Build a Mountain Rest House|Escape the city heat with a weekend rest house up in Bonbon's cool highland air. 3,732 sqm is enough room for a main house, a garden, and space to just breathe — the kind of property Cebu City families are increasingly buying in the Busay-Sudlon upland corridor.|Start a Small Farm|The surrounding barangays grow banana, coconut, and vegetables in this same cool mountain belt. With two adjoining lots to work with, you have enough land for a real working farm or orchard, not just a backyard garden.|Land Banking in Cebu's Upland Corridor|Mountain barangays near Busay have been filling in steadily with farm lots and rest houses over the past several years. Buying titled land here now, ahead of further upland development, is a straightforward hold-and-appreciate play.|Vacation or Retreat Property|Cool climate, greenery, and distance from city noise make Bonbon a natural fit for a personal retreat, a small eco-lodge, or a getaway property to rent out to others looking for the same escape.|Subdivide Back Into Two Lots|Since the parcel is two adjoining 1,866 sqm titled lots sold together, a buyer could resurvey and hold or resell them separately down the line — added flexibility built into the land itself."
   }
 ];
