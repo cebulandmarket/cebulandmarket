@@ -36,5 +36,6 @@ var LISTING_COORDINATES = {
   "24": { lat: 10.2616, lng: 123.8300 }, // Lawaan, Talisay
   "25": { lat: 10.324419, lng: 123.8712144 }, // Monterrazas de Cebu (North Ridge, Block 19 Lot 16), Guadalupe
   "26": { lat: 10.324619, lng: 123.8714144 }, // Monterrazas de Cebu (North Ridge, Block 19 Lot 17), Guadalupe — jittered
-  "27": { lat: 10.3744849, lng: 123.9179152 } // Maryville Subdivision, Talamban
+  "27": { lat: 10.3744849, lng: 123.9179152 }, // Maryville Subdivision, Talamban
+  "28": { lat: 10.3678, lng: 123.8316 } // Brgy. Bonbon, Cebu City
 };
