@@ -892,7 +892,8 @@ var LISTINGS_DATA = [
     "viber": "639687512330",
     "whatsapp": "639687512330",
     "title_status": "Clean Title",
-    "status": "active",
+    "status": "sold",
+    "sold_date": "July 2026",
     "featured": true,
     "date_listed": "2026-03-03",
     "verification": {
@@ -1127,7 +1128,7 @@ var LISTINGS_DATA = [
     "floor_area": null,
     "price_per_sqm": 5000,
     "total_price": 18660000,
-    "description": "3,732 sqm titled lot in Brgy. Bonbon, Cebu City — two adjoining 1,866 sqm lots sold together as one parcel. Asking price ₱5,000 per sqm.",
+    "description": "3,732 sqm titled lot in Brgy. Bonbon, Cebu City — two adjoining 1,866 sqm lots sold together as one parcel. Asking price ₱5,050 per sqm.",
     "features": "Titled,3,732 sqm,Two Adjoining 1,866 sqm Lots,Brgy. Bonbon Cebu City",
     "photo_url": "images/bonbon-1.jpg",
     "photo_urls": "images/bonbon-1.jpg,images/bonbon-2.jpg,images/bonbon-3.jpg,images/bonbon-4.jpg",
