@@ -1116,5 +1116,46 @@ var LISTINGS_DATA = [
     },
     "story": "Maryville Subdivision sits in the heart of Talamban — one of Cebu City's most established and family-friendly neighborhoods. Developed by Agro-Macro and managed by Maria Luisa Properties, this is the kind of community where families settle in and stay for decades. Tree-lined streets, well-kept homes, and a neighborhood that has matured over years of careful management.\n\nThis 221 sqm titled lot gives you enough space to build a proper family home — a 2-storey with 3 to 4 bedrooms, a garden, and parking for two cars, with room to spare. Or build a rental property and tap into one of Cebu City's strongest residential rental markets. The lot is ready for development — no land filling, no clearing, just clean titled land inside a premium subdivision.\n\nThe infrastructure is what sets Maryville apart. 24/7 gated security with a fully fenced perimeter. An exclusive clubhouse, landscaped picnic parks, tennis and basketball courts. Underground drainage and a centralized water system. These aren't standard subdivision features — this is the kind of long-term planning Maria Luisa Properties is known for.\n\nLocation is everything in Talamban, and this lot has it. Minutes to Cebu International School and Ateneo de Cebu for the kids. Just 2 minutes to North General Hospital. Near Gaisano Grand Mall, Robinsons, and the entire Talamban-Banilad dining corridor for everything else. You're inside a quiet, secure community but never more than a short drive from anything you need.\n\nTalamban has been one of the fastest-growing parts of Cebu City for over a decade. New subdivisions and apartments keep going up, but vacant lots inside established subdivisions like Maryville rarely come on the market. When they do, they don't stay long. If you're looking for a long-term home or a solid investment in one of Talamban's most respected addresses — this is your chance.",
     "vision_items": "Build Your Forever Home|221 sqm is the perfect size for a 2-storey family home with 3-4 bedrooms, a garden, and parking. Custom-design it for your family — you have the security, premium amenities, and infrastructure of Maria Luisa Properties to back it up.|Rental Investment Property|Build a 3-bedroom home and rent it out. Talamban is one of the most in-demand rental areas in Cebu City because of its proximity to top schools (Ateneo de Cebu, CIS), hospitals, and the Banilad commercial district. Steady demand, high-quality tenants.|Boarding House for Students|With Ateneo de Cebu, CIS, and other top schools just minutes away, a well-designed boarding house would have year-round demand. The gated security and family-friendly environment make it attractive to parents sending their kids to study in Cebu.|Townhouse Development|At 221 sqm, you could build 2 small townhouses for sale or rent. Maryville's premium location and Maria Luisa-managed amenities mean townhouses here command higher prices than typical Talamban developments.|Hold and Appreciate|Lots inside Maryville rarely come up for sale, and prices keep climbing as the Talamban-Banilad corridor continues to develop. Buy now, hold for 5-10 years, and watch the value grow alongside one of Cebu's most active growth areas."
+  },
+  {
+    "id": "28",
+    "title": "3,732 sqm Titled Lot in Brgy. Bonbon, Cebu City",
+    "type": "lot",
+    "location": "cebu-city",
+    "address": "Brgy. Bonbon, Cebu City",
+    "lot_area": 3732,
+    "floor_area": null,
+    "price_per_sqm": 5000,
+    "total_price": 18660000,
+    "description": "3,732 sqm titled lot in Brgy. Bonbon, Cebu City — two adjoining 1,866 sqm lots sold together as one parcel. Asking price ₱5,000 per sqm.",
+    "features": "Titled,3,732 sqm,Two Adjoining 1,866 sqm Lots,Brgy. Bonbon Cebu City",
+    "photo_url": "",
+    "photo_urls": "",
+    "map_url": "Brgy. Bonbon, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "Titled",
+    "status": "active",
+    "date_listed": "2026-07-13",
+    "verification": {
+      "code": "CLM-2026-B028",
+      "date": "2026-07-13",
+      "checks": {
+        "title_verified": true,
+        "tax_current": true,
+        "owner_confirmed": true,
+        "documents_complete": true,
+        "photos_authentic": true,
+        "no_encumbrance": true,
+        "boundary_clear": true,
+        "road_access": true
+      }
+    },
+    "story": "",
+    "vision_items": ""
   }
 ];
