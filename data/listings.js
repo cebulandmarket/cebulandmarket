@@ -1128,7 +1128,7 @@ var LISTINGS_DATA = [
     "floor_area": null,
     "price_per_sqm": 5000,
     "total_price": 18660000,
-    "description": "3,732 sqm titled lot in Brgy. Bonbon, Cebu City — a cool upland barangay near Busay, inside Cebu City's mountain farming belt. Two adjoining 1,866 sqm lots sold together as one parcel, ideal for a farm, rest house, or vacation property. Asking price ₱5,050 per sqm.",
+    "description": "3,732 sqm titled lot in Brgy. Bonbon, Cebu City — two adjoining 1,866 sqm lots sold together as one larger parcel. Bonbon sits in Cebu City's upland belt just beyond Busay, part of the same cool mountain corridor as the Busay Highlands farm villages and the Central Cebu Protected Landscape. The terrain is elevated and green, with banana, coconut, and vegetable farms across the surrounding hills — noticeably cooler than the coastal city below. Titled property with road access. Ideal for a farm, rest house, vacation property, or land banking as Cebu City's upland barangays keep drawing buyers looking for a break from city heat and traffic. Asking price ₱5,050 per sqm.",
     "features": "Titled,3,732 sqm,Two Adjoining 1,866 sqm Lots,Brgy. Bonbon Cebu City",
     "photo_url": "images/bonbon-1.jpg",
     "photo_urls": "images/bonbon-1.jpg,images/bonbon-2.jpg,images/bonbon-3.jpg,images/bonbon-4.jpg",
