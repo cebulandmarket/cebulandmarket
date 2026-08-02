@@ -2579,6 +2579,14 @@ section[style*="f0fdf4"] #englishContent > p {
   border-radius: 0 !important;
 }
 
+/* Mobile dropdown menu — match dark header so ivory nav text stays visible */
+@media (max-width: 768px) {
+  .nav-links {
+    background: linear-gradient(180deg, #0a0e1a 0%, #111526 100%) !important;
+    box-shadow: 0 6px 34px rgba(0,0,0,0.55) !important;
+  }
+}
+
 /* CTA — gold-foil pill with shimmer sweep */
 .nav-cta {
   background: linear-gradient(135deg,
