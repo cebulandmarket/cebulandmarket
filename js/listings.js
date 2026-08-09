@@ -111,7 +111,11 @@ function createPropertyCard(listing) {
     card.style.cursor = 'default';
     card.innerHTML = cardContent;
   } else {
-    card.innerHTML = '<a href="property.html?id=' + listing.id + '" style="text-decoration:none; color:inherit;">' + cardContent + '</a>';
+    var waText = encodeURIComponent('Hi CebuLandMarket! I\'m interested in: ' + listing.title + ' — Listing ID: ' + listing.id + '. Please send me more info.');
+    var contactFooter = '<div class="card-footer">' +
+        '<a href="https://wa.me/639687512330?text=' + waText + '" target="_blank" rel="noopener" class="contact-btn whatsapp">&#128172; Contact about this listing</a>' +
+      '</div>';
+    card.innerHTML = '<a href="property.html?id=' + listing.id + '" style="text-decoration:none; color:inherit;">' + cardContent + '</a>' + contactFooter;
   }
 
   return card;
@@ -451,9 +455,6 @@ function renderPropertyDetail() {
           '</div>' +
         '</div>' +
       '</div>';
-
-    // Gate contact buttons until inquiry form is submitted
-    document.body.classList.add('contacts-gated');
 
     // Store listing info for inquiry modal
     window._inquiryListing = {
