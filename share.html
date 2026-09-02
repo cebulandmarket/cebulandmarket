@@ -618,19 +618,18 @@
     }
 
     // Share button: native share sheet on mobile, clipboard copy fallback on desktop.
-    function shareStory(id, title) {
+    function shareStory(btn) {
+      var id = btn.getAttribute('data-id');
+      var title = btn.getAttribute('data-title');
       var url = 'https://cebulandmarket.com/share.html?id=' + encodeURIComponent(id);
-      var btn = document.querySelector('.hero-share-btn');
       if (navigator.share) {
         navigator.share({ title: title, text: title + ' — CebuLandMarket', url: url }).catch(function() {});
         return;
       }
       navigator.clipboard.writeText(url).then(function() {
-        if (btn) {
-          var original = btn.innerHTML;
-          btn.innerHTML = '&#10003;';
-          setTimeout(function() { btn.innerHTML = original; }, 1500);
-        }
+        var original = btn.innerHTML;
+        btn.innerHTML = '&#10003;';
+        setTimeout(function() { btn.innerHTML = original; }, 1500);
       });
     }
 
@@ -907,7 +906,7 @@
       html += '<section class="hero">';
       html += '<img src="' + esc(mainPhoto) + '" alt="' + esc(listing.title) + '">';
       html += '<button class="hero-nav-btn hero-back-btn" onclick="goBackFromStory(\'' + esc(id) + '\')" aria-label="Back">&times;</button>';
-      html += '<button class="hero-nav-btn hero-share-btn" onclick="shareStory(\'' + esc(id) + '\', ' + JSON.stringify(listing.title) + ')" aria-label="Share">&#128228;</button>';
+      html += '<button class="hero-nav-btn hero-share-btn" data-id="' + esc(id) + '" data-title="' + esc(listing.title) + '" onclick="shareStory(this)" aria-label="Share">&#128228;</button>';
       html += '<div class="hero-overlay">';
       html += '<div class="hero-badge">Property Story</div>';
       html += '<h1>' + esc(listing.title) + '</h1>';
