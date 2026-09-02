@@ -99,6 +99,31 @@
       opacity: 0.85;
       margin-left: 0.5rem;
     }
+    .hero-nav-btn {
+      position: absolute;
+      top: 1.25rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      backdrop-filter: blur(2px);
+      transition: background 0.2s;
+    }
+    .hero-nav-btn:hover { background: rgba(0,0,0,0.65); }
+    .hero-back-btn { left: 1.25rem; font-size: 1.6rem; line-height: 1; }
+    .hero-share-btn { right: 1.25rem; font-size: 1.15rem; }
+    @media (max-width: 640px) {
+      .hero-nav-btn { top: 1rem; width: 38px; height: 38px; }
+      .hero-back-btn { left: 1rem; }
+      .hero-share-btn { right: 1rem; }
+    }
 
     /* Quick Stats */
     .quick-stats {
@@ -581,6 +606,34 @@
       return loc.split('-').map(function(w) { return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
     }
 
+    // Back button: use browser history if we arrived from within the site,
+    // otherwise fall back to the property's main listing page (for direct/shared links).
+    function goBackFromStory(id) {
+      var sameOriginReferrer = document.referrer && document.referrer.indexOf(window.location.origin) === 0;
+      if (sameOriginReferrer && window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'property.html?id=' + encodeURIComponent(id);
+      }
+    }
+
+    // Share button: native share sheet on mobile, clipboard copy fallback on desktop.
+    function shareStory(id, title) {
+      var url = 'https://cebulandmarket.com/share.html?id=' + encodeURIComponent(id);
+      var btn = document.querySelector('.hero-share-btn');
+      if (navigator.share) {
+        navigator.share({ title: title, text: title + ' — CebuLandMarket', url: url }).catch(function() {});
+        return;
+      }
+      navigator.clipboard.writeText(url).then(function() {
+        if (btn) {
+          var original = btn.innerHTML;
+          btn.innerHTML = '&#10003;';
+          setTimeout(function() { btn.innerHTML = original; }, 1500);
+        }
+      });
+    }
+
     // Platform fee (1%) — must match js/listings.js
     var PLATFORM_FEE = 0.01;
     var OWNER_LISTINGS = ['1', '2'];
@@ -853,6 +906,8 @@
       // Hero
       html += '<section class="hero">';
       html += '<img src="' + esc(mainPhoto) + '" alt="' + esc(listing.title) + '">';
+      html += '<button class="hero-nav-btn hero-back-btn" onclick="goBackFromStory(\'' + esc(id) + '\')" aria-label="Back">&times;</button>';
+      html += '<button class="hero-nav-btn hero-share-btn" onclick="shareStory(\'' + esc(id) + '\', ' + JSON.stringify(listing.title) + ')" aria-label="Share">&#128228;</button>';
       html += '<div class="hero-overlay">';
       html += '<div class="hero-badge">Property Story</div>';
       html += '<h1>' + esc(listing.title) + '</h1>';
