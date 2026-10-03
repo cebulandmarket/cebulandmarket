@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'clm-v77';
+var CACHE_VERSION = 'clm-v78';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -128,6 +128,24 @@ self.addEventListener('fetch', function(event) {
             { headers: { 'Content-Type': 'text/html' } }
           );
         });
+      })
+    );
+    return;
+  }
+
+  // Listing data: network-first so new listings/photos show immediately
+  if (url.pathname.indexOf('/data/') === 0) {
+    event.respondWith(
+      fetch(request, { cache: 'no-cache' }).then(function(response) {
+        if (response.ok) {
+          var clone = response.clone();
+          caches.open(STATIC_CACHE).then(function(cache) {
+            cache.put(request, clone);
+          });
+        }
+        return response;
+      }).catch(function() {
+        return caches.match(request);
       })
     );
     return;
