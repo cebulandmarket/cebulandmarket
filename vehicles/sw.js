@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'cvm-v3';
+var CACHE_VERSION = 'cvm-v4';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 
 var STATIC_ASSETS = [
