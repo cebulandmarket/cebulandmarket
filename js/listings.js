@@ -36,6 +36,7 @@ function isSold(listing) {
 // Platform fee (1%) added to seller's asking price
 var PLATFORM_FEE = 0.01;
 var OWNER_LISTINGS = ['1', '2']; // Owner's own listings — no fee applied
+var PINNED_LISTINGS = ['1']; // Always shown first on homepage + default "Newest" sort
 var currentListing = null; // Exposed for share-card.js
 
 // CLM Trust Score system
@@ -143,6 +144,9 @@ function renderFeaturedListings() {
       var aSold = isSold(a) ? 1 : 0;
       var bSold = isSold(b) ? 1 : 0;
       if (aSold !== bSold) return aSold - bSold;
+      var aPin = PINNED_LISTINGS.indexOf(a.id) !== -1 ? 0 : 1;
+      var bPin = PINNED_LISTINGS.indexOf(b.id) !== -1 ? 0 : 1;
+      if (aPin !== bPin) return aPin - bPin;
       return (b.date_listed || '').localeCompare(a.date_listed || '');
     });
     var featured = sorted.slice(0, 6);
@@ -262,6 +266,9 @@ function applyFilters() {
       case 'size-large': return b.lot_area - a.lot_area;
       case 'newest':
       default:
+        var aPin = PINNED_LISTINGS.indexOf(a.id) !== -1 ? 0 : 1;
+        var bPin = PINNED_LISTINGS.indexOf(b.id) !== -1 ? 0 : 1;
+        if (aPin !== bPin) return aPin - bPin;
         return (b.date_listed || '').localeCompare(a.date_listed || '');
     }
   });
