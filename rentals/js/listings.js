@@ -980,6 +980,18 @@ function submitInquiryRegistration(e) {
   var form = document.getElementById('inquiryRegForm');
   if (!form) return;
 
+  var nameInput = form.querySelector('[name="full_name"]');
+  var phoneInput = form.querySelector('[name="contact_number"]');
+  var emailInput = form.querySelector('[name="email"]');
+  var nameValue = nameInput ? nameInput.value.trim() : '';
+  var phoneValue = phoneInput ? phoneInput.value.trim() : '';
+  var emailValue = emailInput ? emailInput.value.trim() : '';
+  var phoneDigits = phoneValue.replace(/\D/g, '');
+  if (nameValue.length < 2 || phoneDigits.length < 10 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+    alert('Please enter your full name, a valid phone number, and a valid email before sending.');
+    return;
+  }
+
   // Validate identity verification
   var hasId = false;
   if (_inquiryActiveTab === 'facebook') {
@@ -1060,11 +1072,13 @@ document.addEventListener('click', function(e) {
     var phone = form.querySelector('[name="buyer_phone"]');
     var oldMsg = form.querySelector('.inquiry-error');
     if (oldMsg) oldMsg.remove();
-    if (!name.value.trim() || !phone.value.trim()) {
+    var nameValue = name ? name.value.trim() : '';
+    var phoneDigits = phone ? phone.value.replace(/\D/g, '') : '';
+    if (nameValue.length < 2 || phoneDigits.length < 10) {
       var errMsg = document.createElement('p');
       errMsg.className = 'inquiry-error';
       errMsg.style.cssText = 'background:#e74c3c; color:#fff; padding:10px 14px; border-radius:6px; margin-bottom:12px; font-size:0.9rem; font-weight:600;';
-      errMsg.textContent = 'Please enter your name and phone number.';
+      errMsg.textContent = 'Please enter your name and a valid phone number.';
       form.insertBefore(errMsg, form.firstChild);
       return;
     }

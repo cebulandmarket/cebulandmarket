@@ -218,6 +218,21 @@ document.addEventListener('DOMContentLoaded', function() {
         continue;
       }
 
+      // A space, a dot, or a single letter still counts as blank
+      if ((name === 'owner_name' || name === 'digital_signature') && value.length < 2) {
+        showFieldMessage(field, 'Please enter your full name.');
+        if (!firstError) firstError = field;
+        errorCount++;
+        continue;
+      }
+
+      if (field.type === 'number' && !(parseFloat(value) > 0)) {
+        showFieldMessage(field, 'Please enter a number greater than 0.');
+        if (!firstError) firstError = field;
+        errorCount++;
+        continue;
+      }
+
       // Check email format
       if (field.type === 'email' && !isValidEmail(value)) {
         showFieldMessage(field, 'This doesn\'t look like a valid email. Please check and try again (e.g. yourname@gmail.com).');
@@ -250,6 +265,41 @@ document.addEventListener('DOMContentLoaded', function() {
     return true;
   }
 
+  // Last gate before anything is emailed. Returns false when a required
+  // field is blank, spaces-only, or not a real value, even if an earlier
+  // check was skipped.
+  function submissionIsComplete(formEl) {
+    var fields = formEl.querySelectorAll('[required]');
+    var seenRadio = {};
+    if (!fields.length) return false;
+
+    for (var i = 0; i < fields.length; i++) {
+      var field = fields[i];
+      var name = field.getAttribute('name') || '';
+
+      if (field.type === 'checkbox') {
+        if (!field.checked) return false;
+        continue;
+      }
+
+      if (field.type === 'radio') {
+        if (seenRadio[name]) continue;
+        seenRadio[name] = true;
+        if (!formEl.querySelector('input[name="' + name + '"]:checked')) return false;
+        continue;
+      }
+
+      var value = (field.value || '').trim();
+      if (!value) return false;
+      if (field.type === 'email' && !isValidEmail(value)) return false;
+      if (field.type === 'tel' && !isValidPhone(value)) return false;
+      if (field.type === 'number' && !(parseFloat(value) > 0)) return false;
+      if ((name === 'owner_name' || name === 'digital_signature') && value.length < 2) return false;
+    }
+
+    return true;
+  }
+
   // ==========================================
   // FORM SUBMISSION
   // ==========================================
@@ -258,6 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Validate first
     if (!validateForm()) return;
+    if (!submissionIsComplete(form)) return;
 
     var submitBtn = form.querySelector('button[type="submit"]');
     var originalText = submitBtn.textContent;
@@ -272,8 +323,14 @@ document.addEventListener('DOMContentLoaded', function() {
     formData.append('submission_date', new Date().toISOString());
     formData.append('signature_date', new Date().toLocaleDateString('en-PH', { year:'numeric', month:'long', day:'numeric' }));
 
-    // Send to Web3Forms
-    var action = form.getAttribute('action');
+    // Send to Web3Forms only after the required fields have real values
+    var action = form.getAttribute('data-endpoint');
+    if (!action) {
+      alert('Submission is unavailable right now. Please message us on Messenger.');
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+      return;
+    }
     fetch(action, {
       method: 'POST',
       body: formData

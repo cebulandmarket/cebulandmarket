@@ -37,7 +37,7 @@
     <strong>How the fee works:</strong> ₱100 listing fee (refundable if your vehicle fails verification). Once sold through our platform, a 1% commission is added to your asking price — the buyer sees the final price, you receive your full asking amount.
   </div>
 
-  <form id="sell-form" action="https://api.web3forms.com/submit" method="POST">
+  <form id="sell-form" method="POST" action="#submit" data-endpoint="https://api.web3forms.com/submit">
     <input type="hidden" name="access_key" value="09df7276-a4b9-440c-9342-b4c7971c1dce">
     <input type="hidden" name="subject" value="New CebuVehicleMarket Listing Submission">
     <input type="hidden" name="from_name" value="CebuVehicleMarket Form">
@@ -170,9 +170,60 @@
 <script src="js/app.js"></script>
 <script>
 document.getElementById('sell-form').addEventListener('submit', function(e) {
-  var btn = e.target.querySelector('button[type="submit"]');
+  e.preventDefault();
+  var form = e.target;
+  var btn = form.querySelector('button[type="submit"]');
+  var missing = [];
+  var required = form.querySelectorAll('[required]');
+  var seenRadio = {};
+
+  for (var i = 0; i < required.length; i++) {
+    var field = required[i];
+    var name = field.getAttribute('name') || 'field';
+    if (field.type === 'checkbox') {
+      if (!field.checked) missing.push(name);
+      continue;
+    }
+    if (field.type === 'radio') {
+      if (seenRadio[name]) continue;
+      seenRadio[name] = true;
+      if (!form.querySelector('input[name="' + name + '"]:checked')) missing.push(name);
+      continue;
+    }
+    var value = (field.value || '').trim();
+    if (!value) { missing.push(name); continue; }
+    if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) missing.push(name);
+    if (field.type === 'tel' && value.replace(/\D/g, '').length < 10) missing.push(name);
+    if (field.type === 'number' && !(parseFloat(value) > 0)) missing.push(name);
+    if (name === 'seller_name' && value.length < 2) missing.push(name);
+  }
+
+  var old = document.getElementById('formError');
+  if (old) old.remove();
+  if (missing.length) {
+    var msg = document.createElement('p');
+    msg.id = 'formError';
+    msg.style.cssText = 'background:#e74c3c; color:#fff; padding:12px 14px; border-radius:8px; margin-bottom:14px; font-weight:600;';
+    msg.textContent = 'Please fill in every required field before sending. Nothing was sent.';
+    form.insertBefore(msg, form.firstChild);
+    return;
+  }
+
+  var action = form.getAttribute('data-endpoint');
+  if (!action) return;
   btn.textContent = 'Submitting…';
   btn.disabled = true;
+  fetch(action, { method: 'POST', body: new FormData(form) })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (!data.success) throw new Error('failed');
+      form.innerHTML = '<h2>Submission received</h2><p>Thank you. We will review your vehicle listing.</p>';
+    })
+    .catch(function() {
+      btn.textContent = 'Submit Listing';
+      btn.disabled = false;
+      alert('Submission failed. Please try again.');
+    });
 });
 </script>
 </body>
