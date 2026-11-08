@@ -1158,5 +1158,46 @@ var LISTINGS_DATA = [
     },
     "story": "Bonbon sits high in Cebu City's mountain barangays, just beyond Busay, inside the cool upland belt that many city residents escape to on weekends. This is farm country — banana, coconut, and vegetable plots cover the hillsides, and the air here is noticeably cooler than the coastal city below. It's part of the same upland corridor as the Busay Highlands farm villages and the Central Cebu Protected Landscape, an area steadily drawing interest for farm lots, rest houses, and vacation homes.\n\nThis 3,732 sqm parcel is actually two adjoining 1,866 sqm titled lots, sold together as one larger holding. That combined size gives you real flexibility — a working farm, an orchard, a private rest house with room for animals or crops, or simply land banking as Cebu City's mountain barangays continue to fill in with weekend properties.\n\nThe terrain here — cool, elevated, and green — is exactly what makes barangays like Bonbon attractive as an escape from city heat and traffic. It isn't resort-developed the way parts of Busay Highlands are, which keeps the entry price reasonable at ₱5,050 per sqm, even as it sits in the same general upland belt.\n\nIf you've been looking for space to build a rest house, start a small farm, or simply hold titled mountain land in Cebu City while the upland corridor develops further, this combined 3,732 sqm parcel in Bonbon gives you room to do it — clean title, two adjoining lots already sold as one usable whole.",
     "vision_items": "Build a Mountain Rest House|Escape the city heat with a weekend rest house up in Bonbon's cool highland air. 3,732 sqm is enough room for a main house, a garden, and space to just breathe — the kind of property Cebu City families are increasingly buying in the Busay-Sudlon upland corridor.|Start a Small Farm|The surrounding barangays grow banana, coconut, and vegetables in this same cool mountain belt. With two adjoining lots to work with, you have enough land for a real working farm or orchard, not just a backyard garden.|Land Banking in Cebu's Upland Corridor|Mountain barangays near Busay have been filling in steadily with farm lots and rest houses over the past several years. Buying titled land here now, ahead of further upland development, is a straightforward hold-and-appreciate play.|Vacation or Retreat Property|Cool climate, greenery, and distance from city noise make Bonbon a natural fit for a personal retreat, a small eco-lodge, or a getaway property to rent out to others looking for the same escape.|Subdivide Back Into Two Lots|Since the parcel is two adjoining 1,866 sqm titled lots sold together, a buyer could resurvey and hold or resell them separately down the line — added flexibility built into the land itself."
+  },
+  {
+    "id": "29",
+    "title": "3 Bedroom House and Lot in Ylaya, Talamban, Cebu City",
+    "type": "house-and-lot",
+    "location": "talamban",
+    "address": "Ylaya, Talamban, Cebu City",
+    "lot_area": 56,
+    "floor_area": 120,
+    "price_per_sqm": null,
+    "total_price": 4500000,
+    "description": "House and lot for sale in Ylaya, Talamban, Cebu City, near the Tintay PUJ Terminal. Open for Pag-IBIG financing. 56 sqm lot with 120 sqm floor area: 3 bedrooms, 2 toilets and baths, 1 wide carpark, a balcony, and a water tank. The 2nd floor has 2 extra spaces that can be converted into rooms. Newly renovated kitchen. Peaceful community with no flooding history.\n\nNote: This house and lot has an existing Pag-IBIG housing loan balance. Monthly payments are updated, and the buyer can reloan through a Pag-IBIG Home Loan.",
+    "features": "3 Bedrooms,2 Toilets & Baths,1 Wide Carpark,Balcony,Water Tank,2 Extra Spaces on 2nd Floor (Convertible to Rooms),Newly Renovated Kitchen,Peaceful Community,No Flooding History,Open for Pag-IBIG Financing,Near Tintay PUJ Terminal,56 sqm Lot,120 sqm Floor Area",
+    "photo_url": "images/ylaya-house-1.jpg",
+    "photo_urls": "images/ylaya-house-1.jpg,images/ylaya-house-2.jpg,images/ylaya-house-3.jpg,images/ylaya-house-4.jpg,images/ylaya-house-5.jpg,images/ylaya-house-6.jpg,images/ylaya-house-7.jpg,images/ylaya-house-8.jpg,images/ylaya-house-9.jpg,images/ylaya-house-10.jpg",
+    "map_url": "Ylaya, Talamban, Cebu City, Philippines",
+    "video_url": "",
+    "messenger": "https://m.me/aCueRaCa68",
+    "viber": "639687512330",
+    "whatsapp": "639687512330",
+    "phone": "09687512330",
+    "owner_name": "CebuLandMarket",
+    "title_status": "With Pag-IBIG Loan Balance (Updated, Reloanable)",
+    "status": "active",
+    "date_listed": "2026-11-08",
+    "verification": {
+      "code": "CLM-2026-Y029",
+      "date": "2026-11-08",
+      "checks": {
+        "title_verified": false,
+        "tax_current": false,
+        "owner_confirmed": false,
+        "documents_complete": false,
+        "photos_authentic": false,
+        "no_encumbrance": false,
+        "boundary_clear": false,
+        "road_access": false
+      }
+    },
+    "story": "",
+    "vision_items": ""
   }
 ];
