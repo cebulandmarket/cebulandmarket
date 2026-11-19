@@ -635,13 +635,25 @@ section[style*="primary-light"] .section-subtitle { color: var(--ink) !important
   border-radius: 0 !important;
   box-shadow: none !important;
 }
-.page-property .detail-card[style],
-.page-property a[href*="share.html"] {
+.page-property .detail-card[style] {
   background: var(--sheet) !important;
   background-image: none !important;
   border-color: var(--line) !important;
   color: var(--ink) !important;
   border-radius: 0 !important;
+}
+.page-property a[href*="share.html"] {
+  background: var(--palm) !important;
+  background-image: none !important;
+  border: 1px solid var(--palm) !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-radius: 0 !important;
+  transition: background 0.2s ease;
+}
+.page-property a[href*="share.html"]:hover {
+  background: var(--palm-deep) !important;
+  border-color: var(--palm-deep) !important;
 }
 .page-property .detail-card h2,
 .detail-description h2,
