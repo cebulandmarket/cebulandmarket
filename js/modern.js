@@ -184,6 +184,8 @@
     var phrases = [
       'Buy or Sell Property in Cebu',
       'List Your Property \u2014 \u20B1100 Only',
+      'International Exposure \u2014 OFW Focus',
+      'Legit Sellers',
       'Trusted by Cebuanos'
     ];
 
