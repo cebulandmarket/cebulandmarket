@@ -183,7 +183,6 @@
 
     var phrases = [
       'Buy or Sell Property in Cebu',
-      'DTI-Registered & Verified',
       'List Your Property \u2014 \u20B1100 Only',
       'Trusted by Cebuanos'
     ];
